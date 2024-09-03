@@ -1,0 +1,193 @@
+[
+  {
+    "objectID": "children/challenge01-base.html",
+    "href": "children/challenge01-base.html",
+    "title": "hans-hackathon",
+    "section": "",
+    "text": "Daten verstehen\nBetrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:\n\nWas ist die Anzahl von Zeilen und Spalten?\nEs gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?\nWelche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?\nWas fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?\n\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n## [1] 2\n\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  title = {About},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\n“About.” n.d."
+  },
+  {
+    "objectID": "challenges.html",
+    "href": "challenges.html",
+    "title": "Challenges im Überblick",
+    "section": "",
+    "text": "Daten verstehen\nBetrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:\n\nWas ist die Anzahl von Zeilen und Spalten?\nEs gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?\nWelche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?\nWas fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#daten-verstehen",
+    "href": "challenges.html#daten-verstehen",
+    "title": "Challenges im Überblick",
+    "section": "",
+    "text": "Daten verstehen\nBetrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:\n\nWas ist die Anzahl von Zeilen und Spalten?\nEs gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?\nWelche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?\nWas fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#daten-einlesen",
+    "href": "challenges.html#daten-einlesen",
+    "title": "Challenges im Überblick",
+    "section": "2 Daten einlesen",
+    "text": "2 Daten einlesen\nDaten einlesen\n\nImportieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.\nWandeln Sie leere Strings in NAs um (für alle Spalten).\nEntfernen Sie alle leeren Zeilen und Spalten.\nEntfernen Sie alle konstanten Zeilen und Spalten.\nÜberlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#daten-verschlanken",
+    "href": "challenges.html#daten-verschlanken",
+    "title": "Challenges im Überblick",
+    "section": "3 Daten verschlanken",
+    "text": "3 Daten verschlanken\n\nEntfernen Sie Spalten, die Sie für nicht relevant halten. Begründen Sie die Auswahl.\nEntfernen Sie redundante Spalten.\nReparieren Sie die Spalten mit Datumsangaben.\nEntfernen Sie Spalten, die Bilddaten enthalten.\nEntfernen Sie Zeilen, die Daten von Admins, Developern oder lecturers enthalten.",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#daten-pivotieren",
+    "href": "challenges.html#daten-pivotieren",
+    "title": "Challenges im Überblick",
+    "section": "4 Daten pivotieren",
+    "text": "4 Daten pivotieren\n\nPivotieren Sie den Datensatz in das Langformat.\nBegrenzen Sie beim Pivotieren die Spalten auf die Spalten mit dem Namen actiondetails_.",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#projektmanagement",
+    "href": "challenges.html#projektmanagement",
+    "title": "Challenges im Überblick",
+    "section": "5 Projektmanagement",
+    "text": "5 Projektmanagement\n\nSchreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.\nDiskutieren Sie Vor- und Nachteile der Targets-Pipeline.",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#verweildauer",
+    "href": "challenges.html#verweildauer",
+    "title": "Challenges im Überblick",
+    "section": "6 Verweildauer",
+    "text": "6 Verweildauer\n\nWie viele Aktionen führen die Nutzer pro Visit aus?\nWieviel Zeit verbringen die Nutzer pro Visit?\nAn welchen Wochentagen wird die Seite bevorzugt besucht?\nZu welchen Zeiten wird die Seite bevorzugt besucht?",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#ki-verwendung",
+    "href": "challenges.html#ki-verwendung",
+    "title": "Challenges im Überblick",
+    "section": "7 KI-Verwendung",
+    "text": "7 KI-Verwendung\n\nWie oft wird (pro Monat) ein AI transcript angefordert?\nWie oft wird (pro Monat) mit dem LLM interagiert?\nWelcher Anteil der Besucher (visitors) interagiert mit dem LLM?",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#optimierung-der-pipeline",
+    "href": "challenges.html#optimierung-der-pipeline",
+    "title": "Challenges im Überblick",
+    "section": "8 Optimierung der Pipeline",
+    "text": "8 Optimierung der Pipeline\n\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#glotzdauer",
+    "href": "challenges.html#glotzdauer",
+    "title": "Challenges im Überblick",
+    "section": "9 “Glotzdauer”",
+    "text": "9 “Glotzdauer”\n\nBerechnen Sie, wie lange die Besucher sich Videos anschauen.",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenges.html#veränderung-des-nutzerverhaltens-im-zeitverlauf",
+    "href": "challenges.html#veränderung-des-nutzerverhaltens-im-zeitverlauf",
+    "title": "Challenges im Überblick",
+    "section": "10 Veränderung des Nutzerverhaltens im Zeitverlauf",
+    "text": "10 Veränderung des Nutzerverhaltens im Zeitverlauf\n\nVisualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.",
+    "crumbs": [
+      "Challenges"
+    ]
+  },
+  {
+    "objectID": "challenge01.html",
+    "href": "challenge01.html",
+    "title": "Challenge 1",
+    "section": "",
+    "text": "Daten verstehen\nBetrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:\n\nWas ist die Anzahl von Zeilen und Spalten?\nEs gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?\nWelche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?\nWas fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?\n\n\n\n\n\nMit dem R-Paket lubridate kann man recht bequem mit Strings arbeiten.\nChatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.\nMöchte man einen Teil eines Strings entfernen, so ist die Funktion str_remove hilfreich.",
+    "crumbs": [
+      "Challenge 01"
+    ]
+  },
+  {
+    "objectID": "challenge01.html#aufgabenstellung",
+    "href": "challenge01.html#aufgabenstellung",
+    "title": "Challenge 1",
+    "section": "",
+    "text": "Daten verstehen\nBetrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:\n\nWas ist die Anzahl von Zeilen und Spalten?\nEs gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?\nWelche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?\nWas fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?",
+    "crumbs": [
+      "Challenge 01"
+    ]
+  },
+  {
+    "objectID": "challenge01.html#tipps",
+    "href": "challenge01.html#tipps",
+    "title": "Challenge 1",
+    "section": "",
+    "text": "Mit dem R-Paket lubridate kann man recht bequem mit Strings arbeiten.\nChatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.\nMöchte man einen Teil eines Strings entfernen, so ist die Funktion str_remove hilfreich.",
+    "crumbs": [
+      "Challenge 01"
+    ]
+  },
+  {
+    "objectID": "challenge02.html",
+    "href": "challenge02.html",
+    "title": "Challenge 2",
+    "section": "",
+    "text": "Daten einlesen\n\nImportieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.\nWandeln Sie leere Strings in NAs um (für alle Spalten).\nEntfernen Sie alle leeren Zeilen und Spalten.\nEntfernen Sie alle konstanten Zeilen und Spalten.\nÜberlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.",
+    "crumbs": [
+      "Challenge 02"
+    ]
+  },
+  {
+    "objectID": "challenge02.html#aufgabenstellung",
+    "href": "challenge02.html#aufgabenstellung",
+    "title": "Challenge 2",
+    "section": "",
+    "text": "Daten einlesen\n\nImportieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.\nWandeln Sie leere Strings in NAs um (für alle Spalten).\nEntfernen Sie alle leeren Zeilen und Spalten.\nEntfernen Sie alle konstanten Zeilen und Spalten.\nÜberlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.",
+    "crumbs": [
+      "Challenge 02"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Hans-Hackathon",
+    "section": "",
+    "text": "Willkommen zum Projekt “Hans-Hackathon”!\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{sauer2024,\n  author = {Sauer, Sebastian},\n  title = {Hans-Hackathon},\n  date = {2024-09-03},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nSauer, Sebastian. 2024. “Hans-Hackathon.” September 3,\n2024.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "children/challenge02-base.html",
+    "href": "children/challenge02-base.html",
+    "title": "hans-hackathon",
+    "section": "",
+    "text": "Daten einlesen\n\nImportieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.\nWandeln Sie leere Strings in NAs um (für alle Spalten).\nEntfernen Sie alle leeren Zeilen und Spalten.\nEntfernen Sie alle konstanten Zeilen und Spalten.\nÜberlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.\n\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+  }
+]

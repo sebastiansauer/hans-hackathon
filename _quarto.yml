@@ -1,0 +1,55 @@
+project:
+  type: website
+  title: "Hans-Hackathon"
+
+  # image: img/statistik1_icon.png
+  # description:  "Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools 'HaNS'"
+
+
+website:
+  title: "hans-hackathon"
+  search: true
+  sidebar:
+    contents:
+      - href: index.qmd
+        text: Home
+      - href: challenges.qmd
+        text: Challenges
+      - href: challenge01.qmd
+        text: Challenge 01
+      - text: Challenge 02
+        href: challenge02.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+# bibliography: bib/bib.bib
+bibliography: /Users/sebastiansaueruser/github-repos/bib/bib.bib
+
+
+lang: de-DE
+citation: true
+#google-scholar: true
+description: |
+ "Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools 'HaNS'"
+license: "MIT" 
+
+
+execute: 
+  freeze: auto 
+  warning: false
+  cache: true
+  message: false
+
+knitr:
+  opts_knit:
+    verbose: true
+    fig-align: center
+  opts_chunk: 
+    collapse: true
+    R.options:
+      knitr.graphics.auto_pdf: false 
