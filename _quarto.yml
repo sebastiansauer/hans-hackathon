@@ -13,12 +13,15 @@ website:
     contents:
       - href: index.qmd
         text: Home
+      - href: pruefung.qmd
+        text: Prüfung
       - href: challenges.qmd
         text: Challenges
       - href: challenge01.qmd
         text: Challenge 01
       - text: Challenge 02
         href: challenge02.qmd
+
 
 format:
   html:

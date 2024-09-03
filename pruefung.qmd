@@ -1,0 +1,77 @@
+
+
+# Prüfung
+
+## Allgemeines
+
+Es handelt sich um eine Einzelleistung.
+
+
+## Prüfungsleistung: Portfolio-Prüfung
+
+
+
+### Beschreibung
+
+Die Prüfungsleistung ist eine *Portfolioprüfung*.
+
+Nach §17 Absatz 4:
+
+>   Eine Portfolioprüfung ist eine modulbezogene Prüfungsleistung, die mehrere Prüfungsbestandteile umfasst, welche über die gesamte Lehrveranstaltung eines Moduls hinweg abgeprüft werden. ³Die einzelnen Prüfungsbestandteile ergeben eine Gesamtnote.
+
+
+### Bestandteile
+
+
+Die Portfolioprüfung setzt sich aus folgenden Teilnoten zusammen:
+
+1. Teilnoten für die 10 Challenges
+2. Teilnote für ein abschließendes Fachgespräch
+
+
+Die (Gesamt-)Note setzt sich aus folgenden Teilen zusammen:
+
+- Teilnote 1: Punktzahl bei den Challenges (50%)
+- Teilnote 2: Note beim Fachgespräch (50%)
+
+
+:::{.callout-note}
+Jede Teilnote darf nicht schlechter als 4,0 bewertet werden, um die Prüfung als Ganze zu bestehen.
+:::
+
+
+### Challenges
+
+#### Benotung der Challenges
+
+Jede Challenge wird wie folgt bepunktet:
+
+- 0 Punkte: nicht eingereicht oder keine substanzielle Lösungsansätze
+- 0,5 Punkte: substanzielle Lösungsansätze eingereicht, aber nicht komplett gelöst
+- 1 Punkt: komplett oder fast komplett gelöst
+
+
+Punkte-Noten-Zuordnung:
+
+
+- mind. 50% der Punkte - Note 4,0
+- mind. 60% der Punkte  - Note 3,0
+- mind. 70% der Punkte - Note 2,0
+- mind. 80% der Punkte - Note 1,0
+
+
+
+#### Hinweise
+
+- Wird eine Lösung für eine bestimmte Challenge nicht fristgerecht eingereicht, so gilt sie als nicht eingereicht (0 Punkte).
+- Einzureichen ist ein reproduzierbares Dokument, das sowohl Text als auch R-Code und auch Ergebnisse des R-Codes beinhaltet.
+
+
+### Fachgespräch
+
+
+Die Termine für das Fachgespräch liegen in der Prüfungszeit und werden rechtzeitig bekannt gegeben über die offiziellen Kanäle.
+
+
+
+

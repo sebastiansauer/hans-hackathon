@@ -24,18 +24,16 @@ toc: true
 
 ## Daten verschlanken
 
-1. Entfernen Sie Spalten, die Sie für nicht relevant halten. Begründen Sie die Auswahl.
-2. Entfernen Sie redundante Spalten.
-3. Reparieren Sie die Spalten mit Datumsangaben.
-4. Entfernen Sie Spalten, die Bilddaten enthalten.
-5. Entfernen Sie Zeilen, die Daten von Admins, Developern oder `lecturer`s enthalten.
+
+{{< include children/challenge03-base.qmd >}}
+
 
 
 
 ## Daten pivotieren
 
-1. Pivotieren Sie den Datensatz in das Langformat.
-2. Begrenzen Sie beim Pivotieren die Spalten auf die Spalten mit dem Namen `actiondetails_`.
+{{< include children/challenge04-base.qmd >}}
+
 
 
 

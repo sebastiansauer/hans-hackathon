@@ -1,0 +1,9 @@
+**Datensatz pivotieren**
+
+
+Aufbauend auf dem Ergebnis der letzten Challenge:
+
+1. Pivotieren Sie den Datensatz in das Langformat.
+2. Begrenzen Sie beim Pivotieren die Spalten auf die Spalten mit dem Namen `actiondetails_`.
+
+

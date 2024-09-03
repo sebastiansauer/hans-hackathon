@@ -1,0 +1,11 @@
+**Datensatz verschlanken**
+
+
+Aufbauend auf dem Ergebnis der letzten Challenge:
+
+
+1. Entfernen Sie Spalten, die Sie für nicht relevant halten. Begründen Sie die Auswahl.
+2. Entfernen Sie redundante Spalten.
+3. Reparieren Sie die Spalten mit Datumsangaben.
+4. Entfernen Sie Spalten, die Bilddaten enthalten.
+5. Entfernen Sie Zeilen, die Daten von Admins, Developern oder `lecturer`s enthalten.

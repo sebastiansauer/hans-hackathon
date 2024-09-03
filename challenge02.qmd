@@ -16,5 +16,5 @@ Zentral für dieses Kapitel ist das Konzept der *Wiederholung einer Funktion*, a
 Im Vordergrund steht für dieses Kapitel das Einlesen mehrerer Datendateien in einen Dataframe, was praktischerweise in [Kap. 26](https://r4ds.hadley.nz/iteration#reading-multiple-files) behandelt wird.
 
 
-
+Um einen Überblick über eine Tabelle/Dataframe zu erhalten, ist das Paket [`visdat`](https://docs.ropensci.org/visdat/) mit der Funktion `vis_dat` ganz praktisch.
 

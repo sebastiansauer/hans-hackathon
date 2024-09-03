@@ -178,7 +178,7 @@
     "href": "index.html",
     "title": "Hans-Hackathon",
     "section": "",
-    "text": "Willkommen zum Projekt “Hans-Hackathon”!\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{sauer2024,\n  author = {Sauer, Sebastian},\n  title = {Hans-Hackathon},\n  date = {2024-09-03},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nSauer, Sebastian. 2024. “Hans-Hackathon.” September 3,\n2024.",
+    "text": "Come to the HaNS-Side: we have videos.\n\n\nIn diesem Modul analysieren Sie die Klickdaten zum KI-Tool HaNS.\nZiel ist es, das Tool HaNS zu evaluieren. Die Klickdaten sollen genutzt werden, um den Nutzen des Tools für die Studierenden besser einschätzen zu können. Darüber hinaus soll verstanden werden, wie Studierende das Tool zum Lernen nutzen, und wie das Tool verbessert werden kann, um das Lernen noch erfolgreicher zu gestalten.\n\n\n\nDer grundlegende Aufbau ist, dass den Studierenden jede Woche eine “Challenge” (“Herausforderung”, im Sinne eines Aufgabenpakets) präsentiert wird, die bis zur nächsten Woche gelöst werden soll.\nIm Unterricht wird Material, das zur Lösung der Aufgabe nötig ist, besprochen oder es wird auf das Material verwiesen. In der folgenden Stunde stellt die Lehrkraft dann eine Musterlösung vor und bespricht die von den Studierenden eingereichte Lösung. Dann wird wiederum eine neue Challenge angegangen usw.\n\n\n\n\nChatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.",
     "crumbs": [
       "Home"
     ]
@@ -189,5 +189,35 @@
     "title": "hans-hackathon",
     "section": "",
     "text": "Daten einlesen\n\nImportieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.\nWandeln Sie leere Strings in NAs um (für alle Spalten).\nEntfernen Sie alle leeren Zeilen und Spalten.\nEntfernen Sie alle konstanten Zeilen und Spalten.\nÜberlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.\n\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+  },
+  {
+    "objectID": "index.html#gegenstand-und-ziel",
+    "href": "index.html#gegenstand-und-ziel",
+    "title": "Hans-Hackathon",
+    "section": "",
+    "text": "In diesem Modul analysieren Sie die Klickdaten zum KI-Tool HaNS.\nZiel ist es, das Tool HaNS zu evaluieren. Die Klickdaten sollen genutzt werden, um den Nutzen des Tools für die Studierenden besser einschätzen zu können. Darüber hinaus soll verstanden werden, wie Studierende das Tool zum Lernen nutzen, und wie das Tool verbessert werden kann, um das Lernen noch erfolgreicher zu gestalten.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#kursaufbau-und-didaktik",
+    "href": "index.html#kursaufbau-und-didaktik",
+    "title": "Hans-Hackathon",
+    "section": "",
+    "text": "Der grundlegende Aufbau ist, dass den Studierenden jede Woche eine “Challenge” (“Herausforderung”, im Sinne eines Aufgabenpakets) präsentiert wird, die bis zur nächsten Woche gelöst werden soll.\nIm Unterricht wird Material, das zur Lösung der Aufgabe nötig ist, besprochen oder es wird auf das Material verwiesen. In der folgenden Stunde stellt die Lehrkraft dann eine Musterlösung vor und bespricht die von den Studierenden eingereichte Lösung. Dann wird wiederum eine neue Challenge angegangen usw.",
+    "crumbs": [
+      "Home"
+    ]
+  },
+  {
+    "objectID": "index.html#tipps",
+    "href": "index.html#tipps",
+    "title": "Hans-Hackathon",
+    "section": "",
+    "text": "Chatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.",
+    "crumbs": [
+      "Home"
+    ]
   }
 ]
