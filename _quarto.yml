@@ -21,6 +21,8 @@ website:
         text: Challenge 01
       - text: Challenge 02
         href: challenge02.qmd
+      - text: Challenge 03
+        href: challenge03.qmd
 
 
 format:

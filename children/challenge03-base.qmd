@@ -4,8 +4,11 @@
 Aufbauend auf dem Ergebnis der letzten Challenge:
 
 
-1. Entfernen Sie Spalten, die Sie für nicht relevant halten. Begründen Sie die Auswahl.
-2. Entfernen Sie redundante Spalten.
+1. Welche Spalten halten Sie für nicht relevant, um das Nutzerverhalten besser zu verstehen?. Begründen Sie die Auswahl.
+2. Entfernen Sie redundante Spalten. Behalten Sie - neben allgemeinen Informationen zum Nutzer - nur die Spalten mit `subtitle` im Namen.
 3. Reparieren Sie die Spalten mit Datumsangaben.
 4. Entfernen Sie Spalten, die Bilddaten enthalten.
 5. Entfernen Sie Zeilen, die Daten von Admins, Developern oder `lecturer`s enthalten.
+
+
+

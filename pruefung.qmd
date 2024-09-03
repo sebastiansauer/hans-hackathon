@@ -72,6 +72,14 @@ Punkte-Noten-Zuordnung:
 
 Die Termine für das Fachgespräch liegen in der Prüfungszeit und werden rechtzeitig bekannt gegeben über die offiziellen Kanäle.
 
+Weitere Hinweise zum Fachgespräch finden sich im [entsprechenden Kapitel im Hinweisbuch](https://hinweisbuch.netlify.app/045-hinweise-pruefung-fachgespraech-frame).
+
+
+
+## Sonstiges
+
+Bitte beachten Sie die allgemeinen Hinweise im [Hinweisbuch](https://hinweisbuch.netlify.app/) besonders die [allgemeinen Prüfungshinweise](https://hinweisbuch.netlify.app/010-hinweise-pruefung-allgemein-frame).
+
 
 
 

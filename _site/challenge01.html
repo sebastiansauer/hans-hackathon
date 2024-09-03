@@ -21,7 +21,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -114,6 +134,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./pruefung.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prüfung</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./challenges.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Challenges</span></a>
   </div>
@@ -130,6 +156,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Challenge 02</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge03.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Challenge 03</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -143,7 +175,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#challenge-1" id="toc-challenge-1" class="nav-link active" data-scroll-target="#challenge-1">Challenge 1</a>
   <ul class="collapse">
   <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link" data-scroll-target="#aufgabenstellung">Aufgabenstellung</a></li>
-  <li><a href="#tipps" id="toc-tipps" class="nav-link" data-scroll-target="#tipps">Tipps</a></li>
   <li><a href="#material" id="toc-material" class="nav-link" data-scroll-target="#material">Material</a></li>
   </ul></li>
   </ul>
@@ -168,22 +199,20 @@ ul.task-list li input[type="checkbox"] {
 <li>Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?</li>
 </ol>
 </section>
-<section id="tipps" class="level2">
-<h2 class="anchored" data-anchor-id="tipps">Tipps</h2>
-<ul>
-<li>Mit dem R-Paket <code>lubridate</code> kann man recht bequem mit Strings arbeiten.</li>
-<li>Chatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.</li>
-<li>Möchte man einen Teil eines Strings entfernen, so ist die Funktion <code>str_remove</code> hilfreich.</li>
-</ul>
-</section>
 <section id="material" class="level2">
 <h2 class="anchored" data-anchor-id="material">Material</h2>
+<p><span class="citation" data-cites="wickham_r_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_r_2023" role="doc-biblioref">2023</a>)</span> stellt Schulungsmaterial auch für String-Verarbeitung bereit (im <a href="https://r4ds.hadley.nz/strings">Kapitel 11</a>) und (fortgeschrittener) im folgenden Kapitel. Mit dem R-Paket <code>lubridate</code> kann man recht bequem mit Strings arbeiten. Möchte man einen Teil eines Strings entfernen, so ist die Funktion <code>str_remove</code> hilfreich. Möchte man mehrere Spalten auf einmal (mit <code>summarise</code>) zusammenfassen, so hilft u.a. die Funktion <code>across</code>, die die Summarise-Operation “durch”, “hinweg”, “über” (across) mehrere Spalten durchführt, s. <a href="https://r4ds.hadley.nz/iteration#sec-across">Kap. 26</a> in <span class="citation" data-cites="wickham_r_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_r_2023" role="doc-biblioref">2023</a>)</span>.</p>
+
 
 
 </section>
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{untitled,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-wickham_r_2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. Second edition. Beijing ; Sebastopol, CA: O’Reilly.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{untitled,
   author = {},
   langid = {de-DE}
 }

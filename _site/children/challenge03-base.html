@@ -8,7 +8,7 @@
 
 <meta name="description" content="“Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools ‘HaNS’”">
 
-<title>challenge01-base – hans-hackathon</title>
+<title>challenge03-base – hans-hackathon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -158,13 +158,14 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p><strong>Daten verstehen</strong></p>
-<p>Betrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:</p>
+<p><strong>Datensatz verschlanken</strong></p>
+<p>Aufbauend auf dem Ergebnis der letzten Challenge:</p>
 <ol type="1">
-<li>Was ist die Anzahl von Zeilen und Spalten?</li>
-<li>Es gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?</li>
-<li>Welche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?</li>
-<li>Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?</li>
+<li>Welche Spalten halten Sie für nicht relevant, um das Nutzerverhalten besser zu verstehen?. Begründen Sie die Auswahl.</li>
+<li>Entfernen Sie redundante Spalten. Behalten Sie - neben allgemeinen Informationen zum Nutzer - nur die Spalten mit <code>subtitle</code> im Namen.</li>
+<li>Reparieren Sie die Spalten mit Datumsangaben.</li>
+<li>Entfernen Sie Spalten, die Bilddaten enthalten.</li>
+<li>Entfernen Sie Zeilen, die Daten von Admins, Developern oder <code>lecturer</code>s enthalten.</li>
 </ol>
 
 
