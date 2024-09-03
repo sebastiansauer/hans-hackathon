@@ -1,0 +1,81 @@
+---
+title: "Challenges im Überblick"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+toc: true
+---
+
+
+
+## Daten verstehen
+
+{{< include children/challenge01-base.qmd >}}
+
+
+## Daten einlesen
+
+
+{{< include children/challenge02-base.qmd >}}
+
+
+
+
+## Daten verschlanken
+
+1. Entfernen Sie Spalten, die Sie für nicht relevant halten. Begründen Sie die Auswahl.
+2. Entfernen Sie redundante Spalten.
+3. Reparieren Sie die Spalten mit Datumsangaben.
+4. Entfernen Sie Spalten, die Bilddaten enthalten.
+5. Entfernen Sie Zeilen, die Daten von Admins, Developern oder `lecturer`s enthalten.
+
+
+
+## Daten pivotieren
+
+1. Pivotieren Sie den Datensatz in das Langformat.
+2. Begrenzen Sie beim Pivotieren die Spalten auf die Spalten mit dem Namen `actiondetails_`.
+
+
+
+## Projektmanagement
+1. Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.
+2. Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.
+
+
+## Verweildauer
+
+1. Wie viele Aktionen führen die Nutzer pro Visit aus?
+2. Wieviel Zeit verbringen die Nutzer pro Visit?
+3. An welchen Wochentagen wird die Seite bevorzugt besucht?
+4. Zu welchen Zeiten wird die Seite bevorzugt besucht?
+
+
+
+## KI-Verwendung
+
+1. Wie oft wird (pro Monat) ein `AI transcript` angefordert?
+2. Wie oft wird (pro Monat) mit dem LLM interagiert?
+3. Welcher Anteil der Besucher (`visitors`) interagiert mit dem LLM?
+
+
+## Optimierung der Pipeline
+
+1. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.
+2. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.
+3. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.
+
+
+
+## "Glotzdauer"
+
+1. Berechnen Sie, wie lange die Besucher sich Videos anschauen.
+
+
+## Veränderung des Nutzerverhaltens im Zeitverlauf
+
+1. Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.
+
+
+

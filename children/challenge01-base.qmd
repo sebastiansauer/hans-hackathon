@@ -1,0 +1,10 @@
+
+**Daten verstehen**
+
+Betrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:
+
+1. Was ist die Anzahl von Zeilen und Spalten?
+2. Es gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?
+3. Welche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?
+4. Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?
+

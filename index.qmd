@@ -1,0 +1,16 @@
+---
+title: "Hans-Hackathon"
+author: Sebastian Sauer
+date: today
+toc: true
+---
+
+Willkommen zum Projekt "Hans-Hackathon"!
+
+
+
+
+# Tipps
+
+
+- Chatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.
