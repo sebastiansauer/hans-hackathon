@@ -1,0 +1,5 @@
+
+
+
+1. Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.
+2. Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.

@@ -1,0 +1,2 @@
+
+1. Berechnen Sie (die "Glotzdauer"), wie lange die Besucher sich Videos anschauen.

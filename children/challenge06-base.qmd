@@ -1,0 +1,6 @@
+
+
+1. Wie viele Aktionen führen die Nutzer pro Visit aus?
+2. Wieviel Zeit verbringen die Nutzer pro Visit?
+3. An welchen Wochentagen wird die Seite bevorzugt besucht?
+4. Zu welchen Zeiten wird die Seite bevorzugt besucht?

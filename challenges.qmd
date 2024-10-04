@@ -38,42 +38,40 @@ toc: true
 
 
 ## Projektmanagement
-1. Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.
-2. Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.
+
+{{< include children/challenge05-base.qmd >}}
 
 
 ## Verweildauer
 
-1. Wie viele Aktionen führen die Nutzer pro Visit aus?
-2. Wieviel Zeit verbringen die Nutzer pro Visit?
-3. An welchen Wochentagen wird die Seite bevorzugt besucht?
-4. Zu welchen Zeiten wird die Seite bevorzugt besucht?
 
+{{< include children/challenge06-base.qmd >}}
 
 
 ## KI-Verwendung
 
-1. Wie oft wird (pro Monat) ein `AI transcript` angefordert?
-2. Wie oft wird (pro Monat) mit dem LLM interagiert?
-3. Welcher Anteil der Besucher (`visitors`) interagiert mit dem LLM?
+{{< include children/challenge07-base.qmd >}}
+
 
 
 ## Optimierung der Pipeline
 
-1. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.
-2. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.
-3. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.
+{{< include children/challenge08-base.qmd >}}
 
 
 
 ## "Glotzdauer"
 
-1. Berechnen Sie, wie lange die Besucher sich Videos anschauen.
+
+{{< include children/challenge09-base.qmd >}}
+
+
 
 
 ## Veränderung des Nutzerverhaltens im Zeitverlauf
 
-1. Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.
+
+{{< include children/challenge10-base.qmd >}}
 
 
 

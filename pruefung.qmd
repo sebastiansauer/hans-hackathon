@@ -13,9 +13,9 @@ Es handelt sich um eine Einzelleistung.
 
 ### Beschreibung
 
-Die Prüfungsleistung ist eine *Portfolioprüfung*.
+Die Prüfungsleistung dieses Moduls ist eine *Portfolioprüfung*.
 
-Nach §17 Absatz 4:
+Nach §17 Absatz 4, Satz 2 ff der APO der HS Ansbach (vom 9. Februar 2023):
 
 >   Eine Portfolioprüfung ist eine modulbezogene Prüfungsleistung, die mehrere Prüfungsbestandteile umfasst, welche über die gesamte Lehrveranstaltung eines Moduls hinweg abgeprüft werden. ³Die einzelnen Prüfungsbestandteile ergeben eine Gesamtnote.
 
@@ -63,14 +63,14 @@ Punkte-Noten-Zuordnung:
 
 #### Hinweise
 
-- Wird eine Lösung für eine bestimmte Challenge nicht fristgerecht eingereicht, so gilt sie als nicht eingereicht (0 Punkte).
+- Wird eine Lösung für eine bestimmte Challenge nicht frist- und formgerecht eingereicht, so gilt sie als nicht eingereicht (0 Punkte).
 - Einzureichen ist ein reproduzierbares Dokument, das sowohl Text als auch R-Code und auch Ergebnisse des R-Codes beinhaltet.
 
 
 ### Fachgespräch
 
 
-Die Termine für das Fachgespräch liegen in der Prüfungszeit und werden rechtzeitig bekannt gegeben über die offiziellen Kanäle.
+Die Termine für das Fachgespräch liegen in der Prüfungszeit und werden rechtzeitig bekannt gegeben über geeignete Kanäle.
 
 Weitere Hinweise zum Fachgespräch finden sich im [entsprechenden Kapitel im Hinweisbuch](https://hinweisbuch.netlify.app/045-hinweise-pruefung-fachgespraech-frame).
 

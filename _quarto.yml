@@ -20,13 +20,17 @@ website:
       - href: pruefung.qmd
         text: Prüfung
       - href: challenges.qmd
-        text: Challenges
-      - href: challenge01.qmd
-        text: Challenge 01
-      - text: Challenge 02
-        href: challenge02.qmd
-      - text: Challenge 03
-        href: challenge03.qmd
+      - href: loesungen.qmd
+        text: Lösungen
+      #   text: Challenges
+      # - href: challenge01.qmd
+      #   text: Challenge 01
+      # - text: Challenge 02
+      #   href: challenge02.qmd
+      # - text: Challenge 03
+      #   href: challenge03.qmd
+      # - text: Challenge 04
+      #   href: challenge04.qmd
 
 
 format:
@@ -61,5 +65,6 @@ knitr:
     fig-align: center
   opts_chunk: 
     collapse: true
+    out-width: "75%"
     R.options:
       knitr.graphics.auto_pdf: false 
