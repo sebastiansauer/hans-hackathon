@@ -28,7 +28,65 @@ Dann wird wiederum eine neue Challenge angegangen usw.
 
 
 
+    
+
+## Modulverlauf 
+
+@tbl-modulverlauf gibt einen Überblick, welches Thema in welcher Woche bzw. wann behandelt wird. 
+Pro Woche wird ein Thema behandelt.
+
+:::{.callout-tip}
+Es ist nützlich für Sie, die Tabelle @tbl-modulverlauf immer mal wieder zu konsultieren, damit sie wissen, welche Themen als nächstes behandelt werden. $\square$
+:::
+
+```{r}
+#| echo: false
+#| label: tbl-modulverlauf
+#| tbl-cap: "Themen des Moduls im Zeitverlauf"
+zeitplan <- 
+  tibble::tribble(
+    ~KW, ~Jahr, ~Wochenstart,  ~`VL-frei`,         ~Thema,        ~Kommentar,
+    40L, 2024L, "2024-09-30", "teilweise",     "entfällt",        "entfällt",
+    41L, 2024L, "2024-10-07",      "nein",     "Einstieg",                NA,
+    42L, 2024L, "2024-10-14",      "nein",  "Challenge 1",                NA,
+    43L, 2024L, "2024-10-21",      "nein",  "Challenge 2",                NA,
+    44L, 2024L, "2024-10-28", "teilweise",  "Challenge 3",                NA,
+    45L, 2024L, "2024-11-04",      "nein",  "Challenge 4",                NA,
+    46L, 2024L, "2024-11-11",      "nein",  "Challenge 5",                NA,
+    47L, 2024L, "2024-11-18",        "ja",            "-",      "Blockwoche",
+    48L, 2024L, "2024-11-25",      "nein",  "Challenge 6",                NA,
+    49L, 2024L, "2024-12-02",      "nein",  "Challenge 7",                NA,
+    50L, 2024L, "2024-12-09",      "nein",  "Challenge 8",                NA,
+    51L, 2024L, "2024-12-16",      "nein",  "Challenge 9",                NA,
+    52L, 2024L, "2024-12-23",        "ja",            "-", "Weihnachtspause",
+     1L, 2025L, "2024-12-30",        "ja",            "-", "Weihnachtspause",
+     2L, 2025L, "2025-01-06", "teilweise", "Challenge 10",                NA,
+     3L, 2025L, "2025-01-13",      "nein",     "Ausstieg",                NA,
+     4L, 2025L, "2025-01-20",        "ja",             NA,    "Prüfungszeit",
+     5L, 2025L, "2025-01-27",        "ja",             NA,    "Prüfungszeit"
+    )
+
+ 
+  
+gt::gt(zeitplan) 
+# 
+# |> 
+#   gt::cols_width(
+#     1 ~ gt::pct(5),
+#     2 ~ gt::pct(20),
+#     3 ~ gt::pct(20),
+#     4 ~ gt::pct(45)
+#   )
+```
+
+
+
+
+
 ## Tipps
 
 
 - Chatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.
+- Wiederholen Sie die Grundlagen des Datenjudos.
+- Dieses Modul ist sehr angewandt; theoretische Konzepte stehen nicht im Vordergrund. Stattdessen geht es darum praktische Probleme zu lösen. In solchen Situationen geht Probieren über Studieren.
+

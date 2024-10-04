@@ -9,6 +9,16 @@
 # data:
 data*/
 
+# solutions:
 challenges-solutions/
+
+
+# artifacts:
 _freeze/
+_extensions/
+*_cache/
+_site/
+
+
+
 

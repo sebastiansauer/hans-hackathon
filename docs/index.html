@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -115,6 +144,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./einstieg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstieg</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./pruefung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prüfung</span></a>
   </div>
@@ -153,11 +188,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#willkommen-zum-projekt-hans-hackathon" id="toc-willkommen-zum-projekt-hans-hackathon" class="nav-link active" data-scroll-target="#willkommen-zum-projekt-hans-hackathon">Willkommen zum Projekt “Hans-Hackathon”!</a>
+  <li><a href="#willkommen-zum-projekt-hans-hackathon" id="toc-willkommen-zum-projekt-hans-hackathon" class="nav-link active" data-scroll-target="#willkommen-zum-projekt-hans-hackathon"><span class="header-section-number">1</span> Willkommen zum Projekt “Hans-Hackathon”!</a>
   <ul class="collapse">
-  <li><a href="#gegenstand-und-ziel" id="toc-gegenstand-und-ziel" class="nav-link" data-scroll-target="#gegenstand-und-ziel">Gegenstand und Ziel</a></li>
-  <li><a href="#kursaufbau-und-didaktik" id="toc-kursaufbau-und-didaktik" class="nav-link" data-scroll-target="#kursaufbau-und-didaktik">Kursaufbau und Didaktik</a></li>
-  <li><a href="#tipps" id="toc-tipps" class="nav-link" data-scroll-target="#tipps">Tipps</a></li>
+  <li><a href="#gegenstand-und-ziel" id="toc-gegenstand-und-ziel" class="nav-link" data-scroll-target="#gegenstand-und-ziel"><span class="header-section-number">1.1</span> Gegenstand und Ziel</a></li>
+  <li><a href="#kursaufbau-und-didaktik" id="toc-kursaufbau-und-didaktik" class="nav-link" data-scroll-target="#kursaufbau-und-didaktik"><span class="header-section-number">1.2</span> Kursaufbau und Didaktik</a></li>
+  <li><a href="#modulverlauf" id="toc-modulverlauf" class="nav-link" data-scroll-target="#modulverlauf"><span class="header-section-number">1.3</span> Modulverlauf</a></li>
+  <li><a href="#tipps" id="toc-tipps" class="nav-link" data-scroll-target="#tipps"><span class="header-section-number">1.4</span> Tipps</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -201,23 +237,658 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="willkommen-zum-projekt-hans-hackathon" class="level1">
-<h1>Willkommen zum Projekt “Hans-Hackathon”!</h1>
+<section id="willkommen-zum-projekt-hans-hackathon" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Willkommen zum Projekt “Hans-Hackathon”!</h1>
 <p>Come to the HaNS-Side: we have <a href="https://www.youtube.com/watch?v=HAjXzW2v7OA">videos</a>.</p>
-<section id="gegenstand-und-ziel" class="level2">
-<h2 class="anchored" data-anchor-id="gegenstand-und-ziel">Gegenstand und Ziel</h2>
+<section id="gegenstand-und-ziel" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="gegenstand-und-ziel"><span class="header-section-number">1.1</span> Gegenstand und Ziel</h2>
 <p>In diesem Modul analysieren Sie die Klickdaten zum KI-Tool <a href="https://www.th-nuernberg.de/einrichtungen-gesamt/in-institute/zentrum-fuer-kuenstliche-intelligenz-kiz/projekte/hans/">HaNS</a>.</p>
 <p>Ziel ist es, das Tool HaNS zu evaluieren. Die Klickdaten sollen genutzt werden, um den Nutzen des Tools für die Studierenden besser einschätzen zu können. Darüber hinaus soll verstanden werden, wie Studierende das Tool zum Lernen nutzen, und wie das Tool verbessert werden kann, um das Lernen noch erfolgreicher zu gestalten.</p>
 </section>
-<section id="kursaufbau-und-didaktik" class="level2">
-<h2 class="anchored" data-anchor-id="kursaufbau-und-didaktik">Kursaufbau und Didaktik</h2>
+<section id="kursaufbau-und-didaktik" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="kursaufbau-und-didaktik"><span class="header-section-number">1.2</span> Kursaufbau und Didaktik</h2>
 <p>Der grundlegende Aufbau ist, dass den Studierenden jede Woche eine “Challenge” (“Herausforderung”, im Sinne eines Aufgabenpakets) präsentiert wird, die bis zur nächsten Woche gelöst werden soll.</p>
 <p>Im Unterricht wird Material, das zur Lösung der Aufgabe nötig ist, besprochen oder es wird auf das Material verwiesen. In der folgenden Stunde stellt die Lehrkraft dann eine Musterlösung vor und bespricht die von den Studierenden eingereichte Lösung. Dann wird wiederum eine neue Challenge angegangen usw.</p>
 </section>
-<section id="tipps" class="level2">
-<h2 class="anchored" data-anchor-id="tipps">Tipps</h2>
+<section id="modulverlauf" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="modulverlauf"><span class="header-section-number">1.3</span> Modulverlauf</h2>
+<p><a href="#tbl-modulverlauf" class="quarto-xref">Tabelle&nbsp;1</a> gibt einen Überblick, welches Thema in welcher Woche bzw. wann behandelt wird. Pro Woche wird ein Thema behandelt.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tipp
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Es ist nützlich für Sie, die Tabelle <a href="#tbl-modulverlauf" class="quarto-xref">Tabelle&nbsp;1</a> immer mal wieder zu konsultieren, damit sie wissen, welche Themen als nächstes behandelt werden. <span class="math inline">\(\square\)</span></p>
+</div>
+</div>
+<div class="cell">
+<div id="tbl-modulverlauf" class="cell quarto-float anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-modulverlauf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Tabelle&nbsp;1: Themen des Moduls im Zeitverlauf
+</figcaption>
+<div aria-describedby="tbl-modulverlauf-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="cell-output-display">
+<div>
+<div id="eaoavbmsga" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#eaoavbmsga table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#eaoavbmsga thead, #eaoavbmsga tbody, #eaoavbmsga tfoot, #eaoavbmsga tr, #eaoavbmsga td, #eaoavbmsga th {
+  border-style: none;
+}
+
+#eaoavbmsga p {
+  margin: 0;
+  padding: 0;
+}
+
+#eaoavbmsga .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#eaoavbmsga .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#eaoavbmsga .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#eaoavbmsga .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#eaoavbmsga .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#eaoavbmsga .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#eaoavbmsga .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#eaoavbmsga .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#eaoavbmsga .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#eaoavbmsga .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#eaoavbmsga .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#eaoavbmsga .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#eaoavbmsga .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#eaoavbmsga .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#eaoavbmsga .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaoavbmsga .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#eaoavbmsga .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#eaoavbmsga .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#eaoavbmsga .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaoavbmsga .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#eaoavbmsga .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaoavbmsga .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#eaoavbmsga .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaoavbmsga .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#eaoavbmsga .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#eaoavbmsga .gt_left {
+  text-align: left;
+}
+
+#eaoavbmsga .gt_center {
+  text-align: center;
+}
+
+#eaoavbmsga .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#eaoavbmsga .gt_font_normal {
+  font-weight: normal;
+}
+
+#eaoavbmsga .gt_font_bold {
+  font-weight: bold;
+}
+
+#eaoavbmsga .gt_font_italic {
+  font-style: italic;
+}
+
+#eaoavbmsga .gt_super {
+  font-size: 65%;
+}
+
+#eaoavbmsga .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#eaoavbmsga .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#eaoavbmsga .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#eaoavbmsga .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#eaoavbmsga .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#eaoavbmsga .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#eaoavbmsga .gt_indent_5 {
+  text-indent: 25px;
+}
+</style>
+
+<table class="gt_table do-not-create-environment cell table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="header gt_col_headings">
+<th id="KW" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">KW</th>
+<th id="Jahr" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Jahr</th>
+<th id="Wochenstart" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Wochenstart</th>
+<th id="VL-frei" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">VL-frei</th>
+<th id="Thema" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Thema</th>
+<th id="Kommentar" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Kommentar</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">40</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-09-30</td>
+<td class="gt_row gt_left" headers="VL-frei">teilweise</td>
+<td class="gt_row gt_left" headers="Thema">entfällt</td>
+<td class="gt_row gt_left" headers="Kommentar">entfällt</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">41</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-10-07</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Einstieg</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">42</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-10-14</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 1</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">43</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-10-21</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 2</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">44</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-10-28</td>
+<td class="gt_row gt_left" headers="VL-frei">teilweise</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 3</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">45</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-11-04</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 4</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">46</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-11-11</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 5</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">47</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-11-18</td>
+<td class="gt_row gt_left" headers="VL-frei">ja</td>
+<td class="gt_row gt_left" headers="Thema">-</td>
+<td class="gt_row gt_left" headers="Kommentar">Blockwoche</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">48</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-11-25</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 6</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">49</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-12-02</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 7</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">50</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-12-09</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 8</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">51</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-12-16</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 9</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">52</td>
+<td class="gt_row gt_right" headers="Jahr">2024</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-12-23</td>
+<td class="gt_row gt_left" headers="VL-frei">ja</td>
+<td class="gt_row gt_left" headers="Thema">-</td>
+<td class="gt_row gt_left" headers="Kommentar">Weihnachtspause</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">1</td>
+<td class="gt_row gt_right" headers="Jahr">2025</td>
+<td class="gt_row gt_right" headers="Wochenstart">2024-12-30</td>
+<td class="gt_row gt_left" headers="VL-frei">ja</td>
+<td class="gt_row gt_left" headers="Thema">-</td>
+<td class="gt_row gt_left" headers="Kommentar">Weihnachtspause</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">2</td>
+<td class="gt_row gt_right" headers="Jahr">2025</td>
+<td class="gt_row gt_right" headers="Wochenstart">2025-01-06</td>
+<td class="gt_row gt_left" headers="VL-frei">teilweise</td>
+<td class="gt_row gt_left" headers="Thema">Challenge 10</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">3</td>
+<td class="gt_row gt_right" headers="Jahr">2025</td>
+<td class="gt_row gt_right" headers="Wochenstart">2025-01-13</td>
+<td class="gt_row gt_left" headers="VL-frei">nein</td>
+<td class="gt_row gt_left" headers="Thema">Ausstieg</td>
+<td class="gt_row gt_left" headers="Kommentar">NA</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="KW">4</td>
+<td class="gt_row gt_right" headers="Jahr">2025</td>
+<td class="gt_row gt_right" headers="Wochenstart">2025-01-20</td>
+<td class="gt_row gt_left" headers="VL-frei">ja</td>
+<td class="gt_row gt_left" headers="Thema">NA</td>
+<td class="gt_row gt_left" headers="Kommentar">Prüfungszeit</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="KW">5</td>
+<td class="gt_row gt_right" headers="Jahr">2025</td>
+<td class="gt_row gt_right" headers="Wochenstart">2025-01-27</td>
+<td class="gt_row gt_left" headers="VL-frei">ja</td>
+<td class="gt_row gt_left" headers="Thema">NA</td>
+<td class="gt_row gt_left" headers="Kommentar">Prüfungszeit</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div>
+</figure>
+</div>
+</div>
+</section>
+<section id="tipps" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="tipps"><span class="header-section-number">1.4</span> Tipps</h2>
 <ul>
 <li>Chatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.</li>
+<li>Wiederholen Sie die Grundlagen des Datenjudos.</li>
+<li>Dieses Modul ist sehr angewandt; theoretische Konzepte stehen nicht im Vordergrund. Stattdessen geht es darum praktische Probleme zu lösen. In solchen Situationen geht Probieren über Studieren.</li>
 </ul>
 
 

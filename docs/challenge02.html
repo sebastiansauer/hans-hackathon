@@ -134,6 +134,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./einstieg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Einstieg</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./pruefung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prüfung</span></a>
   </div>
@@ -172,10 +178,10 @@ div.csl-indent {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link active" data-scroll-target="#challenge-2">Challenge 2</a>
+  <li><a href="#challenge-2" id="toc-challenge-2" class="nav-link active" data-scroll-target="#challenge-2"><span class="header-section-number">1</span> Challenge 2</a>
   <ul class="collapse">
-  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link" data-scroll-target="#aufgabenstellung">Aufgabenstellung</a></li>
-  <li><a href="#material" id="toc-material" class="nav-link" data-scroll-target="#material">Material</a></li>
+  <li><a href="#aufgabenstellung" id="toc-aufgabenstellung" class="nav-link" data-scroll-target="#aufgabenstellung"><span class="header-section-number">1.1</span> Aufgabenstellung</a></li>
+  <li><a href="#material" id="toc-material" class="nav-link" data-scroll-target="#material"><span class="header-section-number">1.2</span> Material</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -186,10 +192,10 @@ div.csl-indent {
 
 
 
-<section id="challenge-2" class="level1">
-<h1>Challenge 2</h1>
-<section id="aufgabenstellung" class="level2">
-<h2 class="anchored" data-anchor-id="aufgabenstellung">Aufgabenstellung</h2>
+<section id="challenge-2" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Challenge 2</h1>
+<section id="aufgabenstellung" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="aufgabenstellung"><span class="header-section-number">1.1</span> Aufgabenstellung</h2>
 <p><strong>Daten einlesen</strong></p>
 <ol type="1">
 <li>Importieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.</li>
@@ -199,8 +205,8 @@ div.csl-indent {
 <li>Überlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.</li>
 </ol>
 </section>
-<section id="material" class="level2">
-<h2 class="anchored" data-anchor-id="material">Material</h2>
+<section id="material" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="material"><span class="header-section-number">1.2</span> Material</h2>
 <p>Das R-Paket <code>janitor</code> <span class="citation" data-cites="firke_2023">(<a href="#ref-firke_2023" role="doc-biblioref">Firke 2023</a>)</span> stellt Funktionen bereit, die sich beim “Aufräumen” des Hauses, will sagen, des Dataframes, als sehr nützlich erweisen könnten.</p>
 <p>Zentral für dieses Kapitel ist das Konzept der <em>Wiederholung einer Funktion</em>, auch <em>Schleife</em> (oder <em>Iteration</em>) genannt. Im Vordergrund steht für dieses Kapitel das Einlesen mehrerer Datendateien in einen Dataframe, was praktischerweise in <a href="https://r4ds.hadley.nz/iteration#reading-multiple-files">Kap. 26</a> behandelt wird.</p>
 <p>Um einen Überblick über eine Tabelle/Dataframe zu erhalten, ist das Paket <a href="https://docs.ropensci.org/visdat/"><code>visdat</code></a> mit der Funktion <code>vis_dat</code> ganz praktisch.</p>
