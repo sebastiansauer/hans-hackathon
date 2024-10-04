@@ -437,12 +437,18 @@ mtcars <- read.csv("input/mtcars.csv")
 :::{#exr-path-abs}
 ### Daten importieren mit absolutem Pfad
 
+Importieren Sie den Datensatz `mtcars` mit absolutem Pfad.
+Was sind die Vor- und die Nachrteile? 
+:::
+
 ```{r paths-abs}
 #| error: true
 #| eval: false
-path_abs <- "C:\Users\sebastian.sauer\Documents\Github\hans-hackathon\input\mtcars.csv"
+path_abs <- "C:\Users\sebastian.sauer\Documents\Github\hans-hackathon\input\mtcars.csv" # Pfad auf MEINER Maschine
 mtcars <- read.csv(path_abs)
 ```
+
+
 
 :::{.callout-caution}
 ### Backslashes haben eine besondere Bedeutung in R
