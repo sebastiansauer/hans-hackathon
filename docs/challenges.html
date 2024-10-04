@@ -22,7 +22,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -116,7 +136,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./einstieg.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Einstieg</span></a>
+ <span class="menu-text">R, zweiter Blick</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -209,6 +229,7 @@ ul.task-list li input[type="checkbox"] {
 <li>Welche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?</li>
 <li>Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?</li>
 </ol>
+<p><span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span> stellt Schulungsmaterial auch für String-Verarbeitung bereit (im <a href="https://r4ds.hadley.nz/strings">Kapitel 11</a>) und (fortgeschrittener) im folgenden Kapitel. Mit dem R-Paket <code>lubridate</code> kann man recht bequem mit Strings arbeiten. Möchte man einen Teil eines Strings entfernen, so ist die Funktion <code>str_remove</code> hilfreich. Möchte man mehrere Spalten auf einmal (mit <code>summarise</code>) zusammenfassen, so hilft u.a. die Funktion <code>across</code>, die die Summarise-Operation “durch”, “hinweg”, “über” (engl. <em>across</em>) mehrere Spalten durchführt, s. <a href="https://r4ds.hadley.nz/iteration#sec-across">Kap. 26</a> in <span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span>.</p>
 </section>
 <section id="daten-einlesen" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="daten-einlesen"><span class="header-section-number">2</span> Daten einlesen</h2>
@@ -291,9 +312,14 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 
 
+
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">Literatur</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-wickham_2023" class="csl-entry" role="listitem">
+Wickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. <em>R for Data Science: Import, Tidy, Transform, Visualize, and Model Data</em>. Second edition. Beijing ; Sebastopol, CA: O’Reilly.
+</div>
+</div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenges im Überblick},
   date = {2024-10-04},

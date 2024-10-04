@@ -8,3 +8,13 @@ Betrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende
 3. Welche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?
 4. Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?
 
+
+
+@wickham_2023 stellt Schulungsmaterial auch für String-Verarbeitung bereit (im [Kapitel 11](https://r4ds.hadley.nz/strings)) und (fortgeschrittener) im folgenden Kapitel.
+Mit dem R-Paket `lubridate` kann man recht bequem mit Strings arbeiten.
+Möchte man einen Teil eines Strings entfernen, so ist die Funktion `str_remove` hilfreich.
+Möchte man mehrere Spalten auf einmal (mit `summarise`) zusammenfassen,
+so hilft u.a. die Funktion `across`, die die Summarise-Operation "durch", "hinweg", "über" (engl. *across*) mehrere Spalten durchführt, s. [Kap. 26](https://r4ds.hadley.nz/iteration#sec-across) in @wickham_2023.
+
+
+

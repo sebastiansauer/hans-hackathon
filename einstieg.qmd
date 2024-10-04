@@ -1,6 +1,3 @@
-# Einstieg
-
-
 
 
 
@@ -18,6 +15,7 @@ Benötigte R-Pakete für dieses Kapitel:
 
 ```{r}
 library(tidyverse)
+library(here)
 ```
 
 
@@ -32,6 +30,8 @@ library(tidyverse)
 - Sie können Datensätze vom Lang- und Breit-Format wechseln.
 - Sie können Wiederholungsstrukturen wie Mapping-Funktionen anwenden.
 - Sie können eine dplyr-Funktion auf mehrere Spalten gleichzeitig anwenden.
+- Sie können Textdaten analysieren.
+- Sie können mit Pfaden (relativ und absolut) umgehen.
     
 
 
@@ -438,7 +438,7 @@ mtcars <- read.csv("input/mtcars.csv")
 ### Daten importieren mit absolutem Pfad
 
 Importieren Sie den Datensatz `mtcars` mit absolutem Pfad.
-Was sind die Vor- und die Nachrteile? 
+Was sind die Vor- und die Nachteile dieses Vorgehens? 
 :::
 
 ```{r paths-abs}
@@ -446,6 +446,29 @@ Was sind die Vor- und die Nachrteile?
 #| eval: false
 path_abs <- "C:\Users\sebastian.sauer\Documents\Github\hans-hackathon\input\mtcars.csv" # Pfad auf MEINER Maschine
 mtcars <- read.csv(path_abs)
+```
+
+
+
+Ein Nachteil von absoluten Pfaden ist, dass sie nicht *portabel* sind:
+*Mein* Pfad wird auf *Ihrem* Computer *nicht* funktionieren.
+
+Eine Hilfe bietet da das Paket `here`, das das aktuelle RStudio-Arbeitsverzeichnis (working directory) zurückgibt:
+
+
+```{r}
+here()
+```
+
+
+Entsprechend können wir uns damit portablere absolute Pfade basteln:
+
+
+```{r}
+path_abs_portable <- paste0(here(),"/", "input/mtcars.csv")
+path_abs_portable
+
+mtcars <- read.csv(path_abs_portable)
 ```
 
 
@@ -554,7 +577,35 @@ Schreiben Sie eine einfache R-Funktion und erklären Sie sie.
 
 
 
+## Textverarbeitung
 
+
+:::{.exm-text1}
+Stellen Sie sich vor, Sie haben eine Menge Emails (ein paar Zehntausend), 
+in denen Telefonnummern mit Durchwahlen zur Firma, in der Sie arbeiten vorkommen. 
+Sie möchten alle Emails herausfischen, die eine solche Telefonnummer beinhaltet.
+Da es viele Emails sind, möchten Sie die Mails nicht einzeln anpacken.
+Sie bräuchten einen kleinen Roboter, dem Sie sinngemäß sagen könnten: 
+
+>    [🧑‍🎓]{.content-visible when-format="html"}[\emoji{student}]{.content-visible when-format="pdf"} Hey, ich hätte gerne alle Mails mit den Telefonnummern in unseren Betrieb. Aber keine andere Mail bitte sehr.
+
+>    [🤖]{.content-visible when-format="html"}[\emoji{robot}]{.content-visible when-format="pdf"} Jippiejeh, endlich geht's wieder los!
+:::
+
+
+Textvariablen erkennt man daran, dass ihr Inhalt mit doppelten oder einfachen Anführungszeichen ausgezeichnet ist:
+
+
+```{r}
+eine_antwort <- "Die Antwort lautet 42"
+andere_antwort <- "Die Antwort lautet 73"
+```
+
+
+[Wickham](https://r4ds.had.co.nz/strings.html) bieten eine gute Einführung in die Analyse von Textvariablen bzw. Textdaten.
+
+
+ 
 
 
 ## Wiederholungen programmieren

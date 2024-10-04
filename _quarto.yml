@@ -16,7 +16,7 @@ website:
       - href: index.qmd
         text: Home
       - href: einstieg.qmd
-        text: Einstieg
+        text: R, zweiter Blick
       - href: pruefung.qmd
         text: Prüfung
       - href: challenges.qmd
