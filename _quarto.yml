@@ -39,6 +39,7 @@ format:
     css: styles.css
     toc: true
     number-sections: true
+    out-width: "75%"
 
 
 # bibliography: bib/bib.bib
@@ -65,6 +66,8 @@ knitr:
     fig-align: center
   opts_chunk: 
     collapse: true
-    out-width: "75%"
+    out.width: "75%"
+    fig-align: "center"
+    fig-width: 6
     R.options:
       knitr.graphics.auto_pdf: false 
