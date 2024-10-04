@@ -10,7 +10,7 @@
 
 ## Material
 
-Das R-Paket `janitor` [@firke_janitor_2023] stellt Funktionen bereit, die sich beim "Aufräumen" des Hauses, will sagen, des Dataframes, als sehr nützlich erweisen könnten.
+Das R-Paket `janitor` [@firke_2023] stellt Funktionen bereit, die sich beim "Aufräumen" des Hauses, will sagen, des Dataframes, als sehr nützlich erweisen könnten.
 
 Zentral für dieses Kapitel ist das Konzept der *Wiederholung einer Funktion*, auch *Schleife* (oder *Iteration*) genannt.
 Im Vordergrund steht für dieses Kapitel das Einlesen mehrerer Datendateien in einen Dataframe, was praktischerweise in [Kap. 26](https://r4ds.hadley.nz/iteration#reading-multiple-files) behandelt wird.
