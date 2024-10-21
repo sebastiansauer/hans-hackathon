@@ -1,0 +1,19 @@
+# Projektmanagement
+
+
+Eine Analyse mit vielen Schritten kann leicht unübersichtlich werden.
+Ein anderes Problem ist, dass man viele Objekte erzeugt, als Ergebnisse der Zwischenschritte.
+Ändert man einen Zwischenschritt, so ändert sich der Input für alle darauf folgende 
+Analyseschritte. Man muss also diese neu berechnen.
+Gefährlich wäre, würde man vergessen, diese Objekte neu zu berechnen:
+Man würde mit einem "veralteten" also falschen Objekt weiterarbeiten,
+was zwangsläufig zu falschen Ergebnissen führten würde.
+
+Wäre es nicht schön, wenn es ein Tool gäbe, das für Sie den Überblick behält und
+dafür sorgt, dass die veralteten Objekte (und nur die) bei Bedarf neu berechnet werden?
+
+Solche Tools gibt es. Wir schauen uns dazu das Tool [targets](https://books.ropensci.org/targets/) an.
+
+[Hier ist ein erstes Beispiel](https://books.ropensci.org/targets/walkthrough.html), und [hier](https://carpentries-incubator.github.io/targets-workshop/aio.html) ist eine weitere Einführung in Targets.
+
+Diese [Präsentation](https://wlandau.github.io/targets-tutorial/#1) führt in Targets ein mit einer Data-Science-Anwendung.

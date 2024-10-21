@@ -8,3 +8,6 @@
 4. Entfernen Sie alle konstanten Zeilen und Spalten.
 5. Überlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.
 6. Exportieren Sie die Datentabelle als Excel-Datei. Prüfen Sie dann die Excel-Datei; fällt Ihnen etwas Besonderes auf?
+
+
+

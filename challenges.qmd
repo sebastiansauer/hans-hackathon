@@ -8,6 +8,12 @@ toc: true
 ---
 
 
+## challenge 00: Datencheck
+
+Bitte prüfen Sie, ob Sie die Daten herunterladen und öffnen können.
+Melden Sie etwaige Probleme in der ersten Sitzung der Lehrkraft.
+
+
 
 ## Daten verstehen
 

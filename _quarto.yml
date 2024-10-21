@@ -17,6 +17,8 @@ website:
         text: Home
       - href: einstieg.qmd
         text: R, zweiter Blick
+      - href: projektmanagement.qmd
+        text: Projektmanagement
       - href: pruefung.qmd
         text: Prüfung
       - href: challenges.qmd
