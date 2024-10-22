@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de-DE" xml:lang="de-DE"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.6.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Sebastian Sauer">
 <meta name="description" content="“Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools ‘HaNS’”">
 
-<title>hans-hackathon - Challenges im Überblick</title>
+<title>Challenges im Überblick – hans-hackathon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0557ad454d566926edddd739c7909e88.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -99,13 +99,13 @@ div.csl-indent {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./challenges.html">Challenges im Überblick</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -141,6 +141,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./projektmanagement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projektmanagement</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./pruefung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prüfung</span></a>
   </div>
@@ -153,8 +159,8 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./loesungen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lösungen</span></a>
+  <a href="./challenge01-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 01</span></a>
   </div>
 </li>
     </ul>
@@ -167,16 +173,17 @@ div.csl-indent {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#daten-verstehen" id="toc-daten-verstehen" class="nav-link active" data-scroll-target="#daten-verstehen"><span class="header-section-number">1</span> Daten verstehen</a></li>
-  <li><a href="#daten-einlesen" id="toc-daten-einlesen" class="nav-link" data-scroll-target="#daten-einlesen"><span class="header-section-number">2</span> Daten einlesen</a></li>
-  <li><a href="#daten-verschlanken" id="toc-daten-verschlanken" class="nav-link" data-scroll-target="#daten-verschlanken"><span class="header-section-number">3</span> Daten verschlanken</a></li>
-  <li><a href="#daten-pivotieren" id="toc-daten-pivotieren" class="nav-link" data-scroll-target="#daten-pivotieren"><span class="header-section-number">4</span> Daten pivotieren</a></li>
-  <li><a href="#projektmanagement" id="toc-projektmanagement" class="nav-link" data-scroll-target="#projektmanagement"><span class="header-section-number">5</span> Projektmanagement</a></li>
-  <li><a href="#verweildauer" id="toc-verweildauer" class="nav-link" data-scroll-target="#verweildauer"><span class="header-section-number">6</span> Verweildauer</a></li>
-  <li><a href="#ki-verwendung" id="toc-ki-verwendung" class="nav-link" data-scroll-target="#ki-verwendung"><span class="header-section-number">7</span> KI-Verwendung</a></li>
-  <li><a href="#optimierung-der-pipeline" id="toc-optimierung-der-pipeline" class="nav-link" data-scroll-target="#optimierung-der-pipeline"><span class="header-section-number">8</span> Optimierung der Pipeline</a></li>
-  <li><a href="#glotzdauer" id="toc-glotzdauer" class="nav-link" data-scroll-target="#glotzdauer"><span class="header-section-number">9</span> “Glotzdauer”</a></li>
-  <li><a href="#veränderung-des-nutzerverhaltens-im-zeitverlauf" id="toc-veränderung-des-nutzerverhaltens-im-zeitverlauf" class="nav-link" data-scroll-target="#veränderung-des-nutzerverhaltens-im-zeitverlauf"><span class="header-section-number">10</span> Veränderung des Nutzerverhaltens im Zeitverlauf</a></li>
+  <li><a href="#challenge-00-datencheck" id="toc-challenge-00-datencheck" class="nav-link active" data-scroll-target="#challenge-00-datencheck"><span class="header-section-number">1</span> challenge 00: Datencheck</a></li>
+  <li><a href="#daten-verstehen" id="toc-daten-verstehen" class="nav-link" data-scroll-target="#daten-verstehen"><span class="header-section-number">2</span> Daten verstehen</a></li>
+  <li><a href="#daten-einlesen" id="toc-daten-einlesen" class="nav-link" data-scroll-target="#daten-einlesen"><span class="header-section-number">3</span> Daten einlesen</a></li>
+  <li><a href="#daten-verschlanken" id="toc-daten-verschlanken" class="nav-link" data-scroll-target="#daten-verschlanken"><span class="header-section-number">4</span> Daten verschlanken</a></li>
+  <li><a href="#daten-pivotieren" id="toc-daten-pivotieren" class="nav-link" data-scroll-target="#daten-pivotieren"><span class="header-section-number">5</span> Daten pivotieren</a></li>
+  <li><a href="#projektmanagement" id="toc-projektmanagement" class="nav-link" data-scroll-target="#projektmanagement"><span class="header-section-number">6</span> Projektmanagement</a></li>
+  <li><a href="#verweildauer" id="toc-verweildauer" class="nav-link" data-scroll-target="#verweildauer"><span class="header-section-number">7</span> Verweildauer</a></li>
+  <li><a href="#ki-verwendung" id="toc-ki-verwendung" class="nav-link" data-scroll-target="#ki-verwendung"><span class="header-section-number">8</span> KI-Verwendung</a></li>
+  <li><a href="#optimierung-der-pipeline" id="toc-optimierung-der-pipeline" class="nav-link" data-scroll-target="#optimierung-der-pipeline"><span class="header-section-number">9</span> Optimierung der Pipeline</a></li>
+  <li><a href="#glotzdauer" id="toc-glotzdauer" class="nav-link" data-scroll-target="#glotzdauer"><span class="header-section-number">10</span> “Glotzdauer”</a></li>
+  <li><a href="#veränderung-des-nutzerverhaltens-im-zeitverlauf" id="toc-veränderung-des-nutzerverhaltens-im-zeitverlauf" class="nav-link" data-scroll-target="#veränderung-des-nutzerverhaltens-im-zeitverlauf"><span class="header-section-number">11</span> Veränderung des Nutzerverhaltens im Zeitverlauf</a></li>
   </ul>
 </nav>
     </div>
@@ -207,7 +214,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4. Oktober 2024</p>
+      <p class="date">22. Oktober 2024</p>
     </div>
   </div>
   
@@ -219,8 +226,12 @@ div.csl-indent {
 </header>
 
 
-<section id="daten-verstehen" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="daten-verstehen"><span class="header-section-number">1</span> Daten verstehen</h2>
+<section id="challenge-00-datencheck" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="challenge-00-datencheck"><span class="header-section-number">1</span> challenge 00: Datencheck</h2>
+<p>Bitte prüfen Sie, ob Sie die Daten herunterladen und öffnen können. Melden Sie etwaige Probleme in der ersten Sitzung der Lehrkraft.</p>
+</section>
+<section id="daten-verstehen" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="daten-verstehen"><span class="header-section-number">2</span> Daten verstehen</h2>
 <p><strong>Daten verstehen</strong></p>
 <p>Betrachten Sie die (chronologisch) erste Datendatei und beantworten Sie folgende Fragen:</p>
 <ol type="1">
@@ -229,10 +240,10 @@ div.csl-indent {
 <li>Welche verschiedenen Spaltennamen gibt es, wenn man die Zahlen (fortlaufenden Nummern in den Spaltennamen) außer Acht lässt? Wie heißen diese (uniquen) Spalten?</li>
 <li>Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?</li>
 </ol>
-<p><span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span> stellt Schulungsmaterial auch für String-Verarbeitung bereit (im <a href="https://r4ds.hadley.nz/strings">Kapitel 11</a>) und (fortgeschrittener) im folgenden Kapitel. Mit dem R-Paket <code>lubridate</code> kann man recht bequem mit Strings arbeiten. Möchte man einen Teil eines Strings entfernen, so ist die Funktion <code>str_remove</code> hilfreich. Möchte man mehrere Spalten auf einmal (mit <code>summarise</code>) zusammenfassen, so hilft u.a. die Funktion <code>across</code>, die die Summarise-Operation “durch”, “hinweg”, “über” (engl. <em>across</em>) mehrere Spalten durchführt, s. <a href="https://r4ds.hadley.nz/iteration#sec-across">Kap. 26</a> in <span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span>.</p>
+<p><span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span> stellt Schulungsmaterial auch für String-Verarbeitung bereit (im <a href="https://r4ds.hadley.nz/strings">Kapitel 11</a>) und (fortgeschrittener) im folgenden Kapitel. Mit dem R-Paket <code>lubridate</code> kann man recht bequem mit Datums- und Zeitangaben arbeiten. Möchte man einen Teil eines Strings entfernen, so ist die Funktion <code>str_remove</code> hilfreich. Da hilft das Paket <code>stringr</code>. Möchte man mehrere Spalten auf einmal (mit <code>summarise</code>) zusammenfassen, so hilft u.a. die Funktion <code>across</code>, die die Summarise-Operation “durch”, “hinweg”, “über” (engl. <em>across</em>) mehrere Spalten durchführt, s. <a href="https://r4ds.hadley.nz/iteration#sec-across">Kap. 26</a> in <span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span>.</p>
 </section>
-<section id="daten-einlesen" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="daten-einlesen"><span class="header-section-number">2</span> Daten einlesen</h2>
+<section id="daten-einlesen" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="daten-einlesen"><span class="header-section-number">3</span> Daten einlesen</h2>
 <p><strong>Daten einlesen</strong></p>
 <ol type="1">
 <li>Importieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.</li>
@@ -240,10 +251,11 @@ div.csl-indent {
 <li>Entfernen Sie alle leeren Zeilen und Spalten.</li>
 <li>Entfernen Sie alle konstanten Zeilen und Spalten.</li>
 <li>Überlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.</li>
+<li>Exportieren Sie die Datentabelle als Excel-Datei. Prüfen Sie dann die Excel-Datei; fällt Ihnen etwas Besonderes auf?</li>
 </ol>
 </section>
-<section id="daten-verschlanken" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="daten-verschlanken"><span class="header-section-number">3</span> Daten verschlanken</h2>
+<section id="daten-verschlanken" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="daten-verschlanken"><span class="header-section-number">4</span> Daten verschlanken</h2>
 <p><strong>Datensatz verschlanken</strong></p>
 <p>Aufbauend auf dem Ergebnis der letzten Challenge:</p>
 <ol type="1">
@@ -254,28 +266,28 @@ div.csl-indent {
 <li>Entfernen Sie Zeilen, die Daten von Admins, Developern oder <code>lecturer</code>s enthalten.</li>
 </ol>
 </section>
-<section id="daten-pivotieren" class="level2" data-number="4">
-<h2 data-number="4" class="anchored" data-anchor-id="daten-pivotieren"><span class="header-section-number">4</span> Daten pivotieren</h2>
+<section id="daten-pivotieren" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="daten-pivotieren"><span class="header-section-number">5</span> Daten pivotieren</h2>
 <p><strong>Datensatz pivotieren</strong></p>
 <p>Aufbauend auf dem Ergebnis der letzten Challenge:</p>
 <ol type="1">
 <li>Listen Sie die Spaltennamen auf.</li>
-<li>Geben Sie Arten von Spaltennamen an, z.b. <code>actionDetails_482_timestamp</code> und actionDetails_327_subtitle<code>und</code>actionDetails_327_timestampe` wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</li>
+<li>Geben Sie Arten von Spaltennamen an, z.b. <code>actionDetails_482_timestamp</code> und <code>actionDetails_327_subtitle</code> und <code>actionDetails_327_timestampe</code> wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</li>
 <li>Pivotieren Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
-<li>Begrenzen Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen <code>subtitle</code> sowie <code>idvisit</code>. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
+<li><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen <code>subtitle</code> sowie <code>idvisit</code>. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
 <li>Prüfen Sie, ob es stimmt, dass in der Spalte <code>name</code> die enthaltene Zahl die einzige Information ist. Anders gesagt: Außer der Zahl in den Werten <code>name</code> sind alle Teile der Werte konstant.</li>
 <li>Die Spalten, die die Werte wie <code>actionDetails_0_subtitle</code> nennen Sie in <code>id</code> um. Aus den Werten (wie <code>actionDetails_0_subtitle</code>) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).</li>
 </ol>
 </section>
-<section id="projektmanagement" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="projektmanagement"><span class="header-section-number">5</span> Projektmanagement</h2>
+<section id="projektmanagement" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="projektmanagement"><span class="header-section-number">6</span> Projektmanagement</h2>
 <ol type="1">
 <li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
 <li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
 </section>
-<section id="verweildauer" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="verweildauer"><span class="header-section-number">6</span> Verweildauer</h2>
+<section id="verweildauer" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="verweildauer"><span class="header-section-number">7</span> Verweildauer</h2>
 <ol type="1">
 <li>Wie viele Aktionen führen die Nutzer pro Visit aus?</li>
 <li>Wieviel Zeit verbringen die Nutzer pro Visit?</li>
@@ -283,30 +295,30 @@ div.csl-indent {
 <li>Zu welchen Zeiten wird die Seite bevorzugt besucht?</li>
 </ol>
 </section>
-<section id="ki-verwendung" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="ki-verwendung"><span class="header-section-number">7</span> KI-Verwendung</h2>
+<section id="ki-verwendung" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="ki-verwendung"><span class="header-section-number">8</span> KI-Verwendung</h2>
 <ol type="1">
 <li>Wie oft wird (pro Monat) ein <code>AI transcript</code> angefordert?</li>
 <li>Wie oft wird (pro Monat) mit dem LLM interagiert?</li>
 <li>Welcher Anteil der Besucher (<code>visitors</code>) interagiert mit dem LLM?</li>
 </ol>
 </section>
-<section id="optimierung-der-pipeline" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="optimierung-der-pipeline"><span class="header-section-number">8</span> Optimierung der Pipeline</h2>
+<section id="optimierung-der-pipeline" class="level2" data-number="9">
+<h2 data-number="9" class="anchored" data-anchor-id="optimierung-der-pipeline"><span class="header-section-number">9</span> Optimierung der Pipeline</h2>
 <ol type="1">
 <li>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.</li>
 <li>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.</li>
 <li>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.</li>
 </ol>
 </section>
-<section id="glotzdauer" class="level2" data-number="9">
-<h2 data-number="9" class="anchored" data-anchor-id="glotzdauer"><span class="header-section-number">9</span> “Glotzdauer”</h2>
+<section id="glotzdauer" class="level2" data-number="10">
+<h2 data-number="10" class="anchored" data-anchor-id="glotzdauer"><span class="header-section-number">10</span> “Glotzdauer”</h2>
 <ol type="1">
 <li>Berechnen Sie (die “Glotzdauer”), wie lange die Besucher sich Videos anschauen.</li>
 </ol>
 </section>
-<section id="veränderung-des-nutzerverhaltens-im-zeitverlauf" class="level2" data-number="10">
-<h2 data-number="10" class="anchored" data-anchor-id="veränderung-des-nutzerverhaltens-im-zeitverlauf"><span class="header-section-number">10</span> Veränderung des Nutzerverhaltens im Zeitverlauf</h2>
+<section id="veränderung-des-nutzerverhaltens-im-zeitverlauf" class="level2" data-number="11">
+<h2 data-number="11" class="anchored" data-anchor-id="veränderung-des-nutzerverhaltens-im-zeitverlauf"><span class="header-section-number">11</span> Veränderung des Nutzerverhaltens im Zeitverlauf</h2>
 <ol type="1">
 <li>Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.</li>
 </ol>
@@ -322,12 +334,12 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. <em>R for 
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenges im Überblick},
-  date = {2024-10-04},
+  date = {2024-10-22},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Sauer, Sebastian. 2024. <span>“Challenges im Überblick.”</span> October
-4, 2024.
+22, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -364,18 +376,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -407,7 +408,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -415,7 +438,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {

@@ -14,7 +14,7 @@ number-sections: true
 ## Aufgaben
 
 
-{{< include ../children/challenge01-base.qmd >}}
+{{< include children/challenge01-base.qmd >}}
 
 
 

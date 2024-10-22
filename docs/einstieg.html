@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de-DE" xml:lang="de-DE"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.6.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="description" content="“Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools ‘HaNS’”">
 
-<title>hans-hackathon</title>
+<title>einstieg – hans-hackathon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -90,10 +90,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0557ad454d566926edddd739c7909e88.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -123,7 +123,7 @@ div.csl-indent {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -162,13 +162,13 @@ window.Quarto = {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./einstieg.html">R, zweiter Blick</a></li></ol></nav>
-        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -204,6 +204,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./projektmanagement.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Projektmanagement</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./pruefung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prüfung</span></a>
   </div>
@@ -216,8 +222,8 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./loesungen.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lösungen</span></a>
+  <a href="./challenge01-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 01</span></a>
   </div>
 </li>
     </ul>
@@ -304,7 +310,7 @@ window.Quarto = {
 <div id="exm-obs" class="theorem example">
 <p><span class="theorem-title"><strong>Beispiel 1 (Beispiele für Objekte)</strong></span> Vektoren und Dataframes (Tibbles) sind die vielleicht gängigsten Objektarten in R (vgl. <a href="#fig-obs" class="quarto-xref">Abbildung&nbsp;1</a>), aus <span class="citation" data-cites="sauer_moderne_2019">Sauer (<a href="#ref-sauer_moderne_2019" role="doc-biblioref">2019</a>)</span>).<span class="math inline">\(\square\)</span></p>
 </div>
-<div id="fig-obs" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-obs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-obs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/zentrale_objektarten.png" class="img-fluid figure-img">
@@ -316,7 +322,7 @@ Abbildung&nbsp;1: Zentrale Objektarten in R
 </div>
 <p>Es gibt in R keine (Objekte für) Skalare (einzelne Zahlen). Stattdessen nutzt R Vektoren der Länge 1.</p>
 <p>Ein nützliches Schema stammt aus <span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span>, s. <a href="#fig-objtypes" class="quarto-xref">Abbildung&nbsp;2</a>).</p>
-<div id="fig-objtypes" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-objtypes" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-objtypes-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/data-structures-overview.png" class="img-fluid figure-img" style="width:50.0%">
@@ -346,7 +352,7 @@ Abbildung&nbsp;2: Objektarten hierarchisch gegliedert
 <h4 data-number="1.2.2.1" class="anchored" data-anchor-id="vektoren"><span class="header-section-number">1.2.2.1</span> Vektoren</h4>
 <p><em>Vektoren</em> sind insofern zentral in R, als dass die übrigen Datenstrukturen auf ihnen aufbauen, vgl. <a href="#fig-vektorenimzentrum" class="quarto-xref">Abbildung&nbsp;3</a> aus <span class="citation" data-cites="sauer_moderne_2019">Sauer (<a href="#ref-sauer_moderne_2019" role="doc-biblioref">2019</a>)</span>.</p>
 <p>Reine (atomare) Vektoren in R sind eine geordnete Liste von Daten eines Typs.</p>
-<div id="fig-vektorenimzentrum" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-vektorenimzentrum" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-vektorenimzentrum-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/Datenstrukturen.png" class="img-fluid figure-img">
@@ -625,7 +631,7 @@ Tipp
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"input/mtcars.csv"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p><a href="#dnldts20323" onclick="fetch('data:text/csv;base64,bW9kZWwsbXBnLGN5bCxkaXNwLGhwLGRyYXQsd3QscXNlYyx2cyxhbSxnZWFyLGNhcmIKTWF6ZGEgUlg0LDIxLDYsMTYwLDExMCwzLjksMi42MiwxNi40NiwwLDEsNCw0Ck1hemRhIFJYNCBXYWcsMjEsNiwxNjAsMTEwLDMuOSwyLjg3NSwxNy4wMiwwLDEsNCw0CkRhdHN1biA3MTAsMjIuOCw0LDEwOCw5MywzLjg1LDIuMzIsMTguNjEsMSwxLDQsMQpIb3JuZXQgNCBEcml2ZSwyMS40LDYsMjU4LDExMCwzLjA4LDMuMjE1LDE5LjQ0LDEsMCwzLDEKSG9ybmV0IFNwb3J0YWJvdXQsMTguNyw4LDM2MCwxNzUsMy4xNSwzLjQ0LDE3LjAyLDAsMCwzLDIKVmFsaWFudCwxOC4xLDYsMjI1LDEwNSwyLjc2LDMuNDYsMjAuMjIsMSwwLDMsMQpEdXN0ZXIgMzYwLDE0LjMsOCwzNjAsMjQ1LDMuMjEsMy41NywxNS44NCwwLDAsMyw0Ck1lcmMgMjQwRCwyNC40LDQsMTQ2LjcsNjIsMy42OSwzLjE5LDIwLDEsMCw0LDIKTWVyYyAyMzAsMjIuOCw0LDE0MC44LDk1LDMuOTIsMy4xNSwyMi45LDEsMCw0LDIKTWVyYyAyODAsMTkuMiw2LDE2Ny42LDEyMywzLjkyLDMuNDQsMTguMywxLDAsNCw0Ck1lcmMgMjgwQywxNy44LDYsMTY3LjYsMTIzLDMuOTIsMy40NCwxOC45LDEsMCw0LDQKTWVyYyA0NTBTRSwxNi40LDgsMjc1LjgsMTgwLDMuMDcsNC4wNywxNy40LDAsMCwzLDMKTWVyYyA0NTBTTCwxNy4zLDgsMjc1LjgsMTgwLDMuMDcsMy43MywxNy42LDAsMCwzLDMKTWVyYyA0NTBTTEMsMTUuMiw4LDI3NS44LDE4MCwzLjA3LDMuNzgsMTgsMCwwLDMsMwpDYWRpbGxhYyBGbGVldHdvb2QsMTAuNCw4LDQ3MiwyMDUsMi45Myw1LjI1LDE3Ljk4LDAsMCwzLDQKTGluY29sbiBDb250aW5lbnRhbCwxMC40LDgsNDYwLDIxNSwzLDUuNDI0LDE3LjgyLDAsMCwzLDQKQ2hyeXNsZXIgSW1wZXJpYWwsMTQuNyw4LDQ0MCwyMzAsMy4yMyw1LjM0NSwxNy40MiwwLDAsMyw0CkZpYXQgMTI4LDMyLjQsNCw3OC43LDY2LDQuMDgsMi4yLDE5LjQ3LDEsMSw0LDEKSG9uZGEgQ2l2aWMsMzAuNCw0LDc1LjcsNTIsNC45MywxLjYxNSwxOC41MiwxLDEsNCwyClRveW90YSBDb3JvbGxhLDMzLjksNCw3MS4xLDY1LDQuMjIsMS44MzUsMTkuOSwxLDEsNCwxClRveW90YSBDb3JvbmEsMjEuNSw0LDEyMC4xLDk3LDMuNywyLjQ2NSwyMC4wMSwxLDAsMywxCkRvZGdlIENoYWxsZW5nZXIsMTUuNSw4LDMxOCwxNTAsMi43NiwzLjUyLDE2Ljg3LDAsMCwzLDIKQU1DIEphdmVsaW4sMTUuMiw4LDMwNCwxNTAsMy4xNSwzLjQzNSwxNy4zLDAsMCwzLDIKQ2FtYXJvIFoyOCwxMy4zLDgsMzUwLDI0NSwzLjczLDMuODQsMTUuNDEsMCwwLDMsNApQb250aWFjIEZpcmViaXJkLDE5LjIsOCw0MDAsMTc1LDMuMDgsMy44NDUsMTcuMDUsMCwwLDMsMgpGaWF0IFgxLTksMjcuMyw0LDc5LDY2LDQuMDgsMS45MzUsMTguOSwxLDEsNCwxClBvcnNjaGUgOTE0LTIsMjYsNCwxMjAuMyw5MSw0LjQzLDIuMTQsMTYuNywwLDEsNSwyCkxvdHVzIEV1cm9wYSwzMC40LDQsOTUuMSwxMTMsMy43NywxLjUxMywxNi45LDEsMSw1LDIKRm9yZCBQYW50ZXJhIEwsMTUuOCw4LDM1MSwyNjQsNC4yMiwzLjE3LDE0LjUsMCwxLDUsNApGZXJyYXJpIERpbm8sMTkuNyw2LDE0NSwxNzUsMy42MiwyLjc3LDE1LjUsMCwxLDUsNgpNYXNlcmF0aSBCb3JhLDE1LDgsMzAxLDMzNSwzLjU0LDMuNTcsMTQuNiwwLDEsNSw4ClZvbHZvIDE0MkUsMjEuNCw0LDEyMSwxMDksNC4xMSwyLjc4LDE4LjYsMSwxLDQsMgo=').then(res => res.blob()).then(blob => {
+<p><a href="#dnldts27496" onclick="fetch('data:text/csv;base64,bW9kZWwsbXBnLGN5bCxkaXNwLGhwLGRyYXQsd3QscXNlYyx2cyxhbSxnZWFyLGNhcmIKTWF6ZGEgUlg0LDIxLDYsMTYwLDExMCwzLjksMi42MiwxNi40NiwwLDEsNCw0Ck1hemRhIFJYNCBXYWcsMjEsNiwxNjAsMTEwLDMuOSwyLjg3NSwxNy4wMiwwLDEsNCw0CkRhdHN1biA3MTAsMjIuOCw0LDEwOCw5MywzLjg1LDIuMzIsMTguNjEsMSwxLDQsMQpIb3JuZXQgNCBEcml2ZSwyMS40LDYsMjU4LDExMCwzLjA4LDMuMjE1LDE5LjQ0LDEsMCwzLDEKSG9ybmV0IFNwb3J0YWJvdXQsMTguNyw4LDM2MCwxNzUsMy4xNSwzLjQ0LDE3LjAyLDAsMCwzLDIKVmFsaWFudCwxOC4xLDYsMjI1LDEwNSwyLjc2LDMuNDYsMjAuMjIsMSwwLDMsMQpEdXN0ZXIgMzYwLDE0LjMsOCwzNjAsMjQ1LDMuMjEsMy41NywxNS44NCwwLDAsMyw0Ck1lcmMgMjQwRCwyNC40LDQsMTQ2LjcsNjIsMy42OSwzLjE5LDIwLDEsMCw0LDIKTWVyYyAyMzAsMjIuOCw0LDE0MC44LDk1LDMuOTIsMy4xNSwyMi45LDEsMCw0LDIKTWVyYyAyODAsMTkuMiw2LDE2Ny42LDEyMywzLjkyLDMuNDQsMTguMywxLDAsNCw0Ck1lcmMgMjgwQywxNy44LDYsMTY3LjYsMTIzLDMuOTIsMy40NCwxOC45LDEsMCw0LDQKTWVyYyA0NTBTRSwxNi40LDgsMjc1LjgsMTgwLDMuMDcsNC4wNywxNy40LDAsMCwzLDMKTWVyYyA0NTBTTCwxNy4zLDgsMjc1LjgsMTgwLDMuMDcsMy43MywxNy42LDAsMCwzLDMKTWVyYyA0NTBTTEMsMTUuMiw4LDI3NS44LDE4MCwzLjA3LDMuNzgsMTgsMCwwLDMsMwpDYWRpbGxhYyBGbGVldHdvb2QsMTAuNCw4LDQ3MiwyMDUsMi45Myw1LjI1LDE3Ljk4LDAsMCwzLDQKTGluY29sbiBDb250aW5lbnRhbCwxMC40LDgsNDYwLDIxNSwzLDUuNDI0LDE3LjgyLDAsMCwzLDQKQ2hyeXNsZXIgSW1wZXJpYWwsMTQuNyw4LDQ0MCwyMzAsMy4yMyw1LjM0NSwxNy40MiwwLDAsMyw0CkZpYXQgMTI4LDMyLjQsNCw3OC43LDY2LDQuMDgsMi4yLDE5LjQ3LDEsMSw0LDEKSG9uZGEgQ2l2aWMsMzAuNCw0LDc1LjcsNTIsNC45MywxLjYxNSwxOC41MiwxLDEsNCwyClRveW90YSBDb3JvbGxhLDMzLjksNCw3MS4xLDY1LDQuMjIsMS44MzUsMTkuOSwxLDEsNCwxClRveW90YSBDb3JvbmEsMjEuNSw0LDEyMC4xLDk3LDMuNywyLjQ2NSwyMC4wMSwxLDAsMywxCkRvZGdlIENoYWxsZW5nZXIsMTUuNSw4LDMxOCwxNTAsMi43NiwzLjUyLDE2Ljg3LDAsMCwzLDIKQU1DIEphdmVsaW4sMTUuMiw4LDMwNCwxNTAsMy4xNSwzLjQzNSwxNy4zLDAsMCwzLDIKQ2FtYXJvIFoyOCwxMy4zLDgsMzUwLDI0NSwzLjczLDMuODQsMTUuNDEsMCwwLDMsNApQb250aWFjIEZpcmViaXJkLDE5LjIsOCw0MDAsMTc1LDMuMDgsMy44NDUsMTcuMDUsMCwwLDMsMgpGaWF0IFgxLTksMjcuMyw0LDc5LDY2LDQuMDgsMS45MzUsMTguOSwxLDEsNCwxClBvcnNjaGUgOTE0LTIsMjYsNCwxMjAuMyw5MSw0LjQzLDIuMTQsMTYuNywwLDEsNSwyCkxvdHVzIEV1cm9wYSwzMC40LDQsOTUuMSwxMTMsMy43NywxLjUxMywxNi45LDEsMSw1LDIKRm9yZCBQYW50ZXJhIEwsMTUuOCw4LDM1MSwyNjQsNC4yMiwzLjE3LDE0LjUsMCwxLDUsNApGZXJyYXJpIERpbm8sMTkuNyw2LDE0NSwxNzUsMy42MiwyLjc3LDE1LjUsMCwxLDUsNgpNYXNlcmF0aSBCb3JhLDE1LDgsMzAxLDMzNSwzLjU0LDMuNTcsMTQuNiwwLDEsNSw4ClZvbHZvIDE0MkUsMjEuNCw0LDEyMSwxMDksNC4xMSwyLjc4LDE4LjYsMSwxLDQsMgo=').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);
@@ -633,7 +639,7 @@ Tipp
       a.download = 'mtcars.csv'; a.click();
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
-        });"><button class="btn btn-info downloadthis  " id="dnldts20323"><i class="bi bi-database-fill-down"></i> Download </button></a></p>
+        });"><button class="btn btn-info downloadthis  " id="dnldts27496"><i class="bi bi-database-fill-down"></i> Download </button></a></p>
 <div id="exr-path-abs" class="theorem exercise">
 <p><span class="theorem-title"><strong>Übungsaufgabe 3 (Daten importieren mit absolutem Pfad)</strong></span> Importieren Sie den Datensatz <code>mtcars</code> mit absolutem Pfad. Was sind die Vor- und die Nachteile dieses Vorgehens?</p>
 </div>
@@ -677,7 +683,7 @@ Backslashes haben eine besondere Bedeutung in R
 <h2 data-number="1.4" class="anchored" data-anchor-id="datensätze-von-lang-nach-breit-umformatieren"><span class="header-section-number">1.4</span> Datensätze von lang nach breit umformatieren</h2>
 <p>Manchmal findet man Datensätze im sog. <em>langen</em> Format vor, manchmal im <em>breiten</em>.</p>
 <p>In der Regel müssen die Daten “tidy” sein, was meist dem langen Format entspricht, vgl. <a href="#fig-langbreit" class="quarto-xref">Abbildung&nbsp;4</a> aus <span class="citation" data-cites="sauer_moderne_2019">Sauer (<a href="#ref-sauer_moderne_2019" role="doc-biblioref">2019</a>)</span>.</p>
-<div id="fig-langbreit" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-langbreit" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-langbreit-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/gather_spread.png" class="img-fluid figure-img">
@@ -692,7 +698,7 @@ Abbildung&nbsp;4: Von lang nach breit und zurück
 <li><code>gather()</code> -&gt; <code>pivot_longer()</code></li>
 <li><code>spread()</code> -&gt; <code>pivot_wider()</code></li>
 </ul>
-<div id="fig-pivot-anim" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-pivot-anim" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-pivot-anim-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/tidyr-pivoting.gif" class="img-fluid figure-img" style="width:50.0%">
@@ -707,7 +713,7 @@ Abbildung&nbsp;5: Von “weit” zu “breit” und zurück, eine Animation
 <section id="funktionen" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="funktionen"><span class="header-section-number">1.5</span> Funktionen</h2>
 <p>Eine Funktion kann man sich als analog zu einer Variable vorstellen. Es ist ein Objekt, das nicht Daten, sondern Syntax beinhaltet, vgl. <a href="#fig-funs" class="quarto-xref">Abbildung&nbsp;6</a> aus <span class="citation" data-cites="sauer_moderne_2019">Sauer (<a href="#ref-sauer_moderne_2019" role="doc-biblioref">2019</a>)</span>.</p>
-<div id="fig-funs" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-funs" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-funs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/Funs_def.png" class="img-fluid figure-img" style="width:50.0%">
@@ -787,7 +793,7 @@ Abbildung&nbsp;6: Sinnbild einer Funktion
 <h3 data-number="1.7.2" class="anchored" data-anchor-id="map"><span class="header-section-number">1.7.2</span> <code>map()</code></h3>
 <p><code>map()</code> ist eine Funktion aus dem R-Paket <code>purrr</code> und Teil des Tidyverse.</p>
 <p><code>map(x, f)</code> wenden die Funktion <code>f</code> auf jedes Element von <code>x</code> an. Ist <code>x</code> ein Tibble, so wird <code>f</code> demnach auf jede Spalte von <code>x</code> angewendet (“zugeordnet”, daher <code>map</code>), vgl. <a href="#fig-map1" class="quarto-xref">Abbildung&nbsp;7</a> aus <span class="citation" data-cites="sauer_moderne_2019">Sauer (<a href="#ref-sauer_moderne_2019" role="doc-biblioref">2019</a>)</span>.</p>
-<div id="fig-map1" class="quarto-figure quarto-figure-center quarto-float anchored">
+<div id="fig-map1" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-map1-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="img/wdh.png" class="img-fluid figure-img" style="width:50.0%">
@@ -904,18 +910,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -947,7 +942,29 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp('/' + window.location.host + '/');
@@ -955,7 +972,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
