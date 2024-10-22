@@ -22,8 +22,8 @@ website:
       - href: pruefung.qmd
         text: Prüfung
       - href: challenges.qmd
-      - href: loesungen.qmd
-        text: Lösungen
+      - href: challenge01-solution.qmd
+        text: Lösung 01
       #   text: Challenges
       # - href: challenge01.qmd
       #   text: Challenge 01

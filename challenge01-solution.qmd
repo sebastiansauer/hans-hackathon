@@ -1,0 +1,208 @@
+---
+title: "Challenge 01 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+---
+
+
+
+# Daten verstehen
+
+
+## Aufgaben
+
+
+{{< include ../children/challenge01-base.qmd >}}
+
+
+
+## Lösungen
+
+### Setup
+
+
+```{r}
+library(tidyverse)
+library(stringr)  # Strings verarbeiten
+library(here)  # liest aktuelles Verzeichnis aus
+```
+
+
+```{r load-data}
+datafile_name <- paste0(here(),"/", "data-processed/data-raw-no-sensitive/matomo_export_2024-05-27.csv")
+
+d <- read.csv(datafile_name)
+```
+
+
+
+### 1
+
+
+```{r}
+dim(d)
+```
+
+
+### 2
+
+```{r}
+names(d) |> head(50)
+```
+
+
+```{r}
+names(d) |> tail(50)
+```
+
+Es gibt Spalten mit einer fortlaufenden Nummer und Spalten ohne.
+
+
+### 3
+
+Ignoriert man die fortlaufende Nummer, gibt es nicht (mehr so) viele verschiedene Werte (Ausprägungen) an Spaltennamen.
+
+
+Spaltennamen mit fortlaufender Nummer:
+
+
+```{r}
+cols_with_number <- 
+  str_subset(string = names(d),
+           pattern = "[:digit:]")
+
+head(cols_with_number)
+```
+
+Wie viele Spalten sind das?
+
+```{r}
+length(cols_with_number)
+```
+
+Ganz schön viele!
+
+
+Jetzt schneiden wir den hinteren Teil von jedem Spaltennamen ab, dort, wo die Zahl beginnt.
+
+```{r}
+unique_names <- 
+str_remove(string = names(d),
+           pattern = "_[:digit:].*") |> 
+  unique()
+
+unique_names
+```
+
+Man beachte den Unterstrich; danach darf eine oder mehrere Zahlen kommen und danach irgendwelche beliebige Zeichen.
+
+
+
+### 4
+
+Anteil der fehlenden Werte:
+
+
+```{r}
+mean(is.na(d))
+```
+
+
+Also ca. 24%.
+
+Aber stimmt das wirklich?
+
+
+```{r}
+d_small <- 
+d |> 
+  select(1:100)
+  
+d_small |> 
+  summarise_all(~ mean(is.na(.)))
+```
+
+Oder so (modernerer Stil):
+
+```{r}
+d_small |> 
+summarise(across(everything(), ~ mean(is.na(.))))
+```
+
+
+Schauen wir uns z.B. die Spalte `actionDetails_0_timeSpentPretty` an:
+
+```{r}
+d$actionDetails_0_timeSpentPretty
+```
+
+Es gibt viele leere Werte, also `""`, die aber *nicht* als `NA` gezählt werden.
+Jetzt könnte man diskutieren, ob es wirklich keine `NA`s sind, sondern *gewollt* leere Werte.
+Aber vermutlich ist es besser, sie auch als "fehlend" und damit als `NA` zu zählen.
+
+
+Formatieren wir also alle leeren Strings (`""`) als NA:
+
+
+```{r}
+d_with_true_nas <-
+  d |> 
+   mutate(across(where(is.character), ~ na_if(., "")))
+```
+
+
+
+Base-R ist hier prägnanter:
+
+```{r}
+d_with_true_nas2 <-
+  d
+
+d_with_true_nas2[d_with_true_nas2 == ""] <- NA
+```
+
+
+check, ob das gleiche Ergebnis in beiden Operation herauskommt:
+
+```{r}
+identical(d_with_true_nas, d_with_true_nas2)
+```
+
+
+
+Zählen wir also nochmal die NAs:
+
+
+
+```{r}
+mean(is.na(d_with_true_nas))
+```
+
+
+
+Bonus:
+
+Machen wir eine Funktion daraus:
+
+
+```{r}
+transform_to_true_NAs <- function(df) {
+  df[df == ""] <- NA
+  return(df)
+}
+```
+
+
+
+Check:
+
+```{r}
+d_with_true_nas3 <- transform_to_true_NAs(d)
+
+identical(d_with_true_nas3, d_with_true_nas2)
+```
+
+Läuft!
+
