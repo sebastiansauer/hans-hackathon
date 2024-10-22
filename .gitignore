@@ -18,7 +18,9 @@ _targets.R
 _freeze/
 _extensions/
 *_cache/
-_site/
+#_site/
+*_files/
+.quarto/
 
 
 # playing around:
