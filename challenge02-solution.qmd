@@ -35,21 +35,37 @@ library(tidypolars)
 Wir definieren die Liste der zu importierenden CSV-Dateien:
 
 ```{r}
-datafiles_list <- list.files(path = paste0(here(),"/", "data-processed/data-raw-no-sensitive"),
+datafiles_list <- list.files(path = paste0(here(),"/",
+                                           "data-processed/data-raw-no-sensitive"),
                              pattern = "csv$",
                              full.names = TRUE)
-
 ```
 
 
 Und dann importieren wir die CSV-Dateien und "binden" sie "zeilenweise" in einen großen, Gesamt-Data-Frame:
 
 ```{r}
-tic()
+tic()  # `tictoc`
 d <- 
 datafiles_list |> 
-  map_dfr(read.csv, .id = "file_id")  # dauert etwas...
+  map_dfr(read.csv)  # dauert etwas...
 toc()
+```
+
+"Funktionales Programmieren" ist ein Paradigma, das in R gut umsetzbar ist.
+
+
+
+Ein "klassischer" Ansatz wäre eine For-Schleife,
+ungefähr so:
+
+```{r}
+#| eval: false
+
+out <- list()
+for (i in 1:length(datafiles_list)) {
+ out[[i]] <- read.csv(datafiles_list[i]) 
+}
 ```
 
 
@@ -140,21 +156,58 @@ d_small |> glimpse()  # Blick reinwerfen
 
 
 
-### 1 - Polars
+### 1 - höhere Performanz
 
-Mit [`polars`](https://ddotta.github.io/cookbook-rpolars/) kann man saftige Performanz-Vorteile erzielen.
+#### `read_csv` aus `readr`
+
+```{r}
+#| error: true
+tic()  # `tictoc`
+d <- 
+datafiles_list |> 
+  map_dfr(read_csv)  # dauert etwas...
+toc()
+```
+
+Leider mit einem Fehler, weil die Spalte "timespentpretty" einmal als Text und einmal als Zahl interpretiert wird.
+
+Hm, vielleicht so:
+
+
+```{r}
+#| error: true
+tic()  # `tictoc`
+d <- 
+datafiles_list |> 
+  map_dfr(read_csv,
+          col_types = cols(actionDetails_6_timeSpentPretty = col_character()))  # dauert etwas...
+toc()
+```
+
+Aucht nicht... Wir könnten alle relevanten Spalten suchen und mit `col_character` umwandeln.
+Aber probieren wir stattdessen noch etwas anderes.
+
+
+#### `data.table`
+
+```{r}
+#| error: true
+
+library(data.table)
+tic()  # `tictoc`
+d <- 
+datafiles_list |> 
+  map_dfr(fread)  # importiert Datendateien schnell
+toc()
+```
+
+Super schnell! Yeah! Faktor *14*!
+
+Mit [`polars`](https://ddotta.github.io/cookbook-rpolars/) kann man (vielleicht) auch saftige Performanz-Vorteile erzielen.
 Es gibt auch eine [`tidypolars`-Erweiterung](https://tidypolars.etiennebacher.com/), die die `tidyverse`-Syntax auf `polars`-Data-Frames anwendet.
 
 
-Dazu bietet es sich vielleicht an,
-mit einem Dataframe zu starten:
 
-```{r}
-d_polars <- 
-tibble(
-  datafiles = datafiles_list
-)
-```
 
 
 
@@ -177,6 +230,7 @@ Echte NAs:
 ```{r na-if}
 d_with_true_nas <-
   d |> 
+   mutate(across(where(is.factor), as.character)) |> # Faktoren in Strings/Charaketer umwandeln
    mutate(across(where(is.character), ~ na_if(., "")))
 ```
 
@@ -207,7 +261,7 @@ d_with_true_nas_small <-
 
 
 ```{r}
-vis_dat(d_with_true_nas_small)
+vis_dat(d_with_true_nas_small)  # aus `visdat`
 ```
 
 Hm, sieht ja gar nicht nach so vielen NAs aus...
@@ -241,7 +295,7 @@ Was sagt uns dieser Befund?
 ```{r rm-empty}
 d_no_empty_cols_no_empty_rows <-
   d_with_true_nas |> 
-  remove_empty(which = c("rows", "cols"))
+  remove_empty(which = c("rows", "cols"))  # aus `janitor`
 ```
 
 
