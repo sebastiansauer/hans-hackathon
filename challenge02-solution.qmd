@@ -26,6 +26,8 @@ library(visdat)
 library(janitor)
 library(writexl)
 library(tictoc)  # Zeitmessung
+library(polars)
+library(tidypolars)
 ```
 
 ### 1
@@ -96,6 +98,7 @@ Die Tilde-Notation `~` ist eine Kurzschreibweise für eine Funktion.
 Man könnte also auch schreiben:
 
 ```{r map-meine-funktion}
+#| eval: false
 meine_funktion <- function(x) {
   read.csv(x) |> 
     mutate(filename = basename(x))
@@ -134,6 +137,14 @@ d_small <-
 
 d_small |> glimpse()  # Blick reinwerfen
 ```
+
+
+
+### 1b
+
+Mit [`polars`](https://ddotta.github.io/cookbook-rpolars/) kann man saftige Performanz-Vorteile erzielen.
+Es gibt auch eine [`tidypolars`-Erweiterung](https://tidypolars.etiennebacher.com/), die die `tidyverse`-Syntax auf `polars`-Data-Frames anwendet.
+
 
 
 
