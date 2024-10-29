@@ -140,10 +140,23 @@ d_small |> glimpse()  # Blick reinwerfen
 
 
 
-### 1b
+### 1 - Polars
 
 Mit [`polars`](https://ddotta.github.io/cookbook-rpolars/) kann man saftige Performanz-Vorteile erzielen.
 Es gibt auch eine [`tidypolars`-Erweiterung](https://tidypolars.etiennebacher.com/), die die `tidyverse`-Syntax auf `polars`-Data-Frames anwendet.
+
+
+Dazu bietet es sich vielleicht an,
+mit einem Dataframe zu starten:
+
+```{r}
+d_polars <- 
+tibble(
+  datafiles = datafiles_list
+)
+```
+
+
 
 
 
