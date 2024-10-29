@@ -63,8 +63,10 @@ Punkte-Noten-Zuordnung:
 
 #### Hinweise
 
-- Wird eine Lösung für eine bestimmte Challenge nicht frist- und formgerecht eingereicht, so gilt sie als nicht eingereicht (0 Punkte).
-- Einzureichen ist ein reproduzierbares Dokument, das sowohl Text als auch R-Code und auch Ergebnisse des R-Codes beinhaltet.
+- Wird eine Lösung für eine bestimmte Challenge nicht *frist- und formgerecht eingereicht*, so gilt sie als nicht eingereicht (0 Punkte).
+- Einzureichen ist ein *reproduzierbares Dokument*, das sowohl Text als auch R-Code und auch Ergebnisse des R-Codes beinhaltet. Quarto-Dateien sind zum Erstellen dieser Ergebnisdokumente geeignet. Hochgeladen werden sollte aber ein PDF-Druck einer HTML-Seite oder ein Standalone-HTML-Dokument. (Da dann alle Bilder in der Datei enthalten sind und keine zusätzlichen Dateien hoch- bzw. runtergeladen werden müssen.)
+- Die *Bearbeitungszeit jeder Challenge ist jeweils eine Woche*,
+d.h. die Lösung muss bis zum jeweiligen Abgabetermin eingereicht werden. Der Abgabetermin ist der Vorabend des nächsten Unterrichtstermin. Beispiel: Der Unterricht findet wöchentlich am Dienstag statt. Die Challenge wird am heutige Dienstag besprochen und muss bis Montagabend der nächsten Woche eingereicht werden. Ausnahmen von dieser Regel (z.B. bei Feiertagen) werden rechtzeitig bekannt gegeben.
 
 
 ### Fachgespräch

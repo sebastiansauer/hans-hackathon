@@ -35,10 +35,12 @@ library(tidypolars)
 Wir definieren die Liste der zu importierenden CSV-Dateien:
 
 ```{r}
-datafiles_list <- list.files(path = paste0(here(),"/",
-                                           "data-processed/data-raw-no-sensitive"),
-                             pattern = "csv$",
-                             full.names = TRUE)
+data_folder <- "data-processed/data-raw-no-sensitive"
+
+datafiles_list <- 
+  list.files(path = paste0(here(), "/", data_folder),
+             pattern = "csv$",
+             full.names = TRUE)
 ```
 
 
@@ -208,6 +210,16 @@ Es gibt auch eine [`tidypolars`-Erweiterung](https://tidypolars.etiennebacher.co
 
 
 
+#### `polars`
+
+Leider beschwert sich `polar`,
+dass die CSV-Dateien nicht alle die gleiche Anzahl an Spalten haben.
+
+
+```{r pl-scan-csv}
+#| error: true
+pl$scan_csv(datafiles_list)
+```
 
 
 
