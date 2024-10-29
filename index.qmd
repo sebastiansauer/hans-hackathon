@@ -83,10 +83,16 @@ gt::gt(zeitplan)
 
 
 
-## Tipps
+## Hinweise
+
+
+:::{.callout-important}
+Prüfen Sie vor Beginn der ersten Challenge, ob Sie auf die Daten zugreifen können und diese einlesen können. $\square$
+:::
 
 
 - Chatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.
 - Wiederholen Sie die Grundlagen des Datenjudos.
 - Dieses Modul ist sehr angewandt; theoretische Konzepte stehen nicht im Vordergrund. Stattdessen geht es darum praktische Probleme zu lösen. In solchen Situationen geht Probieren über Studieren.
+
 

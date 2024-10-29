@@ -1,0 +1,291 @@
+
+
+
+# Lösung 02: Daten einlesen
+
+
+## Aufgaben
+
+
+{{< include children/challenge02-base.qmd >}}
+
+
+
+
+## Lösungen
+
+
+### Setup
+
+
+```{r}
+library(tidyverse)
+#library(stringr)  # Strings verarbeiten
+library(here)  # liest aktuelles Verzeichnis aus
+library(visdat)
+library(janitor)
+library(writexl)
+library(tictoc)  # Zeitmessung
+```
+
+### 1
+
+Wir definieren die Liste der zu importierenden CSV-Dateien:
+
+```{r}
+datafiles_list <- list.files(path = paste0(here(),"/", "data-processed/data-raw-no-sensitive"),
+                             pattern = "csv$",
+                             full.names = TRUE)
+
+```
+
+
+Und dann importieren wir die CSV-Dateien und "binden" sie "zeilenweise" in einen großen, Gesamt-Data-Frame:
+
+```{r}
+tic()
+d <- 
+datafiles_list |> 
+  map_dfr(read.csv, .id = "file_id")  # dauert etwas...
+toc()
+```
+
+
+Mit `.id` bekommt man eine laufende Nummer für jede eingehende CSV-Datei.
+
+
+Puh! Wenn man jetzt nicht 5 Tage, 
+sondern 100 oder 1000 oder 10000 Tage importieren müsste,
+hätte man ein echtes Perofrmanzproblem.
+Könnte man die Dteien nicht schneller einlesen?
+
+
+`map_XXX(list, fun)` wendet die Funktion `fun` auf jedes Element
+von `list` an. `map_dfr` ist eine spezielle Variante, die die
+Ergebnisse in einem Data-Frame zusammenführt und zwar zeilenweise (row),
+daher `_dfr`.
+
+
+
+
+Check:
+
+
+```{r}
+d_small <-
+  d |> 
+  select(1:50)
+
+d_small |> glimpse()
+```
+
+
+Scheint zu passen.
+
+Alternativ kann man den Namen der Datei hinzufügen:
+
+```{r map-dfr}
+d <- 
+datafiles_list |> 
+  map_dfr(~ read.csv(.x) |> 
+            mutate(filename = basename(.x)))  # dauert etwas ...
+```
+
+
+Die Tilde-Notation `~` ist eine Kurzschreibweise für eine Funktion.
+Man könnte also auch schreiben:
+
+```{r map-meine-funktion}
+meine_funktion <- function(x) {
+  read.csv(x) |> 
+    mutate(filename = basename(x))
+}
+
+
+datafiles_list |> 
+  map_dfr(meine_funktion)
+```
+
+
+Exkurs: Noch etwas Erklärung zu `map`.
+`map` ist eine Art von "Schleife": 
+Die darauf bezogene Funktion wird für jedes Element der Liste ausgeführt.
+Im folgenden Beispiel wird die Funktion `basename` auf jedes Element der Liste `datafiles_list` angewendet,
+also der Dateiname ohne Pfad zurückgegeben.
+
+
+```{r}
+datafiles_list |> 
+  map(basename)
+```
+
+
+
+
+
+Check:
+
+
+```{r}
+d_small <-
+  d |> 
+  select(filename, everything()) |>  # `filename` nach vorne ziehen
+  select(1:50)
+
+d_small |> glimpse()  # Blick reinwerfen
+```
+
+
+
+### 2
+
+
+Anteil NAs:
+
+
+```{r}
+mean(is.na(d))
+```
+
+
+Echte NAs:
+
+```{r na-if}
+d_with_true_nas <-
+  d |> 
+   mutate(across(where(is.character), ~ na_if(., "")))
+```
+
+Diese Syntax heißt sinngemäß auf Deutsch:
+
+- Hey R, nimm den Datensatz `d`
+- transformiere durch alle Spalte, wo der Typ der Spalte "Text" ist wie folgt:
+- Setze `NA` wenn der Wert in der jeweiligen Zelle `""` ist, also ein leerer Text
+
+
+
+```{r}
+mean(is.na(d_with_true_nas))
+```
+
+Puh! Das ist ein großer Anteil.
+
+
+
+Prüfen wir das lieber noch einmal.
+
+
+```{r}
+d_with_true_nas_small <-
+  d_with_true_nas |> 
+  select(1:100)
+```
+
+
+```{r}
+vis_dat(d_with_true_nas_small)
+```
+
+Hm, sieht ja gar nicht nach so vielen NAs aus...
+
+
+Vielleicht kommen die NAs erst weiter hinten?
+
+```{r}
+d_with_true_nas_small <-
+  d_with_true_nas |> 
+  select(3500:3700)
+```
+
+
+
+```{r}
+vis_dat(d_with_true_nas_small)
+```
+
+
+
+Tatsächlich!
+
+Was sagt uns dieser Befund?
+
+
+
+### 3
+
+
+```{r rm-empty}
+d_no_empty_cols_no_empty_rows <-
+  d_with_true_nas |> 
+  remove_empty(which = c("rows", "cols"))
+```
+
+
+Check:
+
+```{r}
+dim(d_with_true_nas)
+```
+
+
+```{r}
+dim(d_no_empty_cols_no_empty_rows)
+```
+
+Ein paar Spalten haben wir eingespart.
+
+Es würde Sinn machen, sich diese komplett leeren Spalten näher anzuschauen. Warum sind sie überhaupt enthalten?
+
+
+### 4
+
+Das Paket `janitor` verrichtet "Hausmeisterarbeit" der Datenanalyse, wie etwa das Entfernen von konstanten Spalten.
+
+
+
+```{r}
+d_no_constants <- 
+  d_no_empty_cols_no_empty_rows |> 
+  remove_constant(quiet = FALSE)  # aus `janitor`
+```
+
+Es bietet sich an, dass Ergebnis, `d_no_constants` abzuspeichern, um damit dann später wieder weiterzuarbeiten.
+
+Man kann es als CSV-Datei abspeichern:
+
+
+```{r write-csv}
+#| eval: false
+write.csv(d_no_constants, "data-processed/d_no_constants.csv")
+```
+
+
+Oder als R-Datendatei:
+
+
+```{r write-rds}
+#| eval: false
+write_rds(d_no_constants, "data-processed/d_no_constants.rds")
+```
+
+
+
+Oder als Excel-Datei:
+
+```{r write-xlsx}
+#| eval: false
+writexl::write_xlsx(d_no_constants, "data-processed/d_no_constants.xlsx")
+```
+
+
+### 5
+
+Eine (große) Menge an Tabellen zu einer Master-Exceltabelle zusammenzufügen ist schwierig.
+Mit einem Copy-Paste-Ansatz ist es nicht gesichert, dass die richtigen Spalten untereinander gesetzt werden, zumindest prüft es Excel nicht.
+Bei großen Tabellen wird die Sache unpraktisch (viel Scrollen) und langsam.
+
+Schließlich -- vielleicht am wichtigsten -- ist das händische Vorgehen mit Excel nicht reprodzierbar.
+Es ist also nicht präzise zu beschreiben, was man (genau) gemacht hat. Daher fällt es auch schwierig, Fehler zu finden und den Prozess zu verbessern. Eine klare Kommunikation über das Vorgehen ist kaum möglich.
+
+
+

@@ -1,14 +1,6 @@
----
-title: "Challenge 01 -- Solution"
-format: html
-author: Sebastian Sauer
-date: today
-number-sections: true
----
 
 
-
-# Daten verstehen
+# Lösung 01: Daten verstehen
 
 
 ## Aufgaben
