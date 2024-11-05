@@ -1,5 +1,11 @@
 
+**Targets-Pipeline**
 
 
 1. Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.
 2. Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.
+
+
+Tipp: Lesen Sie sich die [Targets-Dokumentation](https://books.ropensci.org/targets/) durch.
+Diese [Präsentation](https://wlandau.github.io/targets-tutorial/#1) gibt einen guten Überblick über die Funktionsweise von Targets.
+
