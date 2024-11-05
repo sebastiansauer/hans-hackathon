@@ -1,0 +1,186 @@
+---
+title: "Challenge 03 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+---
+
+
+
+# Daten verstehen
+
+
+## Aufgaben
+
+
+{{< include ../children/challenge03-base.qmd >}}
+
+
+
+## Lösungen
+
+
+### Setup
+
+
+```{r}
+library(tidyverse)
+#library(stringr)  # Strings verarbeiten
+library(here)  # liest aktuelles Verzeichnis aus
+library(lubridate)  # Mit Zeitangaben arbeiten
+```
+
+
+
+
+Wir laden den Datensatz, wie im letzten Schritt herausgegangen:
+
+```{r}
+#| eval: true
+d <- read_rds(file = paste0(here(), "/", "data-processed/d_no_constants.rds"))
+```
+
+
+
+### 1
+
+
+Was waren nochmal die uniquen Spaltennamen?
+
+Puh, am besten (?) wir berechnen diese noch einmal:
+
+```{r}
+unique_names <- 
+str_remove(string = names(d),
+           pattern = "_[:digit:].*") |> 
+  unique()
+
+unique_names
+```
+
+
+Betrachtet man die Spalten, und fragt sich, was die Nutzer denn so machen, so erscheinen die Spalten mit `subtitle` im Namen als besonders aussagekräftig. 
+Allerdings könnten auch die Zeit-Informationen interessant sein: `serverDate` etc.
+
+
+Begrenzen wir uns hier erstmal auf `subtitle` und Zeitangaben `timestamp`.
+
+
+### 2
+
+
+```{r}
+d_only_subtitles_and_timestamps <-
+  d |> select(idVisit, contains("subtitle"), contains("timestamp"))
+```
+
+
+Schon deutlich (etwas) übersichtlicher.
+
+
+### 3
+
+
+Schauen wir uns die ersten Werte vom ersten Zeitstamp an:
+
+```{r}
+d_only_subtitles_and_timestamps$actionDetails_0_timestamp |> as.numeric() |> head()
+```
+
+Hm, und wenn wir einfach die Spalte nehmen und sagen du erscheinst jetzt gefälligst *als Datums-/Zeitangabe*?
+
+Also `as_datetime`? 
+
+Probieren wir's:
+
+
+```{r}
+d_only_subtitles_and_timestamps |> 
+  select(actionDetails_0_timestamp) |> 
+  mutate(actionDetails_0_timestamp = as_datetime(actionDetails_0_timestamp)) |> 
+  head()
+```
+
+Yeah, klapp!
+
+Das machen wir mit allen Zeitangaben:
+
+```{r}
+d_time_repaired <- 
+d_only_subtitles_and_timestamps |> 
+   mutate(across(contains("timestamp"), ~ as_datetime(as.numeric(.x))))
+```
+
+
+
+Check:
+
+```{r}
+d_check <- 
+d_time_repaired |> 
+  select(contains("timestamp")) |> 
+  select(1:50) 
+
+d_check |> 
+  head()
+```
+
+Passt!
+
+
+
+### 4
+
+Haben wir schon automatisch oben miterledigt.
+
+
+
+### 5
+
+Hm, wo ist diese Information? Ah, in den URLs ist sie versteckt...
+
+
+Schauen Sie mal z.B. hier:
+
+
+```{r}
+d_time_repaired |> 
+  select(actionDetails_0_subtitle) |> 
+  filter(str_detect(actionDetails_0_subtitle, "developer")) 
+```
+
+
+Analog für `Admins` und `Lecturer`: 
+
+```{r}
+d_time_repaired |> 
+  select(actionDetails_0_subtitle) |> 
+  filter(str_detect(actionDetails_0_subtitle, "lecturer")) 
+```
+
+
+Diese Zeilen sollen (wollen?) wir also entfernen:
+
+
+```{r}
+d_students_only <-
+d_time_repaired |> 
+  filter(!str_detect(actionDetails_0_subtitle, "developer|lecturer|admin")) 
+
+```
+
+
+
+
+## Fazit
+
+Speichern wir das resultierende Objekt ab, damit wir für künftige Aufgaben damit weiterarbeiten können.
+
+
+```{r}
+#| eval: false
+write_rds(d_students_only, "data-processed/d_no_students.rds")
+write_csv(d_students_only, "data-processed/d_no_students.csv")
+```
+
