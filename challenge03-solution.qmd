@@ -14,7 +14,7 @@ number-sections: true
 ## Aufgaben
 
 
-{{< include ../children/challenge03-base.qmd >}}
+{{< include children/challenge03-base.qmd >}}
 
 
 
@@ -64,10 +64,13 @@ Betrachtet man die Spalten, und fragt sich, was die Nutzer denn so machen, so er
 Allerdings könnten auch die Zeit-Informationen interessant sein: `serverDate` etc.
 
 
-Begrenzen wir uns hier erstmal auf `subtitle` und Zeitangaben `timestamp`.
-
-
 ### 2
+
+Begrenzen wir uns hier daher erstmal auf `subtitle` und Zeitangaben `timestamp`.
+Die übrigen Spalten entfernen wir fürs Erste (s. der folgende Abschnitt).
+
+
+### 3
 
 
 ```{r}
@@ -79,7 +82,7 @@ d_only_subtitles_and_timestamps <-
 Schon deutlich (etwas) übersichtlicher.
 
 
-### 3
+### 4
 
 
 Schauen wir uns die ersten Werte vom ersten Zeitstamp an:
@@ -98,7 +101,7 @@ Probieren wir's:
 ```{r}
 d_only_subtitles_and_timestamps |> 
   select(actionDetails_0_timestamp) |> 
-  mutate(actionDetails_0_timestamp = as_datetime(actionDetails_0_timestamp)) |> 
+  mutate(actionDetails_0_timestamp = as_datetime(actionDetails_0_timestamp)) |>  # aus `lubridate`
   head()
 ```
 
@@ -130,13 +133,13 @@ Passt!
 
 
 
-### 4
+### 5
 
 Haben wir schon automatisch oben miterledigt.
 
 
 
-### 5
+### 6
 
 Hm, wo ist diese Information? Ah, in den URLs ist sie versteckt...
 
@@ -170,6 +173,8 @@ d_time_repaired |>
 
 ```
 
+
+Der vertikale Balken `|` steht für das logische "Oder" in Regex.
 
 
 
