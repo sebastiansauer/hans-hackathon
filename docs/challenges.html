@@ -225,7 +225,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">5. November 2024</p>
+      <p class="date">6. November 2024</p>
     </div>
   </div>
   
@@ -253,11 +253,12 @@ div.csl-indent {
 <h2 data-number="2" class="anchored" data-anchor-id="daten-einlesen"><span class="header-section-number">2</span> Daten einlesen</h2>
 <p><strong>Daten einlesen</strong></p>
 <ol type="1">
-<li>Importieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.</li>
-<li>Wandeln Sie leere Strings in NAs um (für alle Spalten).</li>
-<li>Entfernen Sie alle leeren Zeilen und Spalten.</li>
-<li>Entfernen Sie alle konstanten Zeilen und Spalten.</li>
-<li>Überlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.</li>
+<li><em>Importieren</em> Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.</li>
+<li>Wandeln Sie <em>leere Strings in NAs</em> um (für alle Spalten).</li>
+<li>Entfernen Sie alle <em>leeren Zeilen und Spalten</em>.</li>
+<li>Entfernen Sie alle <em>konstanten Zeilen und Spalten</em>.</li>
+<li>Entfernen Sie alle <em>redundanten Zeilen und Spalten</em>, d.h. Duplikate, also sich wiederholende Zeilen und Spalten.</li>
+<li>Überlegen Sie die <em>Vor- und Nachteile</em>, wenn Sie diese Aufgaben mit <em>Excel</em> lösen würden.</li>
 <li>Exportieren Sie die Datentabelle als Excel-Datei. Prüfen Sie dann die Excel-Datei; fällt Ihnen etwas Besonderes auf?</li>
 </ol>
 </section>
@@ -268,7 +269,7 @@ div.csl-indent {
 <ol type="1">
 <li>Welche Spalten halten Sie für nicht relevant, um das Nutzerverhalten besser zu verstehen?. Begründen Sie die Auswahl.</li>
 <li>Entfernen Sie redundante Spalten (nach eigenem Ermessen und mit Begründung).</li>
-<li>Behalten Sie - neben allgemeinen Informationen zum Nutzer - nur die Spalten mit <code>subtitle</code> im Namen.</li>
+<li>Behalten Sie - neben allgemeinen Informationen zum Nutzer - nur die Spalten mit <code>subtitle</code> und <code>timestamp</code> im Namen.</li>
 <li>Reparieren Sie die Spalten mit Datumsangaben.</li>
 <li>Entfernen Sie Spalten, die Bilddaten enthalten.</li>
 <li>Entfernen Sie Zeilen, die Daten von Admins, Developern oder <code>lecturer</code>s enthalten.</li>
@@ -279,20 +280,23 @@ div.csl-indent {
 <p><strong>Datensatz pivotieren</strong></p>
 <p>Aufbauend auf dem Ergebnis der letzten Challenge:</p>
 <ol type="1">
-<li>Listen Sie die Spaltennamen auf.</li>
-<li>Geben Sie Arten von Spaltennamen an, z.b. <code>actionDetails_482_timestamp</code> und <code>actionDetails_327_subtitle</code> und <code>actionDetails_327_timestampe</code> wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</li>
-<li>Pivotieren Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
-<li><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen <code>subtitle</code> sowie <code>idvisit</code>. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
-<li>Prüfen Sie, ob es stimmt, dass in der Spalte <code>name</code> die enthaltene Zahl die einzige Information ist. Anders gesagt: Außer der Zahl in den Werten <code>name</code> sind alle Teile der Werte konstant.</li>
-<li>Die Spalten, die die Werte wie <code>actionDetails_0_subtitle</code> nennen Sie in <code>id</code> um. Aus den Werten (wie <code>actionDetails_0_subtitle</code>) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).</li>
+<li><p>Listen Sie die <em>Spaltennamen</em> auf.</p></li>
+<li><p>Geben Sie <em>Arten von Spaltennamen</em> an, z.b. <code>actionDetails_482_timestamp</code> und <code>actionDetails_327_subtitle</code> und <code>actionDetails_327_timestampe</code> wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</p></li>
+<li><p><em>Pivotieren</em> Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf <code>idvisit</code> in das Pivotiren auf. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
+<li><p><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ <code>subtitle</code> sowie <code>idvisit</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen.</p></li>
+<li><p>Prüfen Sie, ob es stimmt, dass in der Spalte <code>name</code> die enthaltene Zahl die einzige Information ist. Anders gesagt: Außer der Zahl in den Werten <code>name</code> sind alle Teile der Werte konstant.</p></li>
+<li><p>Die Spalten, die die Werte wie <code>actionDetails_0_subtitle</code> nennen Sie in <code>id</code> um. Aus den Werten (wie <code>actionDetails_0_subtitle</code>) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).</p></li>
 </ol>
+<p>Tipp: <code>pivot_longer</code> aus dem Paket <code>tidyr</code> könnte hilfreich sein.</p>
 </section>
 <section id="projektmanagement" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="projektmanagement"><span class="header-section-number">5</span> Projektmanagement</h2>
+<p><strong>Targets-Pipeline</strong></p>
 <ol type="1">
 <li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
 <li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
+<p>Tipp: Lesen Sie sich die <a href="https://books.ropensci.org/targets/">Targets-Dokumentation</a> durch. Diese <a href="https://wlandau.github.io/targets-tutorial/#1">Präsentation</a> gibt einen guten Überblick über die Funktionsweise von Targets.</p>
 </section>
 <section id="verweildauer" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="verweildauer"><span class="header-section-number">6</span> Verweildauer</h2>
@@ -342,12 +346,12 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. <em>R for 
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenges im Überblick},
-  date = {2024-11-05},
+  date = {2024-11-06},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Sauer, Sebastian. 2024. <span>“Challenges im Überblick.”</span> November
-5, 2024.
+6, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
