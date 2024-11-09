@@ -1,0 +1,11 @@
+name|type|data|command|depend|seed|path|time|size|bytes|format|repository|iteration|parent|children|seconds|warnings|error
+add_id_col|stem|725cc41d6899863e|4c27b731c00126c7|ca1ad7e844089c10|177105396||t20036.529589434s|fe83139435480f08|60776|rds|local|vector|||0.042||
+d_long|stem|46ca11d9c60e660e|fa3d990cb259c7fd|c5ffe732cd5bcf74|989470581||t20036.5229856005s|484e1c759db17ff4|86433|rds|local|vector|||0.067||
+data_files_list|stem|bf695fadec478af0|b34e135d1e3b84b9|2c530c1562a7fbd1|-528119957|data-processed/data-raw-no-sensitive/matomo_export_2024-05-27.csv*data-processed/data-raw-no-sensitive/matomo_export_2024-05-28.csv*data-processed/data-raw-no-sensitive/matomo_export_2024-05-29.csv*data-processed/data-raw-no-sensitive/matomo_export_2024-05-30.csv*data-processed/data-raw-no-sensitive/matomo_export_2024-05-31.csv*data-processed/data-raw-no-sensitive/matomo_export_2024-06-01.csv*data-processed/data-raw-no-sensitive/matomo_export_2024-06-02.csv*data-processed/data-raw-no-sensitive/matomo_export_2024-06-03.csv|t19969.3057688161s|6b5394ebc2e52713|7735646|file|local|vector|||0.144||
+df_subtitles_timestamps|stem|70ebeb3c5826cd62|eae280e9c3394824|4ac8e7400c5cabb8|1701844093||t20036.5229799815s|0001773f7c48b9e5|87095|rds|local|vector|||0.056||
+one_df|stem|1780f22b11f855b6|8e4909184c6fb57f|7abc03d1440ff1bc|382334564||t20036.5229675965s|2ebf765e78fc44da|546015|rds|local|vector|||19.689||
+repair_dttm|stem|29600908978945b5|0cc0730387010ed4|d6dd6f282e34bdba|-864056193||t20036.5229821605s|4892978a98646322|91518|rds|local|vector|||0.146||
+rm_constants|stem|eba630d816a6802e|bfdf26802e7d829e|91ceb22fbcf8ccec|-1208390986||t20036.5229789394s|f9bbf25e03d5bb00|544903|rds|local|vector|||0.122||
+rm_empty|stem|501fdc241db4a003|f22cd8f8dcb3f8e9|49820a42f94fb62d|615055421||t20036.5229743801s|5f09cdf5b6ff608f|545230|rds|local|vector|||0.332||
+rm_lecturers_admins|stem|2003d1b8001f9e37|c26cbced287424e8|9b5723061295543f|-249464814||t20036.5229839149s|04ddf83c7a7ad027|89121|rds|local|vector|||0.113||
+write_xlsx|stem|a1bbbf17d4785cb5|52f1478d7130a40a|c5ffe732cd5bcf74|900156019||t20036.5295858485s|de65cec3ae558fa1|142|rds|local|vector|||0.084||
