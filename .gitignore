@@ -22,6 +22,8 @@ _extensions/
 *_files/
 .quarto/
 
+# built objects:
+_targets/
 
 # playing around:
 _archive/

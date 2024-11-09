@@ -1,0 +1,6 @@
+challenge06-solution:
+  script: solutions/challenge06-solution.R
+  store: challenge06-solution.R
+challenge05-solution:
+  script: solutions/challenge05-solution.R
+  store: challenge05-solution.R
