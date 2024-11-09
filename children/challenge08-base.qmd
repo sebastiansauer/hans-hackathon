@@ -1,3 +1,7 @@
-1. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.
-2. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.
-3. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.
+
+
+**Interaktion mit dem LLM**
+
+1. Wie oft wird (pro Monat) ein `AI transcript` angefordert?
+2. Wie oft wird (pro Monat) mit dem LLM interagiert?
+3. Welcher Anteil der Besucher (`visitors`) interagiert mit dem LLM?

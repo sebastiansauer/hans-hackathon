@@ -1,6 +1,14 @@
 
+**Verweildauer**
 
 
-1. Wie oft wird (pro Monat) ein `AI transcript` angefordert?
-2. Wie oft wird (pro Monat) mit dem LLM interagiert?
-3. Welcher Anteil der Besucher (`visitors`) interagiert mit dem LLM?
+Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung. 
+
+
+3. Wieviel Zeit verbringen die Nutzer pro Visit?
+3. Wie viele Aktionen führen die Nutzer pro Visit aus?
+3. An welchen Tagen und zu welcher Zeit kommen die User zu HaNS?
+3. An welchen Wochentagen wird die Seite bevorzugt besucht?
+4. Zu welchen Zeiten wird die Seite bevorzugt besucht?
+5. Geben Sie den Zeitraum der Nutzung an (von ... bis ...).
+6. Geben Sie den Zeitraum seit der letzten Nutzung an.

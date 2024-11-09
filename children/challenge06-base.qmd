@@ -1,31 +1,24 @@
 
 
 
-**Verweildauer**
+**Großer Datensatz**
 
+Arbeiten Sie mit Ihrer Pipeline weiter:
 
-1. Importieren Sie die zusätzlichen Daten; lassen Sie die Pipeline auf dieser Basis neu laufen. 
-
-Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung. 
-Nur für die folgenden Aufgaben dieser Challenge ist es nötig, einen (Quarto-)Bericht zu erstellen.
-
+1. Importieren Sie die zusätzlichen (neu eingestellten) Daten; lassen Sie die Pipeline auf dieser Basis neu durchlaufen. 
 2. Gab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?
-
-Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung. 
-
-
-3. Wie viele Aktionen führen die Nutzer pro Visit aus?
-3. Wieviel Zeit verbringen die Nutzer pro Visit?
-3. An welchen Wochentagen wird die Seite bevorzugt besucht?
-4. Zu welchen Zeiten wird die Seite bevorzugt besucht?
-5. Geben Sie den Zeitraum der Nutzung an (von ... bis ...).
-6. Geben Sie den Zeitraum seit der letzten Nutzung an.
+3. Wie viel Rechenzeit hat die Pipeline beansprucht?
+2. Stellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.
+3. Fügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.
+4. Im Quarto-Bericht schreiben Sie, wie viele Visits Ihre Datensatz umfasst.
+5. Schreiben Sie außerdem im Quarto-Bericht, wie viele Aktionen pro Visits statfinden. Berichten Sie relevante Statistiken und visualisieren Sie die Daten.
 
 
 
 Tipps: 
 
 - `fread` aus `data.table` ist ähnlich zu `read.csv`, aber schneller.
+- Bei Problemen während des Importieren kann es zu Problemen kommen, wenn die Spaltentypen der CSV-Dateien als unterschiedlich erkannt werden. Ein Workaround ist es, alle Spalten auf Typ "character" zu setzen. Funktionen wie `fread` und `read_csv` bieten dafür einen Parameter.
 - `rbindlist` aus `data.table` ist ähnlich zu `rbind`, was von `map_dfr` aufgerufen wird, aber schneller und weniger streng,
 produziert also weniger Fehlermeldungen (was von Vorteil, aber auch von Nachteil sein kann).
 - Wenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.
