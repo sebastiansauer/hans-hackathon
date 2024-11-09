@@ -1,6 +1,32 @@
 
 
-1. Wie viele Aktionen führen die Nutzer pro Visit aus?
-2. Wieviel Zeit verbringen die Nutzer pro Visit?
+
+**Verweildauer**
+
+
+1. Importieren Sie die zusätzlichen Daten; lassen Sie die Pipeline auf dieser Basis neu laufen. 
+
+Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung. 
+Nur für die folgenden Aufgaben dieser Challenge ist es nötig, einen (Quarto-)Bericht zu erstellen.
+
+2. Gab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?
+
+Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung. 
+
+
+3. Wie viele Aktionen führen die Nutzer pro Visit aus?
+3. Wieviel Zeit verbringen die Nutzer pro Visit?
 3. An welchen Wochentagen wird die Seite bevorzugt besucht?
 4. Zu welchen Zeiten wird die Seite bevorzugt besucht?
+5. Geben Sie den Zeitraum der Nutzung an (von ... bis ...).
+6. Geben Sie den Zeitraum seit der letzten Nutzung an.
+
+
+
+Tipps: 
+
+- `fread` aus `data.table` ist ähnlich zu `read.csv`, aber schneller.
+- `rbindlist` aus `data.table` ist ähnlich zu `rbind`, was von `map_dfr` aufgerufen wird, aber schneller und weniger streng,
+produziert also weniger Fehlermeldungen (was von Vorteil, aber auch von Nachteil sein kann).
+- Wenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.
+- Wenn Sie Probleme mit der Performance haben, dann können Sie die Datenmenge reduzieren, indem Sie nur die ersten paar Dateien imporiteren. Kleinere Datenmengen sind auch für das Debuggen nützlich.
