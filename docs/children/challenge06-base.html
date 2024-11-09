@@ -170,12 +170,32 @@ ul.task-list li input[type="checkbox"] {
 
 
 
+<p><strong>Großer Datensatz</strong></p>
+<p>Auf Basis Ihrer Targets-Pipeline:</p>
 <ol type="1">
-<li>Wie viele Aktionen führen die Nutzer pro Visit aus?</li>
+<li>Importieren Sie die zusätzlichen Daten; lassen Sie die Pipeline auf dieser Basis neu laufen.</li>
+<li>Gab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?</li>
+<li>Stellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.</li>
+<li>Fügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.</li>
+<li>Im Quarto-Bericht schreiben Sie, wie viele Visits Ihre Datensatz umfasst.</li>
+</ol>
+<p>Für alle folgenden Aufgaben dieser Challenge: Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung.</p>
+<ol start="3" type="1">
 <li>Wieviel Zeit verbringen die Nutzer pro Visit?</li>
+<li>Wie viele Aktionen führen die Nutzer pro Visit aus?</li>
+<li>An welchen Tagen und zu welcher Zeit kommen die User zu HaNS?</li>
 <li>An welchen Wochentagen wird die Seite bevorzugt besucht?</li>
 <li>Zu welchen Zeiten wird die Seite bevorzugt besucht?</li>
+<li>Geben Sie den Zeitraum der Nutzung an (von … bis …).</li>
+<li>Geben Sie den Zeitraum seit der letzten Nutzung an.</li>
 </ol>
+<p>Tipps:</p>
+<ul>
+<li><code>fread</code> aus <code>data.table</code> ist ähnlich zu <code>read.csv</code>, aber schneller.</li>
+<li><code>rbindlist</code> aus <code>data.table</code> ist ähnlich zu <code>rbind</code>, was von <code>map_dfr</code> aufgerufen wird, aber schneller und weniger streng, produziert also weniger Fehlermeldungen (was von Vorteil, aber auch von Nachteil sein kann).</li>
+<li>Wenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.</li>
+<li>Wenn Sie Probleme mit der Performance haben, dann können Sie die Datenmenge reduzieren, indem Sie nur die ersten paar Dateien imporiteren. Kleinere Datenmengen sind auch für das Debuggen nützlich.</li>
+</ul>
 
 
 
