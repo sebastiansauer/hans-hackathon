@@ -22,6 +22,7 @@ _extensions/
 #_site/
 *_files/
 .quarto/
+docs/
 
 # built target objects:
 _targets/
@@ -30,7 +31,7 @@ challenge06/
 challenge07/
 challenge08/
 challenge09/
-
+mastersolution/
 
 # playing around:
 _archive/
