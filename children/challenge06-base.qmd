@@ -23,3 +23,8 @@ Tipps:
 produziert also weniger Fehlermeldungen (was von Vorteil, aber auch von Nachteil sein kann).
 - Wenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.
 - Wenn Sie Probleme mit der Performance haben, dann können Sie die Datenmenge reduzieren, indem Sie nur die ersten paar Dateien imporiteren. Kleinere Datenmengen sind auch für das Debuggen nützlich.
+
+
+
+Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).
+

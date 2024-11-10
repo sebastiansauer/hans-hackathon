@@ -16,3 +16,4 @@ Tipps:
 
 
 
+Ausgabeformat: R-Syntax (Targets-Pipeline).

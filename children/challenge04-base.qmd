@@ -23,3 +23,5 @@ Aufbauend auf dem Ergebnis der letzten Challenge:
 Tipp: `pivot_longer` aus dem Paket `tidyr` könnte hilfreich sein.
 
 
+
+Ausgabeformat: Quarto (Bericht)

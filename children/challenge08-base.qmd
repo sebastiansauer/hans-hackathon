@@ -5,3 +5,6 @@
 1. Wie oft wird (pro Monat) ein `AI transcript` angefordert?
 2. Wie oft wird (pro Monat) mit dem LLM interagiert?
 3. Welcher Anteil der Besucher (`visitors`) interagiert mit dem LLM?
+
+
+Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).

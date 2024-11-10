@@ -79,7 +79,9 @@ d.h. die Lösung muss bis zum jeweiligen Abgabetermin eingereicht werden. Der Ab
 
 ### Abgabeformat
 
-Reichen Sie Ihre Ergebnisse in Form eines Dokuments ein,
+
+Sofern das Ausgabeformat "Quarto" definiet ist, 
+reichen Sie Ihre Ergebnisse bitte in Form eines Dokuments ein,
 
 - das die *Lösung* der Challenge enthält,
 - das Ihren *Computer-Code* enthält (mit Syntax-Highlighting),
@@ -89,8 +91,16 @@ Reichen Sie Ihre Ergebnisse in Form eines Dokuments ein,
 - das in RMarkdown oder Quarto erstellt wurde,
 - das die *Grundlagen wissenschaftlichen Arbeitens* beachtet,
 - das "*Standalone*" lesbar ist, also keine Abhängigkeiten zu anderen Dokumenten benötigt
-- das als PDF- oder HTML-Datei formatiert ist.
+- das als *PDF*- oder *HTML*-Datei formatiert ist.
 
+
+Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte in Form eines R-Skripts ein, 
+
+- das die *Lösung* der Challenge enthält.
+- *reproduziearbar* ist
+- *durchläuft*, ohne Fehler zu werfen
+- *kommentiert* ist
+- wohl *gegliedert* ist
 
 
 ### Schöner Programmieren
@@ -181,6 +191,9 @@ Hilfe zur Funktion `remove_constant` erhält man mit `?remove_constant` (das zug
 
 
 Die Termine für das Fachgespräch liegen in der Prüfungszeit und werden rechtzeitig bekannt gegeben über geeignete Kanäle.
+
+Prüfungsgegenstand sind alle Inhalte aus dem Unterricht.
+Ein Schwwerpunkt liegt auf den Musterlösungen sowie den eigenen, selbsteingereichten Lösungen der Challenges.
 
 Weitere Hinweise zum Fachgespräch finden sich im [entsprechenden Kapitel im Hinweisbuch](https://hinweisbuch.netlify.app/045-hinweise-pruefung-fachgespraech-frame).
 

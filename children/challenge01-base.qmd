@@ -19,3 +19,6 @@ so hilft u.a. die Funktion `across`, die die Summarise-Operation "durch", "hinwe
 
 
 
+Ausgabeformat: Quarto (Bericht)
+
+

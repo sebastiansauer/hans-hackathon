@@ -4,3 +4,6 @@
 1. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.
 2. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.
 3. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.
+
+
+Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).
