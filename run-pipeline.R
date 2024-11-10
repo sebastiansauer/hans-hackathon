@@ -8,11 +8,12 @@ tar_make()
 
 
 # run manually:
+
 #tar_make(script = "challenges-solutions/challenge07-solution.R", store = "challenge06")
 # tar_make(script = "challenges-solutions/challenge06-solution.R", store = "challenge06")
 # tar_visnetwork(script = "challenges-solutions/challenge06-solution.R", store = "challenge06")
-tar_make(script = "challenges-solutions/challenge09-solution.R", store = "challenge09")
-
+#tar_make(script = "challenges-solutions/challenge09-solution.R", store = "challenge09")
+tar_make(script = "challenges-solutions/MASTER-solution-pipeline.R", store = "mastersolution")
 
 #tar_make(script = "challenges-solutions/challenge05-solution.R", store = "challenge05")
 
