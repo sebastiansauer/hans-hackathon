@@ -22,7 +22,7 @@ _extensions/
 #_site/
 *_files/
 .quarto/
-docs/
+
 
 # built target objects:
 _targets/

@@ -225,7 +225,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">6. November 2024</p>
+      <p class="date">10. November 2024</p>
     </div>
   </div>
   
@@ -294,33 +294,59 @@ div.csl-indent {
 <p><strong>Targets-Pipeline</strong></p>
 <ol type="1">
 <li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
+<li>Fügen Sie am Ende der Pipeline ein Target hinzu, dass den zentralen, resultierenden Dataframe als Excel-Datei exportiert (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
 <li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
-<p>Tipp: Lesen Sie sich die <a href="https://books.ropensci.org/targets/">Targets-Dokumentation</a> durch. Diese <a href="https://wlandau.github.io/targets-tutorial/#1">Präsentation</a> gibt einen guten Überblick über die Funktionsweise von Targets.</p>
+<p>Tipps:</p>
+<ul>
+<li>Lesen Sie sich die <a href="https://books.ropensci.org/targets/">argets-Dokumentation</a> durch.</li>
+<li>Diese <a href="https://wlandau.github.io/targets-tutorial/#1">Präsentation</a> gibt einen guten Überblick über die Funktionsweise von Targets.</li>
+<li>Nutzen Sie ggf. das Template für die Lösung dieser Challenge (liegt im Repo im Root-Folder).</li>
+</ul>
 </section>
 <section id="verweildauer" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="verweildauer"><span class="header-section-number">6</span> Verweildauer</h2>
+<p><strong>Großer Datensatz</strong></p>
+<p>Arbeiten Sie mit Ihrer Pipeline weiter:</p>
 <ol type="1">
-<li>Wie viele Aktionen führen die Nutzer pro Visit aus?</li>
-<li>Wieviel Zeit verbringen die Nutzer pro Visit?</li>
-<li>An welchen Wochentagen wird die Seite bevorzugt besucht?</li>
-<li>Zu welchen Zeiten wird die Seite bevorzugt besucht?</li>
+<li>Importieren Sie die zusätzlichen (neu eingestellten) Daten; lassen Sie die Pipeline auf dieser Basis neu durchlaufen.</li>
+<li>Gab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?</li>
+<li>Wie viel Rechenzeit hat die Pipeline beansprucht?</li>
+<li>Stellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.</li>
+<li>Fügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.</li>
+<li>Im Quarto-Bericht schreiben Sie, wie viele Visits Ihre Datensatz umfasst.</li>
+<li>Schreiben Sie außerdem im Quarto-Bericht, wie viele Aktionen pro Visits statfinden. Berichten Sie relevante Statistiken und visualisieren Sie die Daten.</li>
 </ol>
+<p>Tipps:</p>
+<ul>
+<li><code>fread</code> aus <code>data.table</code> ist ähnlich zu <code>read.csv</code>, aber schneller.</li>
+<li>Bei Problemen während des Importieren kann es zu Problemen kommen, wenn die Spaltentypen der CSV-Dateien als unterschiedlich erkannt werden. Ein Workaround ist es, alle Spalten auf Typ “character” zu setzen. Funktionen wie <code>fread</code> und <code>read_csv</code> bieten dafür einen Parameter.</li>
+<li><code>rbindlist</code> aus <code>data.table</code> ist ähnlich zu <code>rbind</code>, was von <code>map_dfr</code> aufgerufen wird, aber schneller und weniger streng, produziert also weniger Fehlermeldungen (was von Vorteil, aber auch von Nachteil sein kann).</li>
+<li>Wenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.</li>
+<li>Wenn Sie Probleme mit der Performance haben, dann können Sie die Datenmenge reduzieren, indem Sie nur die ersten paar Dateien imporiteren. Kleinere Datenmengen sind auch für das Debuggen nützlich.</li>
+</ul>
 </section>
 <section id="ki-verwendung" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="ki-verwendung"><span class="header-section-number">7</span> KI-Verwendung</h2>
-<ol type="1">
-<li>Wie oft wird (pro Monat) ein <code>AI transcript</code> angefordert?</li>
-<li>Wie oft wird (pro Monat) mit dem LLM interagiert?</li>
-<li>Welcher Anteil der Besucher (<code>visitors</code>) interagiert mit dem LLM?</li>
+<p><strong>Verweildauer</strong></p>
+<p>Für alle folgenden Aufgaben dieser Challenge: Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung.</p>
+<ol start="3" type="1">
+<li>Wieviel Zeit verbringen die Nutzer pro Visit?</li>
+<li>Wie viele Aktionen führen die Nutzer pro Visit aus?</li>
+<li>An welchen Tagen und zu welcher Zeit kommen die User zu HaNS?</li>
+<li>An welchen Wochentagen wird die Seite bevorzugt besucht?</li>
+<li>Zu welchen Zeiten wird die Seite bevorzugt besucht?</li>
+<li>Geben Sie den Zeitraum der Nutzung an (von … bis …).</li>
+<li>Geben Sie den Zeitraum seit der letzten Nutzung an.</li>
 </ol>
 </section>
 <section id="optimierung-der-pipeline" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="optimierung-der-pipeline"><span class="header-section-number">8</span> Optimierung der Pipeline</h2>
+<p><strong>Interaktion mit dem LLM</strong></p>
 <ol type="1">
-<li>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.</li>
-<li>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.</li>
-<li>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.</li>
+<li>Wie oft wird (pro Monat) ein <code>AI transcript</code> angefordert?</li>
+<li>Wie oft wird (pro Monat) mit dem LLM interagiert?</li>
+<li>Welcher Anteil der Besucher (<code>visitors</code>) interagiert mit dem LLM?</li>
 </ol>
 </section>
 <section id="glotzdauer" class="level2" data-number="9">
@@ -332,7 +358,10 @@ div.csl-indent {
 <section id="veränderung-des-nutzerverhaltens-im-zeitverlauf" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="veränderung-des-nutzerverhaltens-im-zeitverlauf"><span class="header-section-number">10</span> Veränderung des Nutzerverhaltens im Zeitverlauf</h2>
 <ol type="1">
-<li>Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.</li>
+<li><p>Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.</p></li>
+<li><p>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.</p></li>
+<li><p>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.</p></li>
+<li><p>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.</p></li>
 </ol>
 
 
@@ -346,12 +375,12 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. <em>R for 
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenges im Überblick},
-  date = {2024-11-06},
+  date = {2024-11-10},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Sauer, Sebastian. 2024. <span>“Challenges im Überblick.”</span> November
-6, 2024.
+10, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
