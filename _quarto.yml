@@ -2,7 +2,9 @@ project:
   type: website
   title: "Hans-Hackathon"
   output-dir: docs
-
+  render:
+    - "*.qmd"
+    - "!challenges-solutions/"
 
   # image: img/statistik1_icon.png
   # description:  "Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools 'HaNS'"
