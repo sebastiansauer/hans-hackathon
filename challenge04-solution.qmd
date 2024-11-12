@@ -1,0 +1,175 @@
+---
+title: "Challenge 04 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+---
+
+
+
+# Daten verstehen
+
+
+## Aufgaben
+
+
+{{< include children/challenge04-base.qmd >}}
+
+
+
+## Lösungen
+
+
+### Setup
+
+
+```{r}
+library(tidyverse)
+#library(stringr)  # Strings verarbeiten
+library(here)  # liest aktuelles Verzeichnis aus
+library(lubridate)  # Mit Zeitangaben arbeiten
+```
+
+
+
+Wir laden den Datensatz, wie im letzten Schritt herausgegangen:
+
+```{r}
+#| eval: true
+d <- read_rds(file = paste0(here(), "/", "data-processed/d_no_students.rds"))
+```
+
+
+
+### Spaltennamen und Anzahl
+
+
+```{r}
+names(d) |> 
+  head()
+```
+
+
+Es gibt **`r ncol(d)`** Spalten.
+
+
+
+### Spaltentypen
+
+```{r}
+names(d) |> 
+  str_extract("[^_]+$") |> 
+  unique() |> 
+  head()
+```
+
+
+
+
+
+### Pivotieren aller Spalten
+
+In das Langformat bringen wir alle Spalten, die nicht `idVisit` heißen.
+
+```{r}
+d_long <-
+  d |> 
+  mutate(across(everything(), as.character)) |> 
+  pivot_longer(-idVisit)
+```
+
+
+Check:
+
+```{r}
+tail(d_long, n = 100)
+```
+
+
+
+### Pivotieren, nur `subtitle`
+
+```{r}
+d_long_small <-
+  d |> 
+  select(idVisit, contains("subtitle")) |> 
+  mutate(across(everything(), as.character)) |> 
+  pivot_longer(-idVisit)
+```
+
+
+
+```{r}
+d_long_small |> 
+  head(10)
+```
+
+
+### Spalte `name` prüfen
+
+
+```{r}
+d_long_small |> 
+  select(name) |> 
+  mutate(name = str_remove(name, "\\d+")) |> 
+  distinct()
+```
+Es gibt keine anderen Informationen als die Zahl in dieser Spalte.
+
+
+
+### ID-Spalte erstellen
+
+
+```{r}
+d_long_small_id <- 
+d_long_small |> 
+  rename(id = name) |> 
+  mutate(id = str_extract(id, "\\d+"))
+
+
+head(d_long_small_id)
+```
+
+
+### Überblick über `value`
+
+
+```{r}
+d_long_small_id_values <- 
+d_long_small_id |> 
+  select(value) |> 
+  drop_na() |> 
+  pull(value)
+```
+
+
+Lieber nicht nach den uniquen Werten fragen,
+es sind sehr viele, das dauert...
+
+
+```{r}
+#| eval: false
+unique(d_long_small_id_values)
+```
+
+
+
+
+### Fazit
+
+
+
+
+## Fazit
+
+Speichern wir das resultierende Objekt ab, damit wir für künftige Aufgaben damit weiterarbeiten können.
+
+
+```{r}
+#| eval: false
+write_rds(d_long_small_id, "data-processed/d_long_small_id.rds")
+write_csv(d_long_small_id, "data-processed/d_long_small_id.csv")
+```
+
