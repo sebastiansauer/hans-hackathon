@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de-DE" xml:lang="de-DE"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.31">
+<meta name="generator" content="quarto-1.6.20">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -57,10 +57,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-a8378a0342da607bf6aa9ac04725c156.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5462d0dc975739fea4b7814f85fabdb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-0557ad454d566926edddd739c7909e88.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -175,6 +175,12 @@ div.csl-indent {
  <span class="menu-text">Lösung 03</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge04-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 04</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -225,7 +231,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">10. November 2024</p>
+      <p class="date">12. November 2024</p>
     </div>
   </div>
   
@@ -248,6 +254,7 @@ div.csl-indent {
 <li>Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?</li>
 </ol>
 <p><span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span> stellt Schulungsmaterial auch für String-Verarbeitung bereit (im <a href="https://r4ds.hadley.nz/strings">Kapitel 11</a>) und (fortgeschrittener) im folgenden Kapitel. Mit dem R-Paket <code>lubridate</code> kann man recht bequem mit Datums- und Zeitangaben arbeiten. Möchte man einen Teil eines Strings entfernen, so ist die Funktion <code>str_remove</code> hilfreich. Da hilft das Paket <code>stringr</code>. Möchte man mehrere Spalten auf einmal (mit <code>summarise</code>) zusammenfassen, so hilft u.a. die Funktion <code>across</code>, die die Summarise-Operation “durch”, “hinweg”, “über” (engl. <em>across</em>) mehrere Spalten durchführt, s. <a href="https://r4ds.hadley.nz/iteration#sec-across">Kap. 26</a> in <span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Ausgabeformat: Quarto (Bericht)</p>
 </section>
 <section id="daten-einlesen" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="daten-einlesen"><span class="header-section-number">2</span> Daten einlesen</h2>
@@ -261,6 +268,7 @@ div.csl-indent {
 <li>Überlegen Sie die <em>Vor- und Nachteile</em>, wenn Sie diese Aufgaben mit <em>Excel</em> lösen würden.</li>
 <li>Exportieren Sie die Datentabelle als Excel-Datei. Prüfen Sie dann die Excel-Datei; fällt Ihnen etwas Besonderes auf?</li>
 </ol>
+<p>Ausgabeformat: Quarto (Bericht)</p>
 </section>
 <section id="daten-verschlanken" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="daten-verschlanken"><span class="header-section-number">3</span> Daten verschlanken</h2>
@@ -274,6 +282,7 @@ div.csl-indent {
 <li>Entfernen Sie Spalten, die Bilddaten enthalten.</li>
 <li>Entfernen Sie Zeilen, die Daten von Admins, Developern oder <code>lecturer</code>s enthalten.</li>
 </ol>
+<p>Ausgabeformat: Quarto (Bericht)</p>
 </section>
 <section id="daten-pivotieren" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="daten-pivotieren"><span class="header-section-number">4</span> Daten pivotieren</h2>
@@ -282,19 +291,21 @@ div.csl-indent {
 <ol type="1">
 <li><p>Listen Sie die <em>Spaltennamen</em> auf.</p></li>
 <li><p>Geben Sie <em>Arten von Spaltennamen</em> an, z.b. <code>actionDetails_482_timestamp</code> und <code>actionDetails_327_subtitle</code> und <code>actionDetails_327_timestampe</code> wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</p></li>
-<li><p><em>Pivotieren</em> Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf <code>idvisit</code> in das Pivotiren auf. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
-<li><p><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ <code>subtitle</code> sowie <code>idvisit</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen.</p></li>
+<li><p><em>Pivotieren</em> Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf <code>idvisit</code> in das Pivotieren auf. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
+<li><p><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ <code>subtitle</code> sowie <code>idvisit</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
 <li><p>Prüfen Sie, ob es stimmt, dass in der Spalte <code>name</code> die enthaltene Zahl die einzige Information ist. Anders gesagt: Außer der Zahl in den Werten <code>name</code> sind alle Teile der Werte konstant.</p></li>
 <li><p>Die Spalten, die die Werte wie <code>actionDetails_0_subtitle</code> nennen Sie in <code>id</code> um. Aus den Werten (wie <code>actionDetails_0_subtitle</code>) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).</p></li>
 </ol>
 <p>Tipp: <code>pivot_longer</code> aus dem Paket <code>tidyr</code> könnte hilfreich sein.</p>
+<p>Ausgabeformat: Quarto (Bericht)</p>
 </section>
 <section id="projektmanagement" class="level2" data-number="5">
 <h2 data-number="5" class="anchored" data-anchor-id="projektmanagement"><span class="header-section-number">5</span> Projektmanagement</h2>
 <p><strong>Targets-Pipeline</strong></p>
 <ol type="1">
 <li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
-<li>Fügen Sie am Ende der Pipeline ein Target hinzu, dass den zentralen, resultierenden Dataframe als Excel-Datei exportiert (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
+<li><em>Pivotieren</em> Sie dieses Mal <em>wie folgt</em>: Entfernen Sie alle Spalten <em>außer</em> <code>idvisit</code> und alle Spalten, die <code>actionDetails</code> enthalten. Pivotieren Sie dann <em>nur</em> Spalten mit dem Namen vom Typ <code>actionDetails</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
+<li>Fügen Sie am Ende der Pipeline ein <em>Target</em> hinzu, dass den zentralen, resultierenden Dataframe <em>als Excel-Datei exportiert</em> (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
 <li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
 <p>Tipps:</p>
@@ -302,20 +313,23 @@ div.csl-indent {
 <li>Lesen Sie sich die <a href="https://books.ropensci.org/targets/">argets-Dokumentation</a> durch.</li>
 <li>Diese <a href="https://wlandau.github.io/targets-tutorial/#1">Präsentation</a> gibt einen guten Überblick über die Funktionsweise von Targets.</li>
 <li>Nutzen Sie ggf. das Template für die Lösung dieser Challenge (liegt im Repo im Root-Folder).</li>
+<li>Beim Importieren können sich die Spaltennamen ändern, z.B. von <code>actionDetails_XXX</code> zu <code>action_details_XXX</code>.</li>
+<li>Nutzen Sie die Funktion <code>pivot_longer()</code> aus dem Paket <code>tidyr</code> für die Pivotierung. Bei Performanzproblemen könnte sich das Paket <code>collapse</code> anbieten, wo es auch eine Pivotierungsfunktion gibt. Auch das Paket <code>polar</code> ist für hohe Performanz bekannt.</li>
 </ul>
+<p>Ausgabeformat: R-Syntax (Targets-Pipeline).</p>
 </section>
 <section id="verweildauer" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="verweildauer"><span class="header-section-number">6</span> Verweildauer</h2>
 <p><strong>Großer Datensatz</strong></p>
 <p>Arbeiten Sie mit Ihrer Pipeline weiter:</p>
 <ol type="1">
-<li>Importieren Sie die zusätzlichen (neu eingestellten) Daten; lassen Sie die Pipeline auf dieser Basis neu durchlaufen.</li>
-<li>Gab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?</li>
-<li>Wie viel Rechenzeit hat die Pipeline beansprucht?</li>
-<li>Stellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.</li>
-<li>Fügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.</li>
-<li>Im Quarto-Bericht schreiben Sie, wie viele Visits Ihre Datensatz umfasst.</li>
-<li>Schreiben Sie außerdem im Quarto-Bericht, wie viele Aktionen pro Visits statfinden. Berichten Sie relevante Statistiken und visualisieren Sie die Daten.</li>
+<li>Importieren Sie die <em>zusätzlichen</em> (neu eingestellten) <em>Daten</em>; lassen Sie die Pipeline auf dieser Basis neu durchlaufen.</li>
+<li>Gab es <em>Probleme</em> beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?</li>
+<li>Wie viel <em>Rechenzeit</em> hat die Pipeline beansprucht?</li>
+<li>Stellen Sie sicher, dass die <em>Spaltennamen einheitlich</em> und im Tidyverse-Stil benannt sind.</li>
+<li>Fügen Sie ein <em>Target</em> hinzu, dass einen <em>Quarto-Bericht</em> erstellt.</li>
+<li>Im Quarto-Bericht schreiben Sie, <em>wie viele Visits</em> Ihr Datensatz umfasst.</li>
+<li>Schreiben Sie außerdem im Quarto-Bericht, <em>wie viele Aktionen pro Visit</em> statfinden. Berichten Sie dazu relevante Statistiken und visualisieren Sie die Daten.</li>
 </ol>
 <p>Tipps:</p>
 <ul>
@@ -325,6 +339,7 @@ div.csl-indent {
 <li>Wenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.</li>
 <li>Wenn Sie Probleme mit der Performance haben, dann können Sie die Datenmenge reduzieren, indem Sie nur die ersten paar Dateien imporiteren. Kleinere Datenmengen sind auch für das Debuggen nützlich.</li>
 </ul>
+<p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).</p>
 </section>
 <section id="ki-verwendung" class="level2" data-number="7">
 <h2 data-number="7" class="anchored" data-anchor-id="ki-verwendung"><span class="header-section-number">7</span> KI-Verwendung</h2>
@@ -339,6 +354,7 @@ div.csl-indent {
 <li>Geben Sie den Zeitraum der Nutzung an (von … bis …).</li>
 <li>Geben Sie den Zeitraum seit der letzten Nutzung an.</li>
 </ol>
+<p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).</p>
 </section>
 <section id="optimierung-der-pipeline" class="level2" data-number="8">
 <h2 data-number="8" class="anchored" data-anchor-id="optimierung-der-pipeline"><span class="header-section-number">8</span> Optimierung der Pipeline</h2>
@@ -348,12 +364,15 @@ div.csl-indent {
 <li>Wie oft wird (pro Monat) mit dem LLM interagiert?</li>
 <li>Welcher Anteil der Besucher (<code>visitors</code>) interagiert mit dem LLM?</li>
 </ol>
+<p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).</p>
 </section>
 <section id="glotzdauer" class="level2" data-number="9">
 <h2 data-number="9" class="anchored" data-anchor-id="glotzdauer"><span class="header-section-number">9</span> “Glotzdauer”</h2>
+<p><strong>Glotzdauer</strong></p>
 <ol type="1">
 <li>Berechnen Sie (die “Glotzdauer”), wie lange die Besucher sich Videos anschauen.</li>
 </ol>
+<p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).</p>
 </section>
 <section id="veränderung-des-nutzerverhaltens-im-zeitverlauf" class="level2" data-number="10">
 <h2 data-number="10" class="anchored" data-anchor-id="veränderung-des-nutzerverhaltens-im-zeitverlauf"><span class="header-section-number">10</span> Veränderung des Nutzerverhaltens im Zeitverlauf</h2>
@@ -363,6 +382,7 @@ div.csl-indent {
 <li><p>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.</p></li>
 <li><p>Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.</p></li>
 </ol>
+<p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).</p>
 
 
 
@@ -375,12 +395,12 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. <em>R for 
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenges im Überblick},
-  date = {2024-11-10},
+  date = {2024-11-12},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Sauer, Sebastian. 2024. <span>“Challenges im Überblick.”</span> November
-10, 2024.
+12, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
