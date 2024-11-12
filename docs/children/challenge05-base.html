@@ -156,6 +156,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Lösung 03</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../challenge04-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 04</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -173,7 +179,8 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Targets-Pipeline</strong></p>
 <ol type="1">
 <li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
-<li>Fügen Sie am Ende der Pipeline ein Target hinzu, dass den zentralen, resultierenden Dataframe als Excel-Datei exportiert (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
+<li><em>Pivotieren</em> Sie dieses Mal <em>wie folgt</em>: Entfernen Sie alle Spalten <em>außer</em> <code>idvisit</code> und alle Spalten, die <code>actionDetails</code> enthalten. Pivotieren Sie dann <em>nur</em> Spalten mit dem Namen vom Typ <code>actionDetails</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
+<li>Fügen Sie am Ende der Pipeline ein <em>Target</em> hinzu, dass den zentralen, resultierenden Dataframe <em>als Excel-Datei exportiert</em> (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
 <li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
 <p>Tipps:</p>
@@ -181,6 +188,8 @@ ul.task-list li input[type="checkbox"] {
 <li>Lesen Sie sich die <a href="https://books.ropensci.org/targets/">argets-Dokumentation</a> durch.</li>
 <li>Diese <a href="https://wlandau.github.io/targets-tutorial/#1">Präsentation</a> gibt einen guten Überblick über die Funktionsweise von Targets.</li>
 <li>Nutzen Sie ggf. das Template für die Lösung dieser Challenge (liegt im Repo im Root-Folder).</li>
+<li>Beim Importieren können sich die Spaltennamen ändern, z.B. von <code>actionDetails_XXX</code> zu <code>action_details_XXX</code>.</li>
+<li>Nutzen Sie die Funktion <code>pivot_longer()</code> aus dem Paket <code>tidyr</code> für die Pivotierung. Bei Performanzproblemen könnte sich das Paket <code>collapse</code> anbieten, wo es auch eine Pivotierungsfunktion gibt. Auch das Paket <code>polar</code> ist für hohe Performanz bekannt.</li>
 </ul>
 <p>Ausgabeformat: R-Syntax (Targets-Pipeline).</p>
 

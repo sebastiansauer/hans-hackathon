@@ -5,13 +5,13 @@
 
 Arbeiten Sie mit Ihrer Pipeline weiter:
 
-1. Importieren Sie die zusätzlichen (neu eingestellten) Daten; lassen Sie die Pipeline auf dieser Basis neu durchlaufen. 
-2. Gab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?
-3. Wie viel Rechenzeit hat die Pipeline beansprucht?
-2. Stellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.
-3. Fügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.
-4. Im Quarto-Bericht schreiben Sie, wie viele Visits Ihre Datensatz umfasst.
-5. Schreiben Sie außerdem im Quarto-Bericht, wie viele Aktionen pro Visits statfinden. Berichten Sie relevante Statistiken und visualisieren Sie die Daten.
+1. Importieren Sie die *zusätzlichen* (neu eingestellten) *Daten*; lassen Sie die Pipeline auf dieser Basis neu durchlaufen. 
+2. Gab es *Probleme* beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?
+3. Wie viel *Rechenzeit* hat die Pipeline beansprucht?
+2. Stellen Sie sicher, dass die *Spaltennamen einheitlich* und im Tidyverse-Stil benannt sind.
+3. Fügen Sie ein *Target* hinzu, dass einen *Quarto-Bericht* erstellt.
+4. Im Quarto-Bericht schreiben Sie, *wie viele Visits* Ihr Datensatz umfasst.
+5. Schreiben Sie außerdem im Quarto-Bericht, *wie viele Aktionen pro Visit* statfinden. Berichten Sie dazu relevante Statistiken und visualisieren Sie die Daten.
 
 
 
