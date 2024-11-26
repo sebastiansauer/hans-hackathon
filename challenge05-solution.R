@@ -45,9 +45,9 @@ list(
   
   # repair date-time cols:
   tar_target(repair_dttm,
-              df_subtitles_timestamps |> 
+             rm_empty |> 
                 mutate(across(contains("timestamp"), ~ as_datetime(as.numeric(.x)))),
-              packages = "lubridate"),
+              packages = c("lubridate", "tidyverse")),
   
   # exclude developers, lecturers and admins:
   tar_target(rm_lecturers_admins,
