@@ -18,4 +18,4 @@ tar_visnetwork(script = "challenge05-solution.R", store = "challenge06")
 tar_make(script = "challenge05-solution.R", store = "challenge05")
 
 # load targets manually from a manually selected store:
-tar_load("data_files_list", store = "challenge06")
+tar_load("rm_constants", store = "challenge05")

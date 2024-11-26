@@ -1,15 +1,17 @@
 library(targets)
 library(tarchetypes)  # Extention to "targets", eg watching source data files
-
+library(janitor)
 
 
 # packages available for all targets:
 tar_option_set(
-  packages = c("dplyr", "readr", "purrr", "tidyr", "stringr")
+  packages = c("dplyr", "readr", "purrr", "tidyr", "stringr", "janitor", "writexl")
 )
 
 # set options:
 options(lubridate.week.start = 1)
+
+source("funs/add_id_cols.R")
 
 
 
@@ -31,12 +33,14 @@ list(
   # remove empty cols and rows:
   tar_target(rm_empty,
              one_df |> 
-               remove_empty(which = c("rows", "cols")), packages = "janitor"),
+               remove_empty(which = c("rows", "cols")), 
+             packages = "janitor"),
   
   # remove constant cols:
   tar_target(rm_constants,
              rm_empty |> 
-               remove_constant(), packages = "janitor"),
+               remove_constant(), 
+             packages = "janitor"),
   
   # # select only subtitles and timestamps:
   # tar_target(df_subtitles_timestamps,
@@ -44,8 +48,9 @@ list(
   #              select(idVisit, contains("subtitle"), contains("timestamp"))),
   
   # repair date-time cols:
+  
   tar_target(repair_dttm,
-             rm_empty |> 
+             rm_constants |> 
                 mutate(across(contains("timestamp"), ~ as_datetime(as.numeric(.x)))),
               packages = c("lubridate", "tidyverse")),
   
@@ -58,16 +63,14 @@ list(
   # pivot longer:
   tar_target(d_long,
              rm_lecturers_admins |> 
-               select(idVisit, contains("subtitle")) |> 
+               select(idVisit, contains("actionDetails")) |> 
                mutate(across(everything(), as.character)) |> 
                pivot_longer(-idVisit) ),
   
   # add id col:
   tar_target(add_id_col,
-             d_long |> 
-               rename(id = name) |>  # new = old, "id" is the action number
-               # "actiondetails_XXX_subtitl" --> "XXX":
-               mutate(id = str_extract(id, "\\d+")), packages = c("stringr")),
+             add_id_column(d_long),
+             packages = c("stringr")),
   
   # write to XLSX:
   tar_target(write_xlsx,
