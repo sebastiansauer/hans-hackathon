@@ -1,8 +1,3 @@
-#Sys.setenv(TAR_PROJECT = "challenge05")
-
-
-
-
 library(targets)
 library(tarchetypes)  # Extention to "targets", eg watching source data files
 
@@ -18,7 +13,7 @@ options(lubridate.week.start = 1)
 
 
 
-# targets, ie., steps to be computed:
+# targets pipeline, ie., steps to be computed:
 list(
   # read data:
   tar_target(data_files_list, 
@@ -81,4 +76,7 @@ list(
              packages = "writexl")
   
   
-)
+)  # close targets pipeline
+
+
+
