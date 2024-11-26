@@ -5,7 +5,7 @@ Aufbauend auf dem Ergebnis der letzten Challenge:
 
 
 
-1. Listen Sie die *Spaltennamen* auf.
+1. Listen Sie die *Spaltennamen* auf, aber nur max. 20. Wenn es mehr als 20 Spalten gibt, listen Sie nur die ersten 20 auf. Wenn es weniger als 20 Spalten gibt, listen Sie alle auf.
 
 2. Geben Sie *Arten von Spaltennamen* an, z.b. `actionDetails_482_timestamp` und `actionDetails_327_subtitle` und `actionDetails_327_timestampe` wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.
 
