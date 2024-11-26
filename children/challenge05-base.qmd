@@ -10,7 +10,7 @@
 
 Tipps: 
 
-- Lesen Sie sich die [argets-Dokumentation](https://books.ropensci.org/targets/) durch.
+- Lesen Sie sich die [targets-Dokumentation](https://books.ropensci.org/targets/) durch.
 - Diese [Präsentation](https://wlandau.github.io/targets-tutorial/#1) gibt einen guten Überblick über die Funktionsweise von Targets.
 - Nutzen Sie ggf. das Template für die Lösung dieser Challenge (liegt im Repo im Root-Folder).
 - Beim Importieren können sich die Spaltennamen ändern, z.B. von `actionDetails_XXX` zu `action_details_XXX`.

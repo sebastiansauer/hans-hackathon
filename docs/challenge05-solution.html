@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sebastian Sauer">
 <meta name="description" content="“Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools ‘HaNS’”">
 
-<title>challenge04-base – hans-hackathon</title>
+<title>Challenge 05 – Solution – hans-hackathon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,22 +25,22 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-html/quarto.js"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a8378a0342da607bf6aa9ac04725c156.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-01b954e706e0231c0bad24c61704d8b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a8378a0342da607bf6aa9ac04725c156.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-01b954e706e0231c0bad24c61704d8b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -69,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
 <body class="nav-sidebar floating">
@@ -81,9 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      hans-hackathon
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./challenge05-solution.html">Lösung 05</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -98,7 +97,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="../">hans-hackathon</a> 
+      <a href="./">hans-hackathon</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -110,61 +109,61 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Home</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../einstieg.html" class="sidebar-item-text sidebar-link">
+  <a href="./einstieg.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">R, zweiter Blick</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../projektmanagement.html" class="sidebar-item-text sidebar-link">
+  <a href="./projektmanagement.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Projektmanagement</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../pruefung.html" class="sidebar-item-text sidebar-link">
+  <a href="./pruefung.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Prüfung</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../challenges.html" class="sidebar-item-text sidebar-link">
+  <a href="./challenges.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Challenges im Überblick</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../challenge01-solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./challenge01-solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lösung 01</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../challenge02-solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./challenge02-solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lösung 02</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../challenge03-solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./challenge03-solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lösung 03</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../challenge04-solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./challenge04-solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lösung 04</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../challenge05-solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./challenge05-solution.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lösung 05</span></a>
   </div>
 </li>
@@ -173,36 +172,97 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#daten-verstehen" id="toc-daten-verstehen" class="nav-link active" data-scroll-target="#daten-verstehen"><span class="header-section-number">1</span> Daten verstehen</a>
+  <ul class="collapse">
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">1.1</span> Aufgaben</a></li>
+  <li><a href="#lösungen" id="toc-lösungen" class="nav-link" data-scroll-target="#lösungen"><span class="header-section-number">1.2</span> Lösungen</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Challenge 05 – Solution</h1>
+</div>
+
+<div>
+  <div class="description">
+    <p>“Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools ‘HaNS’”</p>
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
-<p><strong>Datensatz pivotieren</strong></p>
-<p>Aufbauend auf dem Ergebnis der letzten Challenge:</p>
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sebastian Sauer </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">26. November 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="daten-verstehen" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Daten verstehen</h1>
+<section id="aufgaben" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">1.1</span> Aufgaben</h2>
+<p><strong>Targets-Pipeline</strong></p>
 <ol type="1">
-<li><p>Listen Sie die <em>Spaltennamen</em> auf.</p></li>
-<li><p>Geben Sie <em>Arten von Spaltennamen</em> an, z.b. <code>actionDetails_482_timestamp</code> und <code>actionDetails_327_subtitle</code> und <code>actionDetails_327_timestampe</code> wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</p></li>
-<li><p><em>Pivotieren</em> Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf <code>idvisit</code> in das Pivotieren auf. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
-<li><p><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ <code>subtitle</code> sowie <code>idvisit</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
-<li><p>Prüfen Sie, ob es stimmt, dass in der Spalte <code>name</code> die enthaltene Zahl die einzige Information ist. Anders gesagt: Außer der Zahl in den Werten <code>name</code> sind alle Teile der Werte konstant.</p></li>
-<li><p>Die Spalten, die die Werte wie <code>actionDetails_0_subtitle</code> nennen Sie in <code>id</code> um. Aus den Werten (wie <code>actionDetails_0_subtitle</code>) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).</p></li>
+<li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
+<li><em>Pivotieren</em> Sie dieses Mal <em>wie folgt</em>: Entfernen Sie alle Spalten <em>außer</em> <code>idvisit</code> und alle Spalten, die <code>actionDetails</code> enthalten. Pivotieren Sie dann <em>nur</em> Spalten mit dem Namen vom Typ <code>actionDetails</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
+<li>Fügen Sie am Ende der Pipeline ein <em>Target</em> hinzu, dass den zentralen, resultierenden Dataframe <em>als Excel-Datei exportiert</em> (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
+<li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
-<p>Tipp: <code>pivot_longer</code> aus dem Paket <code>tidyr</code> könnte hilfreich sein.</p>
-<p>Ausgabeformat: Quarto (Bericht)</p>
+<p>Tipps:</p>
+<ul>
+<li>Lesen Sie sich die <a href="https://books.ropensci.org/targets/">argets-Dokumentation</a> durch.</li>
+<li>Diese <a href="https://wlandau.github.io/targets-tutorial/#1">Präsentation</a> gibt einen guten Überblick über die Funktionsweise von Targets.</li>
+<li>Nutzen Sie ggf. das Template für die Lösung dieser Challenge (liegt im Repo im Root-Folder).</li>
+<li>Beim Importieren können sich die Spaltennamen ändern, z.B. von <code>actionDetails_XXX</code> zu <code>action_details_XXX</code>.</li>
+<li>Nutzen Sie die Funktion <code>pivot_longer()</code> aus dem Paket <code>tidyr</code> für die Pivotierung. Bei Performanzproblemen könnte sich das Paket <code>collapse</code> anbieten, wo es auch eine Pivotierungsfunktion gibt. Auch das Paket <code>polar</code> ist für hohe Performanz bekannt.</li>
+</ul>
+<p>Ausgabeformat: R-Syntax (Targets-Pipeline).</p>
+</section>
+<section id="lösungen" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="lösungen"><span class="header-section-number">1.2</span> Lösungen</h2>
+<p>Für diese Lösung gibt es keinen Quarto-Bericht. Stattdessen war eine eine Pipeline auszuarbeiten, die die Daten von der Quelle bis zur Analyse führt. [Hier] ist eine mögliche Lösung.</p>
+<p>Beachten Sie bitte, dass die Targets-Pipeline-Datei <code>_targets.R</code> heißen sollte.</p>
 
 
+</section>
+</section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{untitled,
-  author = {},
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
+  author = {Sauer, Sebastian},
+  title = {Challenge 05 -\/- Solution},
+  date = {2024-11-26},
   langid = {de-DE}
 }
-</code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-untitled" class="csl-entry quarto-appendix-citeas" role="listitem">
-n.d.
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Sauer, Sebastian. 2024. <span>“Challenge 05 -- Solution.”</span>
+November 26, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -631,10 +691,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <p>Powered by <a href="https://quarto.org">Quarto</a></p>
 </div>   
     <div class="nav-footer-center">
-<p><a href="../imprint.html">Impressum</a></p>
+<p><a href="./imprint.html">Impressum</a></p>
 </div>
     <div class="nav-footer-right">
-<p><a href="../data-privacy.html">Datenschutzhinweise</a></p>
+<p><a href="./data-privacy.html">Datenschutzhinweise</a></p>
 </div>
   </div>
 </footer>

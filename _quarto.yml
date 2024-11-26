@@ -13,6 +13,14 @@ project:
 website:
   title: "hans-hackathon"
   search: true
+  page-footer:
+    border: true
+    left: |
+      Powered by [Quarto](https://quarto.org)
+    center: |
+      [Impressum](/imprint.qmd)
+    right: |
+      [Datenschutzhinweise](/data-privacy.qmd)
   sidebar:
     contents:
       - href: index.qmd
@@ -32,7 +40,8 @@ website:
         text: Lösung 03
       - href: challenge04-solution.qmd
         text: Lösung 04
-      #   text: Challenges
+      - text: Lösung 05
+        href: challenge05-solution.qmd
       # - href: challenge01.qmd
       #   text: Challenge 01
       # - text: Challenge 02

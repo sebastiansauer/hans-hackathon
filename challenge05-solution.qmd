@@ -1,0 +1,27 @@
+---
+title: "Challenge 05 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+---
+
+
+
+# Projektmanagement
+
+
+## Aufgaben
+
+
+{{< include children/challenge05-base.qmd >}}
+
+
+
+## Lösungen
+
+Für diese Lösung gibt es keinen Quarto-Bericht. Stattdessen war eine eine Pipeline auszuarbeiten, die die Daten von der Quelle bis zur Analyse führt. [Hier] ist eine mögliche Lösung.
+
+
+Beachten Sie bitte, dass die Targets-Pipeline-Datei `_targets.R` heißen sollte.
+
