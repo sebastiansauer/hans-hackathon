@@ -8,8 +8,6 @@ tar_option_set(
   packages = c("dplyr", "purrr", "readr", "tidyr")
 )
 
-# set options:
-options(lubridate.week.start = 1)
 
 
 
@@ -23,10 +21,16 @@ list(
                         recursive = FALSE), 
              format = "file"),  # watch data source files for changes
   
+  
+  
+  
   # bind all csv files into one long dataframe:
-  tar_target(<name of this step>,
-              data_files_list |> 
-                <enter your code here>),
+  tar_target(import_stuff,
+             read_csv(lkjdsf) |> 
+               kjdsalflj() |> 
+               kf(),
+  
+  
   
   # remove empty cols and rows:
   tar_target(<name of this step>,

@@ -122,6 +122,9 @@ Es gibt keine anderen Informationen als die Zahl in dieser Spalte.
 ### ID-Spalte erstellen
 
 
+Die Spalten, die die Werte wie actionDetails_0_subtitle nennen Sie in id um. Aus den Werten (wie actionDetails_0_subtitle) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).
+
+
 ```{r}
 d_long_small_id <- 
 d_long_small |> 
@@ -142,6 +145,8 @@ d_long_small_id |>
   select(value) |> 
   drop_na() |> 
   pull(value)
+
+head(d_long_small_id_values)
 ```
 
 

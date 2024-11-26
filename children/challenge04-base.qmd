@@ -11,7 +11,7 @@ Aufbauend auf dem Ergebnis der letzten Challenge:
 
 2. *Pivotieren* Sie den Datensatz in das Langformat. Aber nehmen Sie `idvisit` vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf `idvisit` in das Pivotieren auf. Es sollen also drei Spalten resultieren: `idvisit`, `name` und `value`.
 
-3. *Begrenzen* Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ `subtitle` sowie `idvisit`; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: `idvisit`, `name` und `value`.
+3. *Begrenzen* Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ `subtitle`; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: `idvisit`, `name` und `value`.
 
 
 4. Prüfen Sie, ob es stimmt, dass in der Spalte `name` die enthaltene Zahl die einzige Information ist. Anders gesagt: Außer der Zahl in den Werten `name` sind alle Teile der Werte konstant.

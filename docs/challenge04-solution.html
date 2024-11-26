@@ -74,7 +74,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-a8378a0342da607bf6aa9ac04725c156.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5462d0dc975739fea4b7814f85fabdb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-01b954e706e0231c0bad24c61704d8b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -195,6 +195,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lösung 04</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge05-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 05</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -252,7 +258,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">12. November 2024</p>
+      <p class="date">26. November 2024</p>
     </div>
   </div>
   
@@ -273,8 +279,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ol type="1">
 <li><p>Listen Sie die <em>Spaltennamen</em> auf.</p></li>
 <li><p>Geben Sie <em>Arten von Spaltennamen</em> an, z.b. <code>actionDetails_482_timestamp</code> und <code>actionDetails_327_subtitle</code> und <code>actionDetails_327_timestampe</code> wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</p></li>
-<li><p><em>Pivotieren</em> Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf <code>idvisit</code> in das Pivotiren auf. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
-<li><p><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ <code>subtitle</code> sowie <code>idvisit</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen.</p></li>
+<li><p><em>Pivotieren</em> Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf <code>idvisit</code> in das Pivotieren auf. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
+<li><p><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ <code>subtitle</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
 <li><p>Prüfen Sie, ob es stimmt, dass in der Spalte <code>name</code> die enthaltene Zahl die einzige Information ist. Anders gesagt: Außer der Zahl in den Werten <code>name</code> sind alle Teile der Werte konstant.</p></li>
 <li><p>Die Spalten, die die Werte wie <code>actionDetails_0_subtitle</code> nennen Sie in <code>id</code> um. Aus den Werten (wie <code>actionDetails_0_subtitle</code>) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).</p></li>
 </ol>
@@ -389,6 +395,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="id-spalte-erstellen" class="level3" data-number="1.2.7">
 <h3 data-number="1.2.7" class="anchored" data-anchor-id="id-spalte-erstellen"><span class="header-section-number">1.2.7</span> ID-Spalte erstellen</h3>
+<p>Die Spalten, die die Werte wie actionDetails_0_subtitle nennen Sie in id um. Aus den Werten (wie actionDetails_0_subtitle) extrahieren Sie die Zahl in der Mitte des Textes (den Rest des Textes löschen).</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>d_long_small_id <span class="ot">&lt;-</span> </span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>d_long_small <span class="sc">|&gt;</span> </span>
@@ -415,7 +422,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>d_long_small_id <span class="sc">|&gt;</span> </span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(value) <span class="sc">|&gt;</span> </span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>() <span class="sc">|&gt;</span> </span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(value)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(value)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d_long_small_id_values)</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "https://141.75.89.55/login?evalId=none&amp;user=undefined&amp;role=undefined"                                                                                  </span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [2] "https://141.75.89.55/login?evalId=none&amp;user=undefined&amp;role=undefined"                                                                                  </span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [3] "https://hans.th-nuernberg.de/video-player?uuid=da4ab5c5-2ca7-4ef2-958c-18800e71d578&amp;evalId=none&amp;user=ac.student.bio%40th-nuernberg.de&amp;role=everybody"  </span></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [4] "https://hans.th-nuernberg.de/video-player?uuid=1762a84c-316e-4733-8c8b-6fc3d6980e2e&amp;evalId=none&amp;user=sw.student.gesoa%40th-nuernberg.de&amp;role=everybody"</span></span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [5] "Category: \"videoplayer_click', Action: \"play\""                                                                                                      </span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [6] "Category: \"videoplayer_click', Action: \"pause\""</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Lieber nicht nach den uniquen Werten fragen, es sind sehr viele, das dauert…</p>
 <div class="cell" data-layout-align="center">
@@ -441,12 +456,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenge 04 -\/- Solution},
-  date = {2024-11-12},
+  date = {2024-11-26},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Sauer, Sebastian. 2024. <span>“Challenge 04 -- Solution.”</span>
-November 12, 2024.
+November 26, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
@@ -869,6 +884,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Powered by <a href="https://quarto.org">Quarto</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="./imprint.html">Impressum</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="./data-privacy.html">Datenschutzhinweise</a></p>
+</div>
+  </div>
+</footer>
 
 
 

@@ -93,7 +93,8 @@ div.csl-indent {
 <link href="site_libs/quarto-html/quarto-syntax-highlighting-a8378a0342da607bf6aa9ac04725c156.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5462d0dc975739fea4b7814f85fabdb2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-01b954e706e0231c0bad24c61704d8b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -235,6 +236,18 @@ window.Quarto = {
   <div class="sidebar-item-container"> 
   <a href="./challenge03-solution.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Lösung 03</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge04-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 04</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge05-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 05</span></a>
   </div>
 </li>
     </ul>
@@ -642,7 +655,15 @@ Tipp
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"input/mtcars.csv"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-{{&lt; downloadthis input/mtcars.csv dname="mtcars" icon="database-fill-down" type="info" &gt;}}
+<p><a href="#dnldts34622" onclick="fetch('data:text/csv;base64,bW9kZWwsbXBnLGN5bCxkaXNwLGhwLGRyYXQsd3QscXNlYyx2cyxhbSxnZWFyLGNhcmIKTWF6ZGEgUlg0LDIxLDYsMTYwLDExMCwzLjksMi42MiwxNi40NiwwLDEsNCw0Ck1hemRhIFJYNCBXYWcsMjEsNiwxNjAsMTEwLDMuOSwyLjg3NSwxNy4wMiwwLDEsNCw0CkRhdHN1biA3MTAsMjIuOCw0LDEwOCw5MywzLjg1LDIuMzIsMTguNjEsMSwxLDQsMQpIb3JuZXQgNCBEcml2ZSwyMS40LDYsMjU4LDExMCwzLjA4LDMuMjE1LDE5LjQ0LDEsMCwzLDEKSG9ybmV0IFNwb3J0YWJvdXQsMTguNyw4LDM2MCwxNzUsMy4xNSwzLjQ0LDE3LjAyLDAsMCwzLDIKVmFsaWFudCwxOC4xLDYsMjI1LDEwNSwyLjc2LDMuNDYsMjAuMjIsMSwwLDMsMQpEdXN0ZXIgMzYwLDE0LjMsOCwzNjAsMjQ1LDMuMjEsMy41NywxNS44NCwwLDAsMyw0Ck1lcmMgMjQwRCwyNC40LDQsMTQ2LjcsNjIsMy42OSwzLjE5LDIwLDEsMCw0LDIKTWVyYyAyMzAsMjIuOCw0LDE0MC44LDk1LDMuOTIsMy4xNSwyMi45LDEsMCw0LDIKTWVyYyAyODAsMTkuMiw2LDE2Ny42LDEyMywzLjkyLDMuNDQsMTguMywxLDAsNCw0Ck1lcmMgMjgwQywxNy44LDYsMTY3LjYsMTIzLDMuOTIsMy40NCwxOC45LDEsMCw0LDQKTWVyYyA0NTBTRSwxNi40LDgsMjc1LjgsMTgwLDMuMDcsNC4wNywxNy40LDAsMCwzLDMKTWVyYyA0NTBTTCwxNy4zLDgsMjc1LjgsMTgwLDMuMDcsMy43MywxNy42LDAsMCwzLDMKTWVyYyA0NTBTTEMsMTUuMiw4LDI3NS44LDE4MCwzLjA3LDMuNzgsMTgsMCwwLDMsMwpDYWRpbGxhYyBGbGVldHdvb2QsMTAuNCw4LDQ3MiwyMDUsMi45Myw1LjI1LDE3Ljk4LDAsMCwzLDQKTGluY29sbiBDb250aW5lbnRhbCwxMC40LDgsNDYwLDIxNSwzLDUuNDI0LDE3LjgyLDAsMCwzLDQKQ2hyeXNsZXIgSW1wZXJpYWwsMTQuNyw4LDQ0MCwyMzAsMy4yMyw1LjM0NSwxNy40MiwwLDAsMyw0CkZpYXQgMTI4LDMyLjQsNCw3OC43LDY2LDQuMDgsMi4yLDE5LjQ3LDEsMSw0LDEKSG9uZGEgQ2l2aWMsMzAuNCw0LDc1LjcsNTIsNC45MywxLjYxNSwxOC41MiwxLDEsNCwyClRveW90YSBDb3JvbGxhLDMzLjksNCw3MS4xLDY1LDQuMjIsMS44MzUsMTkuOSwxLDEsNCwxClRveW90YSBDb3JvbmEsMjEuNSw0LDEyMC4xLDk3LDMuNywyLjQ2NSwyMC4wMSwxLDAsMywxCkRvZGdlIENoYWxsZW5nZXIsMTUuNSw4LDMxOCwxNTAsMi43NiwzLjUyLDE2Ljg3LDAsMCwzLDIKQU1DIEphdmVsaW4sMTUuMiw4LDMwNCwxNTAsMy4xNSwzLjQzNSwxNy4zLDAsMCwzLDIKQ2FtYXJvIFoyOCwxMy4zLDgsMzUwLDI0NSwzLjczLDMuODQsMTUuNDEsMCwwLDMsNApQb250aWFjIEZpcmViaXJkLDE5LjIsOCw0MDAsMTc1LDMuMDgsMy44NDUsMTcuMDUsMCwwLDMsMgpGaWF0IFgxLTksMjcuMyw0LDc5LDY2LDQuMDgsMS45MzUsMTguOSwxLDEsNCwxClBvcnNjaGUgOTE0LTIsMjYsNCwxMjAuMyw5MSw0LjQzLDIuMTQsMTYuNywwLDEsNSwyCkxvdHVzIEV1cm9wYSwzMC40LDQsOTUuMSwxMTMsMy43NywxLjUxMywxNi45LDEsMSw1LDIKRm9yZCBQYW50ZXJhIEwsMTUuOCw4LDM1MSwyNjQsNC4yMiwzLjE3LDE0LjUsMCwxLDUsNApGZXJyYXJpIERpbm8sMTkuNyw2LDE0NSwxNzUsMy42MiwyLjc3LDE1LjUsMCwxLDUsNgpNYXNlcmF0aSBCb3JhLDE1LDgsMzAxLDMzNSwzLjU0LDMuNTcsMTQuNiwwLDEsNSw4ClZvbHZvIDE0MkUsMjEuNCw0LDEyMSwxMDksNC4xMSwyLjc4LDE4LjYsMSwxLDQsMgo=').then(res => res.blob()).then(blob => {
+      const downloadURL = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      document.body.appendChild(a);
+      a.href = downloadURL;
+      a.download = 'mtcars.csv'; a.click();
+      window.URL.revokeObjectURL(downloadURL);
+      document.body.removeChild(a);
+        });"><button class="btn btn-info downloadthis  " id="dnldts34622"><i class="bi bi-database-fill-down"></i> Download </button></a></p>
 <div id="exr-path-abs" class="theorem exercise">
 <p><span class="theorem-title"><strong>Übungsaufgabe 3 (Daten importieren mit absolutem Pfad)</strong></span> Importieren Sie den Datensatz <code>mtcars</code> mit absolutem Pfad. Was sind die Vor- und die Nachteile dieses Vorgehens?</p>
 </div>
@@ -1300,6 +1321,19 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>Powered by <a href="https://quarto.org">Quarto</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a href="./imprint.html">Impressum</a></p>
+</div>
+    <div class="nav-footer-right">
+<p><a href="./data-privacy.html">Datenschutzhinweise</a></p>
+</div>
+  </div>
+</footer>
 
 
 
