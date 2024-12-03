@@ -17,9 +17,11 @@ tar_option_set(
 options(lubridate.week.start = 1)
 
 # source helper funs:
-funs_files <- list.files(
-  path = "funs", pattern = "\\.R", full.names = TRUE, recursive = TRUE)
-lapply(X = funs_files, FUN = source)
+# funs_files <- list.files(
+#   path = "funs", pattern = "\\.R", full.names = TRUE, recursive = TRUE)
+# lapply(X = funs_files, FUN = source)
+
+source("funs/get_user_action.R")
 
 
 
@@ -42,7 +44,8 @@ list(
   # bind all csv files into one long dataframe:
   tar_target(one_df,
              data_files_list |> 
-               map(~ fread(.x, fill = TRUE, colClasses = "character")) |>  
+               map(~ fread(.x, fill = TRUE, 
+                           colClasses = "character")) |>  
                # convert list to dataframe using bind_rows:
                rbindlist(fill = TRUE, idcol = "file", use.names = TRUE),
              packages = "data.table"),
@@ -50,7 +53,8 @@ list(
   # remove empty cols and rows:
   tar_target(rm_empty,
              one_df |> 
-               remove_empty(which = c("rows", "cols")), packages = "janitor"),
+               remove_empty(which = c("rows", "cols")), 
+             packages = "janitor"),
   
   # remove constant cols:
   tar_target(rm_constants,
@@ -115,7 +119,7 @@ list(
              packages = "tidyr"),
   
   
-  # Challenge 06: Count stuff per visit ------------------------------------------
+# Challenge 06: Count stuff per visit ------------------------------------------
   
   # count actions per visit:
   tar_target(actions_per_visit,

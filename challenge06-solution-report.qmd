@@ -1,6 +1,6 @@
 ---
 title: "Challenge 06"
-subtitle: "Analyse der Matoma-HaNS-Daten"
+subtitle: "Analyse der Matomo-HaNS-Daten"
 date: now
 author: Sebastian Sauer
 

@@ -107,7 +107,7 @@ list(
   
   # mutate id column to numeric:
   tar_target(numeric_id,
-             add_id_col |> 
+             add_id_col |>
                mutate(action_count = as.integer(action_count))),
   
   
