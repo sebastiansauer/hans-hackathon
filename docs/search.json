@@ -169,14 +169,14 @@
     "href": "children/challenge09-base.html",
     "title": "hans-hackathon",
     "section": "",
-    "text": "Glotzdauer\n\nBerechnen Sie (die “Glotzdauer”), wie lange die Besucher sich Videos anschauen.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+    "text": "Glotzdauer\n\nBerechnen Sie (die “Glotzdauer”), wie lange die Besucher sich Videos anschauen.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\nBitte beachten Sie Hinweise zum Programmieren.\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
   },
   {
     "objectID": "children/challenge07-base.html",
     "href": "children/challenge07-base.html",
     "title": "hans-hackathon",
     "section": "",
-    "text": "Verweildauer\nFür alle folgenden Aufgaben dieser Challenge: Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung.\n\nWieviel Zeit verbringen die Nutzer pro Visit?\nWie viele Aktionen führen die Nutzer pro Visit aus?\nAn welchen Tagen und zu welcher Zeit kommen die User zu HaNS?\nAn welchen Wochentagen wird die Seite bevorzugt besucht?\nZu welchen Zeiten wird die Seite bevorzugt besucht?\nGeben Sie den Zeitraum der Nutzung an (von … bis …).\nGeben Sie den Zeitraum seit der letzten Nutzung an.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+    "text": "Verweildauer\nFür alle folgenden Aufgaben dieser Challenge: Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung.\n\nWieviel Zeit verbringen die Nutzer pro Visit?\nWie viele Aktionen führen die Nutzer pro Visit aus?\nAn welchen Tagen und zu welcher Zeit kommen die User zu HaNS?\nAn welchen Wochentagen wird die Seite bevorzugt besucht?\nZu welchen Zeiten wird die Seite bevorzugt besucht?\nGeben Sie den Zeitraum der Nutzung an (von … bis …).\nGeben Sie den Zeitraum seit der letzten Nutzung an.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Renderen Sie den Bericht im Forat typst.\nBitte beachten Sie Hinweise zum Programmieren.\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
   },
   {
     "objectID": "children/challenge05-base.html",
@@ -584,14 +584,14 @@
     "href": "children/challenge08-base.html",
     "title": "hans-hackathon",
     "section": "",
-    "text": "Interaktion mit dem LLM\n\nWie oft wird (pro Monat) ein AI transcript angefordert?\nWie oft wird (pro Monat) mit dem LLM interagiert?\nWelcher Anteil der Besucher (visitors) interagiert mit dem LLM?\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+    "text": "Interaktion mit dem LLM\n\nWie oft wird (pro Monat) ein AI transcript angefordert?\nWie oft wird (pro Monat) mit dem LLM interagiert?\nWelcher Anteil der Besucher (visitors) interagiert mit dem LLM?\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\nBitte beachten Sie Hinweise zum Programmieren.\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
   },
   {
     "objectID": "children/challenge10-base.html",
     "href": "children/challenge10-base.html",
     "title": "hans-hackathon",
     "section": "",
-    "text": "Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+    "text": "Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.\nOptimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\nBitte beachten Sie Hinweise zum Programmieren.\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
   },
   {
     "objectID": "einstieg.html",
