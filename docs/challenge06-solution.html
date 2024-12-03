@@ -22,6 +22,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -187,6 +221,15 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">1.1</span> Aufgaben</a></li>
   <li><a href="#lösungen" id="toc-lösungen" class="nav-link" data-scroll-target="#lösungen"><span class="header-section-number">1.2</span> Lösungen</a></li>
+  <li><a href="#bericht" id="toc-bericht" class="nav-link" data-scroll-target="#bericht"><span class="header-section-number">1.3</span> Bericht</a>
+  <ul class="collapse">
+  <li><a href="#r-pakete-starten" id="toc-r-pakete-starten" class="nav-link" data-scroll-target="#r-pakete-starten"><span class="header-section-number">1.3.1</span> R-Pakete starten</a></li>
+  <li><a href="#daten-importieren-und-inspizieren" id="toc-daten-importieren-und-inspizieren" class="nav-link" data-scroll-target="#daten-importieren-und-inspizieren"><span class="header-section-number">1.3.2</span> Daten importieren und inspizieren</a></li>
+  <li><a href="#zeitraum" id="toc-zeitraum" class="nav-link" data-scroll-target="#zeitraum"><span class="header-section-number">1.3.3</span> Zeitraum</a></li>
+  <li><a href="#anzahl-visits" id="toc-anzahl-visits" class="nav-link" data-scroll-target="#anzahl-visits"><span class="header-section-number">1.3.4</span> Anzahl Visits</a></li>
+  <li><a href="#anzahl-der-aktionen-pro-visit" id="toc-anzahl-der-aktionen-pro-visit" class="nav-link" data-scroll-target="#anzahl-der-aktionen-pro-visit"><span class="header-section-number">1.3.5</span> Anzahl der Aktionen pro Visit</a></li>
+  <li><a href="#verteilung" id="toc-verteilung" class="nav-link" data-scroll-target="#verteilung"><span class="header-section-number">1.3.6</span> Verteilung</a></li>
+  </ul></li>
   </ul></li>
   </ul>
 </nav>
@@ -261,8 +304,2985 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution-report.qmd">Hier</a> findet sich eine Quarto-Datei, die die Objekte der Pipeline zusammenfasst und in einem Report darstellt.</p>
 <p>Beachten Sie bitte, dass die Targets-Pipeline-Datei <code>_targets.R</code> heißen sollte und nur die Pipeline-Funktionen enthalten sollte.</p>
 <p>Die Pipeline lassen Sie mit <code>tar_make()</code> laufen, <a href="https://github.com/sebastiansauer/hans-hackathon/blob/main/run-pipeline.R">hier</a> ist ein Beispiel.</p>
+</section>
+<section id="bericht" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="bericht"><span class="header-section-number">1.3</span> Bericht</h2>
+<section id="r-pakete-starten" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="r-pakete-starten"><span class="header-section-number">1.3.1</span> R-Pakete starten</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggokabeito)  <span class="co"># Farben</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(easystats)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gt)  <span class="co"># Tabellen in HTML</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co">#library(ggfittext)</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#library(scales)</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(visdat)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="daten-importieren-und-inspizieren" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="daten-importieren-und-inspizieren"><span class="header-section-number">1.3.2</span> Daten importieren und inspizieren</h3>
+<section id="targets-objekte-laden" class="level4" data-number="1.3.2.1">
+<h4 data-number="1.3.2.1" class="anchored" data-anchor-id="targets-objekte-laden"><span class="header-section-number">1.3.2.1</span> Targets-Objekte laden</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_load</span>(action_types, <span class="at">store =</span> <span class="st">"challenge06"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_load</span>(data_users_only, <span class="at">store =</span> <span class="st">"challenge06"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_load</span>(actions_per_visit, <span class="at">store =</span> <span class="st">"challenge06"</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># tar_load(time_minmax, store = "challenge06")</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># tar_load(time_since_last_visit,store = "challenge06")</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_load</span>(numeric_id, <span class="at">store =</span> <span class="st">"challenge06"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="dimension" class="level4" data-number="1.3.2.2">
+<h4 data-number="1.3.2.2" class="anchored" data-anchor-id="dimension"><span class="header-section-number">1.3.2.2</span> Dimension</h4>
+<p>Der Roh-Datensatz verfügt über</p>
+<ul>
+<li>2351 Zeilen</li>
+<li>9247 Spalten (Dubletten und Spalten mit Bildern bereits entfernt)</li>
+</ul>
+<p>Jede Zeile entspricht einem “Visit”.</p>
+</section>
+<section id="erster-blick" class="level4" data-number="1.3.2.3">
+<h4 data-number="1.3.2.3" class="anchored" data-anchor-id="erster-blick"><span class="header-section-number">1.3.2.3</span> Erster Blick</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data_users_only_head100 <span class="ot">&lt;-</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>data_users_only <span class="sc">%&gt;%</span> </span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice_head</span>(<span class="at">n =</span> <span class="dv">100</span>) </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>data_users_only_head100 <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  visdat<span class="sc">::</span><span class="fu">vis_dat</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="challenge06-solution_files/figure-html/vis-dat-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="namen-1-100" class="level4" data-number="1.3.2.4">
+<h4 data-number="1.3.2.4" class="anchored" data-anchor-id="namen-1-100"><span class="header-section-number">1.3.2.4</span> Namen (1-100)</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data_users_only_head100 <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">names</span>()</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   [1] "file"                                        </span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="do">##   [2] "id_site"                                     </span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   [3] "id_visit"                                    </span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   [4] "visit_ip"                                    </span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   [5] "visitor_id"                                  </span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   [6] "fingerprint"                                 </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   [7] "action_details_0_type"                       </span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   [8] "action_details_0_url"                        </span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="do">##   [9] "action_details_0_page_id_action"             </span></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  [10] "action_details_0_idpageview"                 </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  [11] "action_details_0_server_time_pretty"         </span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  [12] "action_details_0_page_id"                    </span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  [13] "action_details_0_event_category"             </span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  [14] "action_details_0_event_action"               </span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  [15] "action_details_0_pageview_position"          </span></span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  [16] "action_details_0_timestamp"                  </span></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  [17] "action_details_0_icon"                       </span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="do">##  [18] "action_details_0_icon_svg"                   </span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="do">##  [19] "action_details_0_title"                      </span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="do">##  [20] "action_details_0_subtitle"                   </span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="do">##  [21] "action_details_1_type"                       </span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="do">##  [22] "action_details_1_url"                        </span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  [23] "action_details_1_page_title"                 </span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a><span class="do">##  [24] "action_details_1_page_id_action"             </span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a><span class="do">##  [25] "action_details_1_idpageview"                 </span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="do">##  [26] "action_details_1_server_time_pretty"         </span></span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a><span class="do">##  [27] "action_details_1_page_id"                    </span></span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a><span class="do">##  [28] "action_details_1_page_load_time"             </span></span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="do">##  [29] "action_details_1_time_spent"                 </span></span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="do">##  [30] "action_details_1_time_spent_pretty"          </span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="do">##  [31] "action_details_1_page_load_time_milliseconds"</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="do">##  [32] "action_details_1_pageview_position"          </span></span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a><span class="do">##  [33] "action_details_1_title"                      </span></span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a><span class="do">##  [34] "action_details_1_subtitle"                   </span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="do">##  [35] "action_details_1_icon"                       </span></span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="do">##  [36] "action_details_1_icon_svg"                   </span></span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a><span class="do">##  [37] "action_details_1_timestamp"                  </span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a><span class="do">##  [38] "action_details_2_type"                       </span></span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a><span class="do">##  [39] "action_details_2_url"                        </span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a><span class="do">##  [40] "action_details_2_page_id_action"             </span></span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a><span class="do">##  [41] "action_details_2_idpageview"                 </span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a><span class="do">##  [42] "action_details_2_server_time_pretty"         </span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a><span class="do">##  [43] "action_details_2_page_id"                    </span></span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a><span class="do">##  [44] "action_details_2_event_category"             </span></span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a><span class="do">##  [45] "action_details_2_event_action"               </span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a><span class="do">##  [46] "action_details_2_pageview_position"          </span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a><span class="do">##  [47] "action_details_2_timestamp"                  </span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="do">##  [48] "action_details_2_icon"                       </span></span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="do">##  [49] "action_details_2_icon_svg"                   </span></span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a><span class="do">##  [50] "action_details_2_title"                      </span></span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a><span class="do">##  [51] "action_details_2_subtitle"                   </span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a><span class="do">##  [52] "action_details_3_type"                       </span></span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a><span class="do">##  [53] "action_details_3_url"                        </span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="do">##  [54] "action_details_3_page_title"                 </span></span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="do">##  [55] "action_details_3_page_id_action"             </span></span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="do">##  [56] "action_details_3_idpageview"                 </span></span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a><span class="do">##  [57] "action_details_3_server_time_pretty"         </span></span>
+<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a><span class="do">##  [58] "action_details_3_page_id"                    </span></span>
+<span id="cb6-61"><a href="#cb6-61" aria-hidden="true" tabindex="-1"></a><span class="do">##  [59] "action_details_3_time_spent"                 </span></span>
+<span id="cb6-62"><a href="#cb6-62" aria-hidden="true" tabindex="-1"></a><span class="do">##  [60] "action_details_3_time_spent_pretty"          </span></span>
+<span id="cb6-63"><a href="#cb6-63" aria-hidden="true" tabindex="-1"></a><span class="do">##  [61] "action_details_3_pageview_position"          </span></span>
+<span id="cb6-64"><a href="#cb6-64" aria-hidden="true" tabindex="-1"></a><span class="do">##  [62] "action_details_3_title"                      </span></span>
+<span id="cb6-65"><a href="#cb6-65" aria-hidden="true" tabindex="-1"></a><span class="do">##  [63] "action_details_3_subtitle"                   </span></span>
+<span id="cb6-66"><a href="#cb6-66" aria-hidden="true" tabindex="-1"></a><span class="do">##  [64] "action_details_3_icon"                       </span></span>
+<span id="cb6-67"><a href="#cb6-67" aria-hidden="true" tabindex="-1"></a><span class="do">##  [65] "action_details_3_icon_svg"                   </span></span>
+<span id="cb6-68"><a href="#cb6-68" aria-hidden="true" tabindex="-1"></a><span class="do">##  [66] "action_details_3_timestamp"                  </span></span>
+<span id="cb6-69"><a href="#cb6-69" aria-hidden="true" tabindex="-1"></a><span class="do">##  [67] "action_details_4_type"                       </span></span>
+<span id="cb6-70"><a href="#cb6-70" aria-hidden="true" tabindex="-1"></a><span class="do">##  [68] "action_details_4_url"                        </span></span>
+<span id="cb6-71"><a href="#cb6-71" aria-hidden="true" tabindex="-1"></a><span class="do">##  [69] "action_details_4_page_id_action"             </span></span>
+<span id="cb6-72"><a href="#cb6-72" aria-hidden="true" tabindex="-1"></a><span class="do">##  [70] "action_details_4_idpageview"                 </span></span>
+<span id="cb6-73"><a href="#cb6-73" aria-hidden="true" tabindex="-1"></a><span class="do">##  [71] "action_details_4_server_time_pretty"         </span></span>
+<span id="cb6-74"><a href="#cb6-74" aria-hidden="true" tabindex="-1"></a><span class="do">##  [72] "action_details_4_page_id"                    </span></span>
+<span id="cb6-75"><a href="#cb6-75" aria-hidden="true" tabindex="-1"></a><span class="do">##  [73] "action_details_4_site_search_keyword"        </span></span>
+<span id="cb6-76"><a href="#cb6-76" aria-hidden="true" tabindex="-1"></a><span class="do">##  [74] "action_details_4_site_search_category"       </span></span>
+<span id="cb6-77"><a href="#cb6-77" aria-hidden="true" tabindex="-1"></a><span class="do">##  [75] "action_details_4_site_search_count"          </span></span>
+<span id="cb6-78"><a href="#cb6-78" aria-hidden="true" tabindex="-1"></a><span class="do">##  [76] "action_details_4_pageview_position"          </span></span>
+<span id="cb6-79"><a href="#cb6-79" aria-hidden="true" tabindex="-1"></a><span class="do">##  [77] "action_details_4_icon"                       </span></span>
+<span id="cb6-80"><a href="#cb6-80" aria-hidden="true" tabindex="-1"></a><span class="do">##  [78] "action_details_4_icon_svg"                   </span></span>
+<span id="cb6-81"><a href="#cb6-81" aria-hidden="true" tabindex="-1"></a><span class="do">##  [79] "action_details_4_title"                      </span></span>
+<span id="cb6-82"><a href="#cb6-82" aria-hidden="true" tabindex="-1"></a><span class="do">##  [80] "action_details_4_subtitle"                   </span></span>
+<span id="cb6-83"><a href="#cb6-83" aria-hidden="true" tabindex="-1"></a><span class="do">##  [81] "action_details_4_timestamp"                  </span></span>
+<span id="cb6-84"><a href="#cb6-84" aria-hidden="true" tabindex="-1"></a><span class="do">##  [82] "action_details_5_type"                       </span></span>
+<span id="cb6-85"><a href="#cb6-85" aria-hidden="true" tabindex="-1"></a><span class="do">##  [83] "action_details_5_url"                        </span></span>
+<span id="cb6-86"><a href="#cb6-86" aria-hidden="true" tabindex="-1"></a><span class="do">##  [84] "action_details_5_page_id_action"             </span></span>
+<span id="cb6-87"><a href="#cb6-87" aria-hidden="true" tabindex="-1"></a><span class="do">##  [85] "action_details_5_idpageview"                 </span></span>
+<span id="cb6-88"><a href="#cb6-88" aria-hidden="true" tabindex="-1"></a><span class="do">##  [86] "action_details_5_server_time_pretty"         </span></span>
+<span id="cb6-89"><a href="#cb6-89" aria-hidden="true" tabindex="-1"></a><span class="do">##  [87] "action_details_5_page_id"                    </span></span>
+<span id="cb6-90"><a href="#cb6-90" aria-hidden="true" tabindex="-1"></a><span class="do">##  [88] "action_details_5_event_category"             </span></span>
+<span id="cb6-91"><a href="#cb6-91" aria-hidden="true" tabindex="-1"></a><span class="do">##  [89] "action_details_5_event_action"               </span></span>
+<span id="cb6-92"><a href="#cb6-92" aria-hidden="true" tabindex="-1"></a><span class="do">##  [90] "action_details_5_pageview_position"          </span></span>
+<span id="cb6-93"><a href="#cb6-93" aria-hidden="true" tabindex="-1"></a><span class="do">##  [91] "action_details_5_timestamp"                  </span></span>
+<span id="cb6-94"><a href="#cb6-94" aria-hidden="true" tabindex="-1"></a><span class="do">##  [92] "action_details_5_icon"                       </span></span>
+<span id="cb6-95"><a href="#cb6-95" aria-hidden="true" tabindex="-1"></a><span class="do">##  [93] "action_details_5_icon_svg"                   </span></span>
+<span id="cb6-96"><a href="#cb6-96" aria-hidden="true" tabindex="-1"></a><span class="do">##  [94] "action_details_5_title"                      </span></span>
+<span id="cb6-97"><a href="#cb6-97" aria-hidden="true" tabindex="-1"></a><span class="do">##  [95] "action_details_5_subtitle"                   </span></span>
+<span id="cb6-98"><a href="#cb6-98" aria-hidden="true" tabindex="-1"></a><span class="do">##  [96] "action_details_6_type"                       </span></span>
+<span id="cb6-99"><a href="#cb6-99" aria-hidden="true" tabindex="-1"></a><span class="do">##  [97] "action_details_6_url"                        </span></span>
+<span id="cb6-100"><a href="#cb6-100" aria-hidden="true" tabindex="-1"></a><span class="do">##  [98] "action_details_6_page_title"                 </span></span>
+<span id="cb6-101"><a href="#cb6-101" aria-hidden="true" tabindex="-1"></a><span class="do">##  [99] "action_details_6_page_id_action"             </span></span>
+<span id="cb6-102"><a href="#cb6-102" aria-hidden="true" tabindex="-1"></a><span class="do">## [100] "action_details_6_idpageview"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="werte-der-erst-100-spalten" class="level4" data-number="1.3.2.5">
+<h4 data-number="1.3.2.5" class="anchored" data-anchor-id="werte-der-erst-100-spalten"><span class="header-section-number">1.3.2.5</span> Werte der erst 100 Spalten</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>data_users_only_head100 <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">glimpse</span>()</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Rows: 100</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">## Columns: 100</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">## $ file                                         &lt;int&gt; 1, 1, 1, 1, 1, 1, 1, 1, 1…</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">## $ id_site                                      &lt;chr&gt; "1", "1", "1", "1", "1", …</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">## $ id_visit                                     &lt;chr&gt; "19", "18", "17", "14", "…</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">## $ visit_ip                                     &lt;chr&gt; "172.30.0.0", "172.30.0.0…</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">## $ visitor_id                                   &lt;chr&gt; "01357ce636fa78c2", "a0fe…</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">## $ fingerprint                                  &lt;chr&gt; "9ffcf86ca880ddaa", "4524…</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_type                        &lt;chr&gt; "event", "action", "event…</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_url                         &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_page_id_action              &lt;chr&gt; "17", "2", "17", "192", "…</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_idpageview                  &lt;chr&gt; "1YNiVr", "DNNr9n", "Vfj7…</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_server_time_pretty          &lt;chr&gt; "Mar 4, 2024 22:58:30", "…</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_page_id                     &lt;chr&gt; "6509", "5632", "5621", "…</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_event_category              &lt;chr&gt; "click_button", "", "clic…</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_event_action                &lt;chr&gt; "Kanäle", "", "Kanäle", "…</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_pageview_position           &lt;chr&gt; "", "1", "", "1", "1", "1…</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_timestamp                   &lt;dttm&gt; 2024-03-04 22:58:30, 202…</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_icon                        &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_icon_svg                    &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_title                       &lt;chr&gt; "Event", "HAnS", "Event",…</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_0_subtitle                    &lt;chr&gt; "Category: \"\"click_butt…</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_type                        &lt;chr&gt; "action", "event", "", ""…</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_url                         &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_page_title                  &lt;chr&gt; "HAnS", "", "", "", "", "…</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_page_id_action              &lt;chr&gt; "32", "3", "", "", "", ""…</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_idpageview                  &lt;chr&gt; "HKiQ62", "DNNr9n", "", "…</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_server_time_pretty          &lt;chr&gt; "Mar 4, 2024 23:16:59", "…</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_page_id                     &lt;chr&gt; "6511", "5633", "", "", "…</span></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_page_load_time              &lt;chr&gt; "0.94s", "", "", "", "", …</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_time_spent                  &lt;chr&gt; "21", "", "", "", "", "",…</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_time_spent_pretty           &lt;chr&gt; "21s", "", "", "", "", ""…</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_page_load_time_milliseconds &lt;chr&gt; "940", "", "", "", "", ""…</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_pageview_position           &lt;chr&gt; "1", "1", "", "", "2", "2…</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_title                       &lt;chr&gt; "HAnS", "Event", "", "", …</span></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_subtitle                    &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_icon                        &lt;chr&gt; "", "plugins/Morpheus/ima…</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_icon_svg                    &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_1_timestamp                   &lt;dttm&gt; 2024-03-04 23:16:59, 202…</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_type                        &lt;chr&gt; "event", "action", "", ""…</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_url                         &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_page_id_action              &lt;chr&gt; "33", "147", "", "", "147…</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_idpageview                  &lt;chr&gt; "HKiQ62", "1wrpnl", "", "…</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_server_time_pretty          &lt;chr&gt; "Mar 4, 2024 23:17:20", "…</span></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_page_id                     &lt;chr&gt; "6512", "5634", "", "", "…</span></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_event_category              &lt;chr&gt; "click_channelcard", "", …</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_event_action                &lt;chr&gt; "ZELLKU", "", "", "", "",…</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_pageview_position           &lt;chr&gt; "1", "2", "", "", "2", "2…</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_timestamp                   &lt;dttm&gt; 2024-03-04 23:17:20, 202…</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_icon                        &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_icon_svg                    &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_title                       &lt;chr&gt; "Event", "HAnS", "", "", …</span></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_2_subtitle                    &lt;chr&gt; "Category: \"\"click_chan…</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_type                        &lt;chr&gt; "action", "search", "", "…</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_url                         &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_page_title                  &lt;chr&gt; "HAnS", "", "", "", "", "…</span></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_page_id_action              &lt;chr&gt; "36", "", "", "", "", "95…</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_idpageview                  &lt;chr&gt; "E8FkLA", "1wrpnl", "", "…</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_server_time_pretty          &lt;chr&gt; "Mar 4, 2024 23:17:20", "…</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_page_id                     &lt;chr&gt; "6513", "5635", "", "", "…</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_time_spent                  &lt;chr&gt; "10", "", "", "", "", "11…</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_time_spent_pretty           &lt;chr&gt; "10s", "", "", "", "", "1…</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_pageview_position           &lt;chr&gt; "2", "2", "", "", "", "4"…</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_title                       &lt;chr&gt; "HAnS", "Site Search", ""…</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_subtitle                    &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_icon                        &lt;chr&gt; "", "plugins/Morpheus/ima…</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_icon_svg                    &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_3_timestamp                   &lt;dttm&gt; 2024-03-04 23:17:20, 202…</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_type                        &lt;chr&gt; "search", "event", "", ""…</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_url                         &lt;chr&gt; "", "https://hans.th-nuer…</span></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_page_id_action              &lt;chr&gt; "", "246", "", "", "", "1…</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_idpageview                  &lt;chr&gt; "E8FkLA", "1wrpnl", "", "…</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_server_time_pretty          &lt;chr&gt; "Mar 4, 2024 23:17:20", "…</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_page_id                     &lt;chr&gt; "6514", "5637", "", "", "…</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_site_search_keyword         &lt;chr&gt; "ZELLKU", "", "", "", "",…</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_site_search_category        &lt;chr&gt; "", "", "", "", "", "", "…</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_site_search_count           &lt;chr&gt; "0", "", "", "", "", "", …</span></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_pageview_position           &lt;chr&gt; "2", "3", "", "", "", "5"…</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_icon                        &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_icon_svg                    &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_title                       &lt;chr&gt; "Site Search", "Event", "…</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_subtitle                    &lt;chr&gt; "ZELLKU", "Category: \"\"…</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_4_timestamp                   &lt;dttm&gt; 2024-03-04 23:17:20, 202…</span></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_type                        &lt;chr&gt; "event", "action", "", ""…</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_url                         &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_page_id_action              &lt;chr&gt; "38", "95", "", "", "", "…</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_idpageview                  &lt;chr&gt; "E8FkLA", "wZEbOS", "", "…</span></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_server_time_pretty          &lt;chr&gt; "Mar 4, 2024 23:17:30", "…</span></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_page_id                     &lt;chr&gt; "6515", "5638", "", "", "…</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_event_category              &lt;chr&gt; "click_videocard", "", ""…</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_event_action                &lt;chr&gt; "2-ELISA", "", "", "", ""…</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_pageview_position           &lt;chr&gt; "3", "4", "", "", "", "5"…</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_timestamp                   &lt;dttm&gt; 2024-03-04 23:17:30, 202…</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_icon                        &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_icon_svg                    &lt;chr&gt; "plugins/Morpheus/images/…</span></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_title                       &lt;chr&gt; "Event", "HAnS", "", "", …</span></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_5_subtitle                    &lt;chr&gt; "Category: \"\"click_vide…</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_6_type                        &lt;chr&gt; "action", "event", "", ""…</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_6_url                         &lt;chr&gt; "https://hans.th-nuernber…</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_6_page_title                  &lt;chr&gt; "HAnS", "", "", "", "", "…</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_6_page_id_action              &lt;chr&gt; "274", "247", "", "", "",…</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_details_6_idpageview                  &lt;chr&gt; "DXTmIN", "wZEbOS", "", "…</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="datensatz-im-lang-format-zeilen-1-100" class="level4" data-number="1.3.2.6">
+<h4 data-number="1.3.2.6" class="anchored" data-anchor-id="datensatz-im-lang-format-zeilen-1-100"><span class="header-section-number">1.3.2.6</span> Datensatz im Lang-Format, Zeilen 1-100</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>numeric_id <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="rlshliyppc" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#rlshliyppc table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#rlshliyppc thead, #rlshliyppc tbody, #rlshliyppc tfoot, #rlshliyppc tr, #rlshliyppc td, #rlshliyppc th {
+  border-style: none;
+}
+
+#rlshliyppc p {
+  margin: 0;
+  padding: 0;
+}
+
+#rlshliyppc .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#rlshliyppc .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#rlshliyppc .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#rlshliyppc .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#rlshliyppc .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#rlshliyppc .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#rlshliyppc .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#rlshliyppc .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#rlshliyppc .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#rlshliyppc .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#rlshliyppc .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#rlshliyppc .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#rlshliyppc .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#rlshliyppc .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#rlshliyppc .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rlshliyppc .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#rlshliyppc .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#rlshliyppc .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#rlshliyppc .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rlshliyppc .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#rlshliyppc .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rlshliyppc .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#rlshliyppc .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rlshliyppc .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#rlshliyppc .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#rlshliyppc .gt_left {
+  text-align: left;
+}
+
+#rlshliyppc .gt_center {
+  text-align: center;
+}
+
+#rlshliyppc .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#rlshliyppc .gt_font_normal {
+  font-weight: normal;
+}
+
+#rlshliyppc .gt_font_bold {
+  font-weight: bold;
+}
+
+#rlshliyppc .gt_font_italic {
+  font-style: italic;
+}
+
+#rlshliyppc .gt_super {
+  font-size: 65%;
+}
+
+#rlshliyppc .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#rlshliyppc .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#rlshliyppc .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#rlshliyppc .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#rlshliyppc .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#rlshliyppc .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#rlshliyppc .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#rlshliyppc .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#rlshliyppc div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="id_visit" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">id_visit</th>
+<th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">name</th>
+<th id="value" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">value</th>
+<th id="action_count" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">action_count</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_type</td>
+<td class="gt_row gt_left" headers="value">event</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_url</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/?evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_page_id_action</td>
+<td class="gt_row gt_left" headers="value">17</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_idpageview</td>
+<td class="gt_row gt_left" headers="value">1YNiVr</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_server_time_pretty</td>
+<td class="gt_row gt_left" headers="value">Mar 4, 2024 22:58:30</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_page_id</td>
+<td class="gt_row gt_left" headers="value">6509</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_event_category</td>
+<td class="gt_row gt_left" headers="value">click_button</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_event_action</td>
+<td class="gt_row gt_left" headers="value">Kanäle</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_timestamp</td>
+<td class="gt_row gt_left" headers="value">2024-03-04 22:58:30</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_icon</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/event.png</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_icon_svg</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/event.svg</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_title</td>
+<td class="gt_row gt_left" headers="value">Event</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_0_subtitle</td>
+<td class="gt_row gt_left" headers="value">Category: ""click_button', Action: ""Kanäle""</td>
+<td class="gt_row gt_right" headers="action_count">0</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_type</td>
+<td class="gt_row gt_left" headers="value">action</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_url</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/channels?evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_page_title</td>
+<td class="gt_row gt_left" headers="value">HAnS</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_page_id_action</td>
+<td class="gt_row gt_left" headers="value">32</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_idpageview</td>
+<td class="gt_row gt_left" headers="value">HKiQ62</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_server_time_pretty</td>
+<td class="gt_row gt_left" headers="value">Mar 4, 2024 23:16:59</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_page_id</td>
+<td class="gt_row gt_left" headers="value">6511</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_page_load_time</td>
+<td class="gt_row gt_left" headers="value">0.94s</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_time_spent</td>
+<td class="gt_row gt_left" headers="value">21</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_time_spent_pretty</td>
+<td class="gt_row gt_left" headers="value">21s</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_page_load_time_milliseconds</td>
+<td class="gt_row gt_left" headers="value">940</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_pageview_position</td>
+<td class="gt_row gt_left" headers="value">1</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_title</td>
+<td class="gt_row gt_left" headers="value">HAnS</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_subtitle</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/channels?evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_icon_svg</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/action.svg</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_1_timestamp</td>
+<td class="gt_row gt_left" headers="value">2024-03-04 23:16:59</td>
+<td class="gt_row gt_right" headers="action_count">1</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_type</td>
+<td class="gt_row gt_left" headers="value">event</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_url</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/channels?evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_page_id_action</td>
+<td class="gt_row gt_left" headers="value">33</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_idpageview</td>
+<td class="gt_row gt_left" headers="value">HKiQ62</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_server_time_pretty</td>
+<td class="gt_row gt_left" headers="value">Mar 4, 2024 23:17:20</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_page_id</td>
+<td class="gt_row gt_left" headers="value">6512</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_event_category</td>
+<td class="gt_row gt_left" headers="value">click_channelcard</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_event_action</td>
+<td class="gt_row gt_left" headers="value">ZELLKU</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_pageview_position</td>
+<td class="gt_row gt_left" headers="value">1</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_timestamp</td>
+<td class="gt_row gt_left" headers="value">2024-03-04 23:17:20</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_icon</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/event.png</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_icon_svg</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/event.svg</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_title</td>
+<td class="gt_row gt_left" headers="value">Event</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_2_subtitle</td>
+<td class="gt_row gt_left" headers="value">Category: ""click_channelcard', Action: ""ZELLKU""</td>
+<td class="gt_row gt_right" headers="action_count">2</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_type</td>
+<td class="gt_row gt_left" headers="value">action</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_url</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/search-results?evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_page_title</td>
+<td class="gt_row gt_left" headers="value">HAnS</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_page_id_action</td>
+<td class="gt_row gt_left" headers="value">36</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_idpageview</td>
+<td class="gt_row gt_left" headers="value">E8FkLA</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_server_time_pretty</td>
+<td class="gt_row gt_left" headers="value">Mar 4, 2024 23:17:20</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_page_id</td>
+<td class="gt_row gt_left" headers="value">6513</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_time_spent</td>
+<td class="gt_row gt_left" headers="value">10</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_time_spent_pretty</td>
+<td class="gt_row gt_left" headers="value">10s</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_pageview_position</td>
+<td class="gt_row gt_left" headers="value">2</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_title</td>
+<td class="gt_row gt_left" headers="value">HAnS</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_subtitle</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/search-results?evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_icon_svg</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/action.svg</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_3_timestamp</td>
+<td class="gt_row gt_left" headers="value">2024-03-04 23:17:20</td>
+<td class="gt_row gt_right" headers="action_count">3</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_type</td>
+<td class="gt_row gt_left" headers="value">search</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_idpageview</td>
+<td class="gt_row gt_left" headers="value">E8FkLA</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_server_time_pretty</td>
+<td class="gt_row gt_left" headers="value">Mar 4, 2024 23:17:20</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_page_id</td>
+<td class="gt_row gt_left" headers="value">6514</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_site_search_keyword</td>
+<td class="gt_row gt_left" headers="value">ZELLKU</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_site_search_count</td>
+<td class="gt_row gt_left" headers="value">0</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_pageview_position</td>
+<td class="gt_row gt_left" headers="value">2</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_icon</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/search.png</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_icon_svg</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/search.svg</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_title</td>
+<td class="gt_row gt_left" headers="value">Site Search</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_subtitle</td>
+<td class="gt_row gt_left" headers="value">ZELLKU</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_4_timestamp</td>
+<td class="gt_row gt_left" headers="value">2024-03-04 23:17:20</td>
+<td class="gt_row gt_right" headers="action_count">4</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_type</td>
+<td class="gt_row gt_left" headers="value">event</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_url</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/search-results?evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_page_id_action</td>
+<td class="gt_row gt_left" headers="value">38</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_idpageview</td>
+<td class="gt_row gt_left" headers="value">E8FkLA</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_server_time_pretty</td>
+<td class="gt_row gt_left" headers="value">Mar 4, 2024 23:17:30</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_page_id</td>
+<td class="gt_row gt_left" headers="value">6515</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_event_category</td>
+<td class="gt_row gt_left" headers="value">click_videocard</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_event_action</td>
+<td class="gt_row gt_left" headers="value">2-ELISA</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_pageview_position</td>
+<td class="gt_row gt_left" headers="value">3</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_timestamp</td>
+<td class="gt_row gt_left" headers="value">2024-03-04 23:17:30</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_icon</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/event.png</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_icon_svg</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/event.svg</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_title</td>
+<td class="gt_row gt_left" headers="value">Event</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_5_subtitle</td>
+<td class="gt_row gt_left" headers="value">Category: ""click_videocard', Action: ""2-ELISA""</td>
+<td class="gt_row gt_right" headers="action_count">5</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_type</td>
+<td class="gt_row gt_left" headers="value">action</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_url</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/video-player?uuid=762ed229-e6f4-415d-9f5d-f4279fbeb7d0&amp;evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_page_title</td>
+<td class="gt_row gt_left" headers="value">HAnS</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_page_id_action</td>
+<td class="gt_row gt_left" headers="value">274</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_idpageview</td>
+<td class="gt_row gt_left" headers="value">DXTmIN</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_server_time_pretty</td>
+<td class="gt_row gt_left" headers="value">Mar 4, 2024 23:17:30</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_page_id</td>
+<td class="gt_row gt_left" headers="value">6516</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_time_spent</td>
+<td class="gt_row gt_left" headers="value">14</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_time_spent_pretty</td>
+<td class="gt_row gt_left" headers="value">14s</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_pageview_position</td>
+<td class="gt_row gt_left" headers="value">4</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_title</td>
+<td class="gt_row gt_left" headers="value">HAnS</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_subtitle</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/video-player?uuid=762ed229-e6f4-415d-9f5d-f4279fbeb7d0&amp;evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_icon_svg</td>
+<td class="gt_row gt_left" headers="value">plugins/Morpheus/images/action.svg</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_6_timestamp</td>
+<td class="gt_row gt_left" headers="value">2024-03-04 23:17:30</td>
+<td class="gt_row gt_right" headers="action_count">6</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_7_type</td>
+<td class="gt_row gt_left" headers="value">event</td>
+<td class="gt_row gt_right" headers="action_count">7</td>
+</tr>
+<tr class="odd">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_7_url</td>
+<td class="gt_row gt_left" headers="value">https://hans.th-nuernberg.de/video-player?uuid=762ed229-e6f4-415d-9f5d-f4279fbeb7d0&amp;evalId=none&amp;role=developer</td>
+<td class="gt_row gt_right" headers="action_count">7</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_right" headers="id_visit">19</td>
+<td class="gt_row gt_left" headers="name">action_details_7_page_id_action</td>
+<td class="gt_row gt_left" headers="value">275</td>
+<td class="gt_row gt_right" headers="action_count">7</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="zeitraum" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="zeitraum"><span class="header-section-number">1.3.3</span> Zeitraum</h3>
+<section id="beginnende-der-daten" class="level4" data-number="1.3.3.1">
+<h4 data-number="1.3.3.1" class="anchored" data-anchor-id="beginnende-der-daten"><span class="header-section-number">1.3.3.1</span> Beginn/Ende der Daten</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># time_minmax |&gt; </span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#   summarise(time_min = min(time_min),</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#             time_max = max(time_max)) |&gt; </span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   gt()</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="days-since-last-visit" class="level4" data-number="1.3.3.2">
+<h4 data-number="1.3.3.2" class="anchored" data-anchor-id="days-since-last-visit"><span class="header-section-number">1.3.3.2</span> Days since last visit</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># time_since_last_visit &lt;-</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># time_since_last_visit |&gt;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   mutate(days_since_last_visit = as.numeric(days_since_last_visit))</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># time_since_last_visit |&gt;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   datawizard::describe_distribution(days_since_last_visit) |&gt;</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   knitr::kable()</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># </span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># time_since_last_visit |&gt;</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a><span class="co">#   ggplot(aes(x = days_since_last_visit)) +</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_density()</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="anzahl-visits" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="anzahl-visits"><span class="header-section-number">1.3.4</span> Anzahl Visits</h3>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(action_types)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Rows: 2,585,360</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Columns: 4</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">## $ id_visit     &lt;chr&gt; "19", "19", "19", "19", "19", "19", "19", "19", "19", "19…</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="do">## $ type         &lt;chr&gt; "type", "url", "page", "idpageview", "server", "page", "e…</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">## $ value        &lt;chr&gt; "event", "https://hans.th-nuernberg.de/?evalId=none&amp;role=…</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="do">## $ action_count &lt;int&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, …</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>action_types<span class="sc">$</span>id_visit <span class="sc">|&gt;</span> <span class="fu">unique</span>() <span class="sc">|&gt;</span> <span class="fu">length</span>()</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1771</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="anzahl-der-aktionen-pro-visit" class="level3" data-number="1.3.5">
+<h3 data-number="1.3.5" class="anchored" data-anchor-id="anzahl-der-aktionen-pro-visit"><span class="header-section-number">1.3.5</span> Anzahl der Aktionen pro Visit</h3>
+<p><code>action_count</code> fasst die Nummer der Aktion innerhalb eines bestimmten Visits. <code>type</code> gibt den Typ der protokollierten Aktion an, z.B. ob es ein Timestamp war.</p>
+<section id="mit-allen-daten-den-499er-daten" class="level4" data-number="1.3.5.1">
+<h4 data-number="1.3.5.1" class="anchored" data-anchor-id="mit-allen-daten-den-499er-daten"><span class="header-section-number">1.3.5.1</span> Mit allen Daten (den 499er-Daten)</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>actions_per_visit <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe_distribution</span>(nr_max) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="fu">where</span>(is.numeric),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">decimals =</span> <span class="dv">2</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="lxcqapjuvb" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#lxcqapjuvb table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#lxcqapjuvb thead, #lxcqapjuvb tbody, #lxcqapjuvb tfoot, #lxcqapjuvb tr, #lxcqapjuvb td, #lxcqapjuvb th {
+  border-style: none;
+}
+
+#lxcqapjuvb p {
+  margin: 0;
+  padding: 0;
+}
+
+#lxcqapjuvb .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#lxcqapjuvb .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#lxcqapjuvb .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#lxcqapjuvb .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#lxcqapjuvb .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#lxcqapjuvb .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#lxcqapjuvb .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#lxcqapjuvb .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#lxcqapjuvb .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#lxcqapjuvb .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#lxcqapjuvb .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#lxcqapjuvb .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#lxcqapjuvb .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#lxcqapjuvb .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#lxcqapjuvb .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lxcqapjuvb .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#lxcqapjuvb .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#lxcqapjuvb .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#lxcqapjuvb .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lxcqapjuvb .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#lxcqapjuvb .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lxcqapjuvb .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#lxcqapjuvb .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lxcqapjuvb .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#lxcqapjuvb .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#lxcqapjuvb .gt_left {
+  text-align: left;
+}
+
+#lxcqapjuvb .gt_center {
+  text-align: center;
+}
+
+#lxcqapjuvb .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#lxcqapjuvb .gt_font_normal {
+  font-weight: normal;
+}
+
+#lxcqapjuvb .gt_font_bold {
+  font-weight: bold;
+}
+
+#lxcqapjuvb .gt_font_italic {
+  font-style: italic;
+}
+
+#lxcqapjuvb .gt_super {
+  font-size: 65%;
+}
+
+#lxcqapjuvb .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#lxcqapjuvb .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#lxcqapjuvb .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#lxcqapjuvb .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#lxcqapjuvb .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#lxcqapjuvb .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#lxcqapjuvb .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#lxcqapjuvb .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#lxcqapjuvb div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
+<th id="Mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="SD" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SD</th>
+<th id="IQR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IQR</th>
+<th id="Min" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Min</th>
+<th id="Max" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Max</th>
+<th id="Skewness" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Skewness</th>
+<th id="Kurtosis" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Kurtosis</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th id="n_Missing" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n_Missing</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">nr_max</td>
+<td class="gt_row gt_right" headers="Mean">85.71</td>
+<td class="gt_row gt_right" headers="SD">163.16</td>
+<td class="gt_row gt_right" headers="IQR">65.00</td>
+<td class="gt_row gt_right" headers="Min">0.00</td>
+<td class="gt_row gt_right" headers="Max">499.00</td>
+<td class="gt_row gt_right" headers="Skewness">1.89</td>
+<td class="gt_row gt_right" headers="Kurtosis">1.96</td>
+<td class="gt_row gt_right" headers="n">1,771.00</td>
+<td class="gt_row gt_right" headers="n_Missing">0.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p><code>nr_max</code> gibt den Maximalwert von <code>nr</code> zurück, sagt also, wie viele Aktionen maximal von einem Visitor ausgeführt wurden.</p>
+<p>Betrachtet man die Anzahl der Aktionen pro Visitor näher, so fällt auf, dass der Maximalwert (499) sehr häufig vorkommt:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>actions_per_visit <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(nr_max) <span class="sc">|&gt;</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nr_max, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="challenge06-solution_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Hier noch in einer anderen Darstellung:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>actions_per_visit <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(nr_max) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> nr_max, <span class="at">y =</span> n)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="challenge06-solution_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Der Maximalwert ist einfach auffällig häufig:</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>actions_per_visit <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(nr_max <span class="sc">==</span> <span class="dv">499</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="somdefyttx" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#somdefyttx table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#somdefyttx thead, #somdefyttx tbody, #somdefyttx tfoot, #somdefyttx tr, #somdefyttx td, #somdefyttx th {
+  border-style: none;
+}
+
+#somdefyttx p {
+  margin: 0;
+  padding: 0;
+}
+
+#somdefyttx .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#somdefyttx .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#somdefyttx .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#somdefyttx .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#somdefyttx .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#somdefyttx .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#somdefyttx .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#somdefyttx .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#somdefyttx .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#somdefyttx .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#somdefyttx .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#somdefyttx .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#somdefyttx .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#somdefyttx .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#somdefyttx .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#somdefyttx .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#somdefyttx .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#somdefyttx .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#somdefyttx .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#somdefyttx .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#somdefyttx .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#somdefyttx .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#somdefyttx .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#somdefyttx .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#somdefyttx .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#somdefyttx .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#somdefyttx .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#somdefyttx .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#somdefyttx .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#somdefyttx .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#somdefyttx .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#somdefyttx .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#somdefyttx .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#somdefyttx .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#somdefyttx .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#somdefyttx .gt_left {
+  text-align: left;
+}
+
+#somdefyttx .gt_center {
+  text-align: center;
+}
+
+#somdefyttx .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#somdefyttx .gt_font_normal {
+  font-weight: normal;
+}
+
+#somdefyttx .gt_font_bold {
+  font-weight: bold;
+}
+
+#somdefyttx .gt_font_italic {
+  font-style: italic;
+}
+
+#somdefyttx .gt_super {
+  font-size: 65%;
+}
+
+#somdefyttx .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#somdefyttx .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#somdefyttx .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#somdefyttx .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#somdefyttx .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#somdefyttx .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#somdefyttx .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#somdefyttx .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#somdefyttx div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="nr_max-==-499" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">nr_max == 499</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_center" headers="nr_max == 499">FALSE</td>
+<td class="gt_row gt_right" headers="n">1572</td>
+</tr>
+<tr class="even">
+<td class="gt_row gt_center" headers="nr_max == 499">TRUE</td>
+<td class="gt_row gt_right" headers="n">199</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<p>Es erscheint plausibel, dass der Maximalwert alle “gekappten” (zensierten, abgeschnittenen) Werte fasst, also viele Werte, die eigentlich größer wären (aber dann zensiert wurden).</p>
+</section>
+<section id="nur-visitors-für-die-weniger-als-500-aktionen-protokolliert-sind" class="level4" data-number="1.3.5.2">
+<h4 data-number="1.3.5.2" class="anchored" data-anchor-id="nur-visitors-für-die-weniger-als-500-aktionen-protokolliert-sind"><span class="header-section-number">1.3.5.2</span> Nur Visitors, für die weniger als 500 Aktionen protokolliert sind</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>actions_per_visit2 <span class="ot">&lt;-</span> </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>actions_per_visit <span class="sc">|&gt;</span> </span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(nr_max <span class="sc">!=</span> <span class="dv">499</span>) </span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>actions_per_visit2 <span class="sc">|&gt;</span> </span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">describe_distribution</span>(nr_max) <span class="sc">|&gt;</span> </span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>() <span class="sc">|&gt;</span> </span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fmt_number</span>(<span class="at">columns =</span> <span class="fu">where</span>(is.numeric),</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>             <span class="at">decimals =</span> <span class="dv">2</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="ercvcjnoop" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#ercvcjnoop table {
+  font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#ercvcjnoop thead, #ercvcjnoop tbody, #ercvcjnoop tfoot, #ercvcjnoop tr, #ercvcjnoop td, #ercvcjnoop th {
+  border-style: none;
+}
+
+#ercvcjnoop p {
+  margin: 0;
+  padding: 0;
+}
+
+#ercvcjnoop .gt_table {
+  display: table;
+  border-collapse: collapse;
+  line-height: normal;
+  margin-left: auto;
+  margin-right: auto;
+  color: #333333;
+  font-size: 16px;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #FFFFFF;
+  width: auto;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #A8A8A8;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #A8A8A8;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_caption {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+#ercvcjnoop .gt_title {
+  color: #333333;
+  font-size: 125%;
+  font-weight: initial;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-color: #FFFFFF;
+  border-bottom-width: 0;
+}
+
+#ercvcjnoop .gt_subtitle {
+  color: #333333;
+  font-size: 85%;
+  font-weight: initial;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-color: #FFFFFF;
+  border-top-width: 0;
+}
+
+#ercvcjnoop .gt_heading {
+  background-color: #FFFFFF;
+  text-align: center;
+  border-bottom-color: #FFFFFF;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_bottom_border {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_col_headings {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_col_heading {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  overflow-x: hidden;
+}
+
+#ercvcjnoop .gt_column_spanner_outer {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: normal;
+  text-transform: inherit;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+#ercvcjnoop .gt_column_spanner_outer:first-child {
+  padding-left: 0;
+}
+
+#ercvcjnoop .gt_column_spanner_outer:last-child {
+  padding-right: 0;
+}
+
+#ercvcjnoop .gt_column_spanner {
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  overflow-x: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+#ercvcjnoop .gt_spanner_row {
+  border-bottom-style: hidden;
+}
+
+#ercvcjnoop .gt_group_heading {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  text-align: left;
+}
+
+#ercvcjnoop .gt_empty_group_heading {
+  padding: 0.5px;
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  vertical-align: middle;
+}
+
+#ercvcjnoop .gt_from_md > :first-child {
+  margin-top: 0;
+}
+
+#ercvcjnoop .gt_from_md > :last-child {
+  margin-bottom: 0;
+}
+
+#ercvcjnoop .gt_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 10px;
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 1px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 1px;
+  border-right-color: #D3D3D3;
+  vertical-align: middle;
+  overflow-x: hidden;
+}
+
+#ercvcjnoop .gt_stub {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ercvcjnoop .gt_stub_row_group {
+  color: #333333;
+  background-color: #FFFFFF;
+  font-size: 100%;
+  font-weight: initial;
+  text-transform: inherit;
+  border-right-style: solid;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+  padding-left: 5px;
+  padding-right: 5px;
+  vertical-align: top;
+}
+
+#ercvcjnoop .gt_row_group_first td {
+  border-top-width: 2px;
+}
+
+#ercvcjnoop .gt_row_group_first th {
+  border-top-width: 2px;
+}
+
+#ercvcjnoop .gt_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ercvcjnoop .gt_first_summary_row {
+  border-top-style: solid;
+  border-top-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_first_summary_row.thick {
+  border-top-width: 2px;
+}
+
+#ercvcjnoop .gt_last_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_grand_summary_row {
+  color: #333333;
+  background-color: #FFFFFF;
+  text-transform: inherit;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ercvcjnoop .gt_first_grand_summary_row {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-top-style: double;
+  border-top-width: 6px;
+  border-top-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_last_grand_summary_row_top {
+  padding-top: 8px;
+  padding-bottom: 8px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-bottom-style: double;
+  border-bottom-width: 6px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_striped {
+  background-color: rgba(128, 128, 128, 0.05);
+}
+
+#ercvcjnoop .gt_table_body {
+  border-top-style: solid;
+  border-top-width: 2px;
+  border-top-color: #D3D3D3;
+  border-bottom-style: solid;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_footnotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_footnote {
+  margin: 0px;
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ercvcjnoop .gt_sourcenotes {
+  color: #333333;
+  background-color: #FFFFFF;
+  border-bottom-style: none;
+  border-bottom-width: 2px;
+  border-bottom-color: #D3D3D3;
+  border-left-style: none;
+  border-left-width: 2px;
+  border-left-color: #D3D3D3;
+  border-right-style: none;
+  border-right-width: 2px;
+  border-right-color: #D3D3D3;
+}
+
+#ercvcjnoop .gt_sourcenote {
+  font-size: 90%;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#ercvcjnoop .gt_left {
+  text-align: left;
+}
+
+#ercvcjnoop .gt_center {
+  text-align: center;
+}
+
+#ercvcjnoop .gt_right {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+#ercvcjnoop .gt_font_normal {
+  font-weight: normal;
+}
+
+#ercvcjnoop .gt_font_bold {
+  font-weight: bold;
+}
+
+#ercvcjnoop .gt_font_italic {
+  font-style: italic;
+}
+
+#ercvcjnoop .gt_super {
+  font-size: 65%;
+}
+
+#ercvcjnoop .gt_footnote_marks {
+  font-size: 75%;
+  vertical-align: 0.4em;
+  position: initial;
+}
+
+#ercvcjnoop .gt_asterisk {
+  font-size: 100%;
+  vertical-align: 0;
+}
+
+#ercvcjnoop .gt_indent_1 {
+  text-indent: 5px;
+}
+
+#ercvcjnoop .gt_indent_2 {
+  text-indent: 10px;
+}
+
+#ercvcjnoop .gt_indent_3 {
+  text-indent: 15px;
+}
+
+#ercvcjnoop .gt_indent_4 {
+  text-indent: 20px;
+}
+
+#ercvcjnoop .gt_indent_5 {
+  text-indent: 25px;
+}
+
+#ercvcjnoop .katex-display {
+  display: inline-flex !important;
+  margin-bottom: 0.75em !important;
+}
+
+#ercvcjnoop div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+  height: 0px !important;
+}
+</style>
+
+<table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
+<thead>
+<tr class="gt_col_headings header">
+<th id="Variable" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">Variable</th>
+<th id="Mean" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Mean</th>
+<th id="SD" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">SD</th>
+<th id="IQR" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">IQR</th>
+<th id="Min" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Min</th>
+<th id="Max" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Max</th>
+<th id="Skewness" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Skewness</th>
+<th id="Kurtosis" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">Kurtosis</th>
+<th id="n" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n</th>
+<th id="n_Missing" class="gt_col_heading gt_columns_bottom_border gt_right" data-quarto-table-cell-role="th" scope="col">n_Missing</th>
+</tr>
+</thead>
+<tbody class="gt_table_body">
+<tr class="odd">
+<td class="gt_row gt_left" headers="Variable">nr_max</td>
+<td class="gt_row gt_right" headers="Mean">33.40</td>
+<td class="gt_row gt_right" headers="SD">74.96</td>
+<td class="gt_row gt_right" headers="IQR">22.00</td>
+<td class="gt_row gt_right" headers="Min">0.00</td>
+<td class="gt_row gt_right" headers="Max">482.00</td>
+<td class="gt_row gt_right" headers="Skewness">3.11</td>
+<td class="gt_row gt_right" headers="Kurtosis">10.55</td>
+<td class="gt_row gt_right" headers="n">1,572.00</td>
+<td class="gt_row gt_right" headers="n_Missing">0.00</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="verteilung" class="level3" data-number="1.3.6">
+<h3 data-number="1.3.6" class="anchored" data-anchor-id="verteilung"><span class="header-section-number">1.3.6</span> Verteilung</h3>
+<section id="mit-den-499er-daten" class="level4" data-number="1.3.6.1">
+<h4 data-number="1.3.6.1" class="anchored" data-anchor-id="mit-den-499er-daten"><span class="header-section-number">1.3.6.1</span> Mit den 499er-Daten</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>actions_per_visit_avg <span class="ot">=</span> <span class="fu">mean</span>(actions_per_visit<span class="sc">$</span>nr_max)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>actions_per_visit_sd <span class="ot">=</span> <span class="fu">sd</span>(actions_per_visit<span class="sc">$</span>nr_max)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>actions_per_visit <span class="sc">|&gt;</span> </span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> nr_max)) <span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Anzahl von Aktionen pro Visit"</span>,</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"n"</span>,</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Der vertikale Strich zeigt den Mittelwert; der horizontale die SD"</span>) <span class="sc">+</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> actions_per_visit_avg,</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="fu">palette_okabe_ito</span>()[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> actions_per_visit_avg<span class="sc">-</span>actions_per_visit_sd,</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">0</span>,</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> actions_per_visit_avg <span class="sc">+</span> actions_per_visit_sd,</span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="dv">0</span>,</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="fu">palette_okabe_ito</span>()[<span class="dv">2</span>],</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> actions_per_visit_avg, <span class="at">y =</span> <span class="dv">1500</span>, <span class="at">label =</span> <span class="st">"MW"</span>) <span class="sc">+</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> actions_per_visit_avg <span class="sc">+</span> actions_per_visit_sd, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> <span class="st">"SD"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="challenge06-solution_files/figure-html/plot-count-action-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>  <span class="co">#geom_label(aes(x = actions_per_visit_avg), y = 1, label = "Mean")</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ul>
+<li>Mittelwert der Aktionen pro Visit: 85.71.</li>
+<li>SD der Aktionen pro Visit: 163.16.</li>
+</ul>
+</section>
+<section id="ohne-499er-daten" class="level4" data-number="1.3.6.2">
+<h4 data-number="1.3.6.2" class="anchored" data-anchor-id="ohne-499er-daten"><span class="header-section-number">1.3.6.2</span> Ohne 499er-Daten</h4>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>actions_per_visit_avg2 <span class="ot">=</span> <span class="fu">mean</span>(actions_per_visit2<span class="sc">$</span>nr_max)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>actions_per_visit_sd2 <span class="ot">=</span> <span class="fu">sd</span>(actions_per_visit2<span class="sc">$</span>nr_max)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>actions_per_visit2 <span class="sc">|&gt;</span> </span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="fu">aes</span>(<span class="at">x =</span> nr_max)) <span class="sc">+</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Anzahl von Aktionen pro Visit"</span>,</span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"n"</span>,</span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Verteilung der User-Aktionen pro Visit"</span>,</span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">"Der vertikale Strich zeigt den Mittelwert; der horizontale die SD"</span>) <span class="sc">+</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> actions_per_visit_avg2,</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="fu">palette_okabe_ito</span>()[<span class="dv">1</span>]) <span class="sc">+</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="at">x =</span> actions_per_visit_avg<span class="sc">-</span>actions_per_visit_sd2,</span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>               <span class="at">y =</span> <span class="dv">0</span>,</span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>               <span class="at">xend =</span> actions_per_visit_avg2 <span class="sc">+</span> actions_per_visit_sd2,</span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>               <span class="at">yend =</span> <span class="dv">0</span>,</span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="fu">palette_okabe_ito</span>()[<span class="dv">2</span>],</span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>               <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> actions_per_visit_avg2, <span class="at">y =</span> <span class="dv">1500</span>, <span class="at">label =</span> <span class="st">"MW"</span>, <span class="at">vjust =</span> <span class="st">"top"</span>) <span class="sc">+</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"label"</span>, <span class="at">x =</span> actions_per_visit_avg2 <span class="sc">+</span> actions_per_visit_sd2, <span class="at">y =</span> <span class="dv">0</span>, <span class="at">label =</span> <span class="st">"SD"</span>, <span class="at">vjust =</span> <span class="st">"bottom"</span>) </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="challenge06-solution_files/figure-html/plot-count-action-2-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Mittelwert der Aktionen pro Visit: 33.4.</li>
+<li>SD der Aktionen pro Visit: 74.96.</li>
+</ul>
 
 
+</section>
+</section>
 </section>
 </section>
 

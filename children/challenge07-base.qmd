@@ -10,12 +10,12 @@ Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskripti
 3. An welchen Tagen und zu welcher Zeit kommen die User zu HaNS?
 3. An welchen Wochentagen wird die Seite bevorzugt besucht?
 4. Zu welchen Zeiten wird die Seite bevorzugt besucht?
-5. Geben Sie den Zeitraum der Nutzung an (von ... bis ...).
-6. Geben Sie den Zeitraum seit der letzten Nutzung an.
+5. Geben Sie den Zeitraum der Nutzung an (von <Datum des ersten Visits> bis <Datum des letzten Visits>).
+6. Geben Sie den Zeitraum seit der letzten Nutzung an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).
 
 
 
-Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Renderen Sie den Bericht im Forat `typst`.
+Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Renderen Sie den Bericht im Format `typst`.
 
 
 Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).

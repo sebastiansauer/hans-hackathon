@@ -130,13 +130,13 @@ list(
   
   # count action categories per visit:
   tar_target(count_action_type,
-             count_user_action_type(action_types), packages = c("stringr", "dplyr")),
+             count_user_action_type(action_types), packages = c("stringr", "dplyr"))
   
   
 
 # render report in Quarto -------------------------------------------------
 
   # render report in Quarto:
-  tar_quarto(challenge06_report, "challenge06-solution-report.qmd")
+  # tar_quarto(challenge06_report, "challenge06-solution-report.qmd")
   
 )

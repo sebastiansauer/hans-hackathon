@@ -304,3 +304,4 @@ actions_per_visit2 |>
 - Mittelwert der Aktionen pro Visit: `r round(actions_per_visit_avg2, 2)`.
 - SD der Aktionen pro Visit: `r round(actions_per_visit_sd2, 2)`.
 
+
