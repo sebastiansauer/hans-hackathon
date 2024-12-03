@@ -20,7 +20,7 @@ number-sections: true
 
 ## Lösungen
 
-Für diese Lösung gibt es keinen Quarto-Bericht. Stattdessen war eine eine Pipeline auszuarbeiten, die die Daten von der Quelle bis zur Analyse führt. [Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge05-solution.R) ist eine mögliche Lösung.
+Für diese Lösung gibt es keinen Quarto-Bericht. Stattdessen war eine Pipeline auszuarbeiten, die die Daten von der Quelle bis zur Analyse führt. [Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge05-solution.R) ist eine mögliche Lösung.
 
 
 Beachten Sie bitte, dass die Targets-Pipeline-Datei `_targets.R` heißen sollte.

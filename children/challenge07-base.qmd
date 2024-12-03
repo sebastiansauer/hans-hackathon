@@ -15,4 +15,7 @@ Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskripti
 
 
 
-Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).
+Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Renderen Sie den Bericht im Forat `typst`.
+
+
+Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).

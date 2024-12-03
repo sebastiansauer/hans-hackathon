@@ -9,3 +9,4 @@
 
 Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).
 
+Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).

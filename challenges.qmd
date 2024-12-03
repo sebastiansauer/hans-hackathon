@@ -43,19 +43,19 @@ toc: true
 {{< include children/challenge05-base.qmd >}}
 
 
-## Verweildauer
+## Großer Datensatz
 
 
 {{< include children/challenge06-base.qmd >}}
 
 
-## KI-Verwendung
+## Verweildauer
 
 {{< include children/challenge07-base.qmd >}}
 
 
 
-## Optimierung der Pipeline
+## Interaktion mit dem LLM
 
 {{< include children/challenge08-base.qmd >}}
 

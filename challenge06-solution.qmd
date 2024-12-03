@@ -1,0 +1,36 @@
+---
+title: "Challenge 06 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+---
+
+
+
+
+# Großer Datensatz
+
+
+
+## Aufgaben
+
+
+{{< include children/challenge06-base.qmd >}}
+
+
+
+## Lösungen
+
+[Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution.R) ist eine mögliche Lösung für die Pipeline.
+
+[Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution-report.qmd) findet sich eine Quarto-Datei, die die Objekte der Pipeline zusammenfasst und in einem Report darstellt.
+
+
+
+Beachten Sie bitte, dass die Targets-Pipeline-Datei `_targets.R` heißen sollte und nur die Pipeline-Funktionen enthalten sollte.
+
+
+Die Pipeline lassen Sie mit `tar_make()` laufen, [hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/run-pipeline.R) ist ein Beispiel.
+
+

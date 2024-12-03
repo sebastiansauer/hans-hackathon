@@ -187,6 +187,12 @@ div.csl-indent {
  <span class="menu-text">Lösung 05</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge06-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 06</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -202,9 +208,9 @@ div.csl-indent {
   <li><a href="#daten-verschlanken" id="toc-daten-verschlanken" class="nav-link" data-scroll-target="#daten-verschlanken"><span class="header-section-number">3</span> Daten verschlanken</a></li>
   <li><a href="#daten-pivotieren" id="toc-daten-pivotieren" class="nav-link" data-scroll-target="#daten-pivotieren"><span class="header-section-number">4</span> Daten pivotieren</a></li>
   <li><a href="#projektmanagement" id="toc-projektmanagement" class="nav-link" data-scroll-target="#projektmanagement"><span class="header-section-number">5</span> Projektmanagement</a></li>
-  <li><a href="#verweildauer" id="toc-verweildauer" class="nav-link" data-scroll-target="#verweildauer"><span class="header-section-number">6</span> Verweildauer</a></li>
-  <li><a href="#ki-verwendung" id="toc-ki-verwendung" class="nav-link" data-scroll-target="#ki-verwendung"><span class="header-section-number">7</span> KI-Verwendung</a></li>
-  <li><a href="#optimierung-der-pipeline" id="toc-optimierung-der-pipeline" class="nav-link" data-scroll-target="#optimierung-der-pipeline"><span class="header-section-number">8</span> Optimierung der Pipeline</a></li>
+  <li><a href="#großer-datensatz" id="toc-großer-datensatz" class="nav-link" data-scroll-target="#großer-datensatz"><span class="header-section-number">6</span> Großer Datensatz</a></li>
+  <li><a href="#verweildauer" id="toc-verweildauer" class="nav-link" data-scroll-target="#verweildauer"><span class="header-section-number">7</span> Verweildauer</a></li>
+  <li><a href="#interaktion-mit-dem-llm" id="toc-interaktion-mit-dem-llm" class="nav-link" data-scroll-target="#interaktion-mit-dem-llm"><span class="header-section-number">8</span> Interaktion mit dem LLM</a></li>
   <li><a href="#glotzdauer" id="toc-glotzdauer" class="nav-link" data-scroll-target="#glotzdauer"><span class="header-section-number">9</span> “Glotzdauer”</a></li>
   <li><a href="#veränderung-des-nutzerverhaltens-im-zeitverlauf" id="toc-veränderung-des-nutzerverhaltens-im-zeitverlauf" class="nav-link" data-scroll-target="#veränderung-des-nutzerverhaltens-im-zeitverlauf"><span class="header-section-number">10</span> Veränderung des Nutzerverhaltens im Zeitverlauf</a></li>
   </ul>
@@ -237,7 +243,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">26. November 2024</p>
+      <p class="date">3. Dezember 2024</p>
     </div>
   </div>
   
@@ -295,7 +301,7 @@ div.csl-indent {
 <p><strong>Datensatz pivotieren</strong></p>
 <p>Aufbauend auf dem Ergebnis der letzten Challenge:</p>
 <ol type="1">
-<li><p>Listen Sie die <em>Spaltennamen</em> auf.</p></li>
+<li><p>Listen Sie die <em>Spaltennamen</em> auf, aber nur max. 20. Wenn es mehr als 20 Spalten gibt, listen Sie nur die ersten 20 auf. Wenn es weniger als 20 Spalten gibt, listen Sie alle auf.</p></li>
 <li><p>Geben Sie <em>Arten von Spaltennamen</em> an, z.b. <code>actionDetails_482_timestamp</code> und <code>actionDetails_327_subtitle</code> und <code>actionDetails_327_timestampe</code> wären 2 verschiedene Typen von Spalten: Timestamp und Subtitle.</p></li>
 <li><p><em>Pivotieren</em> Sie den Datensatz in das Langformat. Aber nehmen Sie <code>idvisit</code> vom Pivotieren aus; d.h. Sie nehmen alle Spalten bis auf <code>idvisit</code> in das Pivotieren auf. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
 <li><p><em>Begrenzen</em> Sie beim Pivotieren die Spalten auf die Spaltentypen mit dem Namen vom Typ <code>subtitle</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</p></li>
@@ -311,7 +317,7 @@ div.csl-indent {
 <ol type="1">
 <li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
 <li><em>Pivotieren</em> Sie dieses Mal <em>wie folgt</em>: Entfernen Sie alle Spalten <em>außer</em> <code>idvisit</code> und alle Spalten, die <code>actionDetails</code> enthalten. Pivotieren Sie dann <em>nur</em> Spalten mit dem Namen vom Typ <code>actionDetails</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
-<li>Fügen Sie am Ende der Pipeline ein <em>Target</em> hinzu, dass den zentralen, resultierenden Dataframe <em>als Excel-Datei exportiert</em> (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
+<li>Fügen Sie am Ende der Pipeline ein <em>Target</em> hinzu, das den zentralen, resultierenden Dataframe <em>als Excel-Datei exportiert</em> (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
 <li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
 <p>Tipps:</p>
@@ -325,8 +331,8 @@ div.csl-indent {
 <p>Ausgabeformat: R-Syntax (Targets-Pipeline).</p>
 <p><strong>Hinweis</strong>: Die Lösung dieser Challenge ist nicht trivial. Sie erfordert einiges an Recherche und Einarbeitung in die Targets-Pipeline.</p>
 </section>
-<section id="verweildauer" class="level2" data-number="6">
-<h2 data-number="6" class="anchored" data-anchor-id="verweildauer"><span class="header-section-number">6</span> Verweildauer</h2>
+<section id="großer-datensatz" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="großer-datensatz"><span class="header-section-number">6</span> Großer Datensatz</h2>
 <p><strong>Großer Datensatz</strong></p>
 <p>Arbeiten Sie mit Ihrer Pipeline weiter:</p>
 <ol type="1">
@@ -348,8 +354,8 @@ div.csl-indent {
 </ul>
 <p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).</p>
 </section>
-<section id="ki-verwendung" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="ki-verwendung"><span class="header-section-number">7</span> KI-Verwendung</h2>
+<section id="verweildauer" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="verweildauer"><span class="header-section-number">7</span> Verweildauer</h2>
 <p><strong>Verweildauer</strong></p>
 <p>Für alle folgenden Aufgaben dieser Challenge: Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung.</p>
 <ol start="3" type="1">
@@ -363,8 +369,8 @@ div.csl-indent {
 </ol>
 <p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).</p>
 </section>
-<section id="optimierung-der-pipeline" class="level2" data-number="8">
-<h2 data-number="8" class="anchored" data-anchor-id="optimierung-der-pipeline"><span class="header-section-number">8</span> Optimierung der Pipeline</h2>
+<section id="interaktion-mit-dem-llm" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="interaktion-mit-dem-llm"><span class="header-section-number">8</span> Interaktion mit dem LLM</h2>
 <p><strong>Interaktion mit dem LLM</strong></p>
 <ol type="1">
 <li>Wie oft wird (pro Monat) ein <code>AI transcript</code> angefordert?</li>
@@ -402,12 +408,12 @@ Wickham, Hadley, Mine Çetinkaya-Rundel, und Garrett Grolemund. 2023. <em>R for 
 </div></section><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenges im Überblick},
-  date = {2024-11-26},
+  date = {2024-12-03},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
-Sauer, Sebastian. 2024. <span>“Challenges im Überblick.”</span> November
-26, 2024.
+Sauer, Sebastian. 2024. <span>“Challenges im Überblick.”</span> December
+3, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

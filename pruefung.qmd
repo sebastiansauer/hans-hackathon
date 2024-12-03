@@ -69,31 +69,29 @@ d.h. die Lösung muss bis zum jeweiligen Abgabetermin eingereicht werden. Der Ab
 - *Prüfen Sie* vor Beginn der ersten Challenge, ob Sie auf die *Daten zugreifen* können und diese einlesen können. Melden Sie sich bei Problemen vor Beginn der (jeweiligen) Challenge beim Dozenten.
 - Geben Sie in jeder eingereichten Datei *Ihren Namen und die Nummer* der Challenge an.
 - *Benennen* Sie Ihre *Dateien* nach folgendem Schema: `challenge01-max-mustermann.R` (für R-Skripte) oder `challenge01-max-mustermann.qmd` (für Quarto-Dateien).
+- Nutzen Sie den [Tidyverse-Styleguide](https://style.tidyverse.org/.
+- Achten Sie auf einen guten Programmierstil.
 
 
-### Tipps
-
-- Programmieren Sie in R.
-- Chatbots wie ChatGPT können Ihnen helfen, Ihre Idee in Code umzusetzen.
-- Wiederholen Sie die Grundlagen des Datenjudos.
-- Dieses Modul ist sehr angewandt; theoretische Konzepte stehen nicht im Vordergrund. Stattdessen geht es darum, praktische Probleme zu lösen. In solchen Situationen geht Probieren (oft) über Studieren.
 
 
 ### Abgabeformat
 
 
-Sofern das Ausgabeformat "Quarto" definiet ist, 
+Sofern das Ausgabeformat "Quarto" definiert ist, 
 reichen Sie Ihre Ergebnisse bitte in Form eines Dokuments ein,
 
-- das die *Lösung* der Challenge enthält,
+- das die *Lösung* (der Aufgabenstellung) enthält,
 - das Ihren *Computer-Code* enthält (mit Syntax-Highlighting),
-- das Ihre *Ergebnisse* enthält,
+- das Ihre *Ausgaben* zu Ihrem Computer-Code enthält,
 - das Ihre *Gedanken* und Überlegungen (also Text, angereichert ggf. mit Diagrammen etc.) enthält,
 - das übersichtlich und ansprechend *formatiert* ist,
 - das in RMarkdown oder Quarto erstellt wurde,
 - das die *Grundlagen wissenschaftlichen Arbeitens* beachtet,
-- das "*Standalone*" lesbar ist, also keine Abhängigkeiten zu anderen Dokumenten benötigt
-- das als *PDF*- oder *HTML*-Datei formatiert ist.
+- das "*Standalone*" lesbar ist, also keine Abhängigkeiten zu anderen Dokumenten benötigt,
+- das als *PDF*- oder *HTML*-Datei formatiert ist,
+- das soweit als möglich *reproduzierbar* ist.
+
 
 
 Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte in Form eines R-Skripts ein, 
@@ -103,90 +101,6 @@ Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte 
 - *durchläuft*, ohne Fehler zu werfen
 - *kommentiert* ist
 - wohl *gegliedert* ist
-
-
-### Schöner Programmieren
-
-
-- Schreiben Sie Ihren Code in kleine, *in sich abgeschlossene Abschnitte*.
-- Gliedern Sie Ihren Code in *Funktionen.*
-- Schreiben Sie *nicht "hardcoded"*, sondern verwenden Sie allgemeinere, wiederverndbare, flexible Strukturen.
-- Finden Sie *prägnante Namen* für Ihre Objekte.
-- *Kommentieren* Sie Ihren Code.
-- Nutzen Sie RMarkdown und/oder *Quarto*, um Ihren Code und Ihre Ergebnisse zu dokumentieren.
-- Nutzen Sie *Git* und GitHub, um Ihren Code zu versionieren und zu teilen.
-- Nutzen Sie möglichst *einfach verständlichen Code*; schreiben Sie in erster Linie für Menschen, und erst in zweiter Linie für Maschinen.
-- Nutzen Sie *bewährte R-Pakete*, um Ihre Arbeit zu erleichtern.
-- Nutzen Sie die *Tidyverse-Philosophie*, um Ihren Code zu schreiben.
-
-
-
-
-:::{.exm-einfacher-code}
-### Code vereinfachen
-
-
-```{r}
-library(tidyverse)
-library(janitor)
-data("penguins", package = "palmerpenguins")
-```
-Datenbeispiel:
-
-```{r}
-d <-
-  tibble(
-    x = c(1, 2, 3, NA, 5),
-    y = c(NA, 2, 3, 4, 5),
-    z = 1
-  )
-
-d
-```
-
-Komplizierter Code:
-
-```{r}
-d_no_const_cols <- 
-  d[, sapply(d, function(col) length(unique(col[!is.na(col)])) > 1)]
-d_no_const_cols
-```
-
-Einfacher Code:
-
-```{r}
-d_no_const_cols <- 
-  d |> select(where(~ n_distinct(.) > 1))
-d_no_const_cols
-```
-
-Ähnlicher, aber nicht unbedingt einfacherer Code:
-
-
-```{r}
-nicht_alle_gleich <- function(spalte){
-  n_distinct(spalte) > 1
-}
-
-d |> select(where(nicht_alle_gleich))
-
-```
-
-
-
-Sehr einfacher Code:
-
-```{r}
-d_no_const_cols <- 
-  d |> remove_constant()  # aus janitor
-d_no_const_cols
-```
-
-
-Hilfe zur Funktion `remove_constant` erhält man mit `?remove_constant` (das zugehörige Paket, `janitor`, muss dafür geladen sein).
-:::
-
-
 
 
 
@@ -204,5 +118,7 @@ Weitere Hinweise zum Fachgespräch finden sich im [entsprechenden Kapitel im Hin
 
 ## Sonstiges
 
-Bitte beachten Sie die allgemeinen Hinweise im [Hinweisbuch](https://hinweisbuch.netlify.app/) besonders die [allgemeinen Prüfungshinweise](https://hinweisbuch.netlify.app/010-hinweise-pruefung-allgemein-frame).
+Bitte beachten Sie die allgemeinen Hinweise im [Hinweisbuch](https://hinweisbuch.netlify.app/) besonders die [allgemeinen Prüfungshinweise](https://hinweisbuch.netlify.app/010-hinweise-pruefung-allgemein-frame) sowie die Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).
+
+
 

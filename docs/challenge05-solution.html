@@ -167,6 +167,12 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Lösung 05</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge06-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 06</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -212,7 +218,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">26. November 2024</p>
+      <p class="date">3. Dezember 2024</p>
     </div>
   </div>
   
@@ -232,7 +238,7 @@ ul.task-list li input[type="checkbox"] {
 <ol type="1">
 <li>Schreiben Sie Ihre Analyse-Pipeline als Targets-Pipeline.</li>
 <li><em>Pivotieren</em> Sie dieses Mal <em>wie folgt</em>: Entfernen Sie alle Spalten <em>außer</em> <code>idvisit</code> und alle Spalten, die <code>actionDetails</code> enthalten. Pivotieren Sie dann <em>nur</em> Spalten mit dem Namen vom Typ <code>actionDetails</code>; d.h. Sie pivotieren nur diese genannten Spaltentypen. Es sollen also drei Spalten resultieren: <code>idvisit</code>, <code>name</code> und <code>value</code>.</li>
-<li>Fügen Sie am Ende der Pipeline ein <em>Target</em> hinzu, dass den zentralen, resultierenden Dataframe <em>als Excel-Datei exportiert</em> (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
+<li>Fügen Sie am Ende der Pipeline ein <em>Target</em> hinzu, das den zentralen, resultierenden Dataframe <em>als Excel-Datei exportiert</em> (aber nicht den Dataframe im Langformat, sondern den Dataframe im “breiten” Format).</li>
 <li>Diskutieren Sie Vor- und Nachteile der Targets-Pipeline.</li>
 </ol>
 <p>Tipps:</p>
@@ -248,7 +254,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="lösungen" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="lösungen"><span class="header-section-number">1.2</span> Lösungen</h2>
-<p>Für diese Lösung gibt es keinen Quarto-Bericht. Stattdessen war eine eine Pipeline auszuarbeiten, die die Daten von der Quelle bis zur Analyse führt. <a href="https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge05-solution.R">Hier</a> ist eine mögliche Lösung.</p>
+<p>Für diese Lösung gibt es keinen Quarto-Bericht. Stattdessen war eine Pipeline auszuarbeiten, die die Daten von der Quelle bis zur Analyse führt. <a href="https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge05-solution.R">Hier</a> ist eine mögliche Lösung.</p>
 <p>Beachten Sie bitte, dass die Targets-Pipeline-Datei <code>_targets.R</code> heißen sollte.</p>
 <p>Die Pipeline lassen Sie mit <code>tar_make()</code> laufen, <a href="https://github.com/sebastiansauer/hans-hackathon/blob/main/run-pipeline.R">hier</a> ist ein Beispiel.</p>
 <p>Hier ist die Visualisierung der Pipeline:</p>
@@ -261,12 +267,12 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
   author = {Sauer, Sebastian},
   title = {Challenge 05 -\/- Solution},
-  date = {2024-11-26},
+  date = {2024-12-03},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
 Sauer, Sebastian. 2024. <span>“Challenge 05 -- Solution.”</span>
-November 26, 2024.
+December 3, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

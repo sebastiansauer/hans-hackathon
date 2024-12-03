@@ -42,6 +42,8 @@ website:
         text: Lösung 04
       - text: Lösung 05
         href: challenge05-solution.qmd
+      - text: Lösung 06
+        href: challenge06-solution.qmd
       # - href: challenge01.qmd
       #   text: Challenge 01
       # - text: Challenge 02
