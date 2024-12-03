@@ -202,7 +202,7 @@
   {
     "objectID": "challenge06-solution.html",
     "href": "challenge06-solution.html",
-    "title": "Challenge 05 – Solution",
+    "title": "Challenge 06 – Solution",
     "section": "",
     "text": "Großer Datensatz\nArbeiten Sie mit Ihrer Pipeline weiter:\n\nImportieren Sie die zusätzlichen (neu eingestellten) Daten; lassen Sie die Pipeline auf dieser Basis neu durchlaufen.\nGab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?\nWie viel Rechenzeit hat die Pipeline beansprucht?\nStellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.\nFügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.\nIm Quarto-Bericht schreiben Sie, wie viele Visits Ihr Datensatz umfasst.\nSchreiben Sie außerdem im Quarto-Bericht, wie viele Aktionen pro Visit statfinden. Berichten Sie dazu relevante Statistiken und visualisieren Sie die Daten.\n\nTipps:\n\nfread aus data.table ist ähnlich zu read.csv, aber schneller.\nBei Problemen während des Importieren kann es zu Problemen kommen, wenn die Spaltentypen der CSV-Dateien als unterschiedlich erkannt werden. Ein Workaround ist es, alle Spalten auf Typ “character” zu setzen. Funktionen wie fread und read_csv bieten dafür einen Parameter.\nrbindlist aus data.table ist ähnlich zu rbind, was von map_dfr aufgerufen wird, aber schneller und weniger streng, produziert also weniger Fehlermeldungen (was von Vorteil, aber auch von Nachteil sein kann).\nWenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.\nWenn Sie Probleme mit der Performance haben, dann können Sie die Datenmenge reduzieren, indem Sie nur die ersten paar Dateien imporiteren. Kleinere Datenmengen sind auch für das Debuggen nützlich.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\n\n\n\nHier ist eine mögliche Lösung für die Pipeline.\nHier findet sich eine Quarto-Datei, die die Objekte der Pipeline zusammenfasst und in einem Report darstellt.\nBeachten Sie bitte, dass die Targets-Pipeline-Datei _targets.R heißen sollte und nur die Pipeline-Funktionen enthalten sollte.\nDie Pipeline lassen Sie mit tar_make() laufen, hier ist ein Beispiel.",
     "crumbs": [
@@ -212,7 +212,7 @@
   {
     "objectID": "challenge06-solution.html#aufgaben",
     "href": "challenge06-solution.html#aufgaben",
-    "title": "Challenge 05 – Solution",
+    "title": "Challenge 06 – Solution",
     "section": "",
     "text": "Großer Datensatz\nArbeiten Sie mit Ihrer Pipeline weiter:\n\nImportieren Sie die zusätzlichen (neu eingestellten) Daten; lassen Sie die Pipeline auf dieser Basis neu durchlaufen.\nGab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?\nWie viel Rechenzeit hat die Pipeline beansprucht?\nStellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.\nFügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.\nIm Quarto-Bericht schreiben Sie, wie viele Visits Ihr Datensatz umfasst.\nSchreiben Sie außerdem im Quarto-Bericht, wie viele Aktionen pro Visit statfinden. Berichten Sie dazu relevante Statistiken und visualisieren Sie die Daten.\n\nTipps:\n\nfread aus data.table ist ähnlich zu read.csv, aber schneller.\nBei Problemen während des Importieren kann es zu Problemen kommen, wenn die Spaltentypen der CSV-Dateien als unterschiedlich erkannt werden. Ein Workaround ist es, alle Spalten auf Typ “character” zu setzen. Funktionen wie fread und read_csv bieten dafür einen Parameter.\nrbindlist aus data.table ist ähnlich zu rbind, was von map_dfr aufgerufen wird, aber schneller und weniger streng, produziert also weniger Fehlermeldungen (was von Vorteil, aber auch von Nachteil sein kann).\nWenn Sie beim Importieren keinen Erfolg haben, dann überspringen Sie diesen Schritt und arbeiten Sie mit den Daten, die Sie bereits haben.\nWenn Sie Probleme mit der Performance haben, dann können Sie die Datenmenge reduzieren, indem Sie nur die ersten paar Dateien imporiteren. Kleinere Datenmengen sind auch für das Debuggen nützlich.\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).",
     "crumbs": [
@@ -222,7 +222,7 @@
   {
     "objectID": "challenge06-solution.html#lösungen",
     "href": "challenge06-solution.html#lösungen",
-    "title": "Challenge 05 – Solution",
+    "title": "Challenge 06 – Solution",
     "section": "",
     "text": "Hier ist eine mögliche Lösung für die Pipeline.\nHier findet sich eine Quarto-Datei, die die Objekte der Pipeline zusammenfasst und in einem Report darstellt.\nBeachten Sie bitte, dass die Targets-Pipeline-Datei _targets.R heißen sollte und nur die Pipeline-Funktionen enthalten sollte.\nDie Pipeline lassen Sie mit tar_make() laufen, hier ist ein Beispiel.",
     "crumbs": [
