@@ -55,8 +55,8 @@ theme_set(theme_minimal())
 tar_load(action_types, store = "challenge06")
 tar_load(data_users_only, store = "challenge06")
 tar_load(actions_per_visit, store = "challenge06")
-tar_load(time_minmax, store = "challenge06")
-tar_load(time_since_last_visit,store = "challenge06")
+# tar_load(time_minmax, store = "challenge06")
+# tar_load(time_since_last_visit,store = "challenge06")
 tar_load(numeric_id, store = "challenge06")
 ```
 
@@ -107,7 +107,7 @@ data_users_only_head100 %>%
 
 ### Datensatz im Lang-Format, Zeilen 1-100
 
-```{r}
+```{r show-numeric-id}
 numeric_id %>% 
   slice(1:100) |> 
   gt()
@@ -126,10 +126,11 @@ numeric_id %>%
 
 
 ```{r time-min-max}
-time_minmax |> 
-  summarise(time_min = min(time_min),
-            time_max = max(time_max)) |> 
-  gt()
+#| eval: false
+# time_minmax |> 
+#   summarise(time_min = min(time_min),
+#             time_max = max(time_max)) |> 
+#   gt()
 ```
 
 
@@ -137,17 +138,17 @@ time_minmax |>
 ### Days since last visit
 
 ```{r days-since-last-visit}
-time_since_last_visit <-
-time_since_last_visit |>
-  mutate(days_since_last_visit = as.numeric(days_since_last_visit))
-
-time_since_last_visit |>
-  datawizard::describe_distribution(days_since_last_visit) |>
-  knitr::kable()
-
-time_since_last_visit |>
-  ggplot(aes(x = days_since_last_visit)) +
-  geom_density()
+# time_since_last_visit <-
+# time_since_last_visit |>
+#   mutate(days_since_last_visit = as.numeric(days_since_last_visit))
+# 
+# time_since_last_visit |>
+#   datawizard::describe_distribution(days_since_last_visit) |>
+#   knitr::kable()
+# 
+# time_since_last_visit |>
+#   ggplot(aes(x = days_since_last_visit)) +
+#   geom_density()
 ```
 
 
