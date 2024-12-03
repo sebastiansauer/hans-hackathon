@@ -121,6 +121,7 @@ Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte 
 
 
 
+
 :::{.exm-einfacher-code}
 ### Code vereinfachen
 
