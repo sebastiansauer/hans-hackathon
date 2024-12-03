@@ -22,6 +22,7 @@ number-sections: true
 
 [Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution.R) ist eine mögliche Lösung für die Pipeline.
 
+[Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution-report.qmd) findet sich eine Quarto-Datei, die die Objekte der Pipeline zusammenfasst und in einem Report darstellt.
 
 
 
