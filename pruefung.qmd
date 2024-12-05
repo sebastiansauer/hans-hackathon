@@ -97,7 +97,7 @@ reichen Sie Ihre Ergebnisse bitte in Form eines Dokuments ein,
 Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte in Form eines R-Skripts ein, 
 
 - das die *Lösung* der Challenge enthält.
-- *reproduziearbar* ist
+- *reproduzierbar* ist
 - *durchläuft*, ohne Fehler zu werfen
 - *kommentiert* ist
 - wohl *gegliedert* ist
@@ -110,7 +110,7 @@ Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte 
 Die Termine für das Fachgespräch liegen in der Prüfungszeit und werden rechtzeitig bekannt gegeben über geeignete Kanäle.
 
 Prüfungsgegenstand sind alle Inhalte aus dem Unterricht.
-Ein Schwwerpunkt liegt auf den Musterlösungen sowie den eigenen, selbsteingereichten Lösungen der Challenges.
+Ein Schwerpunkt liegt auf den Musterlösungen sowie den eigenen, selbst eingereichten Lösungen der Challenges.
 
 Weitere Hinweise zum Fachgespräch finden sich im [entsprechenden Kapitel im Hinweisbuch](https://hinweisbuch.netlify.app/045-hinweise-pruefung-fachgespraech-frame).
 
@@ -119,6 +119,8 @@ Weitere Hinweise zum Fachgespräch finden sich im [entsprechenden Kapitel im Hin
 ## Sonstiges
 
 Bitte beachten Sie die allgemeinen Hinweise im [Hinweisbuch](https://hinweisbuch.netlify.app/) besonders die [allgemeinen Prüfungshinweise](https://hinweisbuch.netlify.app/010-hinweise-pruefung-allgemein-frame) sowie die Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).
+
+Bei Fragen, die eine Verteilung als Antwort haben, sollten Sie die Verteilung mit statistischen Methoden beschreiben. Beispiel: "Was ist die typische Verweildauer?" - Antwort: "Die mittlere Verweildauer beträgt 3 Minuten, mit einer Standardabweichung von 2 Minuten. Die Verteilung ist rechtsschief." Eine Visualisierung der Verteilung bietet sich an (z.B. mit einem Histogramm).
 
 
 

@@ -5,17 +5,18 @@
 Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung. 
 
 
-1. Wieviel Zeit verbringen die Nutzer pro Visit?
-2. Wie viele Aktionen führen die Nutzer pro Visit aus?
+1. ~~Wieviel Zeit verbringen die Nutzer pro Visit?~~
+2. ~~Wie viele Aktionen führen die Nutzer pro Visit aus?~~
 3. An welchen Tagen und zu welcher Zeit kommen die User zu HaNS?
-3. An welchen Wochentagen wird die Seite bevorzugt besucht?
-4. Zu welchen Zeiten wird die Seite bevorzugt besucht?
-5. Geben Sie den Zeitraum der Nutzung an (von <Datum des ersten Visits> bis <Datum des letzten Visits>).
-6. Geben Sie den Zeitraum seit der letzten Nutzung an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).
+4. An welchen *Wochentagen* wird die Seite bevorzugt besucht?
+5. Zu welchen Zeiten wird die Seite bevorzugt besucht?
+6. Geben Sie den Zeitraum der Nutzung an (von <Datum des ersten Visits> bis <Datum des letzten Visits>). Hier geht es um insgesamte erste (bzw. letzte) Nutzung über alle User hinweg. Gefragt ist der älteste und neueste Time Stamp, den der Server insgesamt/überhaupt protokolliert hat.
+7. Geben Sie den Zeitraum seit der letzten Nutzung an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).
 
 
 
-Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Renderen Sie den Bericht im Format `typst`.
+Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Rendern Sie den Bericht im Format `typst`.
 
-
-Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).
+Hinweise:
+- Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).
+- Bei Fragen, die eine Verteilung als Antwort haben, sollten Sie die Verteilung mit statistischen Methoden beschreiben. Beispiel: "Was ist die typische Verweildauer?" - Antwort: "Die mittlere Verweildauer beträgt 3 Minuten, mit einer Standardabweichung von 2 Minuten. Die Verteilung ist rechtsschief." Eine Visualisierung der Verteilung bietet sich an (z.B. mit einem Histogramm).
