@@ -373,7 +373,7 @@
     "href": "children/challenge08-base.html",
     "title": "hans-hackathon",
     "section": "",
-    "text": "Interaktion mit dem LLM\n\nWie oft wird (pro Monat) ein AI transcript angefordert?\nWie oft wird (pro Monat) mit dem LLM interagiert?\nWelcher Anteil der Besucher (visitors) interagiert mit dem LLM?\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\nBitte beachten Sie Hinweise zum Programmieren.\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
+    "text": "Interaktion mit dem LLM\n\nWie oft wird (pro Monat) ein AI Transkript angefordert? (Tipp: Suche nach click_transcript_word.)\nWie oft wird (pro Monat) mit dem LLM interagiert (Tipp: llm)?\nWelcher Anteil der Visits (id_visit) interagiert mit dem LLM?\n\nAusgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).\nHinweise:\n\nNutzen Sie Typst als Ausgabeformat.\nBitte beachten Sie Hinweise zum Programmieren.\n\n\n\n\nWiederverwendungMITZitatMit BibTeX zitieren:@online{untitled,\n  author = {},\n  langid = {de-DE}\n}\nBitte zitieren Sie diese Arbeit als:\nn.d."
   },
   {
     "objectID": "children/challenge06-base.html",

@@ -25,7 +25,10 @@ options(lubridate.week.start = 1)
 
 # source funs:
 funs_files <- list.files(
-  path = "funs", pattern = "\\.R", full.names = TRUE)
+  path = "funs", 
+  pattern = "\\.R$", 
+  full.names = TRUE)
+
 lapply(X = funs_files, FUN = source)
 
 

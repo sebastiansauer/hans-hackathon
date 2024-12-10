@@ -2,12 +2,16 @@
 
 **Interaktion mit dem LLM**
 
-1. Wie oft wird (pro Monat) ein `AI transcript` angefordert?
-2. Wie oft wird (pro Monat) mit dem LLM interagiert?
-3. Welcher Anteil der Besucher (`visitors`) interagiert mit dem LLM?
+1. Wie oft wird (pro Monat) ein AI Transkript angefordert? (Tipp: Suche nach `click_transcript_word`.)
+2. Wie oft wird (pro Monat) mit dem LLM interagiert (Tipp: `llm`)?
+3. Welcher Anteil der Visits (`id_visit`) interagiert mit dem LLM?
 
 
 Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).
 
 
-Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).
+Hinweise:
+
+- Nutzen Sie *Typst* als Ausgabeformat.
+- Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).
+
