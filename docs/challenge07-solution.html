@@ -6,9 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Sebastian Sauer">
 <meta name="description" content="“Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools ‘HaNS’”">
 
-<title>data-privacy – hans-hackathon</title>
+<title>Challenge 07 – Solution – hans-hackathon</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +21,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -81,9 +116,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      hans-hackathon
-      </li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./challenge07-solution.html">Lösung 07</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -176,7 +209,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./challenge07-solution.html" class="sidebar-item-text sidebar-link">
+  <a href="./challenge07-solution.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Lösung 07</span></a>
   </div>
 </li>
@@ -190,133 +223,239 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#datenschutzhinweise" id="toc-datenschutzhinweise" class="nav-link active" data-scroll-target="#datenschutzhinweise"><span class="header-section-number">1</span> Datenschutzhinweise</a>
+  <li><a href="#verweildauer" id="toc-verweildauer" class="nav-link active" data-scroll-target="#verweildauer"><span class="header-section-number">1</span> Verweildauer</a>
   <ul class="collapse">
-  <li><a href="#einleitung" id="toc-einleitung" class="nav-link" data-scroll-target="#einleitung"><span class="header-section-number">1.1</span> Einleitung</a>
-  <ul class="collapse">
-  <li><a href="#verantwortliche-person" id="toc-verantwortliche-person" class="nav-link" data-scroll-target="#verantwortliche-person"><span class="header-section-number">1.1.1</span> Verantwortliche Person</a></li>
-  <li><a href="#hosting-durch-github" id="toc-hosting-durch-github" class="nav-link" data-scroll-target="#hosting-durch-github"><span class="header-section-number">1.1.2</span> Hosting durch GitHub</a></li>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">1.1</span> Setup</a></li>
+  <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">1.2</span> Aufgaben</a></li>
+  <li><a href="#lösungen" id="toc-lösungen" class="nav-link" data-scroll-target="#lösungen"><span class="header-section-number">1.3</span> Lösungen</a></li>
+  <li><a href="#pipeline-output" id="toc-pipeline-output" class="nav-link" data-scroll-target="#pipeline-output"><span class="header-section-number">1.4</span> Pipeline-Output</a></li>
+  <li><a href="#pipeline-definition" id="toc-pipeline-definition" class="nav-link" data-scroll-target="#pipeline-definition"><span class="header-section-number">1.5</span> Pipeline-Definition</a></li>
+  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline"><span class="header-section-number">1.6</span> Pipeline</a></li>
   </ul></li>
-  <li><a href="#datenerhebung-und--verarbeitung" id="toc-datenerhebung-und--verarbeitung" class="nav-link" data-scroll-target="#datenerhebung-und--verarbeitung"><span class="header-section-number">1.2</span> Datenerhebung und -verarbeitung</a>
-  <ul class="collapse">
-  <li><a href="#server-log-dateien" id="toc-server-log-dateien" class="nav-link" data-scroll-target="#server-log-dateien"><span class="header-section-number">1.2.1</span> Server-Log-Dateien</a></li>
-  <li><a href="#cookies" id="toc-cookies" class="nav-link" data-scroll-target="#cookies"><span class="header-section-number">1.2.2</span> Cookies</a></li>
-  <li><a href="#einbindung-von-drittinhalten" id="toc-einbindung-von-drittinhalten" class="nav-link" data-scroll-target="#einbindung-von-drittinhalten"><span class="header-section-number">1.2.3</span> Einbindung von Drittinhalten</a></li>
-  </ul></li>
-  <li><a href="#ihre-rechte" id="toc-ihre-rechte" class="nav-link" data-scroll-target="#ihre-rechte"><span class="header-section-number">1.3</span> Ihre Rechte</a></li>
-  <li><a href="#anwendbare-rechtsgrundlagen" id="toc-anwendbare-rechtsgrundlagen" class="nav-link" data-scroll-target="#anwendbare-rechtsgrundlagen"><span class="header-section-number">1.4</span> Anwendbare Rechtsgrundlagen</a>
-  <ul class="collapse">
-  <li><a href="#vertragserfüllung-und-vorvertragliche-maßnahmen-art.-6-abs.-1-s.-1-lit.-b-dsgvo" id="toc-vertragserfüllung-und-vorvertragliche-maßnahmen-art.-6-abs.-1-s.-1-lit.-b-dsgvo" class="nav-link" data-scroll-target="#vertragserfüllung-und-vorvertragliche-maßnahmen-art.-6-abs.-1-s.-1-lit.-b-dsgvo"><span class="header-section-number">1.4.1</span> Vertragserfüllung und vorvertragliche Maßnahmen (Art. 6 Abs. 1 S. 1 lit. b) DSGVO)</a></li>
-  <li><a href="#berechtigte-interessen-art.-6-abs.-1-s.-1-lit.-f-dsgvo" id="toc-berechtigte-interessen-art.-6-abs.-1-s.-1-lit.-f-dsgvo" class="nav-link" data-scroll-target="#berechtigte-interessen-art.-6-abs.-1-s.-1-lit.-f-dsgvo"><span class="header-section-number">1.4.2</span> Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO)</a></li>
-  <li><a href="#nationale-datenschutzbestimmungen-in-deutschland" id="toc-nationale-datenschutzbestimmungen-in-deutschland" class="nav-link" data-scroll-target="#nationale-datenschutzbestimmungen-in-deutschland"><span class="header-section-number">1.4.3</span> Nationale Datenschutzbestimmungen in Deutschland</a></li>
-  <li><a href="#hinweis-auf-die-geltung-von-dsgvo-und-schweizer-dsg" id="toc-hinweis-auf-die-geltung-von-dsgvo-und-schweizer-dsg" class="nav-link" data-scroll-target="#hinweis-auf-die-geltung-von-dsgvo-und-schweizer-dsg"><span class="header-section-number">1.4.4</span> Hinweis auf die Geltung von DSGVO und Schweizer DSG</a></li>
-  </ul></li>
-  <li><a href="#sicherheitsmaßnahmen" id="toc-sicherheitsmaßnahmen" class="nav-link" data-scroll-target="#sicherheitsmaßnahmen"><span class="header-section-number">1.5</span> Sicherheitsmaßnahmen</a>
-  <ul class="collapse">
-  <li><a href="#internationale-datenübertragungen" id="toc-internationale-datenübertragungen" class="nav-link" data-scroll-target="#internationale-datenübertragungen"><span class="header-section-number">1.5.1</span> Internationale Datenübertragungen</a></li>
-  </ul></li>
-  <li><a href="#kontakt" id="toc-kontakt" class="nav-link" data-scroll-target="#kontakt"><span class="header-section-number">1.6</span> Kontakt</a></li>
-  <li><a href="#änderung-der-datenschutzhinweise" id="toc-änderung-der-datenschutzhinweise" class="nav-link" data-scroll-target="#änderung-der-datenschutzhinweise"><span class="header-section-number">1.7</span> Änderung der Datenschutzhinweise</a></li>
-  </ul></li>
+  <li><a href="#packages-available-for-all-targets" id="toc-packages-available-for-all-targets" class="nav-link" data-scroll-target="#packages-available-for-all-targets"><span class="header-section-number">2</span> packages available for all targets:</a></li>
+  <li><a href="#set-options" id="toc-set-options" class="nav-link" data-scroll-target="#set-options"><span class="header-section-number">3</span> set options:</a></li>
+  <li><a href="#source-funs" id="toc-source-funs" class="nav-link" data-scroll-target="#source-funs"><span class="header-section-number">4</span> source funs:</a></li>
+  <li><a href="#targets-ie.-steps-to-be-computed" id="toc-targets-ie.-steps-to-be-computed" class="nav-link" data-scroll-target="#targets-ie.-steps-to-be-computed"><span class="header-section-number">5</span> targets, ie., steps to be computed:</a></li>
+  <li><a href="#data-import-and-cleansing" id="toc-data-import-and-cleansing" class="nav-link" data-scroll-target="#data-import-and-cleansing"><span class="header-section-number">6</span> data import and cleansing ———————————————–</a></li>
+  <li><a href="#longify-data" id="toc-longify-data" class="nav-link" data-scroll-target="#longify-data"><span class="header-section-number">7</span> longify data ————————————————————</a></li>
+  <li><a href="#count-times-per-visit-etc.--" id="toc-count-times-per-visit-etc.--" class="nav-link" data-scroll-target="#count-times-per-visit-etc.--"><span class="header-section-number">8</span> count times per visit etc. ———————————————-</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Challenge 07 – Solution</h1>
+</div>
+
+<div>
+  <div class="description">
+    <p>“Ein Hackathon-Variante zur Evaluation der Klickdaten des KI-Tools ‘HaNS’”</p>
+  </div>
+</div>
 
 
+<div class="quarto-title-meta">
 
-<section id="datenschutzhinweise" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Datenschutzhinweise</h1>
-<section id="einleitung" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="einleitung"><span class="header-section-number">1.1</span> Einleitung</h2>
-<p>Diese Datenschutzhinweise informieren Sie über die Art, den Umfang und den Zweck der Verarbeitung von personenbezogenen Daten (nachfolgend “Daten”) im Rahmen der Nutzung dieser Webseite (nachfolgend “Webseite”), die auf GitHub gehostet wird.</p>
-<section id="verantwortliche-person" class="level3" data-number="1.1.1">
-<h3 data-number="1.1.1" class="anchored" data-anchor-id="verantwortliche-person"><span class="header-section-number">1.1.1</span> Verantwortliche Person</h3>
-<p>Prof.&nbsp;Dr.&nbsp;habil. Sebastian Sauer, Residenzstr. 10, 90522 Ansbach, sebastian.sauer@hs-ansbach.de</p>
-</section>
-<section id="hosting-durch-github" class="level3" data-number="1.1.2">
-<h3 data-number="1.1.2" class="anchored" data-anchor-id="hosting-durch-github"><span class="header-section-number">1.1.2</span> Hosting durch GitHub</h3>
-<p>Unsere Webseite wird von GitHub Inc., 88 Colin P. Kelly Jr.&nbsp;St, San Francisco, CA 94107, USA (“GitHub”) gehostet. GitHub verarbeitet in unserem Auftrag Daten von Webseitenbesuchern (z.B. IP-Adressen). Dies ist für den Betrieb der Webseite und die Bereitstellung von Inhalten erforderlich. GitHub ist unter dem Privacy-Shield-Abkommen zertifiziert und bietet hierdurch eine Garantie, das europäische Datenschutzrecht einzuhalten (<a href="https://www.privacyshield.gov/participant?id=a2zt0000000GnywAAC&amp;status=Active" class="uri">https://www.privacyshield.gov/participant?id=a2zt0000000GnywAAC&amp;status=Active</a>).</p>
-<p>Weitere Informationen zum Datenschutz bei GitHub finden Sie in der Datenschutzerklärung von GitHub: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" class="uri">https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement</a></p>
-</section>
-</section>
-<section id="datenerhebung-und--verarbeitung" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="datenerhebung-und--verarbeitung"><span class="header-section-number">1.2</span> Datenerhebung und -verarbeitung</h2>
-<section id="server-log-dateien" class="level3" data-number="1.2.1">
-<h3 data-number="1.2.1" class="anchored" data-anchor-id="server-log-dateien"><span class="header-section-number">1.2.1</span> Server-Log-Dateien</h3>
-<p>Bei jedem Zugriff auf unsere Webseite erfasst GitHub automatisiert Daten und speichert diese in Server-Log-Dateien. Zu diesen Daten gehören: IP-Adresse des zugreifenden Geräts Datum und Uhrzeit des Zugriffs Name und URL der abgerufenen Datei Webseite, von der aus der Zugriff erfolgt (Referrer-URL) Verwendeter Browser und ggf. das Betriebssystem des zugreifenden Geräts Name des Access-Providers</p>
-<p>Die Verarbeitung dieser Daten erfolgt, um die Funktionsfähigkeit der Webseite sicherzustellen, die Nutzung der Webseite zu analysieren und unser Angebot zu verbessern. Rechtsgrundlage für die Datenverarbeitung ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse). Unser berechtigtes Interesse liegt in den oben genannten Zwecken.</p>
-</section>
-<section id="cookies" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="cookies"><span class="header-section-number">1.2.2</span> Cookies</h3>
-<p>Unsere Webseite verwendet keine Cookies.</p>
-</section>
-<section id="einbindung-von-drittinhalten" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="einbindung-von-drittinhalten"><span class="header-section-number">1.2.3</span> Einbindung von Drittinhalten</h3>
-<p>Es können Inhalte von Drittanbietern wie Videos, Schriftarten oder Karten eingebunden sein. Beim Abruf dieser Inhalte wird Ihre IP-Adresse möglicherweise an den Drittanbieter übertragen. Für weitere Informationen konsultiere bitte die Datenschutzrichtlinien der jeweiligen Anbieter.</p>
-</section>
-</section>
-<section id="ihre-rechte" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="ihre-rechte"><span class="header-section-number">1.3</span> Ihre Rechte</h2>
-<p>Sie habengegenüber uns folgende Rechte hinsichtlich der dich betreffenden personenbezogenen Daten: Recht auf Auskunft (Art. 15 DSGVO) Recht auf Berichtigung (Art. 16 DSGVO) Recht auf Löschung (Art. 17 DSGVO) Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO) Recht auf Datenübertragbarkeit (Art. 20 DSGVO) Recht auf Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</p>
-<p>Sie haben zudem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über die Verarbeitung deiner personenbezogenen Daten durch uns zu beschweren.</p>
-</section>
-<section id="anwendbare-rechtsgrundlagen" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="anwendbare-rechtsgrundlagen"><span class="header-section-number">1.4</span> Anwendbare Rechtsgrundlagen</h2>
-<p>Nachstehend geben wir Ihnen eine Übersicht der rechtlichen Grundlagen der DSGVO, auf deren Basis personenbezogene Daten auf dieser Webseite verarbeitet werden. Bitte beachten Sie, dass neben den Regelungen der DSGVO auch nationale Datenschutzvorgaben in Ihrem oder unserem Land relevant sein können. Sofern in Einzelfällen spezifische Rechtsgrundlagen gelten, werden diese in der Datenschutzerklärung gesondert erwähnt.</p>
-<section id="vertragserfüllung-und-vorvertragliche-maßnahmen-art.-6-abs.-1-s.-1-lit.-b-dsgvo" class="level3" data-number="1.4.1">
-<h3 data-number="1.4.1" class="anchored" data-anchor-id="vertragserfüllung-und-vorvertragliche-maßnahmen-art.-6-abs.-1-s.-1-lit.-b-dsgvo"><span class="header-section-number">1.4.1</span> Vertragserfüllung und vorvertragliche Maßnahmen (Art. 6 Abs. 1 S. 1 lit. b) DSGVO)</h3>
-<p>Die Verarbeitung personenbezogener Daten ist erforderlich zur Erfüllung eines Vertrags, bei dem die betroffene Person Vertragspartei ist, oder zur Durchführung vorvertraglicher Maßnahmen, die auf Anfrage der betroffenen Person erfolgen.</p>
-</section>
-<section id="berechtigte-interessen-art.-6-abs.-1-s.-1-lit.-f-dsgvo" class="level3" data-number="1.4.2">
-<h3 data-number="1.4.2" class="anchored" data-anchor-id="berechtigte-interessen-art.-6-abs.-1-s.-1-lit.-f-dsgvo"><span class="header-section-number">1.4.2</span> Berechtigte Interessen (Art. 6 Abs. 1 S. 1 lit. f) DSGVO)</h3>
-<p>Die Datenverarbeitung erfolgt zur Wahrung berechtigter Interessen des Verantwortlichen oder eines Dritten, sofern keine entgegenstehenden Interessen, Grundrechte oder Grundfreiheiten der betroffenen Person, die den Schutz ihrer personenbezogenen Daten erfordern, überwiegen.</p>
-</section>
-<section id="nationale-datenschutzbestimmungen-in-deutschland" class="level3" data-number="1.4.3">
-<h3 data-number="1.4.3" class="anchored" data-anchor-id="nationale-datenschutzbestimmungen-in-deutschland"><span class="header-section-number">1.4.3</span> Nationale Datenschutzbestimmungen in Deutschland</h3>
-<p>Neben der DSGVO gelten in Deutschland nationale Datenschutzvorgaben, insbesondere das Bundesdatenschutzgesetz (BDSG). Das BDSG beinhaltet spezielle Regelungen zum Recht auf Auskunft, Löschung, Widerspruch, zur Verarbeitung besonderer Kategorien personenbezogener Daten, zur Verarbeitung für andere Zwecke sowie zur Datenübermittlung und zu automatisierten Einzelentscheidungen einschließlich Profiling. In bestimmten Fällen können auch Datenschutzgesetze der Bundesländer Anwendung finden.</p>
-</section>
-<section id="hinweis-auf-die-geltung-von-dsgvo-und-schweizer-dsg" class="level3" data-number="1.4.4">
-<h3 data-number="1.4.4" class="anchored" data-anchor-id="hinweis-auf-die-geltung-von-dsgvo-und-schweizer-dsg"><span class="header-section-number">1.4.4</span> Hinweis auf die Geltung von DSGVO und Schweizer DSG</h3>
-<p>Diese Datenschutzhinweise berücksichtigen die Vorgaben sowohl der DSGVO als auch des Schweizer Datenschutzgesetzes (DSG). Zur besseren Verständlichkeit und zur Vermeidung wiederholter Begriffsdefinitionen werden die Begriffe der DSGVO verwendet. Begriffe wie „Verarbeitung“, „personenbezogene Daten“, „berechtigtes Interesse“ und „besondere Kategorien von Daten“ entsprechen inhaltlich den Begriffen „Bearbeitung“, „Personendaten“, „überwiegendes Interesse“ und „besonders schützenswerte Personendaten“ des Schweizer DSG. Die genaue Auslegung und Anwendung erfolgt jedoch gemäß den Vorgaben des Schweizer DSG.</p>
-</section>
-</section>
-<section id="sicherheitsmaßnahmen" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="sicherheitsmaßnahmen"><span class="header-section-number">1.5</span> Sicherheitsmaßnahmen</h2>
-<p>Wir setzen angemessene technische und organisatorische Maßnahmen zum Schutz Ihrer Daten entsprechend den gesetzlichen Anforderungen um. Dabei berücksichtigen wir den aktuellen Stand der Technik, die Implementierungskosten, Art, Umfang, Umstände und Zweck der Verarbeitung sowie die Wahrscheinlichkeit und Schwere möglicher Risiken für die Rechte und Freiheiten betroffener Personen.</p>
-<p>Zu den Schutzmaßnahmen gehören insbesondere: Sicherstellung der Vertraulichkeit, Integrität und Verfügbarkeit von Daten durch Kontrolle des Zugriffs auf die Daten und die Infrastruktur, der Eingaben, Weitergaben und Trennungen von Daten. Zudem haben wir Verfahren eingerichtet, um die Rechte betroffener Personen zu gewährleisten, Daten zu löschen und angemessen auf Bedrohungen zu reagieren. Bereits in der Entwicklung und Auswahl von Hard- und Software sowie Verfahren berücksichtigen wir Datenschutzprinzipien wie Datenschutz durch Technikgestaltung und datenschutzfreundliche Voreinstellungen.</p>
-<p>Sicherung von Online-Verbindungen mit TLS-/SSL-Verschlüsselung (HTTPS) Um die Datenübertragung über unsere Online-Dienste vor unbefugtem Zugriff zu schützen, nutzen wir die TLS-/SSL-Verschlüsselungstechnologie. Dies gewährleistet eine sichere Datenübertragung zwischen unserem Server und Ihrem Browser, erkennbar an der HTTPS-Kennung in der URL-Leiste.</p>
-<section id="internationale-datenübertragungen" class="level3" data-number="1.5.1">
-<h3 data-number="1.5.1" class="anchored" data-anchor-id="internationale-datenübertragungen"><span class="header-section-number">1.5.1</span> Internationale Datenübertragungen</h3>
-<p>Falls Datenverarbeitungen in Drittländern (außerhalb der EU und des EWR) stattfinden oder personenbezogene Daten an Dritte im Ausland übermittelt werden, erfolgt dies ausschließlich unter Einhaltung gesetzlicher Anforderungen. Sofern ein Angemessenheitsbeschluss der EU-Kommission für das betreffende Drittland vorliegt (Art. 45 DSGVO), gilt dieser als Grundlage der Übertragung. Falls kein Angemessenheitsbeschluss vorliegt, sichern Standardvertragsklauseln (Art. 46 Abs. 2 lit. c) DSGVO), eine ausdrückliche Einwilligung oder gesetzliche Erfordernisse die Übertragung ab (Art. 49 Abs. 1 DSGVO).</p>
-<p>Weitere Informationen zu den Angemessenheitsbeschlüssen der EU-Kommission finden Sie auf dieser Seite. Die USA bieten mit dem sogenannten „Data Privacy Framework“ (DPF) eine Regelung zur Sicherstellung eines angemessenen Datenschutzniveaus, das durch die EU-Kommission am 10.07.2023 anerkannt wurde. Die Liste der zertifizierten Unternehmen und weitere Informationen finden Sie auf der Webseite des US-Handelsministeriums unter Data Privacy Framework.</p>
-<p>Wir informieren Sie in unseren Datenschutzhinweisen, welche Drittanbieter unter diesem Rahmen zertifiziert sind.</p>
-</section>
-</section>
-<section id="kontakt" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="kontakt"><span class="header-section-number">1.6</span> Kontakt</h2>
-<p>Für Anfragen zum Datenschutz können Sie sich an uns wenden:</p>
-<p>Prof.&nbsp;Dr.&nbsp;habil. Sebastian Sauer</p>
-<p>Residenzstr. 10, 90522 Ansbach</p>
-<p>sebastian.sauer@hs-ansbach.de</p>
-</section>
-<section id="änderung-der-datenschutzhinweise" class="level2" data-number="1.7">
-<h2 data-number="1.7" class="anchored" data-anchor-id="änderung-der-datenschutzhinweise"><span class="header-section-number">1.7</span> Änderung der Datenschutzhinweise</h2>
-<p>Wir behalten uns vor, diese Datenschutzhinweise jederzeit anzupassen, um sie an geänderte Rechtslagen oder bei Änderungen des Dienstes sowie der Datenverarbeitung anzupassen.</p>
-<p>Stand: 15. November 2024</p>
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Sebastian Sauer </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">10. Dezember 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
 
 
+</header>
+
+
+<section id="verweildauer" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Verweildauer</h1>
+<section id="setup" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1.1</span> Setup</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(targets)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section>
+<section id="aufgaben" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">1.2</span> Aufgaben</h2>
+<p><strong>Verweildauer</strong></p>
+<p>Für alle folgenden Aufgaben dieser Challenge: Berichten Sie zentrale deskriptive Statistiken zu Lage und Streuung. Visualisieren Sie die Verteilung.</p>
+<ol type="1">
+<li><del>Wieviel Zeit verbringen die Nutzer pro Visit?</del></li>
+<li><del>Wie viele Aktionen führen die Nutzer pro Visit aus?</del></li>
+<li>An welchen Tagen und zu welcher Zeit kommen die User zu HaNS?</li>
+<li>An welchen <em>Wochentagen</em> wird die Seite bevorzugt besucht?</li>
+<li>Zu welchen Zeiten wird die Seite bevorzugt besucht?</li>
+<li>Geben Sie den Zeitraum der Nutzung an (von <datum des="" ersten="" visits=""> bis <datum des="" letzten="" visits="">). Hier geht es um insgesamte erste (bzw. letzte) Nutzung über alle User hinweg. Gefragt ist der älteste und neueste Time Stamp, den der Server insgesamt/überhaupt protokolliert hat.</datum></datum></li>
+<li>Geben Sie den Zeitraum seit der letzten Nutzung an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).</li>
+</ol>
+<p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Rendern Sie den Bericht im Format <code>typst</code>.</p>
+<p>Hinweise: - Bitte beachten Sie Hinweise zum <a href="https://hinweisbuch.netlify.app/109-hinweise-programmieren">Programmieren</a>. - Bei Fragen, die eine Verteilung als Antwort haben, sollten Sie die Verteilung mit statistischen Methoden beschreiben. Beispiel: “Was ist die typische Verweildauer?” - Antwort: “Die mittlere Verweildauer beträgt 3 Minuten, mit einer Standardabweichung von 2 Minuten. Die Verteilung ist rechtsschief.” Eine Visualisierung der Verteilung bietet sich an (z.B. mit einem Histogramm).</p>
+</section>
+<section id="lösungen" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="lösungen"><span class="header-section-number">1.3</span> Lösungen</h2>
+<p><a href="https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge07-solution.R">Hier</a> ist eine mögliche Lösung für die Pipeline.</p>
+<p>Beachten Sie bitte, dass die Targets-Pipeline-Datei <code>_targets.R</code> heißen sollte und nur die Pipeline-Funktionen enthalten sollte.</p>
+<p>Die Pipeline lassen Sie mit <code>tar_make()</code> laufen, <a href="https://github.com/sebastiansauer/hans-hackathon/blob/main/run-pipeline.R">hier</a> ist ein Beispiel.</p>
+</section>
+<section id="pipeline-output" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="pipeline-output"><span class="header-section-number">1.4</span> Pipeline-Output</h2>
+<p>So kann man die Pipeline starten:</p>
+<pre><code>&gt; tar_make(script = "challenge07-solution.R", store = "challenge07")</code></pre>
+<p>Und so sah die Ausgabe aus:</p>
+<pre><code>▶ dispatched target data_files_list
+● completed target data_files_list [0.797 seconds, 128.66 megabytes]
+▶ dispatched target one_df
+● completed target one_df [4.75 seconds, 12.84 megabytes]
+▶ dispatched target rm_empty
+● completed target rm_empty [2.281 seconds, 12.811 megabytes]
+▶ dispatched target clean_col_names
+● completed target clean_col_names [8.687 seconds, 12.841 megabytes]
+▶ dispatched target rm_constants
+● completed target rm_constants [0.875 seconds, 12.811 megabytes]
+▶ dispatched target repair_dttm
+● completed target repair_dttm [1.297 seconds, 12.851 megabytes]
+▶ dispatched target data_users_only
+● completed target data_users_only [0.484 seconds, 11.371 megabytes]
+▶ dispatched target d_long
+● completed target d_long [7.75 seconds, 71.406 megabytes]
+▶ dispatched target time_duration
+● completed target time_duration [0.109 seconds, 8.58 kilobytes]
+▶ dispatched target time_since_last_visit
+● completed target time_since_last_visit [0.016 seconds, 5.734 kilobytes]
+▶ dispatched target d_long_nona
+● completed target d_long_nona [2.5 seconds, 9.734 megabytes]
+▶ dispatched target add_id_col
+● completed target add_id_col [1.203 seconds, 10.144 megabytes]
+▶ dispatched target numeric_id
+● completed target numeric_id [0.734 seconds, 10.085 megabytes]
+▶ dispatched target action_types
+● completed target action_types [1.006 minutes, 3.102 megabytes]
+▶ dispatched target actions_per_visit
+● completed target actions_per_visit [0.062 seconds, 6.53 kilobytes]
+▶ dispatched target time_spent
+● completed target time_spent [15.562 seconds, 796.868 kilobytes]
+▶ dispatched target time_minmax
+● completed target time_minmax [8.875 seconds, 15.219 kilobytes]
+▶ dispatched target count_action_type
+● completed target count_action_type [2.531 seconds, 526.771 kilobytes]
+▶ dispatched target time_visit_wday
+● completed target time_visit_wday [0.125 seconds, 32.405 kilobytes]
+▶ ended pipeline [3.447 minutes]
+Es gab 12 Warnungen (Anzeige mit warnings())</code></pre>
+</section>
+<section id="pipeline-definition" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="pipeline-definition"><span class="header-section-number">1.5</span> Pipeline-Definition</h2>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_manifest</span>(<span class="at">script =</span> <span class="st">"challenge07-solution.R"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Warnmeldungen:</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 1: Paket 'targets' wurde unter R Version 4.4.1 erstellt </span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 2: Paket 'tarchetypes' wurde unter R Version 4.4.1 erstellt </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 3: Paket 'quarto' wurde unter R Version 4.4.1 erstellt </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 19 × 2</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">##    name                  command                                                </span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;                 &lt;chr&gt;                                                  </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 data_files_list       "list.files(path = paste0(here::here(), \"/data-proces…</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 one_df                "rbindlist(map(data_files_list, ~fread(.x, fill = TRUE…</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 rm_empty              "remove_empty(one_df, which = c(\"rows\", \"cols\"))"  </span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 clean_col_names       "clean_names(rm_empty)"                                </span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 rm_constants          "remove_constant(rm_empty)"                            </span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 repair_dttm           "mutate(clean_col_names, across(contains(\"timestamp\"…</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 data_users_only       "filter(repair_dttm, !str_detect(action_details_0_subt…</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 d_long                "pivot_longer(mutate(select(data_users_only, id_visit,…</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 time_duration         "data_users_only %&gt;% select(id_visit, visit_duration) …</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 time_since_last_visit "select(data_users_only, id_visit, days_since_last_vis…</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 11 d_long_nona           "filter(drop_na(d_long), value != \"\")"               </span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 12 add_id_col            "mutate(d_long_nona, action_count = str_extract(name, …</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 13 numeric_id            "mutate(add_id_col, action_count = as.integer(action_c…</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 14 action_types          "select(separate(numeric_id, name, sep = \"_\", into =…</span></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 15 actions_per_visit     "summarise(group_by(numeric_id, id_visit), nr_max = ma…</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 16 time_spent            "diff_time(action_types)"                              </span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 17 time_minmax           "time_min_max(action_types)"                           </span></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 18 count_action_type     "count_user_action_type(action_types)"                 </span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 19 time_visit_wday       "when_visited(action_types)"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="pipeline" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="pipeline"><span class="header-section-number">1.6</span> Pipeline</h2>
+<p>#Sys.setenv(TAR_PROJECT = “challenge07”)</p>
+<p>library(targets) library(tarchetypes) # Extention to “targets”, eg watching source data files library(quarto) # Quarto reports</p>
+</section>
+</section>
+<section id="packages-available-for-all-targets" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> packages available for all targets:</h1>
+<p>tar_option_set( packages = c(“tidyverse”) )</p>
+</section>
+<section id="set-options" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> set options:</h1>
+<p>options(lubridate.week.start = 1)</p>
+</section>
+<section id="source-funs" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> source funs:</h1>
+<p>funs_files &lt;- list.files( path = “funs”, pattern = “\.R”, full.names = TRUE) lapply(X = funs_files, FUN = source)</p>
+</section>
+<section id="targets-ie.-steps-to-be-computed" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> targets, ie., steps to be computed:</h1>
+<p>list(</p>
+</section>
+<section id="data-import-and-cleansing" class="level1" data-number="6">
+<h1 data-number="6"><span class="header-section-number">6</span> data import and cleansing ———————————————–</h1>
+<p># read data: tar_target(data_files_list, list.files(path = paste0(here::here(),“/data-processed/data-raw-no-sensitive”), # MY path to the data full.names = TRUE, pattern = “*.csv$“, recursive = TRUE), format =”file”), # watch data source files</p>
+<p># bind all csv files into one long dataframe: tar_target(one_df, data_files_list |&gt; map(~ fread(.x, fill = TRUE, colClasses = “character”)) |&gt; rbindlist(fill = TRUE, idcol = “file”, use.names = TRUE), packages = “data.table”),</p>
+<p># remove empty cols and rows: tar_target(rm_empty, one_df |&gt; remove_empty(which = c(“rows”, “cols”)), packages = “janitor”),</p>
+<p># remove constant cols: tar_target(rm_constants, rm_empty |&gt; remove_constant(), packages = “janitor”),</p>
+<p># Clean column names: tar_target(clean_col_names, rm_empty |&gt; clean_names(), packages = “janitor”),</p>
+<p># # select only subtitles and timestamps columns: # tar_target(df_subtitles_timestamps, # clean_col_names |&gt; # select(id_visit, contains(“subtitle”), contains(“timestamp”))),</p>
+<p># repair date-time cols: tar_target(repair_dttm, clean_col_names |&gt; mutate(across(contains(“timestamp”), ~ as_datetime(as.numeric(.x)))), packages = c(“lubridate”, “dplyr”)),</p>
+<p># exclude developers, lecturers and admins: tar_target(data_users_only, repair_dttm |&gt; filter(!str_detect(action_details_0_subtitle, “developer|lecturer|admin”)), packages = “stringr”),</p>
+</section>
+<section id="longify-data" class="level1" data-number="7">
+<h1 data-number="7"><span class="header-section-number">7</span> longify data ————————————————————</h1>
+<p># pivot longer: tar_target(d_long, data_users_only |&gt; select(id_visit, contains(“details_”)) |&gt; mutate(across(everything(), as.character)) |&gt; pivot_longer(-id_visit)),</p>
+<p># drop rows with missing data: tar_target(d_long_nona, d_long |&gt; drop_na() |&gt; filter(value != ““)),</p>
+<p># add action-count column: tar_target(add_id_col, d_long_nona |&gt; # rename(action_count = name) |&gt; # new = old mutate(action_count = str_extract(name, “\d+”)), packages = “stringr”),</p>
+<p># mutate to numeric: tar_target(numeric_id, add_id_col |&gt; mutate(action_count = as.integer(action_count))),</p>
+<p># get types of actions: tar_target(action_types, numeric_id |&gt; separate(name, sep = “_“, into = c(”constant1”, “constant2”, “nr”, “type”)) |&gt; select(-constant1, -constant2, -nr), packages = “tidyr”),</p>
+<p># count stuff per visit ————————————————-</p>
+<p># count actions per visit: tar_target(actions_per_visit, numeric_id |&gt; group_by(id_visit) |&gt; # “nr” is the id of the action of this visit: summarise(nr_max = max(action_count))),</p>
+<p># count action categories per visit: tar_target(count_action_type, count_user_action_type(action_types), packages = c(“stringr”, “dplyr”)),</p>
+</section>
+<section id="count-times-per-visit-etc.--" class="level1" data-number="8">
+<h1 data-number="8"><span class="header-section-number">8</span> count times per visit etc. ———————————————-</h1>
+<p># start and end time of user’s visit: tar_target(time_minmax, action_types |&gt; time_min_max(), packages = c(“lubridate”, “dplyr”)),</p>
+<p># time spent on the site: tar_target(time_spent, action_types |&gt; diff_time(), packages = c(“lubridate”, “dplyr”)),</p>
+<p>tar_target(time_duration, data_users_only %&gt;% select(id_visit, visit_duration) %&gt;% mutate(visit_duration_sec = as.numeric(visit_duration)) %&gt;% select(-visit_duration)),</p>
+<p># count time of visit per weekday: tar_target(time_visit_wday, action_types |&gt; when_visited(), packages = c(“collapse”, “lubridate”, “dplyr”)),</p>
+<p># count time since last visit on site: tar_target(time_since_last_visit, data_users_only |&gt; select(id_visit, days_since_last_visit))</p>
+<p># render report in Quarto: # tar_quarto(challenge07_report, “challenges_solutions/challenge07.qmd”)</p>
+<p>)</p>
+
+
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{untitled,
-  author = {},
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
+  author = {Sauer, Sebastian},
+  title = {Challenge 07 -\/- Solution},
+  date = {2024-12-10},
   langid = {de-DE}
 }
-</code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-untitled" class="csl-entry quarto-appendix-citeas" role="listitem">
-n.d.
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2024" class="csl-entry quarto-appendix-citeas" role="listitem">
+Sauer, Sebastian. 2024. <span>“Challenge 07 -- Solution.”</span>
+December 10, 2024.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
