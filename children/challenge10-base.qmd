@@ -1,9 +1,11 @@
 
-1. Visualisieren Sie etwaige Veränderungen des Nutzerverhaltens im Zeitverlauf.
 
-1. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Geschwindigkeit.
-2. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Robustheit.
-3. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf Allgemeinheit und Flexibilität.
+**Optimierung**
+
+
+1. *Optimieren* Sie Ihre Analyse-Pipeline (der letzten Challenge) mit Blick auf *Geschwindigkeit* (des Durchlaufs der Pipeline). Berichten Sie die Laufzeit vor und nach der Optimierung.
+3. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf *Robustheit.* Begründen Sie Ihre Entscheidungen.
+4. Optimieren Sie Ihre Analyse-Pipeline mit Blick auf *Allgemeinheit* und *Flexibilität.* Begründen Sie Ihre Entscheidungen.
 
 
 Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline).

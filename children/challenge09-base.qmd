@@ -1,9 +1,13 @@
 
 
-**Glotzdauer**
+**Was machen die User?**
 
-1. Berechnen Sie (die "Glotzdauer"), wie lange die Besucher sich Videos anschauen.
 
+1. Stellen Sie die *Namen der ersten 100 Spalten* im Bericht dar.
+1. Werten Sie die *Top-10-Tätigkeiten* aus, die die Besucher auf der Website durchführen, z.B. Videos anschauen. Zählen Sie dafür, welche Werte wie oft bei `subtitle` stehen.
+3. Berechnen Sie die "*Glotzdauer*", d.h. wie lange die Besucher sich Videos anschauen. Berichten Sie relevante Statistiken.
+4. Untersuchen und visualisieren Sie, ob sich die Anzahl der Nutzer oder die Verweildauer auf der Website *verändert hat im Laufe der Zeit* (Wochen und Monate).
+5. Untersuchen udn visualisieren Sie, ob sich das Verhalten in Bezug auf die Videos *verändert hat im Laufe der Zeit* (Wochen und Monate).
 
 
 

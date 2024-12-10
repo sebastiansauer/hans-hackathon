@@ -9,9 +9,9 @@ Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskripti
 2. ~~Wie viele Aktionen führen die Nutzer pro Visit aus?~~
 3. ~~An welchen Tagen und zu welcher Zeit kommen die User zu HaNS?~~
 4. An welchen *Wochentagen* wird die Seite bevorzugt besucht?
-5. Zu welchen Zeiten wird die Seite bevorzugt besucht?
-6. Geben Sie den Zeitraum der Nutzung an (von <Datum des ersten Visits> bis <Datum des letzten Visits>). Hier geht es um insgesamte erste (bzw. letzte) Nutzung über alle User hinweg. Gefragt ist der älteste und neueste Time Stamp, den der Server insgesamt/überhaupt protokolliert hat.
-7. Geben Sie den Zeitraum seit der letzten Nutzung an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).
+5. Zu welchen *Uhrzeiten* wird die Seite bevorzugt besucht?
+6. Geben Sie den *Zeitraum der Nutzung* an (von <Datum des ersten Visits> bis <Datum des letzten Visits>). Hier geht es um insgesamte erste (bzw. letzte) Nutzung *über alle User* hinweg. Gefragt ist der älteste und neueste Time Stamp, den der Server insgesamt/überhaupt protokolliert hat.
+7. Geben Sie den *Zeitraum seit der letzten Nutzung* an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).
 
 
 
