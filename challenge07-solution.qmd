@@ -106,14 +106,12 @@ Es gab 12 Warnungen (Anzeige mit warnings())
 
 
 ```{r}
-tar_manifest(script = "challenge07-solution.R")
+tar_manifest(script = "challenge07-solution.R") |> 
+  knitr::kable()
 ```
 
 
 
 
-## Pipeline
 
-
-{{< include "challenge07-solution.R" >}}
 

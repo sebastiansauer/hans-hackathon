@@ -18,5 +18,6 @@ Für alle folgenden Aufgaben dieser Challenge:  Berichten Sie zentrale deskripti
 Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Rendern Sie den Bericht im Format `typst`.
 
 Hinweise:
+
 - Bitte beachten Sie Hinweise zum [Programmieren](https://hinweisbuch.netlify.app/109-hinweise-programmieren).
 - Bei Fragen, die eine Verteilung als Antwort haben, sollten Sie die Verteilung mit statistischen Methoden beschreiben. Beispiel: "Was ist die typische Verweildauer?" - Antwort: "Die mittlere Verweildauer beträgt 3 Minuten, mit einer Standardabweichung von 2 Minuten. Die Verteilung ist rechtsschief." Eine Visualisierung der Verteilung bietet sich an (z.B. mit einem Histogramm).

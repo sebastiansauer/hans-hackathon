@@ -230,15 +230,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#lösungen" id="toc-lösungen" class="nav-link" data-scroll-target="#lösungen"><span class="header-section-number">1.3</span> Lösungen</a></li>
   <li><a href="#pipeline-output" id="toc-pipeline-output" class="nav-link" data-scroll-target="#pipeline-output"><span class="header-section-number">1.4</span> Pipeline-Output</a></li>
   <li><a href="#pipeline-definition" id="toc-pipeline-definition" class="nav-link" data-scroll-target="#pipeline-definition"><span class="header-section-number">1.5</span> Pipeline-Definition</a></li>
-  <li><a href="#pipeline" id="toc-pipeline" class="nav-link" data-scroll-target="#pipeline"><span class="header-section-number">1.6</span> Pipeline</a></li>
   </ul></li>
-  <li><a href="#packages-available-for-all-targets" id="toc-packages-available-for-all-targets" class="nav-link" data-scroll-target="#packages-available-for-all-targets"><span class="header-section-number">2</span> packages available for all targets:</a></li>
-  <li><a href="#set-options" id="toc-set-options" class="nav-link" data-scroll-target="#set-options"><span class="header-section-number">3</span> set options:</a></li>
-  <li><a href="#source-funs" id="toc-source-funs" class="nav-link" data-scroll-target="#source-funs"><span class="header-section-number">4</span> source funs:</a></li>
-  <li><a href="#targets-ie.-steps-to-be-computed" id="toc-targets-ie.-steps-to-be-computed" class="nav-link" data-scroll-target="#targets-ie.-steps-to-be-computed"><span class="header-section-number">5</span> targets, ie., steps to be computed:</a></li>
-  <li><a href="#data-import-and-cleansing" id="toc-data-import-and-cleansing" class="nav-link" data-scroll-target="#data-import-and-cleansing"><span class="header-section-number">6</span> data import and cleansing ———————————————–</a></li>
-  <li><a href="#longify-data" id="toc-longify-data" class="nav-link" data-scroll-target="#longify-data"><span class="header-section-number">7</span> longify data ————————————————————</a></li>
-  <li><a href="#count-times-per-visit-etc.--" id="toc-count-times-per-visit-etc.--" class="nav-link" data-scroll-target="#count-times-per-visit-etc.--"><span class="header-section-number">8</span> count times per visit etc. ———————————————-</a></li>
   </ul>
 </nav>
     </div>
@@ -304,7 +296,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Geben Sie den Zeitraum seit der letzten Nutzung an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).</li>
 </ol>
 <p>Ausgabeformat: Quarto (Bericht) und R-Syntax (Targets-Pipeline). Rendern Sie den Bericht im Format <code>typst</code>.</p>
-<p>Hinweise: - Bitte beachten Sie Hinweise zum <a href="https://hinweisbuch.netlify.app/109-hinweise-programmieren">Programmieren</a>. - Bei Fragen, die eine Verteilung als Antwort haben, sollten Sie die Verteilung mit statistischen Methoden beschreiben. Beispiel: “Was ist die typische Verweildauer?” - Antwort: “Die mittlere Verweildauer beträgt 3 Minuten, mit einer Standardabweichung von 2 Minuten. Die Verteilung ist rechtsschief.” Eine Visualisierung der Verteilung bietet sich an (z.B. mit einem Histogramm).</p>
+<p>Hinweise:</p>
+<ul>
+<li>Bitte beachten Sie Hinweise zum <a href="https://hinweisbuch.netlify.app/109-hinweise-programmieren">Programmieren</a>.</li>
+<li>Bei Fragen, die eine Verteilung als Antwort haben, sollten Sie die Verteilung mit statistischen Methoden beschreiben. Beispiel: “Was ist die typische Verweildauer?” - Antwort: “Die mittlere Verweildauer beträgt 3 Minuten, mit einer Standardabweichung von 2 Minuten. Die Verteilung ist rechtsschief.” Eine Visualisierung der Verteilung bietet sich an (z.B. mit einem Histogramm).</li>
+</ul>
 </section>
 <section id="lösungen" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="lösungen"><span class="header-section-number">1.3</span> Lösungen</h2>
@@ -361,90 +357,47 @@ Es gab 12 Warnungen (Anzeige mit warnings())</code></pre>
 <section id="pipeline-definition" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="pipeline-definition"><span class="header-section-number">1.5</span> Pipeline-Definition</h2>
 <div class="cell" data-layout-align="center">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_manifest</span>(<span class="at">script =</span> <span class="st">"challenge07-solution.R"</span>)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Warnmeldungen:</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## 1: Paket 'targets' wurde unter R Version 4.4.1 erstellt </span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 2: Paket 'tarchetypes' wurde unter R Version 4.4.1 erstellt </span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 3: Paket 'quarto' wurde unter R Version 4.4.1 erstellt </span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 19 × 2</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="do">##    name                  command                                                </span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="do">##    &lt;chr&gt;                 &lt;chr&gt;                                                  </span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 data_files_list       "list.files(path = paste0(here::here(), \"/data-proces…</span></span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 one_df                "rbindlist(map(data_files_list, ~fread(.x, fill = TRUE…</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 rm_empty              "remove_empty(one_df, which = c(\"rows\", \"cols\"))"  </span></span>
-<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 clean_col_names       "clean_names(rm_empty)"                                </span></span>
-<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 rm_constants          "remove_constant(rm_empty)"                            </span></span>
-<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 repair_dttm           "mutate(clean_col_names, across(contains(\"timestamp\"…</span></span>
-<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 data_users_only       "filter(repair_dttm, !str_detect(action_details_0_subt…</span></span>
-<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 d_long                "pivot_longer(mutate(select(data_users_only, id_visit,…</span></span>
-<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 time_duration         "data_users_only %&gt;% select(id_visit, visit_duration) …</span></span>
-<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 time_since_last_visit "select(data_users_only, id_visit, days_since_last_vis…</span></span>
-<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 11 d_long_nona           "filter(drop_na(d_long), value != \"\")"               </span></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 12 add_id_col            "mutate(d_long_nona, action_count = str_extract(name, …</span></span>
-<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 13 numeric_id            "mutate(add_id_col, action_count = as.integer(action_c…</span></span>
-<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 14 action_types          "select(separate(numeric_id, name, sep = \"_\", into =…</span></span>
-<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 15 actions_per_visit     "summarise(group_by(numeric_id, id_visit), nr_max = ma…</span></span>
-<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 16 time_spent            "diff_time(action_types)"                              </span></span>
-<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 17 time_minmax           "time_min_max(action_types)"                           </span></span>
-<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 18 count_action_type     "count_user_action_type(action_types)"                 </span></span>
-<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 19 time_visit_wday       "when_visited(action_types)"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tar_manifest</span>(<span class="at">script =</span> <span class="st">"challenge07-solution.R"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Warnmeldungen:</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="do">## 1: Paket 'targets' wurde unter R Version 4.4.1 erstellt </span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="do">## 2: Paket 'tarchetypes' wurde unter R Version 4.4.1 erstellt </span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 3: Paket 'quarto' wurde unter R Version 4.4.1 erstellt </span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 87%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">name</th>
+<th style="text-align: left;">command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">data_files_list</td>
+<td style="text-align: left;">list.files(path = paste0(here::here(), “/data-processed/data-raw-no-sensitive”),</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">full.names = TRUE, pattern = “*.csv$“, recursive = TRUE)</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">one_df</td>
+<td style="text-align: left;">rbindlist(map(data_files_list, ~fread(.x, fill = TRUE,</td>
+</tr>
+</tbody>
+</table>
+<pre><code> colClasses = "character")), fill = TRUE, idcol = "file", 
+ use.names = TRUE)            |</code></pre>
+<p>|rm_empty |remove_empty(one_df, which = c(“rows”, “cols”)) | |clean_col_names |clean_names(rm_empty) | |rm_constants |remove_constant(rm_empty) | |repair_dttm |mutate(clean_col_names, across(contains(“timestamp”), ~as_datetime(as.numeric(.x)))) | |data_users_only |filter(repair_dttm, !str_detect(action_details_0_subtitle, “developer|lecturer|admin”)) | |d_long |pivot_longer(mutate(select(data_users_only, id_visit, contains(“details_”)), across(everything(), as.character)), -id_visit) | |time_duration |data_users_only %&gt;% select(id_visit, visit_duration) %&gt;% mutate(visit_duration_sec = as.numeric(visit_duration)) %&gt;% select(-visit_duration) | |time_since_last_visit |select(data_users_only, id_visit, days_since_last_visit) | |d_long_nona |filter(drop_na(d_long), value != ““) | |add_id_col |mutate(d_long_nona, action_count = str_extract(name,”\d+“)) | |numeric_id |mutate(add_id_col, action_count = as.integer(action_count)) | |action_types |select(separate(numeric_id, name, sep =”_“, into = c(”constant1”, “constant2”, “nr”, “type”)), -constant1, -constant2, -nr) | |actions_per_visit |summarise(group_by(numeric_id, id_visit), nr_max = max(action_count)) | |time_spent |diff_time(action_types) | |time_minmax |time_min_max(action_types) | |count_action_type |count_user_action_type(action_types) | |time_visit_wday |when_visited(action_types) |</p>
 </div>
-</section>
-<section id="pipeline" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="pipeline"><span class="header-section-number">1.6</span> Pipeline</h2>
-<p>#Sys.setenv(TAR_PROJECT = “challenge07”)</p>
-<p>library(targets) library(tarchetypes) # Extention to “targets”, eg watching source data files library(quarto) # Quarto reports</p>
-</section>
-</section>
-<section id="packages-available-for-all-targets" class="level1" data-number="2">
-<h1 data-number="2"><span class="header-section-number">2</span> packages available for all targets:</h1>
-<p>tar_option_set( packages = c(“tidyverse”) )</p>
-</section>
-<section id="set-options" class="level1" data-number="3">
-<h1 data-number="3"><span class="header-section-number">3</span> set options:</h1>
-<p>options(lubridate.week.start = 1)</p>
-</section>
-<section id="source-funs" class="level1" data-number="4">
-<h1 data-number="4"><span class="header-section-number">4</span> source funs:</h1>
-<p>funs_files &lt;- list.files( path = “funs”, pattern = “\.R”, full.names = TRUE) lapply(X = funs_files, FUN = source)</p>
-</section>
-<section id="targets-ie.-steps-to-be-computed" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> targets, ie., steps to be computed:</h1>
-<p>list(</p>
-</section>
-<section id="data-import-and-cleansing" class="level1" data-number="6">
-<h1 data-number="6"><span class="header-section-number">6</span> data import and cleansing ———————————————–</h1>
-<p># read data: tar_target(data_files_list, list.files(path = paste0(here::here(),“/data-processed/data-raw-no-sensitive”), # MY path to the data full.names = TRUE, pattern = “*.csv$“, recursive = TRUE), format =”file”), # watch data source files</p>
-<p># bind all csv files into one long dataframe: tar_target(one_df, data_files_list |&gt; map(~ fread(.x, fill = TRUE, colClasses = “character”)) |&gt; rbindlist(fill = TRUE, idcol = “file”, use.names = TRUE), packages = “data.table”),</p>
-<p># remove empty cols and rows: tar_target(rm_empty, one_df |&gt; remove_empty(which = c(“rows”, “cols”)), packages = “janitor”),</p>
-<p># remove constant cols: tar_target(rm_constants, rm_empty |&gt; remove_constant(), packages = “janitor”),</p>
-<p># Clean column names: tar_target(clean_col_names, rm_empty |&gt; clean_names(), packages = “janitor”),</p>
-<p># # select only subtitles and timestamps columns: # tar_target(df_subtitles_timestamps, # clean_col_names |&gt; # select(id_visit, contains(“subtitle”), contains(“timestamp”))),</p>
-<p># repair date-time cols: tar_target(repair_dttm, clean_col_names |&gt; mutate(across(contains(“timestamp”), ~ as_datetime(as.numeric(.x)))), packages = c(“lubridate”, “dplyr”)),</p>
-<p># exclude developers, lecturers and admins: tar_target(data_users_only, repair_dttm |&gt; filter(!str_detect(action_details_0_subtitle, “developer|lecturer|admin”)), packages = “stringr”),</p>
-</section>
-<section id="longify-data" class="level1" data-number="7">
-<h1 data-number="7"><span class="header-section-number">7</span> longify data ————————————————————</h1>
-<p># pivot longer: tar_target(d_long, data_users_only |&gt; select(id_visit, contains(“details_”)) |&gt; mutate(across(everything(), as.character)) |&gt; pivot_longer(-id_visit)),</p>
-<p># drop rows with missing data: tar_target(d_long_nona, d_long |&gt; drop_na() |&gt; filter(value != ““)),</p>
-<p># add action-count column: tar_target(add_id_col, d_long_nona |&gt; # rename(action_count = name) |&gt; # new = old mutate(action_count = str_extract(name, “\d+”)), packages = “stringr”),</p>
-<p># mutate to numeric: tar_target(numeric_id, add_id_col |&gt; mutate(action_count = as.integer(action_count))),</p>
-<p># get types of actions: tar_target(action_types, numeric_id |&gt; separate(name, sep = “_“, into = c(”constant1”, “constant2”, “nr”, “type”)) |&gt; select(-constant1, -constant2, -nr), packages = “tidyr”),</p>
-<p># count stuff per visit ————————————————-</p>
-<p># count actions per visit: tar_target(actions_per_visit, numeric_id |&gt; group_by(id_visit) |&gt; # “nr” is the id of the action of this visit: summarise(nr_max = max(action_count))),</p>
-<p># count action categories per visit: tar_target(count_action_type, count_user_action_type(action_types), packages = c(“stringr”, “dplyr”)),</p>
-</section>
-<section id="count-times-per-visit-etc.--" class="level1" data-number="8">
-<h1 data-number="8"><span class="header-section-number">8</span> count times per visit etc. ———————————————-</h1>
-<p># start and end time of user’s visit: tar_target(time_minmax, action_types |&gt; time_min_max(), packages = c(“lubridate”, “dplyr”)),</p>
-<p># time spent on the site: tar_target(time_spent, action_types |&gt; diff_time(), packages = c(“lubridate”, “dplyr”)),</p>
-<p>tar_target(time_duration, data_users_only %&gt;% select(id_visit, visit_duration) %&gt;% mutate(visit_duration_sec = as.numeric(visit_duration)) %&gt;% select(-visit_duration)),</p>
-<p># count time of visit per weekday: tar_target(time_visit_wday, action_types |&gt; when_visited(), packages = c(“collapse”, “lubridate”, “dplyr”)),</p>
-<p># count time since last visit on site: tar_target(time_since_last_visit, data_users_only |&gt; select(id_visit, days_since_last_visit))</p>
-<p># render report in Quarto: # tar_quarto(challenge07_report, “challenges_solutions/challenge07.qmd”)</p>
-<p>)</p>
+</div>
 
 
+</section>
 </section>
 
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2024,
