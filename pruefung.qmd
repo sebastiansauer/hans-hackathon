@@ -42,6 +42,11 @@ Jede Teilnote darf nicht schlechter als 4,0 bewertet werden, um die Prüfung als
 
 ## Teil 1: Wöchentliche Challenges
 
+Bitte beachten Sie auch die [Hinweise zum Thema 'Programmieren'](https://hinweisbuch.netlify.app/109-hinweise-programmier).
+
+
+
+
 ### Benotung der Challenges
 
 Jede Challenge wird wie folgt bepunktet:
@@ -69,7 +74,7 @@ d.h. die Lösung muss bis zum jeweiligen Abgabetermin eingereicht werden. Der Ab
 - *Prüfen Sie* vor Beginn der ersten Challenge, ob Sie auf die *Daten zugreifen* können und diese einlesen können. Melden Sie sich bei Problemen vor Beginn der (jeweiligen) Challenge beim Dozenten.
 - Geben Sie in jeder eingereichten Datei *Ihren Namen und die Nummer* der Challenge an.
 - *Benennen* Sie Ihre *Dateien* nach folgendem Schema: `challenge01-max-mustermann.R` (für R-Skripte) oder `challenge01-max-mustermann.qmd` (für Quarto-Dateien).
-- Nutzen Sie den [Tidyverse-Styleguide](https://style.tidyverse.org/.
+- Nutzen Sie den [Tidyverse-Styleguide](https://style.tidyverse.org/).
 - Achten Sie auf einen guten Programmierstil.
 
 
@@ -77,6 +82,8 @@ d.h. die Lösung muss bis zum jeweiligen Abgabetermin eingereicht werden. Der Ab
 
 ### Abgabeformat
 
+
+#### Quarto
 
 Sofern das Ausgabeformat "Quarto" definiert ist, 
 reichen Sie Ihre Ergebnisse bitte in Form eines Dokuments ein,
@@ -94,6 +101,8 @@ reichen Sie Ihre Ergebnisse bitte in Form eines Dokuments ein,
 
 
 
+#### R
+
 Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte in Form eines R-Skripts ein, 
 
 - das die *Lösung* der Challenge enthält.
@@ -101,6 +110,8 @@ Sofern als Ausgabeformat "R-Syntax" definiert ist, reichen Sie Ihren Code bitte 
 - *durchläuft*, ohne Fehler zu werfen
 - *kommentiert* ist
 - wohl *gegliedert* ist
+
+
 
 
 
