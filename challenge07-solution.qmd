@@ -18,6 +18,8 @@ number-sections: true
 ```{r}
 library(tidyverse)
 library(targets)
+library(gt)
+library(easystats)
 ```
 
 
@@ -101,17 +103,107 @@ Es gab 12 Warnungen (Anzeige mit warnings())
 ```
 
 
+## Lösungen zu den Aufgaben
 
-## Pipeline-Definition
 
+## Target-Objekte laden
 
 ```{r}
-tar_manifest(script = "challenge07-solution.R") |> 
-  knitr::kable()
+tar_load("time_minmax", store = "challenge07")
+tar_load("time_visit_wday", store = "challenge07")
+tar_load("time_since_last_visit", store = "challenge07")
 ```
 
 
 
+### An welchen Wochentagen wird die Seite bevorzugt besucht?
 
+```{r}
+time_visit_wday |> 
+  as_tibble() |> 
+  count(dow) |> 
+  mutate(prop = n/sum(n)) |> 
+  ggplot(aes(x = dow, y = prop)) +
+  geom_col() +
+  theme_minimal() +
+  labs(title = "Verteilung der HaNS-Logins nach Wochentagen",
+       x = "Wochentag",
+       y = "Anteil")
+```
+
+
+
+###  Zu welchen Zeiten wird die Seite bevorzugt besucht?
+
+```{r}
+time_visit_wday |> 
+  as_tibble() |> 
+  count(hour) |> 
+  mutate(prop = n/sum(n)) |> 
+  ggplot(aes(x = hour, y = prop)) +
+  geom_col() +
+  theme_minimal() +
+  labs(
+    title = "HaNS-Nutzer sind keine Frühaufsteher",
+    x = "Uhrzeit",
+    y = "Anteil"
+  )
+```
+
+Alternative Visualisierung:
+
+
+```{r}
+time_visit_wday |> 
+  as_tibble() |> 
+  count(hour) |> 
+  mutate(prop = n/sum(n)) |> 
+  ggplot(aes(x = hour, y = prop)) +
+  geom_col() +
+  theme_minimal() +
+  coord_polar()
+```
+
+
+###  Geben Sie den Zeitraum der Nutzung an (von <Datum des ersten Visits> bis <Datum des letzten Visits>).
+
+
+
+```{r}
+time_minmax |> 
+  summarise(time_min = min(time_min),
+            time_max = max(time_max)) |> 
+  gt()
+```
+
+
+
+### Geben Sie den Zeitraum seit der letzten Nutzung an (pro User) und die Verteilung inkl. zentraler Statistiken (wie Mittelwert).
+
+
+```{r}
+time_since_last_visit |> 
+  ggplot(aes(x = days_since_last_visit)) +
+  geom_histogram(bins = 30) +
+  theme_minimal() +
+  labs(title = "Verteilung der Zeit seit letztem Besuch",
+       x = "Zeit seit letztem Besuch",
+       y = "Anzahl")
+```
+
+```{r}
+time_since_last_visit |> 
+  summarise(mean = mean(days_since_last_visit),
+            median = median(days_since_last_visit),
+            sd = sd(days_since_last_visit)) |> 
+  gt()
+```
+
+
+```{r}
+time_since_last_visit |> 
+ describe_distribution(days_since_last_visit) |> 
+  print_md()
+```
 
 

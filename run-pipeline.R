@@ -18,10 +18,10 @@ tar_make(script = "challenges-solutions/MASTER-solution-pipeline.R",
 
 
 #tar_make(script = "challenge05-solution.R", store = "challenge05")
-tar_make(script = "challenge07-solution.R", store = "challenge07")
+tar_make(script = "challenge06-solution.R", store = "challenge06")
 
 # load targets manually from a manually selected store:
-tar_load("rm_constants", store = "challenge05")
+#tar_load("rm_constants", store = "challenge05")
 
 
 tar_manifest(script = "challenge07-solution.R")

@@ -21,7 +21,7 @@ options(lubridate.week.start = 1)
 #   path = "funs", pattern = "\\.R", full.names = TRUE, recursive = TRUE)
 # lapply(X = funs_files, FUN = source)
 
-source("funs/get_user_action.R")
+source("funs/count_user_action_type.R")
 
 
 
@@ -130,11 +130,27 @@ list(
   
   # count action categories per visit:
   tar_target(count_action_type,
-             count_user_action_type(action_types), packages = c("stringr", "dplyr"))
+             count_user_action_type(action_types), packages = c("stringr", "dplyr")),
   
   
 
 # render report in Quarto -------------------------------------------------
+
+
+# tar_target(
+#   quarto_report,
+#   {
+#     quarto::quarto_render(
+#       input = "challenge06-solution-report.qmd",      # Quarto-Datei
+#       output_file = "challenge06-solution-report.html"  # Name der Ausgabedatei
+#       # execute_params = list(
+#       #   data_target = "remove_admins"  # Optional: Übergabeparameter
+#       # )
+#     )
+#     "challenge06-solution-report.html"  # Gibt den Namen des generierten Berichts zurück
+#   },
+#   format = "file"  # Gibt an, dass das Ziel eine Datei ist
+# )
 
   # render report in Quarto:
   # tar_quarto(challenge06_report, "challenge06-solution-report.qmd")
