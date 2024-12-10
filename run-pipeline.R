@@ -21,3 +21,6 @@ tar_make(script = "challenge07-solution.R", store = "challenge07")
 
 # load targets manually from a manually selected store:
 tar_load("rm_constants", store = "challenge05")
+
+
+tar_manifest(script = "challenge07-solution.R")

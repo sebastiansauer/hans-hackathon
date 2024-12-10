@@ -1,0 +1,119 @@
+---
+title: "Challenge 07 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+---
+
+
+
+
+
+# Verweildauer
+
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(targets)
+```
+
+
+
+
+## Aufgaben
+
+
+{{< include children/challenge07-base.qmd >}}
+
+
+
+## Lösungen
+
+[Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge07-solution.R) ist eine mögliche Lösung für die Pipeline.
+
+
+
+
+
+Beachten Sie bitte, dass die Targets-Pipeline-Datei `_targets.R` heißen sollte und nur die Pipeline-Funktionen enthalten sollte.
+
+
+Die Pipeline lassen Sie mit `tar_make()` laufen, [hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/run-pipeline.R) ist ein Beispiel.
+
+
+
+
+## Pipeline-Output
+
+So kann man die Pipeline starten:
+
+```
+> tar_make(script = "challenge07-solution.R", store = "challenge07")
+```
+
+Und so sah die Ausgabe aus:
+
+
+```
+▶ dispatched target data_files_list
+● completed target data_files_list [0.797 seconds, 128.66 megabytes]
+▶ dispatched target one_df
+● completed target one_df [4.75 seconds, 12.84 megabytes]
+▶ dispatched target rm_empty
+● completed target rm_empty [2.281 seconds, 12.811 megabytes]
+▶ dispatched target clean_col_names
+● completed target clean_col_names [8.687 seconds, 12.841 megabytes]
+▶ dispatched target rm_constants
+● completed target rm_constants [0.875 seconds, 12.811 megabytes]
+▶ dispatched target repair_dttm
+● completed target repair_dttm [1.297 seconds, 12.851 megabytes]
+▶ dispatched target data_users_only
+● completed target data_users_only [0.484 seconds, 11.371 megabytes]
+▶ dispatched target d_long
+● completed target d_long [7.75 seconds, 71.406 megabytes]
+▶ dispatched target time_duration
+● completed target time_duration [0.109 seconds, 8.58 kilobytes]
+▶ dispatched target time_since_last_visit
+● completed target time_since_last_visit [0.016 seconds, 5.734 kilobytes]
+▶ dispatched target d_long_nona
+● completed target d_long_nona [2.5 seconds, 9.734 megabytes]
+▶ dispatched target add_id_col
+● completed target add_id_col [1.203 seconds, 10.144 megabytes]
+▶ dispatched target numeric_id
+● completed target numeric_id [0.734 seconds, 10.085 megabytes]
+▶ dispatched target action_types
+● completed target action_types [1.006 minutes, 3.102 megabytes]
+▶ dispatched target actions_per_visit
+● completed target actions_per_visit [0.062 seconds, 6.53 kilobytes]
+▶ dispatched target time_spent
+● completed target time_spent [15.562 seconds, 796.868 kilobytes]
+▶ dispatched target time_minmax
+● completed target time_minmax [8.875 seconds, 15.219 kilobytes]
+▶ dispatched target count_action_type
+● completed target count_action_type [2.531 seconds, 526.771 kilobytes]
+▶ dispatched target time_visit_wday
+● completed target time_visit_wday [0.125 seconds, 32.405 kilobytes]
+▶ ended pipeline [3.447 minutes]
+Es gab 12 Warnungen (Anzeige mit warnings())
+```
+
+
+
+## Pipeline-Definition
+
+
+```{r}
+tar_manifest(script = "challenge07-solution.R")
+```
+
+
+
+
+## Pipeline
+
+
+{{< include "challenge07-solution.R" >}}
+
