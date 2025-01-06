@@ -20,7 +20,7 @@ _freeze/
 _extensions/
 *_cache/
 #_site/
-*_files/
+#*_files/
 .quarto/
 
 
