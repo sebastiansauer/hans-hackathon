@@ -38,7 +38,7 @@ library(targets)
 library(tidyverse)
 library(ggokabeito)  # Farben
 library(easystats)
-library(gt)  # Tabllen 
+library(gt)  # Tabellen 
 library(ggfittext)
 library(scales)
 library(visdat)

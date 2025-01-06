@@ -48,8 +48,8 @@ website:
         href: challenge07-solution.qmd
       - href: challenge08-solution.qmd
         text: Lösung 08
-      # - text: Challenge 02
-      #   href: challenge02.qmd
+      - text: Lösung 09
+        href: challenge09-solution.qmd
       # - text: Challenge 03
       #   href: challenge03.qmd
       # - text: Challenge 04
@@ -63,6 +63,7 @@ format:
     toc: true
     number-sections: true
     out-width: "75%"
+    df-print: paged
 
 
 # bibliography: bib/bib.bib

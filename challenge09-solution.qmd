@@ -1,0 +1,336 @@
+---
+title: "Challenge 09 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+
+
+# Verweildauer
+
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(targets)
+library(gt)
+library(easystats)
+```
+
+
+
+
+## Aufgaben
+
+
+{{< include children/challenge09-base.qmd >}}
+
+
+
+## Lösungen
+
+### Lösungsdatei auf Github
+
+[Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge09-solution.R) ist eine mögliche Lösung für die Pipeline.
+
+
+
+### R-Pakete
+
+
+```{r load-libs}
+library(targets)
+library(tidyverse)
+library(ggokabeito)  # Farben
+library(easystats)
+```
+
+
+### Target-Objekte
+
+```{r}
+tar_load(data_users_only, store = "mastersolution")
+tar_load(action_types, store = "mastersolution")
+tar_load(count_action_type, store = "mastersolution")
+tar_load(glotzdauer, store = "mastersolution")
+tar_load(time_spent, store = "mastersolution")
+```
+
+
+
+### Namen der ersten 100 Spalten
+
+`r names(data_users_only)[1:100]`
+
+
+
+### Top-10-Tätigkeiten
+
+
+
+```{r}
+count_action_type |> 
+  count(category, sort = TRUE) 
+```
+
+
+
+### Glotzdauer
+
+```{r}
+```
+
+Die Zeitinveralle sind in Sekunden dargestellt.
+
+```{r}
+glotzdauer |> 
+  summarise(glotzdauer_sec_mean = mean(time_interval, na.rm = TRUE),
+            glotzdauer_sec_sd = sd(time_interval, na.rm = TRUE),
+            glotzdauer_sec_max = max(time_interval, na.rm = TRUE),
+            glotzdauer_sec_median = median(time_interval, na.rm = TRUE),
+            glotzdauer_sec_iqr = IQR(time_interval, na.rm = TRUE)
+            )
+```
+
+
+### Veränderung der Anzahl der Nutzer und der Verweildauer im Laufe der Zeit
+
+
+### Insgesamt
+
+```{r}
+time_spent_per_id_visit <- 
+time_spent |> 
+  group_by(id_visit) |> 
+  slice_head()  |> 
+  ungroup()
+```
+
+```{r}
+time_spent_per_id_visit |> 
+  glimpse()
+```
+
+Es gibt Extremwerte:
+
+```{r}
+time_spent_per_id_visit |> 
+  ggplot(aes(x = time_diff)) +
+  geom_histogram()
+```
+
+
+```{r}
+time_spent_per_id_visit |> 
+   summarise(time_diff_sec_mean = mean(time_diff, na.rm = TRUE),
+            time_diff_sec_sd = sd(time_diff, na.rm = TRUE),
+            time_diff_sec_max = max(time_diff, na.rm = TRUE),
+            time_diff_sec_median = median(time_diff, na.rm = TRUE),
+            time_diff_sec_iqr = IQR(time_diff, na.rm = TRUE)
+            )
+```
+
+
+Wir müssen die Extremwerte entfernen:
+
+```{r}
+time_spent_per_id_visit_no_extreme <-
+  time_spent_per_id_visit |> 
+  filter(time_diff < 3600)
+```
+
+
+
+```{r}
+time_spent_per_id_visit_no_extreme |> 
+  summarise(time_diff_sec_mean = mean(time_diff, na.rm = TRUE),
+            time_diff_sec_sd = sd(time_diff, na.rm = TRUE),
+            time_diff_sec_max = max(time_diff, na.rm = TRUE),
+            time_diff_sec_median = median(time_diff, na.rm = TRUE),
+            time_diff_sec_iqr = IQR(time_diff, na.rm = TRUE)
+            )
+```
+
+
+Verweildauer in Sekunden
+
+```{r}
+time_spent_per_id_visit_no_extreme |> 
+  ggplot(aes(x = time_diff)) +
+  geom_histogram() +
+  labs(x = "Verweildauer in Sekunden")
+```
+
+
+Verweildauer in Minuten:
+
+```{r}
+time_spent_per_id_visit_no_extreme |> 
+  ggplot(aes(x = time_diff / 60)) +
+  geom_histogram() +
+  labs(x = "Verweildauer in Minuten")
+```
+
+Die Verteilung ist sehr rechtsschief. Wie ist das wohl zu interpretieren?
+
+
+
+### Im Zeitverlauf
+
+Monate und Wochen hinzufügen:
+
+```{r}
+time_spent_per_id_visit_no_extreme_weeks_months <- 
+time_spent_per_id_visit_no_extreme |> 
+  mutate(month = month(time)) |> 
+  mutate(week = week(time))
+```
+
+
+#### Monate
+
+```{r}
+time_spent_per_id_visit_no_extreme_weeks_months |> 
+  group_by(month) |> 
+  summarise(time_diff_sec_mean = mean(time_diff, na.rm = TRUE),
+           time_diff_min_mean = mean(time_diff / 60, na.rm = TRUE)
+  )
+```
+
+
+
+```{r}
+time_spent_per_id_visit_no_extreme_weeks_months |> 
+  group_by(month) |> 
+  summarise(time_diff_sec_mean = mean(time_diff, na.rm = TRUE)) |> 
+  ggplot(aes(x = month, y = time_diff_sec_mean)) +
+  geom_col()
+```
+
+
+
+
+#### Wochen
+
+```{r}
+time_spent_per_id_visit_no_extreme_weeks_months |> 
+  group_by(week) |> 
+  summarise(time_diff_sec_mean = mean(time_diff, na.rm = TRUE)) |> 
+  ggplot(aes(x = week, y = time_diff_sec_mean)) +
+  geom_col()
+```
+
+```{r}
+time_spent_per_id_visit_no_extreme_weeks_months |> 
+  group_by(week) |> 
+  summarise(time_diff_sec_mean = mean(time_diff, na.rm = TRUE),
+            time_diff_min_mean = mean(time_diff / 60, na.rm = TRUE))
+```
+
+
+```{r}
+time_spent_per_id_visit_no_extreme_weeks_months |> 
+  group_by(week) |> 
+  summarise(time_diff_mean_mean = mean(time_diff, na.rm = TRUE)) |> 
+  ggplot(aes(x = week, y = time_diff_mean_mean)) +
+  geom_point() +
+  geom_line()
+```
+
+### Veränderung der Glotzdauer im Zeitverlauf
+
+```{r}
+glotzdauer_month_week <- 
+glotzdauer |> 
+  select(-group) |> 
+  mutate(month = month(start_time),
+         week = week(start_time))
+```
+
+
+
+```{r}
+glotzdauer_month_week |> 
+  group_by(month) |> 
+  summarise(glotzdauer_sec_mean = mean(time_interval, na.rm = TRUE),
+            glotzdauer_sec_sd = sd(time_interval, na.rm = TRUE),
+            glotzdauer_sec_max = max(time_interval, na.rm = TRUE),
+            glotzdauer_sec_median = median(time_interval, na.rm = TRUE),
+            glotzdauer_sec_iqr = IQR(time_interval, na.rm = TRUE)
+            )
+```
+
+#### Monate
+
+```{r}
+glotzdauer_month_week |> 
+  drop_na() |> 
+  group_by(month) |> 
+  summarise(glotzdauer_sec_mean = mean(time_interval, na.rm = TRUE),
+            glotzdauer_sec_sd = sd(time_interval, na.rm = TRUE),
+            glotzdauer_sec_max = max(time_interval, na.rm = TRUE),
+            glotzdauer_sec_median = median(time_interval, na.rm = TRUE),
+            glotzdauer_sec_iqr = IQR(time_interval, na.rm = TRUE)
+            ) |> 
+  ggplot(aes(x = month, y = glotzdauer_sec_mean)) +
+  geom_point() +
+  geom_line()
+```
+
+
+```{r}
+glotzdauer_month_week |> 
+  drop_na() |> 
+  group_by(month) |> 
+  summarise(glotzdauer_min_mean = mean(time_interval / 60, na.rm = TRUE)
+            ) |> 
+  ggplot(aes(x = month, y = glotzdauer_min_mean)) +
+  geom_point() +
+  geom_line()
+```
+
+
+
+#### Wochen
+
+
+```{r}
+glotzdauer_month_week |> 
+  drop_na() |> 
+  group_by(week) |> 
+  summarise(glotzdauer_sec_mean = mean(time_interval, na.rm = TRUE),
+            glotzdauer_sec_sd = sd(time_interval, na.rm = TRUE),
+            glotzdauer_sec_max = max(time_interval, na.rm = TRUE),
+            glotzdauer_sec_median = median(time_interval, na.rm = TRUE),
+            glotzdauer_sec_iqr = IQR(time_interval, na.rm = TRUE)
+            ) |> 
+  ggplot(aes(x = week, y = glotzdauer_sec_mean)) +
+  geom_point() +
+  geom_line()
+```
+
+
+
+```{r}
+glotzdauer_month_week |> 
+  drop_na() |> 
+  mutate(time_interval = time_interval / 60) |>  # in Minuten!
+  group_by(week) |> 
+  summarise(glotzdauer_min_mean = mean(time_interval, na.rm = TRUE),
+            glotzdauer_min_sd = sd(time_interval, na.rm = TRUE),
+            glotzdauer_min_max = max(time_interval, na.rm = TRUE),
+            glotzdauer_min_median = median(time_interval, na.rm = TRUE),
+            glotzdauer_min_iqr = IQR(time_interval, na.rm = TRUE)
+            ) |> 
+  ggplot(aes(x = week, y = glotzdauer_min_mean)) +
+  geom_point() +
+  geom_line()
+```
+
