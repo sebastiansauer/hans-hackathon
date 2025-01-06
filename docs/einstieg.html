@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de-DE" xml:lang="de-DE"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.20">
+<meta name="generator" content="quarto-1.6.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -90,10 +90,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-018089954d508eae8a473f0b7f0491f0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-a8378a0342da607bf6aa9ac04725c156.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9b267d3df2c2e01ea8708db834785b1b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-01b954e706e0231c0bad24c61704d8b0.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="site_libs/quarto-contrib/downloadthis-1.9.1/downloadthis.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
@@ -262,6 +262,12 @@ window.Quarto = {
  <span class="menu-text">Lösung 07</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge08-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 08</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -312,7 +318,7 @@ window.Quarto = {
 <section id="r-zweiter-blick" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> R, zweiter Blick</h1>
 <p>Benötigte R-Pakete für dieses Kapitel:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -398,13 +404,13 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 </figcaption>
 </figure>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>ein_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>noch_ein_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>logischer_vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="cn">TRUE</span>, <span class="cn">FALSE</span>, <span class="cn">TRUE</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Mit <code>str()</code> kann man sich die <code>Str</code>uktur eines Objektsausgeben lassen:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ein_vektor)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  num [1:3] 1 2 3</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(noch_ein_vektor)</span>
@@ -421,18 +427,18 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 </ul>
 <p>Kommazahlen und Ganze Zahlen zusammen bilden den Typ <code>numeric</code> (numerisch) in R.</p>
 <p>Den Typ eines Vektors kann man mit <code>typeof()</code> ausgeben lassen:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(ein_vektor)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "double"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="faktoren" class="level4" data-number="1.2.2.2">
 <h4 data-number="1.2.2.2" class="anchored" data-anchor-id="faktoren"><span class="header-section-number">1.2.2.2</span> Faktoren</h4>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>sex <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="st">"Mann"</span>, <span class="st">"Frau"</span>, <span class="st">"Frau"</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Interessant:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(sex)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  Factor w/ 2 levels "Frau","Mann": 2 1 1</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -440,7 +446,7 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 </section>
 <section id="listen" class="level4" data-number="1.2.2.3">
 <h4 data-number="1.2.2.3" class="anchored" data-anchor-id="listen"><span class="header-section-number">1.2.2.3</span> Listen</h4>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>eine_liste <span class="ot">&lt;-</span> <span class="fu">list</span>(<span class="at">titel =</span> <span class="st">"Einführung"</span>,</span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">woche =</span> <span class="dv">1</span>,</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">datum =</span> <span class="fu">c</span>(<span class="st">"2022-03-14"</span>, <span class="st">"2202-03-21"</span>),</span>
@@ -459,10 +465,10 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 <section id="tibbles" class="level4" data-number="1.2.2.4">
 <h4 data-number="1.2.2.4" class="anchored" data-anchor-id="tibbles"><span class="header-section-number">1.2.2.4</span> Tibbles</h4>
 <p>Für <code>tibble()</code> brauchen wir <code>tidyverse</code>:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>studentis <span class="ot">&lt;-</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
@@ -484,33 +490,33 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 <section id="reine-vektoren" class="level4" data-number="1.2.3.1">
 <h4 data-number="1.2.3.1" class="anchored" data-anchor-id="reine-vektoren"><span class="header-section-number">1.2.3.1</span> Reine Vektoren</h4>
 <p>Zur Erinnerung:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(ein_vektor)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  num [1:3] 1 2 3</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>ein_vektor[<span class="dv">1</span>]</span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>ein_vektor[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)]</span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1 2</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Aber <em>nicht</em> so:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ein_vektor[<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in ein_vektor[1, 2]: falsche Anzahl von Dimensionen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in ein_vektor[1, 2]: incorrect number of dimensions</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Man darf Vektoren auch wie Listen ansprechen, also eine doppelte Eckklammer zum Indizieren verwenden</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>ein_vektor[[<span class="dv">2</span>]]</span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Der Grund ist, dass Listen auch Vektoren sind, nur eben ein besonderer Fall eines Vektors:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">is.vector</span>(eine_liste)</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Was passiert, wenn man bei einem Vektor der Länge 3 das 4. Element indiziert?</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>ein_vektor[<span class="dv">4</span>]</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] NA</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -519,7 +525,7 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 </section>
 <section id="listen-1" class="level4" data-number="1.2.3.2">
 <h4 data-number="1.2.3.2" class="anchored" data-anchor-id="listen-1"><span class="header-section-number">1.2.3.2</span> Listen</h4>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>eine_liste <span class="sc">%&gt;%</span> <span class="fu">str</span>()</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="do">## List of 5</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ titel    : chr "Einführung"</span></span>
@@ -529,7 +535,7 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 <span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ lehre    : logi [1:3] TRUE TRUE TRUE</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Listen können wie Vektoren, also mit <code>[</code> ausgelesen werden. Dann wird eine Liste zurückgegeben.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>eine_liste[<span class="dv">1</span>]</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="do">## $titel</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Einführung"</span></span>
@@ -539,49 +545,49 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 </div>
 <p>Das hat den technischen Hintergrund, dass Listen als eine bestimmte Art von Vektoren implementiert sind.</p>
 <p>Mann kann auch die “doppelte Eckklammer”, <code>[[</code> zum Auslesen verwenden; dann wird anstelle einer Liste die einfachere Struktur eines Vektors zurückgegeben:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>eine_liste[[<span class="dv">1</span>]]</span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Einführung"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Man könnte sagen, die “äußere Schicht” des Objekts, die Liste, wird abgeschält, und man bekommnt die “innere” Schicht, den Vektor.</p>
 <p>Mann die Elemente der Liste entweder mit ihrer Positionsnummer (1, 2, …) oder, sofern vorhanden, ihren Namen ansprechen:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>eine_liste[[<span class="st">"titel"</span>]]</span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Einführung"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Dann gibt es noch den Dollar-Operator, mit dem Mann benannte Elemente von Listen ansprechen kann:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>eine_liste<span class="sc">$</span>titel</span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Einführung"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Man kann auch tiefer in eine Liste hinein indizieren. Sagen wir, uns interessiert das 4. Element der Liste <code>eine_liste</code> - und davon das erste Element.</p>
 <p>Das geht dann so:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>eine_liste[[<span class="dv">4</span>]][[<span class="dv">1</span>]] </span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "dies"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Eine einfachere Art des Indizierens von Listen bietet die Funktion <code>pluck()</code>, aus dem Paket <code>purrr</code>, das Hilfen für den Umgang mit Listen bietet.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pluck</span>(eine_liste, <span class="dv">4</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "dies"          "jenes"         "und noch mehr"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Und jetzt aus dem 4. Element das 1. Element:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pluck</span>(eine_liste, <span class="dv">4</span>, <span class="dv">1</span>)</span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "dies"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Probieren Sie mal, aus einer Liste der Länge 5 das 6. Element auszulesen:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>eine_liste <span class="sc">%&gt;%</span> <span class="fu">length</span>()</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>eine_liste[[<span class="dv">6</span>]]</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eine_liste[[6]]: Indizierung außerhalb der Grenzen</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in eine_liste[[6]]: subscript out of bounds</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Unser Versuch wird mit einer Fehlermeldung quittiert.</p>
 <p>Sprechen wir die Liste wie einen (atomaren) Vektor an, bekommen wir hingegen ein <code>NA</code> bzw. ein <code>NULL</code>:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>eine_liste[<span class="dv">6</span>]</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="do">## $&lt;NA&gt;</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">## NULL</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -590,7 +596,7 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 <section id="tibbles-1" class="level4" data-number="1.2.3.3">
 <h4 data-number="1.2.3.3" class="anchored" data-anchor-id="tibbles-1"><span class="header-section-number">1.2.3.3</span> Tibbles</h4>
 <p>Tibbles lassen sich sowohl wie ein Vektor als auch wie eine Liste indizieren.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>studentis[<span class="dv">1</span>]</span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 2 × 1</span></span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   name </span></span>
@@ -599,7 +605,7 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 <span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Berta</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Die Indizierung eines Tibbles mit der einfachen Eckklammer liefert einen Tibble zurück.</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>studentis[<span class="st">"name"</span>]</span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 2 × 1</span></span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="do">##   name </span></span>
@@ -608,12 +614,12 @@ Abbildung&nbsp;3: Vektoren stehen im Zentrum der Datenstrukturen in R
 <span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Berta</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Mit doppelter Eckklammer bekommt man, analog zur Liste, einen Vektor zurück:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>studentis[[<span class="st">"name"</span>]]</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Anna"  "Berta"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Beim Dollar-Operator kommt auch eine Liste zurück:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>studentis<span class="sc">$</span>name</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "Anna"  "Berta"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -663,11 +669,11 @@ Tipp
 </div>
 <div id="exr-paths-rel" class="theorem exercise">
 <p><span class="theorem-title"><strong>Übungsaufgabe 2 (Daten importieren mit relativem Pfad)</strong></span> Laden Sie den Datensatz <code>mtcars</code> herunter und kopieren Sie ihn in ein Unterverzeichnis Ihres Projektordners. Das Unterverzeichnis soll hießen <code>data</code>. Dann importieren Sie den Datensatz, wobei Sie den Unterordner als <em>relativen</em> Pfad angeben:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"input/mtcars.csv"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
-<p><a href="#dnldts55894" onclick="fetch('data:text/csv;base64,bW9kZWwsbXBnLGN5bCxkaXNwLGhwLGRyYXQsd3QscXNlYyx2cyxhbSxnZWFyLGNhcmIKTWF6ZGEgUlg0LDIxLDYsMTYwLDExMCwzLjksMi42MiwxNi40NiwwLDEsNCw0Ck1hemRhIFJYNCBXYWcsMjEsNiwxNjAsMTEwLDMuOSwyLjg3NSwxNy4wMiwwLDEsNCw0CkRhdHN1biA3MTAsMjIuOCw0LDEwOCw5MywzLjg1LDIuMzIsMTguNjEsMSwxLDQsMQpIb3JuZXQgNCBEcml2ZSwyMS40LDYsMjU4LDExMCwzLjA4LDMuMjE1LDE5LjQ0LDEsMCwzLDEKSG9ybmV0IFNwb3J0YWJvdXQsMTguNyw4LDM2MCwxNzUsMy4xNSwzLjQ0LDE3LjAyLDAsMCwzLDIKVmFsaWFudCwxOC4xLDYsMjI1LDEwNSwyLjc2LDMuNDYsMjAuMjIsMSwwLDMsMQpEdXN0ZXIgMzYwLDE0LjMsOCwzNjAsMjQ1LDMuMjEsMy41NywxNS44NCwwLDAsMyw0Ck1lcmMgMjQwRCwyNC40LDQsMTQ2LjcsNjIsMy42OSwzLjE5LDIwLDEsMCw0LDIKTWVyYyAyMzAsMjIuOCw0LDE0MC44LDk1LDMuOTIsMy4xNSwyMi45LDEsMCw0LDIKTWVyYyAyODAsMTkuMiw2LDE2Ny42LDEyMywzLjkyLDMuNDQsMTguMywxLDAsNCw0Ck1lcmMgMjgwQywxNy44LDYsMTY3LjYsMTIzLDMuOTIsMy40NCwxOC45LDEsMCw0LDQKTWVyYyA0NTBTRSwxNi40LDgsMjc1LjgsMTgwLDMuMDcsNC4wNywxNy40LDAsMCwzLDMKTWVyYyA0NTBTTCwxNy4zLDgsMjc1LjgsMTgwLDMuMDcsMy43MywxNy42LDAsMCwzLDMKTWVyYyA0NTBTTEMsMTUuMiw4LDI3NS44LDE4MCwzLjA3LDMuNzgsMTgsMCwwLDMsMwpDYWRpbGxhYyBGbGVldHdvb2QsMTAuNCw4LDQ3MiwyMDUsMi45Myw1LjI1LDE3Ljk4LDAsMCwzLDQKTGluY29sbiBDb250aW5lbnRhbCwxMC40LDgsNDYwLDIxNSwzLDUuNDI0LDE3LjgyLDAsMCwzLDQKQ2hyeXNsZXIgSW1wZXJpYWwsMTQuNyw4LDQ0MCwyMzAsMy4yMyw1LjM0NSwxNy40MiwwLDAsMyw0CkZpYXQgMTI4LDMyLjQsNCw3OC43LDY2LDQuMDgsMi4yLDE5LjQ3LDEsMSw0LDEKSG9uZGEgQ2l2aWMsMzAuNCw0LDc1LjcsNTIsNC45MywxLjYxNSwxOC41MiwxLDEsNCwyClRveW90YSBDb3JvbGxhLDMzLjksNCw3MS4xLDY1LDQuMjIsMS44MzUsMTkuOSwxLDEsNCwxClRveW90YSBDb3JvbmEsMjEuNSw0LDEyMC4xLDk3LDMuNywyLjQ2NSwyMC4wMSwxLDAsMywxCkRvZGdlIENoYWxsZW5nZXIsMTUuNSw4LDMxOCwxNTAsMi43NiwzLjUyLDE2Ljg3LDAsMCwzLDIKQU1DIEphdmVsaW4sMTUuMiw4LDMwNCwxNTAsMy4xNSwzLjQzNSwxNy4zLDAsMCwzLDIKQ2FtYXJvIFoyOCwxMy4zLDgsMzUwLDI0NSwzLjczLDMuODQsMTUuNDEsMCwwLDMsNApQb250aWFjIEZpcmViaXJkLDE5LjIsOCw0MDAsMTc1LDMuMDgsMy44NDUsMTcuMDUsMCwwLDMsMgpGaWF0IFgxLTksMjcuMyw0LDc5LDY2LDQuMDgsMS45MzUsMTguOSwxLDEsNCwxClBvcnNjaGUgOTE0LTIsMjYsNCwxMjAuMyw5MSw0LjQzLDIuMTQsMTYuNywwLDEsNSwyCkxvdHVzIEV1cm9wYSwzMC40LDQsOTUuMSwxMTMsMy43NywxLjUxMywxNi45LDEsMSw1LDIKRm9yZCBQYW50ZXJhIEwsMTUuOCw4LDM1MSwyNjQsNC4yMiwzLjE3LDE0LjUsMCwxLDUsNApGZXJyYXJpIERpbm8sMTkuNyw2LDE0NSwxNzUsMy42MiwyLjc3LDE1LjUsMCwxLDUsNgpNYXNlcmF0aSBCb3JhLDE1LDgsMzAxLDMzNSwzLjU0LDMuNTcsMTQuNiwwLDEsNSw4ClZvbHZvIDE0MkUsMjEuNCw0LDEyMSwxMDksNC4xMSwyLjc4LDE4LjYsMSwxLDQsMgo=').then(res => res.blob()).then(blob => {
+<p><a href="#dnldts12499" onclick="fetch('data:text/csv;base64,bW9kZWwsbXBnLGN5bCxkaXNwLGhwLGRyYXQsd3QscXNlYyx2cyxhbSxnZWFyLGNhcmIKTWF6ZGEgUlg0LDIxLDYsMTYwLDExMCwzLjksMi42MiwxNi40NiwwLDEsNCw0Ck1hemRhIFJYNCBXYWcsMjEsNiwxNjAsMTEwLDMuOSwyLjg3NSwxNy4wMiwwLDEsNCw0CkRhdHN1biA3MTAsMjIuOCw0LDEwOCw5MywzLjg1LDIuMzIsMTguNjEsMSwxLDQsMQpIb3JuZXQgNCBEcml2ZSwyMS40LDYsMjU4LDExMCwzLjA4LDMuMjE1LDE5LjQ0LDEsMCwzLDEKSG9ybmV0IFNwb3J0YWJvdXQsMTguNyw4LDM2MCwxNzUsMy4xNSwzLjQ0LDE3LjAyLDAsMCwzLDIKVmFsaWFudCwxOC4xLDYsMjI1LDEwNSwyLjc2LDMuNDYsMjAuMjIsMSwwLDMsMQpEdXN0ZXIgMzYwLDE0LjMsOCwzNjAsMjQ1LDMuMjEsMy41NywxNS44NCwwLDAsMyw0Ck1lcmMgMjQwRCwyNC40LDQsMTQ2LjcsNjIsMy42OSwzLjE5LDIwLDEsMCw0LDIKTWVyYyAyMzAsMjIuOCw0LDE0MC44LDk1LDMuOTIsMy4xNSwyMi45LDEsMCw0LDIKTWVyYyAyODAsMTkuMiw2LDE2Ny42LDEyMywzLjkyLDMuNDQsMTguMywxLDAsNCw0Ck1lcmMgMjgwQywxNy44LDYsMTY3LjYsMTIzLDMuOTIsMy40NCwxOC45LDEsMCw0LDQKTWVyYyA0NTBTRSwxNi40LDgsMjc1LjgsMTgwLDMuMDcsNC4wNywxNy40LDAsMCwzLDMKTWVyYyA0NTBTTCwxNy4zLDgsMjc1LjgsMTgwLDMuMDcsMy43MywxNy42LDAsMCwzLDMKTWVyYyA0NTBTTEMsMTUuMiw4LDI3NS44LDE4MCwzLjA3LDMuNzgsMTgsMCwwLDMsMwpDYWRpbGxhYyBGbGVldHdvb2QsMTAuNCw4LDQ3MiwyMDUsMi45Myw1LjI1LDE3Ljk4LDAsMCwzLDQKTGluY29sbiBDb250aW5lbnRhbCwxMC40LDgsNDYwLDIxNSwzLDUuNDI0LDE3LjgyLDAsMCwzLDQKQ2hyeXNsZXIgSW1wZXJpYWwsMTQuNyw4LDQ0MCwyMzAsMy4yMyw1LjM0NSwxNy40MiwwLDAsMyw0CkZpYXQgMTI4LDMyLjQsNCw3OC43LDY2LDQuMDgsMi4yLDE5LjQ3LDEsMSw0LDEKSG9uZGEgQ2l2aWMsMzAuNCw0LDc1LjcsNTIsNC45MywxLjYxNSwxOC41MiwxLDEsNCwyClRveW90YSBDb3JvbGxhLDMzLjksNCw3MS4xLDY1LDQuMjIsMS44MzUsMTkuOSwxLDEsNCwxClRveW90YSBDb3JvbmEsMjEuNSw0LDEyMC4xLDk3LDMuNywyLjQ2NSwyMC4wMSwxLDAsMywxCkRvZGdlIENoYWxsZW5nZXIsMTUuNSw4LDMxOCwxNTAsMi43NiwzLjUyLDE2Ljg3LDAsMCwzLDIKQU1DIEphdmVsaW4sMTUuMiw4LDMwNCwxNTAsMy4xNSwzLjQzNSwxNy4zLDAsMCwzLDIKQ2FtYXJvIFoyOCwxMy4zLDgsMzUwLDI0NSwzLjczLDMuODQsMTUuNDEsMCwwLDMsNApQb250aWFjIEZpcmViaXJkLDE5LjIsOCw0MDAsMTc1LDMuMDgsMy44NDUsMTcuMDUsMCwwLDMsMgpGaWF0IFgxLTksMjcuMyw0LDc5LDY2LDQuMDgsMS45MzUsMTguOSwxLDEsNCwxClBvcnNjaGUgOTE0LTIsMjYsNCwxMjAuMyw5MSw0LjQzLDIuMTQsMTYuNywwLDEsNSwyCkxvdHVzIEV1cm9wYSwzMC40LDQsOTUuMSwxMTMsMy43NywxLjUxMywxNi45LDEsMSw1LDIKRm9yZCBQYW50ZXJhIEwsMTUuOCw4LDM1MSwyNjQsNC4yMiwzLjE3LDE0LjUsMCwxLDUsNApGZXJyYXJpIERpbm8sMTkuNyw2LDE0NSwxNzUsMy42MiwyLjc3LDE1LjUsMCwxLDUsNgpNYXNlcmF0aSBCb3JhLDE1LDgsMzAxLDMzNSwzLjU0LDMuNTcsMTQuNiwwLDEsNSw4ClZvbHZvIDE0MkUsMjEuNCw0LDEyMSwxMDksNC4xMSwyLjc4LDE4LjYsMSwxLDQsMgo=').then(res => res.blob()).then(blob => {
       const downloadURL = window.URL.createObjectURL(blob);
       const a = document.createElement('a');
       document.body.appendChild(a);
@@ -675,25 +681,25 @@ Tipp
       a.download = 'mtcars.csv'; a.click();
       window.URL.revokeObjectURL(downloadURL);
       document.body.removeChild(a);
-        });"><button class="btn btn-info downloadthis  " id="dnldts55894"><i class="bi bi-database-fill-down"></i> Download </button></a></p>
+        });"><button class="btn btn-info downloadthis  " id="dnldts12499"><i class="bi bi-database-fill-down"></i> Download </button></a></p>
 <div id="exr-path-abs" class="theorem exercise">
 <p><span class="theorem-title"><strong>Übungsaufgabe 3 (Daten importieren mit absolutem Pfad)</strong></span> Importieren Sie den Datensatz <code>mtcars</code> mit absolutem Pfad. Was sind die Vor- und die Nachteile dieses Vorgehens?</p>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>path_abs <span class="ot">&lt;-</span> <span class="st">"C:\Users\sebastian.sauer\Documents\Github\hans-hackathon\input\mtcars.csv"</span> <span class="co"># Pfad auf MEINER Maschine</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path_abs)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Ein Nachteil von absoluten Pfaden ist, dass sie nicht <em>portabel</em> sind: <em>Mein</em> Pfad wird auf <em>Ihrem</em> Computer <em>nicht</em> funktionieren.</p>
 <p>Eine Hilfe bietet da das Paket <code>here</code>, das das aktuelle RStudio-Arbeitsverzeichnis (working directory) zurückgibt:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">here</span>()</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "C:/Users/sebastian.sauer/Documents/Github/hans-hackathon"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "/Users/sebastiansaueruser/github-repos/hans-hackathon"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Entsprechend können wir uns damit portablere absolute Pfade basteln:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>path_abs_portable <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="fu">here</span>(),<span class="st">"/"</span>, <span class="st">"input/mtcars.csv"</span>)</span>
 <span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>path_abs_portable</span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "C:/Users/sebastian.sauer/Documents/Github/hans-hackathon/input/mtcars.csv"</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "/Users/sebastiansaueruser/github-repos/hans-hackathon/input/mtcars.csv"</span></span>
 <span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path_abs_portable)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -710,9 +716,10 @@ Backslashes haben eine besondere Bedeutung in R
 <p>Wenn Sie Windows nutzen, ersetzen Sie am besten die Backslashes durch normale (“Forward-”)Slashes, das können Sie mit Search-Replace in RStudio erledigen.</p>
 </div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>path_abs <span class="ot">&lt;-</span> <span class="st">"C:/Users/sebastian.sauer/Documents/Github/hans-hackathon/input/mtcars.csv"</span></span>
-<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path_abs)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(path_abs)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Error in file(file, "rt"): cannot open the connection</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="datensätze-von-lang-nach-breit-umformatieren" class="level2" data-number="1.4">
@@ -759,7 +766,7 @@ Abbildung&nbsp;6: Sinnbild einer Funktion
 </figcaption>
 </figure>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>mittelwert <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  summe <span class="ot">&lt;-</span> <span class="fu">sum</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
@@ -768,7 +775,7 @@ Abbildung&nbsp;6: Sinnbild einer Funktion
 <span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mittelwert</span>(<span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>))</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 2</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -789,7 +796,7 @@ Abbildung&nbsp;6: Sinnbild einer Funktion
 </blockquote>
 </div>
 <p>Textvariablen erkennt man daran, dass ihr Inhalt mit doppelten oder einfachen Anführungszeichen ausgezeichnet ist:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>eine_antwort <span class="ot">&lt;-</span> <span class="st">"Die Antwort lautet 42"</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>andere_antwort <span class="ot">&lt;-</span> <span class="st">"Die Antwort lautet 73"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -804,7 +811,7 @@ Abbildung&nbsp;6: Sinnbild einer Funktion
 <p>Handelt es sich um Spalten von Tibbles, dann bietet sich die Funktion <code>across(.col, .fns)</code> an. <code>across</code> wendet eine oder mehrere Funktionen (mit <code>.fns</code> bezeichnet) auf die Spalten <code>.col</code> an.</p>
 <p>Das erklärt sich am besten mit einem Beispiel:</p>
 <p>Natürlich hätte man in diesem Fall auch anders vorgehen können:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(),</span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">.fns =</span> mean))</span>
@@ -814,7 +821,7 @@ Abbildung&nbsp;6: Sinnbild einer Funktion
 <span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 0.40625 3.6875 2.8125</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Möchte man der Funktion <code>.fns</code> Parameter übergeben, so nutzt man diese Syntax (“Purrr-Lambda”):</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> </span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="fu">across</span>(<span class="at">.cols =</span> <span class="fu">everything</span>(),</span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">.fns =</span> <span class="sc">~</span> <span class="fu">mean</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span>
@@ -840,7 +847,7 @@ Abbildung&nbsp;7: Sinnbild für map aus purrr
 </figure>
 </div>
 <p>Hier ein Beispiel-Code:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars <span class="sc">%&gt;%</span> <span class="fu">select</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>)  <span class="co"># nur die ersten 3 Spalten</span></span>
@@ -856,7 +863,7 @@ Abbildung&nbsp;7: Sinnbild für map aus purrr
 <span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 230.7219</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Möchte man der gemappten Funktion Parameter übergeben, nutzt man wieder die “Kringel-Schreibweise”:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>(mtcars, <span class="sc">~</span> <span class="fu">mean</span>(., <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="do">## $mpg</span></span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 20.09062</span></span>
@@ -878,9 +885,9 @@ Abbildung&nbsp;7: Sinnbild für map aus purrr
 <h2 data-number="1.8" class="anchored" data-anchor-id="r-ist-schwierig"><span class="header-section-number">1.8</span> R ist schwierig</h2>
 <p>Manche behaupten, R <a href="https://www.burns-stat.com/pages/Tutor/R_inferno.pdf">sei ein Inferno</a>.</p>
 <p>Zum Glück gibt es auch aufmunternde Stimmen:</p>
-<div class="cell">
+<div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>praise<span class="sc">::</span><span class="fu">praise</span>()</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "You are stunning!"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "You are super-excellent!"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Hat jemand einen guten Rat für uns? Vielleicht ist der häufigste Rat, dass man die <a href="https://en.wikipedia.org/wiki/RTFM">Dokumentation lesen solle</a>.</p>
 </section>

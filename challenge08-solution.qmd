@@ -1,0 +1,98 @@
+---
+title: "Challenge 08 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+
+
+# Verweildauer
+
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(targets)
+library(gt)
+library(easystats)
+```
+
+
+
+
+## Aufgaben
+
+
+{{< include children/challenge08-base.qmd >}}
+
+
+
+## Lösungen
+
+[Hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge08-solution.R) ist eine mögliche Lösung für die Pipeline.
+
+
+
+
+
+Beachten Sie bitte, dass die Targets-Pipeline-Datei `_targets.R` heißen sollte und nur die Pipeline-Funktionen enthalten sollte.
+
+
+Die Pipeline lassen Sie mit `tar_make()` laufen, [hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/run-pipeline.R) ist ein Beispiel.
+
+
+
+
+## Pipeline-Output
+
+So kann man die Pipeline starten:
+
+```
+> tar_make(script = "challenge08-solution.R", store = "challenge08")
+```
+
+Und so sah die Ausgabe aus:
+
+
+```
+> tar_make(script = "challenge08-solution.R", 
++          store = "mastersolution")
+✔ skipped target data_files_list
+✔ skipped target one_df
+✔ skipped target rm_empty
+✔ skipped target clean_col_names
+✔ skipped target rm_constants
+✔ skipped target repair_dttm
+✔ skipped target data_users_only
+✔ skipped target d_long
+✔ skipped target export_action_types_csv
+✔ skipped target export_data_users_only_xlsx
+✔ skipped target time_duration
+✔ skipped target time_since_last_visit
+✔ skipped target d_long_nona
+✔ skipped target add_id_col
+✔ skipped target numeric_id
+✔ skipped target actions_per_visit
+✔ skipped target action_types
+✔ skipped target time_spent
+✔ skipped target count_action_type
+✔ skipped target llm_per_visit
+✔ skipped target time_minmax
+✔ skipped target time_visit_wday
+✔ skipped target ai_llm_per_months
+✔ skipped target ai_transcript_clicks_per_month
+✔ skipped target idvisit_has_llm
+✔ skipped pipeline [0.217 seconds]
+ 
+```
+
+
+## Quarto-Report
+
