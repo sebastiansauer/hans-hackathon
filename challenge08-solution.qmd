@@ -96,3 +96,6 @@ Und so sah die Ausgabe aus:
 
 ## Quarto-Report
 
+Der Quarto-Bericht ist im [Github-Repo](https://raw.githubusercontent.com/sebastiansauer/hans-hackathon/refs/heads/main/docs/challenge08-solution-report.html) verfügbar.
+
+
