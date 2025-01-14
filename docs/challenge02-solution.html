@@ -101,6 +101,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Suchen"
   }
 }</script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -263,13 +265,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 data-number="1.1" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">1.1</span> Aufgaben</h2>
 <p><strong>Daten einlesen</strong></p>
 <ol type="1">
-<li>Importieren Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.</li>
-<li>Wandeln Sie leere Strings in NAs um (für alle Spalten).</li>
-<li>Entfernen Sie alle leeren Zeilen und Spalten.</li>
-<li>Entfernen Sie alle konstanten Zeilen und Spalten.</li>
-<li>Überlegen Sie die Vor- und Nachteile, wenn Sie diese Aufgaben mit Excel lösen würden.</li>
+<li><em>Importieren</em> Sie alle CSV-Dateien in R als Data Frames und binden Sie (zeilenweise) sie zu einem “langen” Data Frame.</li>
+<li>Wandeln Sie <em>leere Strings in NAs</em> um (für alle Spalten).</li>
+<li>Entfernen Sie alle <em>leeren Zeilen und Spalten</em>.</li>
+<li>Entfernen Sie alle <em>konstanten Zeilen und Spalten</em>.</li>
+<li>Entfernen Sie alle <em>redundanten Zeilen und Spalten</em>, d.h. Duplikate, also sich wiederholende Zeilen und Spalten.</li>
+<li>Überlegen Sie die <em>Vor- und Nachteile</em>, wenn Sie diese Aufgaben mit <em>Excel</em> lösen würden.</li>
 <li>Exportieren Sie die Datentabelle als Excel-Datei. Prüfen Sie dann die Excel-Datei; fällt Ihnen etwas Besonderes auf?</li>
 </ol>
+<p>Ausgabeformat: Quarto (Bericht)</p>
 </section>
 <section id="lösungen" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="lösungen"><span class="header-section-number">1.2</span> Lösungen</h2>
@@ -316,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Mit <code>.id</code> bekommt man eine laufende Nummer für jede eingehende CSV-Datei.</p>
-<p>Puh! Wenn man jetzt nicht 5 Tage, sondern 100 oder 1000 oder 10000 Tage importieren müsste, hätte man ein echtes Perofrmanzproblem. Könnte man die Dteien nicht schneller einlesen?</p>
+<p>Puh! Wenn man jetzt nicht 5 Tage, sondern 100 oder 1000 oder 10000 Tage importieren müsste, hätte man ein echtes Performanzproblem. Könnte man die Dateien nicht schneller einlesen?</p>
 <p><code>map_XXX(list, fun)</code> wendet die Funktion <code>fun</code> auf jedes Element von <code>list</code> an. <code>map_dfr</code> ist eine spezielle Variante, die die Ergebnisse in einem Data-Frame zusammenführt und zwar zeilenweise (row), daher <code>_dfr</code>.</p>
 <p>Check:</p>
 <div class="cell" data-layout-align="center">
@@ -652,7 +656,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="section-4" class="level3" data-number="1.2.7">
 <h3 data-number="1.2.7" class="anchored" data-anchor-id="section-4"><span class="header-section-number">1.2.7</span> 5</h3>
 <p>Eine (große) Menge an Tabellen zu einer Master-Exceltabelle zusammenzufügen ist schwierig. Mit einem Copy-Paste-Ansatz ist es nicht gesichert, dass die richtigen Spalten untereinander gesetzt werden, zumindest prüft es Excel nicht. Bei großen Tabellen wird die Sache unpraktisch (viel Scrollen) und langsam.</p>
-<p>Schließlich – vielleicht am wichtigsten – ist das händische Vorgehen mit Excel nicht reprodzierbar. Es ist also nicht präzise zu beschreiben, was man (genau) gemacht hat. Daher fällt es auch schwierig, Fehler zu finden und den Prozess zu verbessern. Eine klare Kommunikation über das Vorgehen ist kaum möglich.</p>
+<p>Schließlich – vielleicht am wichtigsten – ist das händische Vorgehen mit Excel nicht reproduzierbar. Es ist also nicht präzise zu beschreiben, was man (genau) gemacht hat. Daher fällt es auch schwierig, Fehler zu finden und den Prozess zu verbessern. Eine klare Kommunikation über das Vorgehen ist kaum möglich.</p>
 
 
 </section>

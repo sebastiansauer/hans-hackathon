@@ -214,7 +214,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#formalia" id="toc-formalia" class="nav-link" data-scroll-target="#formalia"><span class="header-section-number">1.3.2</span> Formalia</a></li>
   <li><a href="#abgabeformat" id="toc-abgabeformat" class="nav-link" data-scroll-target="#abgabeformat"><span class="header-section-number">1.3.3</span> Abgabeformat</a></li>
   </ul></li>
-  <li><a href="#teil-2-fachgespräch" id="toc-teil-2-fachgespräch" class="nav-link" data-scroll-target="#teil-2-fachgespräch"><span class="header-section-number">1.4</span> Teil 2: Fachgespräch</a></li>
+  <li><a href="#teil-2-fachgespräch" id="toc-teil-2-fachgespräch" class="nav-link" data-scroll-target="#teil-2-fachgespräch"><span class="header-section-number">1.4</span> Teil 2: Fachgespräch</a>
+  <ul class="collapse">
+  <li><a href="#gegenstand" id="toc-gegenstand" class="nav-link" data-scroll-target="#gegenstand"><span class="header-section-number">1.4.1</span> Gegenstand</a></li>
+  <li><a href="#beispiele-für-prüfungsfragen" id="toc-beispiele-für-prüfungsfragen" class="nav-link" data-scroll-target="#beispiele-für-prüfungsfragen"><span class="header-section-number">1.4.2</span> Beispiele für Prüfungsfragen</a></li>
+  </ul></li>
   <li><a href="#sonstiges" id="toc-sonstiges" class="nav-link" data-scroll-target="#sonstiges"><span class="header-section-number">1.5</span> Sonstiges</a></li>
   </ul></li>
   </ul>
@@ -334,8 +338,74 @@ Hinweis
 <section id="teil-2-fachgespräch" class="level2" data-number="1.4">
 <h2 data-number="1.4" class="anchored" data-anchor-id="teil-2-fachgespräch"><span class="header-section-number">1.4</span> Teil 2: Fachgespräch</h2>
 <p>Die Termine für das Fachgespräch liegen in der Prüfungszeit und werden rechtzeitig bekannt gegeben über geeignete Kanäle.</p>
-<p>Prüfungsgegenstand sind alle Inhalte aus dem Unterricht. Ein Schwerpunkt liegt auf den Musterlösungen sowie den eigenen, selbst eingereichten Lösungen der Challenges.</p>
 <p>Weitere Hinweise zum Fachgespräch finden sich im <a href="https://hinweisbuch.netlify.app/045-hinweise-pruefung-fachgespraech-frame">entsprechenden Kapitel im Hinweisbuch</a>.</p>
+<section id="gegenstand" class="level3" data-number="1.4.1">
+<h3 data-number="1.4.1" class="anchored" data-anchor-id="gegenstand"><span class="header-section-number">1.4.1</span> Gegenstand</h3>
+<p>Prüfungsgegenstand sind alle Inhalte aus dem Unterricht. Ein Schwerpunkt liegt auf den Musterlösungen sowie den eigenen, selbst eingereichten Lösungen der Challenges.</p>
+</section>
+<section id="beispiele-für-prüfungsfragen" class="level3" data-number="1.4.2">
+<h3 data-number="1.4.2" class="anchored" data-anchor-id="beispiele-für-prüfungsfragen"><span class="header-section-number">1.4.2</span> Beispiele für Prüfungsfragen</h3>
+<ul>
+<li>Erklären Sie den Aufbau einer Funktion in R!</li>
+<li>Wie haben Sie die Glotzdauer berechnet?</li>
+<li>Was besagt die Variable idvisit?</li>
+<li>Wie groß war der von uns verwendete Rohdatensatz (Zeilen, Spalten)?</li>
+<li>Nennen Sie ein Beispiel für einen gut und einen schlecht gewählten Objektnamen!</li>
+<li>Erläutern Sie, wie die Daten laut Musterlösung in R importiert wurden.</li>
+<li>Mit welchem R-Paket wurden laut Musterlösung Datums-/Zeitangaben bearbeitet?</li>
+<li>Erklären Sie eine Funktion aus dem R-Paket <code>stringr</code>!</li>
+<li>Was macht die Funktion <code>purrr::map</code>?</li>
+<li>Was ist das “Tidyverse”?</li>
+<li>Wann ist ein Mittelwert mehr bzw. weniger aussagekräftig?</li>
+<li>Was macht ein gutes Datendiagramm aus?</li>
+<li>Im Rohdatensatz: Es gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?</li>
+<li>Im Rohdatensatz: Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?</li>
+<li>Was versteht man unter “Regex” im Kontext der String-Verarbeitung?</li>
+<li>Wie kann man leere Zeilen oder leere Spalten auf einem Dataframe entfernen?</li>
+<li>Wie kann man konstante Zeilen oder Spalten aus einem Dataframe entfernen? Warum sollte man das tun?</li>
+<li>Erläutern Sie folgenden R-Code:</li>
+</ul>
+<pre><code>out &lt;- list()
+for (i in 1:length(datafiles_list)) {
+ out[[i]] &lt;- read.csv(datafiles_list[i]) 
+}</code></pre>
+<ul>
+<li>Wie kann man eine Spalte an den Anfang eines Dataframes ziehen?</li>
+<li>Nennen Sie Vor- und Nachteile des Einsatzes von Excel für eine Aufgabe wie das Projekt im vorliegenden Modul.</li>
+<li>Nennen Sie eine Funktion, um eine als String (<code>character</code>) formatierte Spalte (z.B. “1970-01-01”) in ein Datums-/Zeitobjekt umzuwandeln!</li>
+<li>Erklären Sie folgende Syntax:</li>
+</ul>
+<pre><code>str_remove(string = names(d),
+           pattern = "_[:digit:].*") |&gt; 
+  unique()</code></pre>
+<ul>
+<li>Erklären Sie folgende Syntax:</li>
+</ul>
+<pre><code>d_only_subtitles_and_timestamps |&gt; 
+   mutate(across(contains("timestamp"), ~ as_datetime(as.numeric(.x))))</code></pre>
+<ul>
+<li>Erklären Sie folgende Syntax:</li>
+</ul>
+<pre><code>d_time_repaired |&gt; 
+  filter(!str_detect(actionDetails_0_subtitle, "developer|lecturer|admin")) </code></pre>
+<ul>
+<li>Erläutern Sie, was mit “Pivotieren” gemeint ist im Kontext des vorliegenden Projekts der Datenanalyse. Was ist der Nutzen des Pivotierens?</li>
+<li>Geben Sie eine Syntax an, um alle Spalten als Strings (<code>character</code>) zu formatieren.</li>
+<li>Erläutern Sie den Aufbau einer Targets-Pipeline.</li>
+<li>Beim zeilenweisen Zusammenbinden einer großen Zahl an CSV-Dateien kann es zu Problemen kommen. So auch im vorliegenden Projekt. Erläutern Sie ein Problem und schlagen Sie eine Lösung vor.</li>
+<li>An welchen Wochentagen und an welchen Uhrzeiten wird Hans bevorzugt besucht?</li>
+<li>Was ist der älteste und was der neueste Timestamp in unserem Datensatz?</li>
+<li>Beschreiben Sie ein Problem, das während Ihrer Analyse aufgetreten ist und wie Sie es gelöst haben. Was haben Sie daraus gelernt?</li>
+<li>Was würden Sie anders machen, wenn Sie die Daten erneut analysieren würden?</li>
+<li>Was ist eine (wichtige) Sache, die Sie während der Analyse gelernt haben?</li>
+<li>Was macht die “Pfeife” <code>|&gt;</code> in einer R-Syntax?</li>
+<li>Diskutieren Sie die Für und Wider einer kompetenzorientierten Prüfung, also einer Prüfung, in der es weniger um Kenntnis theoretischer Inhalte, sondern um die Kompetenz zur Lösung eines Problems geht.</li>
+<li>Hier ist ein Auszug aus Ihrer Lösung zu Challenge <em>X</em>. Erläutern Sie Ihre Syntax zu Aufgabe Y!</li>
+<li>Erläutern Sie einen Weg, um die Musterlösung auf Geschwindigkeit zu optimieren.</li>
+<li>Geben Sie ein Beispiel für eine zu wenig allgemeine Funktion! Beispiel: <code>read_csv_meine_lieblingsdatei()</code>.</li>
+<li>Was sind Vorteile, Funktionen beim Programmieren zu nutzen?</li>
+</ul>
+</section>
 </section>
 <section id="sonstiges" class="level2" data-number="1.5">
 <h2 data-number="1.5" class="anchored" data-anchor-id="sonstiges"><span class="header-section-number">1.5</span> Sonstiges</h2>

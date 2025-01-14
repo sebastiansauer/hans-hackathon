@@ -76,8 +76,8 @@ Mit `.id` bekommt man eine laufende Nummer für jede eingehende CSV-Datei.
 
 Puh! Wenn man jetzt nicht 5 Tage, 
 sondern 100 oder 1000 oder 10000 Tage importieren müsste,
-hätte man ein echtes Perofrmanzproblem.
-Könnte man die Dteien nicht schneller einlesen?
+hätte man ein echtes Performanzproblem.
+Könnte man die Dateien nicht schneller einlesen?
 
 
 `map_XXX(list, fun)` wendet die Funktion `fun` auf jedes Element
@@ -374,7 +374,7 @@ Eine (große) Menge an Tabellen zu einer Master-Exceltabelle zusammenzufügen is
 Mit einem Copy-Paste-Ansatz ist es nicht gesichert, dass die richtigen Spalten untereinander gesetzt werden, zumindest prüft es Excel nicht.
 Bei großen Tabellen wird die Sache unpraktisch (viel Scrollen) und langsam.
 
-Schließlich -- vielleicht am wichtigsten -- ist das händische Vorgehen mit Excel nicht reprodzierbar.
+Schließlich -- vielleicht am wichtigsten -- ist das händische Vorgehen mit Excel nicht reproduzierbar.
 Es ist also nicht präzise zu beschreiben, was man (genau) gemacht hat. Daher fällt es auch schwierig, Fehler zu finden und den Prozess zu verbessern. Eine klare Kommunikation über das Vorgehen ist kaum möglich.
 
 
