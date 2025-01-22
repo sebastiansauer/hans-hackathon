@@ -16,12 +16,12 @@ tar_option_set(
 # set options:
 options(lubridate.week.start = 1)
 
-# source helper funs:
-# funs_files <- list.files(
-#   path = "funs", pattern = "\\.R", full.names = TRUE, recursive = TRUE)
-# lapply(X = funs_files, FUN = source)
+#source helper funs:
+funs_files <- list.files(
+  path = "funs", pattern = "\\.R", full.names = TRUE, recursive = FALSE)
+lapply(X = funs_files, FUN = source)
 
-source("funs/count_user_action_type.R")
+
 
 
 
@@ -121,18 +121,49 @@ list(
   
 # Challenge 06: Count stuff per visit ------------------------------------------
   
-  # count actions per visit:
-  tar_target(actions_per_visit,
-             numeric_id |>
-               group_by(id_visit) |>
-               # "nr" is the id of the action of this visit:
-               summarise(nr_max = max(action_count))),
-  
-  # count action categories per visit:
-  tar_target(count_action_type,
-             count_user_action_type(action_types), packages = c("stringr", "dplyr")),
-  
-  
+
+# count actions per visit:
+tar_target(actions_per_visit,
+           numeric_id |>
+             group_by(id_visit) |>
+             # "nr" is the id of the action of this visit:
+             summarise(nr_max = max(action_count))),
+
+# count action categories per visit:
+tar_target(count_action_type,
+           count_user_action_type(action_types), packages = c("stringr", "dplyr")),
+
+
+# start and end time of user's visit:
+tar_target(time_minmax,
+           action_types |> time_min_max(),
+           packages = c("lubridate", "dplyr")),
+
+# time spent on the site:
+tar_target(time_spent,
+           action_types |> diff_time(),
+           packages = c("lubridate", "dplyr")),
+
+tar_target(time_duration,
+           data_users_only %>% 
+             select(id_visit, visit_duration) %>% 
+             mutate(visit_duration_sec = as.numeric(visit_duration)) %>% 
+             select(-visit_duration)),
+
+# count time of visit per weekday:
+tar_target(time_visit_wday,
+           action_types |> when_visited(), 
+           packages = c("collapse", "lubridate", "dplyr")),
+
+# count time since last visit on site:
+tar_target(time_since_last_visit,
+           data_users_only |> 
+           select(id_visit, days_since_last_visit))
+
+
+
+
+
 
 # render report in Quarto -------------------------------------------------
 
