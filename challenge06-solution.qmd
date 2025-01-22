@@ -219,7 +219,7 @@ anz_visits
 ```
 
 
-Insgesamt liegen im Datensatz `r an_visits` vor.
+Insgesamt liegen im Datensatz `r anz_visits` vor.
 
 
 
