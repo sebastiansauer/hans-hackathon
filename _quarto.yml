@@ -66,6 +66,7 @@ format:
     number-sections: true
     out-width: "75%"
     df-print: paged
+    highlight-style: gruvbox
 
 
 # bibliography: bib/bib.bib
