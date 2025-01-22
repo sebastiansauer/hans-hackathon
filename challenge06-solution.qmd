@@ -38,7 +38,7 @@ Die Pipeline lassen Sie mit `tar_make()` laufen, [hier](https://github.com/sebas
 
 
     
-## Bericht
+## Bericht zur Lösung
 
 ### R-Pakete starten
 
@@ -62,16 +62,51 @@ theme_set(theme_minimal())
 
 ### Daten importieren und inspizieren
 
+*Importieren Sie die zusätzlichen (neu eingestellten) Daten; lassen Sie die Pipeline auf dieser Basis neu durchlaufen.*
+
+Die Pipeline zeigt [in diesem `target`](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution.R#L35) das Importieren der Daten.
+Die Funktion ist identisch zur früheren Lösung. 
+Der einzige Unterschied ist, dass mehr CSV-Dateien importiert werden,
+was aber für den Code keinen Unterschied macht.
+
+
 #### Targets-Objekte laden
+
+Die Objekte sind in der [Pipeline](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution.R) definiert.
 
 ```{r tar-load-count-action-type}
 tar_load(action_types, store = "challenge06")
 tar_load(data_users_only, store = "challenge06")
 tar_load(actions_per_visit, store = "challenge06")
 # tar_load(time_minmax, store = "challenge06")
-# tar_load(time_since_last_visit,store = "challenge06")
+tar_load(time_since_last_visit,store = "challenge06")
 tar_load(numeric_id, store = "challenge06")
 ```
+
+
+*Gab es Probleme beim Importieren? Wenn ja, welche? Wie haben Sie diese gelöst?*
+
+Es gab das Problem, dass eine bestimmte Variable nicht in allen CSV-Dateien die gleiche Formatierung (Spaltentyp) hatte. 
+Mit der Funktion `fread` kann man das Argument `colClasses = "character"` setzen, so dass alle Spalten als String interpretiert werden, s. [die Pipeline hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution.R#L48C28-L48C53).
+String ist permissiv in dem Sinne, dass viele anderen Datentypen (Integer, Numerisch, Faktor) als String interpretiert werden können.
+Damit war das Problem der Fehlermeldung beim Importieren gelöst.
+
+
+*Wie viel Rechenzeit hat die Pipeline beansprucht?*
+
+In ca. 4-5 Minuten war die Pipeline durchgelaufen.
+
+
+*Stellen Sie sicher, dass die Spaltennamen einheitlich und im Tidyverse-Stil benannt sind.*
+
+Das kann mit der Funktion `janitor::clean_names` erreicht werden, s. [die Pipeline hier](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution.R#L66C26-L66C37).
+
+
+*Fügen Sie ein Target hinzu, dass einen Quarto-Bericht erstellt.*
+
+Der entsprechende Code ist [hier in der Pipeline](https://github.com/sebastiansauer/hans-hackathon/blob/main/challenge06-solution.R#L140) zu sehen.
+Allerdings gab es eine Fehlermeldung, die vermutlich nicht auf einen Fehler im eigenen Code zurückgeht.
+
 
 
 #### Dimension
@@ -168,6 +203,7 @@ numeric_id %>%
 
 ### Anzahl Visits
 
+*Im Quarto-Bericht schreiben Sie, wie viele Visits Ihr Datensatz umfasst.*
 
 
 ```{r}
@@ -178,19 +214,24 @@ glimpse(action_types)
 
 
 ```{r}
-action_types$id_visit |> unique() |> length()
+anz_visits <- action_types$id_visit |> unique() |> length()
+anz_visits
 ```
 
+
+Insgesamt liegen im Datensatz `r an_visits` vor.
 
 
 
 ### Anzahl der Aktionen pro Visit
 
 
+*Schreiben Sie außerdem im Quarto-Bericht, wie viele Aktionen pro Visit stattfinden. Berichten Sie dazu relevante Statistiken und visualisieren Sie die Daten.*
 
 
 `action_count` fasst die Nummer der Aktion innerhalb eines bestimmten Visits.
-`type` gibt den Typ der protokollierten Aktion an, z.B. ob es ein Timestamp war.
+`type` gibt den Typ der protokollierten Aktion an, 
+z.B. ob es ein Timestamp war.
 
 #### Mit allen Daten (den 499er-Daten)
 
@@ -234,7 +275,8 @@ actions_per_visit |>
 ```
 
 
-Es erscheint plausibel, dass der Maximalwert alle "gekappten" (zensierten, abgeschnittenen) Werte fasst, also viele Werte, die eigentlich größer wären (aber dann zensiert wurden).
+Es erscheint plausibel, dass der Maximalwert alle "gekappten" (zensierten, abgeschnittenen) 
+Werte fasst, also viele Werte, die eigentlich größer wären (aber dann zensiert wurden).
 
 #### Nur Visitors, für die weniger als 500 Aktionen protokolliert sind
 
