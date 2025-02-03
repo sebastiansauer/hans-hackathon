@@ -12,7 +12,7 @@ editor_options:
 
 
 
-# Verweildauer
+# Glotzdauer
 
 
 ## Setup
@@ -87,7 +87,7 @@ count_action_type |>
 ```{r}
 ```
 
-Die Zeitinveralle sind in Sekunden dargestellt.
+Die Zeitintervalle sind in Sekunden dargestellt.
 
 ```{r}
 glotzdauer |> 

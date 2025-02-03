@@ -1,0 +1,42 @@
+---
+title: "Challenge 10 -- Solution"
+format: html
+author: Sebastian Sauer
+date: today
+number-sections: true
+editor_options: 
+  chunk_output_type: console
+---
+
+
+
+
+
+# Optimierung
+
+
+## Setup
+
+```{r}
+library(tidyverse)
+library(targets)
+library(gt)
+library(easystats)
+```
+
+
+
+
+## Aufgaben
+
+
+{{< include children/challenge10-base.qmd >}}
+
+
+
+## Keine Musterlösung
+
+Für diese Challenge wird keine Musterlösung bereitgestellt.
+
+
+

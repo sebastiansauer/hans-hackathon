@@ -227,6 +227,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Lösung 09</span></a>
   </div>
 </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./challenge10-solution.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Lösung 10</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
@@ -237,7 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#verweildauer" id="toc-verweildauer" class="nav-link active" data-scroll-target="#verweildauer"><span class="header-section-number">1</span> Verweildauer</a>
+  <li><a href="#glotzdauer" id="toc-glotzdauer" class="nav-link active" data-scroll-target="#glotzdauer"><span class="header-section-number">1</span> Glotzdauer</a>
   <ul class="collapse">
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">1.1</span> Setup</a></li>
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">1.2</span> Aufgaben</a></li>
@@ -248,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#target-objekte" id="toc-target-objekte" class="nav-link" data-scroll-target="#target-objekte"><span class="header-section-number">1.3.3</span> Target-Objekte</a></li>
   <li><a href="#namen-der-ersten-100-spalten" id="toc-namen-der-ersten-100-spalten" class="nav-link" data-scroll-target="#namen-der-ersten-100-spalten"><span class="header-section-number">1.3.4</span> Namen der ersten 100 Spalten</a></li>
   <li><a href="#top-10-tätigkeiten" id="toc-top-10-tätigkeiten" class="nav-link" data-scroll-target="#top-10-tätigkeiten"><span class="header-section-number">1.3.5</span> Top-10-Tätigkeiten</a></li>
-  <li><a href="#glotzdauer" id="toc-glotzdauer" class="nav-link" data-scroll-target="#glotzdauer"><span class="header-section-number">1.3.6</span> Glotzdauer</a></li>
+  <li><a href="#glotzdauer-1" id="toc-glotzdauer-1" class="nav-link" data-scroll-target="#glotzdauer-1"><span class="header-section-number">1.3.6</span> Glotzdauer</a></li>
   <li><a href="#veränderung-der-anzahl-der-nutzer-und-der-verweildauer-im-laufe-der-zeit" id="toc-veränderung-der-anzahl-der-nutzer-und-der-verweildauer-im-laufe-der-zeit" class="nav-link" data-scroll-target="#veränderung-der-anzahl-der-nutzer-und-der-verweildauer-im-laufe-der-zeit"><span class="header-section-number">1.3.7</span> Veränderung der Anzahl der Nutzer und der Verweildauer im Laufe der Zeit</a></li>
   <li><a href="#insgesamt" id="toc-insgesamt" class="nav-link" data-scroll-target="#insgesamt"><span class="header-section-number">1.3.8</span> Insgesamt</a></li>
   <li><a href="#im-zeitverlauf" id="toc-im-zeitverlauf" class="nav-link" data-scroll-target="#im-zeitverlauf"><span class="header-section-number">1.3.9</span> Im Zeitverlauf</a></li>
@@ -285,7 +291,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22. Januar 2025</p>
+      <p class="date">3. Februar 2025</p>
     </div>
   </div>
   
@@ -297,8 +303,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="verweildauer" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Verweildauer</h1>
+<section id="glotzdauer" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Glotzdauer</h1>
 <section id="setup" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="setup"><span class="header-section-number">1.1</span> Setup</h2>
 <div class="cell" data-layout-align="center">
@@ -364,9 +370,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="glotzdauer" class="level3" data-number="1.3.6">
-<h3 data-number="1.3.6" class="anchored" data-anchor-id="glotzdauer"><span class="header-section-number">1.3.6</span> Glotzdauer</h3>
-<p>Die Zeitinveralle sind in Sekunden dargestellt.</p>
+<section id="glotzdauer-1" class="level3" data-number="1.3.6">
+<h3 data-number="1.3.6" class="anchored" data-anchor-id="glotzdauer-1"><span class="header-section-number">1.3.6</span> Glotzdauer</h3>
+<p>Die Zeitintervalle sind in Sekunden dargestellt.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>glotzdauer <span class="sc">|&gt;</span> </span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">glotzdauer_sec_mean =</span> <span class="fu">mean</span>(time_interval, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
@@ -697,12 +703,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-reuse"><h2 class="anchored quarto-appendix-heading">Wiederverwendung</h2><div class="quarto-appendix-contents"><div>MIT</div></div></section><section class="quarto-appendix-contents" id="quarto-citation"><h2 class="anchored quarto-appendix-heading">Zitat</h2><div><div class="quarto-appendix-secondary-label">Mit BibTeX zitieren:</div><pre class="sourceCode code-with-copy quarto-appendix-bibtex"><code class="sourceCode bibtex">@online{sauer2025,
   author = {Sauer, Sebastian},
   title = {Challenge 09 -\/- Solution},
-  date = {2025-01-22},
+  date = {2025-02-03},
   langid = {de-DE}
 }
 </code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre><div class="quarto-appendix-secondary-label">Bitte zitieren Sie diese Arbeit als:</div><div id="ref-sauer2025" class="csl-entry quarto-appendix-citeas" role="listitem">
-Sauer, Sebastian. 2025. <span>“Challenge 09 -- Solution.”</span> January
-22, 2025.
+Sauer, Sebastian. 2025. <span>“Challenge 09 -- Solution.”</span>
+February 3, 2025.
 </div></div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {

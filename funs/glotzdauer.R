@@ -1,5 +1,5 @@
 
-glotzdauer <- function(d){
+glotzdauer_playpause <- function(d){
 
 x2 <- 
 d |> 
@@ -20,7 +20,9 @@ d |>
   mutate(value =  if_else(type != "timestamp",
                           str_extract(value, "\\b(play|pause|set_position)\\b"), value)) |> 
   
-  # one column with "timestamp", one with "subtitl", (start, pause, set position):
+  distinct(.keep_all = TRUE) |> 
+  
+  # one column with "timestamp", one with "subtitle", (start, pause, set position):
   pivot_wider(
     id_cols = c(id_visit, action_count),  # Columns to keep as identifiers
     names_from = type,                    # Column whose values become column names

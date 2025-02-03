@@ -12,7 +12,7 @@ tar_make()
 
 tar_visnetwork(script = "challenges-solutions/challenge08-solution.R", store = "mastersolution")
 
-tar_make(script = "challenge06-solution.R", 
+tar_make(script = "MASTER-solution-pipeline.R", 
          store = "mastersolution")
 
 
