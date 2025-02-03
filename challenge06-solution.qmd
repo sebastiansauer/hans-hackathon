@@ -1,15 +1,7 @@
----
-title: "Challenge 06 -- Solution"
-format: html
-author: Sebastian Sauer
-date: today
-number-sections: true
----
 
 
 
-
-# Großer Datensatz
+# Lösung 06
 
 
 

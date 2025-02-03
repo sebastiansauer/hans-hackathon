@@ -1,7 +1,7 @@
 
 
 
-# Lösung 02: Daten einlesen
+# Lösung 02
 
 
 ## Aufgaben
@@ -30,7 +30,7 @@ library(polars)
 library(tidypolars)
 ```
 
-### 1
+### Importieren der CSV-Dateien
 
 Wir definieren die Liste der zu importierenden CSV-Dateien:
 
@@ -158,9 +158,9 @@ d_small |> glimpse()  # Blick reinwerfen
 
 
 
-### 1 - höhere Performanz
+#### Importieren mit höherer Performanz
 
-#### `read_csv` aus `readr`
+##### `read_csv` aus `readr`
 
 ```{r}
 #| error: true
@@ -190,7 +190,7 @@ Aucht nicht... Wir könnten alle relevanten Spalten suchen und mit `col_characte
 Aber probieren wir stattdessen noch etwas anderes.
 
 
-#### `data.table`
+##### `data.table`
 
 ```{r}
 #| error: true
@@ -210,7 +210,7 @@ Es gibt auch eine [`tidypolars`-Erweiterung](https://tidypolars.etiennebacher.co
 
 
 
-#### `polars`
+##### `polars`
 
 Leider beschwert sich `polar`,
 dass die CSV-Dateien nicht alle die gleiche Anzahl an Spalten haben.
@@ -226,7 +226,7 @@ pl$scan_csv(datafiles_list)
 
 
 
-### 2
+### Leere Strings in NA umwandeln
 
 
 Anteil NAs:
@@ -301,7 +301,7 @@ Was sagt uns dieser Befund?
 
 
 
-### 3
+### Leere Zeilen und Spalten entfernen
 
 
 ```{r rm-empty}
@@ -327,7 +327,7 @@ Ein paar Spalten haben wir eingespart.
 Es würde Sinn machen, sich diese komplett leeren Spalten näher anzuschauen. Warum sind sie überhaupt enthalten?
 
 
-### 4
+### Konstante Zeilen und Spalten entfernen
 
 Das Paket `janitor` verrichtet "Hausmeisterarbeit" der Datenanalyse, wie etwa das Entfernen von konstanten Spalten.
 
@@ -360,15 +360,7 @@ write_rds(d_no_constants, "data-processed/d_no_constants.rds")
 
 
 
-Oder als Excel-Datei:
-
-```{r write-xlsx}
-#| eval: false
-writexl::write_xlsx(d_no_constants, "data-processed/d_no_constants.xlsx")
-```
-
-
-### 5
+### Vor- und Nachteile von Excvel
 
 Eine (große) Menge an Tabellen zu einer Master-Exceltabelle zusammenzufügen ist schwierig.
 Mit einem Copy-Paste-Ansatz ist es nicht gesichert, dass die richtigen Spalten untereinander gesetzt werden, zumindest prüft es Excel nicht.
@@ -377,5 +369,16 @@ Bei großen Tabellen wird die Sache unpraktisch (viel Scrollen) und langsam.
 Schließlich -- vielleicht am wichtigsten -- ist das händische Vorgehen mit Excel nicht reproduzierbar.
 Es ist also nicht präzise zu beschreiben, was man (genau) gemacht hat. Daher fällt es auch schwierig, Fehler zu finden und den Prozess zu verbessern. Eine klare Kommunikation über das Vorgehen ist kaum möglich.
 
+
+
+### Exportieren nach Excel
+
+
+
+
+```{r write-xlsx}
+#| eval: false
+writexl::write_xlsx(d_no_constants, "data-processed/d_no_constants.xlsx")
+```
 
 

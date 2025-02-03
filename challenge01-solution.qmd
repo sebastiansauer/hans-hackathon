@@ -1,6 +1,6 @@
 
 
-# Lösung 01: Daten verstehen
+# Lösung 01
 
 
 ## Aufgaben
@@ -30,7 +30,7 @@ d <- read.csv(datafile_name)
 
 
 
-### 1
+### Anzahl Zeilen und Spalten
 
 
 ```{r}
@@ -38,7 +38,7 @@ dim(d)
 ```
 
 
-### 2
+### Muster in den Spaltennamen
 
 ```{r}
 names(d) |> head(50)
@@ -52,7 +52,7 @@ names(d) |> tail(50)
 Es gibt Spalten mit einer fortlaufenden Nummer und Spalten ohne.
 
 
-### 3
+### Unique Spaltennamen
 
 Ignoriert man die fortlaufende Nummer, gibt es nicht (mehr so) viele verschiedene Werte (Ausprägungen) an Spaltennamen.
 
@@ -92,7 +92,7 @@ Man beachte den Unterstrich; danach darf eine oder mehrere Zahlen kommen und dan
 
 
 
-### 4
+### Fehlende Werte
 
 Anteil der fehlenden Werte:
 

@@ -1,14 +1,8 @@
----
-title: "Challenge 04 -- Solution"
-format: html
-author: Sebastian Sauer
-date: today
-number-sections: true
----
 
 
 
-# Daten verstehen
+
+# Lösung 04
 
 
 ## Aufgaben

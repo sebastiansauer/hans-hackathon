@@ -242,18 +242,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#lösung-02-daten-einlesen" id="toc-lösung-02-daten-einlesen" class="nav-link active" data-scroll-target="#lösung-02-daten-einlesen"><span class="header-section-number">1</span> Lösung 02: Daten einlesen</a>
+  <li><a href="#lösung-02" id="toc-lösung-02" class="nav-link active" data-scroll-target="#lösung-02"><span class="header-section-number">1</span> Lösung 02</a>
   <ul class="collapse">
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">1.1</span> Aufgaben</a></li>
   <li><a href="#lösungen" id="toc-lösungen" class="nav-link" data-scroll-target="#lösungen"><span class="header-section-number">1.2</span> Lösungen</a>
   <ul class="collapse">
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">1.2.1</span> Setup</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.2.2</span> 1</a></li>
-  <li><a href="#höhere-performanz" id="toc-höhere-performanz" class="nav-link" data-scroll-target="#höhere-performanz"><span class="header-section-number">1.2.3</span> 1 - höhere Performanz</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="header-section-number">1.2.4</span> 2</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="header-section-number">1.2.5</span> 3</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="header-section-number">1.2.6</span> 4</a></li>
-  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4"><span class="header-section-number">1.2.7</span> 5</a></li>
+  <li><a href="#importieren-der-csv-dateien" id="toc-importieren-der-csv-dateien" class="nav-link" data-scroll-target="#importieren-der-csv-dateien"><span class="header-section-number">1.2.2</span> Importieren der CSV-Dateien</a></li>
+  <li><a href="#leere-strings-in-na-umwandeln" id="toc-leere-strings-in-na-umwandeln" class="nav-link" data-scroll-target="#leere-strings-in-na-umwandeln"><span class="header-section-number">1.2.3</span> Leere Strings in NA umwandeln</a></li>
+  <li><a href="#leere-zeilen-und-spalten-entfernen" id="toc-leere-zeilen-und-spalten-entfernen" class="nav-link" data-scroll-target="#leere-zeilen-und-spalten-entfernen"><span class="header-section-number">1.2.4</span> Leere Zeilen und Spalten entfernen</a></li>
+  <li><a href="#konstante-zeilen-und-spalten-entfernen" id="toc-konstante-zeilen-und-spalten-entfernen" class="nav-link" data-scroll-target="#konstante-zeilen-und-spalten-entfernen"><span class="header-section-number">1.2.5</span> Konstante Zeilen und Spalten entfernen</a></li>
+  <li><a href="#vor--und-nachteile-von-excvel" id="toc-vor--und-nachteile-von-excvel" class="nav-link" data-scroll-target="#vor--und-nachteile-von-excvel"><span class="header-section-number">1.2.6</span> Vor- und Nachteile von Excvel</a></li>
+  <li><a href="#exportieren-nach-excel" id="toc-exportieren-nach-excel" class="nav-link" data-scroll-target="#exportieren-nach-excel"><span class="header-section-number">1.2.7</span> Exportieren nach Excel</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -265,8 +265,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
-<section id="lösung-02-daten-einlesen" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Lösung 02: Daten einlesen</h1>
+<section id="lösung-02" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Lösung 02</h1>
 <section id="aufgaben" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">1.1</span> Aufgaben</h2>
 <p><strong>Daten einlesen</strong></p>
@@ -297,8 +297,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidypolars)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="section"><span class="header-section-number">1.2.2</span> 1</h3>
+<section id="importieren-der-csv-dateien" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="importieren-der-csv-dateien"><span class="header-section-number">1.2.2</span> Importieren der CSV-Dateien</h3>
 <p>Wir definieren die Liste der zu importierenden CSV-Dateien:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data_folder <span class="ot">&lt;-</span> <span class="st">"data-processed/data-raw-no-sensitive"</span></span>
@@ -496,11 +496,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-57"><a href="#cb9-57" aria-hidden="true" tabindex="-1"></a><span class="do">## $ actions                          &lt;int&gt; 1, 1, 1, 118, 3, 1, 16, 1, 1, 7, 139,…</span></span>
 <span id="cb9-58"><a href="#cb9-58" aria-hidden="true" tabindex="-1"></a><span class="do">## $ interactions                     &lt;int&gt; 1, 1, 1, 1, 2, 1, 0, 1, 0, 2, 5, 1, 1…</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="höhere-performanz" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="höhere-performanz"><span class="header-section-number">1.2.3</span> 1 - höhere Performanz</h3>
-<section id="read_csv-aus-readr" class="level4" data-number="1.2.3.1">
-<h4 data-number="1.2.3.1" class="anchored" data-anchor-id="read_csv-aus-readr"><span class="header-section-number">1.2.3.1</span> <code>read_csv</code> aus <code>readr</code></h4>
+<section id="importieren-mit-höherer-performanz" class="level4" data-number="1.2.2.1">
+<h4 data-number="1.2.2.1" class="anchored" data-anchor-id="importieren-mit-höherer-performanz"><span class="header-section-number">1.2.2.1</span> Importieren mit höherer Performanz</h4>
+<section id="read_csv-aus-readr" class="level5" data-number="1.2.2.1.1">
+<h5 data-number="1.2.2.1.1" class="anchored" data-anchor-id="read_csv-aus-readr"><span class="header-section-number">1.2.2.1.1</span> <code>read_csv</code> aus <code>readr</code></h5>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()  <span class="co"># `tictoc`</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> </span>
@@ -526,8 +525,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p>Aucht nicht… Wir könnten alle relevanten Spalten suchen und mit <code>col_character</code> umwandeln. Aber probieren wir stattdessen noch etwas anderes.</p>
 </section>
-<section id="data.table" class="level4" data-number="1.2.3.2">
-<h4 data-number="1.2.3.2" class="anchored" data-anchor-id="data.table"><span class="header-section-number">1.2.3.2</span> <code>data.table</code></h4>
+<section id="data.table" class="level5" data-number="1.2.2.1.2">
+<h5 data-number="1.2.2.1.2" class="anchored" data-anchor-id="data.table"><span class="header-section-number">1.2.2.1.2</span> <code>data.table</code></h5>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(data.table)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()  <span class="co"># `tictoc`</span></span>
@@ -540,8 +539,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Super schnell! Yeah! Faktor <em>14</em>!</p>
 <p>Mit <a href="https://ddotta.github.io/cookbook-rpolars/"><code>polars</code></a> kann man (vielleicht) auch saftige Performanz-Vorteile erzielen. Es gibt auch eine <a href="https://tidypolars.etiennebacher.com/"><code>tidypolars</code>-Erweiterung</a>, die die <code>tidyverse</code>-Syntax auf <code>polars</code>-Data-Frames anwendet.</p>
 </section>
-<section id="polars" class="level4" data-number="1.2.3.3">
-<h4 data-number="1.2.3.3" class="anchored" data-anchor-id="polars"><span class="header-section-number">1.2.3.3</span> <code>polars</code></h4>
+<section id="polars" class="level5" data-number="1.2.2.1.3">
+<h5 data-number="1.2.2.1.3" class="anchored" data-anchor-id="polars"><span class="header-section-number">1.2.2.1.3</span> <code>polars</code></h5>
 <p>Leider beschwert sich <code>polar</code>, dass die CSV-Dateien nicht alle die gleiche Anzahl an Spalten haben.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>pl<span class="sc">$</span><span class="fu">scan_csv</span>(datafiles_list)</span>
@@ -557,8 +556,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </section>
 </section>
-<section id="section-1" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.2.4</span> 2</h3>
+</section>
+<section id="leere-strings-in-na-umwandeln" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="leere-strings-in-na-umwandeln"><span class="header-section-number">1.2.3</span> Leere Strings in NA umwandeln</h3>
 <p>Anteil NAs:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">is.na</span>(d))</span>
@@ -618,8 +618,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Tatsächlich!</p>
 <p>Was sagt uns dieser Befund?</p>
 </section>
-<section id="section-2" class="level3" data-number="1.2.5">
-<h3 data-number="1.2.5" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.2.5</span> 3</h3>
+<section id="leere-zeilen-und-spalten-entfernen" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="leere-zeilen-und-spalten-entfernen"><span class="header-section-number">1.2.4</span> Leere Zeilen und Spalten entfernen</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>d_no_empty_cols_no_empty_rows <span class="ot">&lt;-</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  d_with_true_nas <span class="sc">|&gt;</span> </span>
@@ -637,8 +637,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Ein paar Spalten haben wir eingespart.</p>
 <p>Es würde Sinn machen, sich diese komplett leeren Spalten näher anzuschauen. Warum sind sie überhaupt enthalten?</p>
 </section>
-<section id="section-3" class="level3" data-number="1.2.6">
-<h3 data-number="1.2.6" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.2.6</span> 4</h3>
+<section id="konstante-zeilen-und-spalten-entfernen" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="konstante-zeilen-und-spalten-entfernen"><span class="header-section-number">1.2.5</span> Konstante Zeilen und Spalten entfernen</h3>
 <p>Das Paket <code>janitor</code> verrichtet “Hausmeisterarbeit” der Datenanalyse, wie etwa das Entfernen von konstanten Spalten.</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>d_no_constants <span class="ot">&lt;-</span> </span>
@@ -654,15 +654,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_rds</span>(d_no_constants, <span class="st">"data-processed/d_no_constants.rds"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Oder als Excel-Datei:</p>
+</section>
+<section id="vor--und-nachteile-von-excvel" class="level3" data-number="1.2.6">
+<h3 data-number="1.2.6" class="anchored" data-anchor-id="vor--und-nachteile-von-excvel"><span class="header-section-number">1.2.6</span> Vor- und Nachteile von Excvel</h3>
+<p>Eine (große) Menge an Tabellen zu einer Master-Exceltabelle zusammenzufügen ist schwierig. Mit einem Copy-Paste-Ansatz ist es nicht gesichert, dass die richtigen Spalten untereinander gesetzt werden, zumindest prüft es Excel nicht. Bei großen Tabellen wird die Sache unpraktisch (viel Scrollen) und langsam.</p>
+<p>Schließlich – vielleicht am wichtigsten – ist das händische Vorgehen mit Excel nicht reproduzierbar. Es ist also nicht präzise zu beschreiben, was man (genau) gemacht hat. Daher fällt es auch schwierig, Fehler zu finden und den Prozess zu verbessern. Eine klare Kommunikation über das Vorgehen ist kaum möglich.</p>
+</section>
+<section id="exportieren-nach-excel" class="level3" data-number="1.2.7">
+<h3 data-number="1.2.7" class="anchored" data-anchor-id="exportieren-nach-excel"><span class="header-section-number">1.2.7</span> Exportieren nach Excel</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>writexl<span class="sc">::</span><span class="fu">write_xlsx</span>(d_no_constants, <span class="st">"data-processed/d_no_constants.xlsx"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-</section>
-<section id="section-4" class="level3" data-number="1.2.7">
-<h3 data-number="1.2.7" class="anchored" data-anchor-id="section-4"><span class="header-section-number">1.2.7</span> 5</h3>
-<p>Eine (große) Menge an Tabellen zu einer Master-Exceltabelle zusammenzufügen ist schwierig. Mit einem Copy-Paste-Ansatz ist es nicht gesichert, dass die richtigen Spalten untereinander gesetzt werden, zumindest prüft es Excel nicht. Bei großen Tabellen wird die Sache unpraktisch (viel Scrollen) und langsam.</p>
-<p>Schließlich – vielleicht am wichtigsten – ist das händische Vorgehen mit Excel nicht reproduzierbar. Es ist also nicht präzise zu beschreiben, was man (genau) gemacht hat. Daher fällt es auch schwierig, Fehler zu finden und den Prozess zu verbessern. Eine klare Kommunikation über das Vorgehen ist kaum möglich.</p>
 
 
 </section>

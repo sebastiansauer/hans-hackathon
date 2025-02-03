@@ -135,64 +135,64 @@ Ein Schwerpunkt liegt auf den Musterlösungen sowie den eigenen, selbst eingerei
 
 ### Beispiele für Prüfungsfragen
 
-- Erklären Sie den Aufbau einer Funktion in R!
-- Wie haben Sie die Glotzdauer berechnet?
-- Was besagt die Variable idvisit?
-- Wie groß war der von uns verwendete Rohdatensatz (Zeilen, Spalten)?
-- Nennen Sie ein Beispiel für einen gut und einen schlecht gewählten Objektnamen!
-- Erläutern Sie, wie die Daten laut Musterlösung in R importiert wurden.
-- Mit welchem R-Paket wurden laut Musterlösung Datums-/Zeitangaben bearbeitet?
-- Erklären Sie eine Funktion aus dem R-Paket `stringr`!
-- Was macht die Funktion `purrr::map`?
-- Was ist das "Tidyverse"?
-- Wann ist ein Mittelwert mehr bzw. weniger aussagekräftig?
-- Was macht ein gutes Datendiagramm aus?
-- Im Rohdatensatz: Es gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?
-- Im Rohdatensatz: Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?
-- Was versteht man unter "Regex" im Kontext der String-Verarbeitung?
-- Wie kann man leere Zeilen oder leere Spalten auf einem Dataframe entfernen?
-- Wie kann man konstante Zeilen oder Spalten aus einem Dataframe entfernen? Warum sollte man das tun?
-- Erläutern Sie folgenden R-Code: 
+1. Erklären Sie den Aufbau einer Funktion in R!
+2. Wie haben Sie die Glotzdauer berechnet?
+1. Was besagt die Variable idvisit?
+1. Wie groß war der von uns verwendete Rohdatensatz (Zeilen, Spalten)?
+1. Nennen Sie ein Beispiel für einen gut und einen schlecht gewählten Objektnamen!
+1. Erläutern Sie, wie die Daten laut Musterlösung in R importiert wurden.
+1. Mit welchem R-Paket wurden laut Musterlösung Datums-/Zeitangaben bearbeitet?
+1. Erklären Sie eine Funktion aus dem R-Paket `stringr`!
+1. Was macht die Funktion `purrr::map`?
+1. Was ist das "Tidyverse"?
+1. Wann ist ein Mittelwert mehr bzw. weniger aussagekräftig?
+1. Was macht ein gutes Datendiagramm aus?
+1. Im Rohdatensatz: Es gibt ein Muster in den Spaltennamen. Was fällt Ihnen dazu auf?
+1. Im Rohdatensatz: Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?
+1. Was versteht man unter "Regex" im Kontext der String-Verarbeitung?
+1. Wie kann man leere Zeilen oder leere Spalten auf einem Dataframe entfernen?
+1. Wie kann man konstante Zeilen oder Spalten aus einem Dataframe entfernen? Warum sollte man das tun?
+1. Erläutern Sie folgenden R-Code: 
 ```
-out <- list()
+out <1. list()
 for (i in 1:length(datafiles_list)) {
- out[[i]] <- read.csv(datafiles_list[i]) 
+ out[[i]] <1. read.csv(datafiles_list[i]) 
 }
 ```
-- Wie kann man eine Spalte an den Anfang eines Dataframes ziehen?
-- Nennen Sie Vor- und Nachteile des Einsatzes von Excel für eine Aufgabe wie das Projekt im vorliegenden Modul.
-- Nennen Sie eine Funktion, um eine als String (`character`) formatierte Spalte (z.B. "1970-01-01") in ein Datums-/Zeitobjekt umzuwandeln!
-- Erklären Sie folgende Syntax: 
+1. Wie kann man eine Spalte an den Anfang eines Dataframes ziehen?
+1. Nennen Sie Vor1. und Nachteile des Einsatzes von Excel für eine Aufgabe wie das Projekt im vorliegenden Modul.
+1. Nennen Sie eine Funktion, um eine als String (`character`) formatierte Spalte (z.B. "1970-01-01") in ein Datums-/Zeitobjekt umzuwandeln!
+1. Erklären Sie folgende Syntax: 
 ```
 str_remove(string = names(d),
            pattern = "_[:digit:].*") |> 
   unique()
 ```
-- Erklären Sie folgende Syntax:
+1. Erklären Sie folgende Syntax:
 ```
 d_only_subtitles_and_timestamps |> 
    mutate(across(contains("timestamp"), ~ as_datetime(as.numeric(.x))))
 ```
-- Erklären Sie folgende Syntax:
+1. Erklären Sie folgende Syntax:
 ```
 d_time_repaired |> 
   filter(!str_detect(actionDetails_0_subtitle, "developer|lecturer|admin")) 
 ```
-- Erläutern Sie, was mit "Pivotieren" gemeint ist im Kontext des vorliegenden Projekts der Datenanalyse. Was ist der Nutzen des Pivotierens?
-- Geben Sie eine Syntax an, um alle Spalten als Strings (`character`) zu formatieren.
-- Erläutern Sie den Aufbau einer Targets-Pipeline.
-- Beim zeilenweisen Zusammenbinden einer großen Zahl an CSV-Dateien kann es zu Problemen kommen. So auch im vorliegenden Projekt. Erläutern Sie ein Problem und schlagen Sie eine Lösung vor.
-- An welchen Wochentagen und an welchen Uhrzeiten wird Hans bevorzugt besucht?
-- Was ist der älteste und was der neueste Timestamp in unserem Datensatz?
-- Beschreiben Sie ein Problem, das während Ihrer Analyse aufgetreten ist und wie Sie es gelöst haben. Was haben Sie daraus gelernt?
-- Was würden Sie anders machen, wenn Sie die Daten erneut analysieren würden?
-- Was ist eine (wichtige) Sache, die Sie während der Analyse gelernt haben?
-- Was macht die "Pfeife" ` |> ` in einer R-Syntax?
-- Diskutieren Sie die Für und Wider einer kompetenzorientierten Prüfung, also einer Prüfung, in der es weniger um Kenntnis theoretischer Inhalte, sondern um die Kompetenz zur Lösung eines Problems geht.
-- Hier ist ein Auszug aus Ihrer Lösung zu Challenge *X*. Erläutern Sie Ihre Syntax zu Aufgabe Y!
-- Erläutern Sie einen Weg, um die Musterlösung auf Geschwindigkeit zu optimieren.
-- Geben Sie ein Beispiel für eine zu wenig allgemeine Funktion! Beispiel: `read_csv_meine_lieblingsdatei()`.
-- Was sind Vorteile, Funktionen beim Programmieren zu nutzen?
+1. Erläutern Sie, was mit "Pivotieren" gemeint ist im Kontext des vorliegenden Projekts der Datenanalyse. Was ist der Nutzen des Pivotierens?
+1. Geben Sie eine Syntax an, um alle Spalten als Strings (`character`) zu formatieren.
+1. Erläutern Sie den Aufbau einer Targets-Pipeline.
+1. Beim zeilenweisen Zusammenbinden einer großen Zahl an CSV-Dateien kann es zu Problemen kommen. So auch im vorliegenden Projekt. Erläutern Sie ein Problem und schlagen Sie eine Lösung vor.
+1. An welchen Wochentagen und an welchen Uhrzeiten wird Hans bevorzugt besucht?
+1. Was ist der älteste und was der neueste Timestamp in unserem Datensatz?
+1. Beschreiben Sie ein Problem, das während Ihrer Analyse aufgetreten ist und wie Sie es gelöst haben. Was haben Sie daraus gelernt?
+1. Was würden Sie anders machen, wenn Sie die Daten erneut analysieren würden?
+1. Was ist eine (wichtige) Sache, die Sie während der Analyse gelernt haben?
+1. Was macht die "Pfeife" ` |> ` in einer R-Syntax?
+1. Diskutieren Sie die Für und Wider einer kompetenzorientierten Prüfung, also einer Prüfung, in der es weniger um Kenntnis theoretischer Inhalte, sondern um die Kompetenz zur Lösung eines Problems geht.
+1. Hier ist ein Auszug aus Ihrer Lösung zu Challenge *X*. Erläutern Sie Ihre Syntax zu Aufgabe Y!
+1. Erläutern Sie einen Weg, um die Musterlösung auf Geschwindigkeit zu optimieren.
+1. Geben Sie ein Beispiel für eine zu wenig allgemeine Funktion! Beispiel: `read_csv_meine_lieblingsdatei()`.
+1. Was sind Vorteile, Funktionen beim Programmieren zu nutzen?
 
 
 

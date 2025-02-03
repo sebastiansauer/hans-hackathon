@@ -1,14 +1,6 @@
----
-title: "Challenge 05 -- Solution"
-format: html
-author: Sebastian Sauer
-date: today
-number-sections: true
----
 
 
-
-# Projektmanagement
+# Lösung 05
 
 
 ## Aufgaben

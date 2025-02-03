@@ -121,6 +121,8 @@ div.csl-indent {
     "search-label": "Suchen"
   }
 }</script>
+<link href="site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="site_libs/pagedtable-1.1/js/pagedtable.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -260,16 +262,16 @@ div.csl-indent {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#lösung-01-daten-verstehen" id="toc-lösung-01-daten-verstehen" class="nav-link active" data-scroll-target="#lösung-01-daten-verstehen"><span class="header-section-number">1</span> Lösung 01: Daten verstehen</a>
+  <li><a href="#lösung-01" id="toc-lösung-01" class="nav-link active" data-scroll-target="#lösung-01"><span class="header-section-number">1</span> Lösung 01</a>
   <ul class="collapse">
   <li><a href="#aufgaben" id="toc-aufgaben" class="nav-link" data-scroll-target="#aufgaben"><span class="header-section-number">1.1</span> Aufgaben</a></li>
   <li><a href="#lösungen" id="toc-lösungen" class="nav-link" data-scroll-target="#lösungen"><span class="header-section-number">1.2</span> Lösungen</a>
   <ul class="collapse">
   <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup"><span class="header-section-number">1.2.1</span> Setup</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">1.2.2</span> 1</a></li>
-  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1"><span class="header-section-number">1.2.3</span> 2</a></li>
-  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2"><span class="header-section-number">1.2.4</span> 3</a></li>
-  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3"><span class="header-section-number">1.2.5</span> 4</a></li>
+  <li><a href="#anzahl-zeilen-und-spalten" id="toc-anzahl-zeilen-und-spalten" class="nav-link" data-scroll-target="#anzahl-zeilen-und-spalten"><span class="header-section-number">1.2.2</span> Anzahl Zeilen und Spalten</a></li>
+  <li><a href="#muster-in-den-spaltennamen" id="toc-muster-in-den-spaltennamen" class="nav-link" data-scroll-target="#muster-in-den-spaltennamen"><span class="header-section-number">1.2.3</span> Muster in den Spaltennamen</a></li>
+  <li><a href="#unique-spaltennamen" id="toc-unique-spaltennamen" class="nav-link" data-scroll-target="#unique-spaltennamen"><span class="header-section-number">1.2.4</span> Unique Spaltennamen</a></li>
+  <li><a href="#fehlende-werte" id="toc-fehlende-werte" class="nav-link" data-scroll-target="#fehlende-werte"><span class="header-section-number">1.2.5</span> Fehlende Werte</a></li>
   </ul></li>
   </ul></li>
   </ul>
@@ -281,8 +283,8 @@ div.csl-indent {
 
 
 
-<section id="lösung-01-daten-verstehen" class="level1" data-number="1">
-<h1 data-number="1"><span class="header-section-number">1</span> Lösung 01: Daten verstehen</h1>
+<section id="lösung-01" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Lösung 01</h1>
 <section id="aufgaben" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="aufgaben"><span class="header-section-number">1.1</span> Aufgaben</h2>
 <p><strong>Daten verstehen</strong></p>
@@ -294,6 +296,7 @@ div.csl-indent {
 <li>Was fällt Ihnen zur Anteil und zum Muster der fehlenden Werte auf?</li>
 </ol>
 <p><span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span> stellt Schulungsmaterial auch für String-Verarbeitung bereit (im <a href="https://r4ds.hadley.nz/strings">Kapitel 11</a>) und (fortgeschrittener) im folgenden Kapitel. Mit dem R-Paket <code>lubridate</code> kann man recht bequem mit Datums- und Zeitangaben arbeiten. Möchte man einen Teil eines Strings entfernen, so ist die Funktion <code>str_remove</code> hilfreich. Da hilft das Paket <code>stringr</code>. Möchte man mehrere Spalten auf einmal (mit <code>summarise</code>) zusammenfassen, so hilft u.a. die Funktion <code>across</code>, die die Summarise-Operation “durch”, “hinweg”, “über” (engl. <em>across</em>) mehrere Spalten durchführt, s. <a href="https://r4ds.hadley.nz/iteration#sec-across">Kap. 26</a> in <span class="citation" data-cites="wickham_2023">Wickham, Çetinkaya-Rundel, und Grolemund (<a href="#ref-wickham_2023" role="doc-biblioref">2023</a>)</span>.</p>
+<p>Ausgabeformat: Quarto (Bericht)</p>
 </section>
 <section id="lösungen" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="lösungen"><span class="header-section-number">1.2</span> Lösungen</h2>
@@ -310,15 +313,15 @@ div.csl-indent {
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>d <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(datafile_name)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section" class="level3" data-number="1.2.2">
-<h3 data-number="1.2.2" class="anchored" data-anchor-id="section"><span class="header-section-number">1.2.2</span> 1</h3>
+<section id="anzahl-zeilen-und-spalten" class="level3" data-number="1.2.2">
+<h3 data-number="1.2.2" class="anchored" data-anchor-id="anzahl-zeilen-und-spalten"><span class="header-section-number">1.2.2</span> Anzahl Zeilen und Spalten</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(d)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1]   19 3370</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="section-1" class="level3" data-number="1.2.3">
-<h3 data-number="1.2.3" class="anchored" data-anchor-id="section-1"><span class="header-section-number">1.2.3</span> 2</h3>
+<section id="muster-in-den-spaltennamen" class="level3" data-number="1.2.3">
+<h3 data-number="1.2.3" class="anchored" data-anchor-id="muster-in-den-spaltennamen"><span class="header-section-number">1.2.3</span> Muster in den Spaltennamen</h3>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(d) <span class="sc">|&gt;</span> <span class="fu">head</span>(<span class="dv">50</span>)</span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  [1] "X"                                "idSite"                          </span></span>
@@ -377,8 +380,8 @@ div.csl-indent {
 </div>
 <p>Es gibt Spalten mit einer fortlaufenden Nummer und Spalten ohne.</p>
 </section>
-<section id="section-2" class="level3" data-number="1.2.4">
-<h3 data-number="1.2.4" class="anchored" data-anchor-id="section-2"><span class="header-section-number">1.2.4</span> 3</h3>
+<section id="unique-spaltennamen" class="level3" data-number="1.2.4">
+<h3 data-number="1.2.4" class="anchored" data-anchor-id="unique-spaltennamen"><span class="header-section-number">1.2.4</span> Unique Spaltennamen</h3>
 <p>Ignoriert man die fortlaufende Nummer, gibt es nicht (mehr so) viele verschiedene Werte (Ausprägungen) an Spaltennamen.</p>
 <p>Spaltennamen mit fortlaufender Nummer:</p>
 <div class="cell" data-layout-align="center">
@@ -451,8 +454,8 @@ div.csl-indent {
 </div>
 <p>Man beachte den Unterstrich; danach darf eine oder mehrere Zahlen kommen und danach irgendwelche beliebige Zeichen.</p>
 </section>
-<section id="section-3" class="level3" data-number="1.2.5">
-<h3 data-number="1.2.5" class="anchored" data-anchor-id="section-3"><span class="header-section-number">1.2.5</span> 4</h3>
+<section id="fehlende-werte" class="level3" data-number="1.2.5">
+<h3 data-number="1.2.5" class="anchored" data-anchor-id="fehlende-werte"><span class="header-section-number">1.2.5</span> Fehlende Werte</h3>
 <p>Anteil der fehlenden Werte:</p>
 <div class="cell" data-layout-align="center">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(<span class="fu">is.na</span>(d))</span>

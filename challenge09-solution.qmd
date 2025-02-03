@@ -1,18 +1,19 @@
----
-title: "Challenge 09 -- Solution"
-format: html
-author: Sebastian Sauer
-date: today
-number-sections: true
-editor_options: 
-  chunk_output_type: console
----
 
 
 
 
 
-# Glotzdauer
+# Lösung 09
+
+
+
+## Aufgaben
+
+
+{{< include children/challenge09-base.qmd >}}
+
+
+
 
 
 ## Setup
@@ -26,13 +27,7 @@ library(easystats)
 
 
 
-
-## Aufgaben
-
-
-{{< include children/challenge09-base.qmd >}}
-
-
+ 
 
 ## Lösungen
 

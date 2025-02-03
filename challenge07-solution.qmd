@@ -1,16 +1,18 @@
----
-title: "Challenge 07 -- Solution"
-format: html
-author: Sebastian Sauer
-date: today
-number-sections: true
----
 
 
 
 
 
-# Verweildauer
+# Lösung 07
+
+
+
+## Aufgaben
+
+
+{{< include children/challenge07-base.qmd >}}
+
+
 
 
 ## Setup
@@ -22,13 +24,6 @@ library(gt)
 library(easystats)
 ```
 
-
-
-
-## Aufgaben
-
-
-{{< include children/challenge07-base.qmd >}}
 
 
 
@@ -106,7 +101,7 @@ Es gab 12 Warnungen (Anzeige mit warnings())
 ## Lösungen zu den Aufgaben
 
 
-## Target-Objekte laden
+### Target-Objekte laden
 
 ```{r}
 tar_load("time_minmax", store = "challenge07")
