@@ -375,7 +375,7 @@ Hinweis
 for (i in 1:length(datafiles_list)) {
  out[[i]] &lt;1. read.csv(datafiles_list[i]) 
 }</code></pre>
-<ol type="1">
+<ol start="3" type="1">
 <li>Wie kann man eine Spalte an den Anfang eines Dataframes ziehen?</li>
 <li>Nennen Sie Vor1. und Nachteile des Einsatzes von Excel für eine Aufgabe wie das Projekt im vorliegenden Modul.</li>
 <li>Nennen Sie eine Funktion, um eine als String (<code>character</code>) formatierte Spalte (z.B. “1970-01-01”) in ein Datums-/Zeitobjekt umzuwandeln!</li>
@@ -384,17 +384,17 @@ for (i in 1:length(datafiles_list)) {
 <pre><code>str_remove(string = names(d),
            pattern = "_[:digit:].*") |&gt; 
   unique()</code></pre>
-<ol type="1">
+<ol start="2" type="1">
 <li>Erklären Sie folgende Syntax:</li>
 </ol>
 <pre><code>d_only_subtitles_and_timestamps |&gt; 
    mutate(across(contains("timestamp"), ~ as_datetime(as.numeric(.x))))</code></pre>
-<ol type="1">
+<ol start="2" type="1">
 <li>Erklären Sie folgende Syntax:</li>
 </ol>
 <pre><code>d_time_repaired |&gt; 
   filter(!str_detect(actionDetails_0_subtitle, "developer|lecturer|admin")) </code></pre>
-<ol type="1">
+<ol start="2" type="1">
 <li>Erläutern Sie, was mit “Pivotieren” gemeint ist im Kontext des vorliegenden Projekts der Datenanalyse. Was ist der Nutzen des Pivotierens?</li>
 <li>Geben Sie eine Syntax an, um alle Spalten als Strings (<code>character</code>) zu formatieren.</li>
 <li>Erläutern Sie den Aufbau einer Targets-Pipeline.</li>

@@ -27,7 +27,7 @@ library(lubridate)  # Mit Zeitangaben arbeiten
 
 
 
-Wir laden den Datensatz, wie im letzten Schritt herausgegangen:
+Wir laden den Datensatz, wie in der letzten Challenge herausgegangen:
 
 ```{r}
 #| eval: true

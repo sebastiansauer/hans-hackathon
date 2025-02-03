@@ -186,7 +186,7 @@ datafiles_list |>
 toc()
 ```
 
-Aucht nicht... Wir könnten alle relevanten Spalten suchen und mit `col_character` umwandeln.
+Läuft auch nicht... Wir könnten alle relevanten Spalten suchen und mit `col_character` umwandeln.
 Aber probieren wir stattdessen noch etwas anderes.
 
 

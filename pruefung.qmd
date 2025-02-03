@@ -159,7 +159,7 @@ for (i in 1:length(datafiles_list)) {
  out[[i]] <1. read.csv(datafiles_list[i]) 
 }
 ```
-1. Wie kann man eine Spalte an den Anfang eines Dataframes ziehen?
+3. Wie kann man eine Spalte an den Anfang eines Dataframes ziehen?
 1. Nennen Sie Vor1. und Nachteile des Einsatzes von Excel für eine Aufgabe wie das Projekt im vorliegenden Modul.
 1. Nennen Sie eine Funktion, um eine als String (`character`) formatierte Spalte (z.B. "1970-01-01") in ein Datums-/Zeitobjekt umzuwandeln!
 1. Erklären Sie folgende Syntax: 
@@ -168,17 +168,17 @@ str_remove(string = names(d),
            pattern = "_[:digit:].*") |> 
   unique()
 ```
-1. Erklären Sie folgende Syntax:
+2. Erklären Sie folgende Syntax:
 ```
 d_only_subtitles_and_timestamps |> 
    mutate(across(contains("timestamp"), ~ as_datetime(as.numeric(.x))))
 ```
-1. Erklären Sie folgende Syntax:
+2. Erklären Sie folgende Syntax:
 ```
 d_time_repaired |> 
   filter(!str_detect(actionDetails_0_subtitle, "developer|lecturer|admin")) 
 ```
-1. Erläutern Sie, was mit "Pivotieren" gemeint ist im Kontext des vorliegenden Projekts der Datenanalyse. Was ist der Nutzen des Pivotierens?
+2. Erläutern Sie, was mit "Pivotieren" gemeint ist im Kontext des vorliegenden Projekts der Datenanalyse. Was ist der Nutzen des Pivotierens?
 1. Geben Sie eine Syntax an, um alle Spalten als Strings (`character`) zu formatieren.
 1. Erläutern Sie den Aufbau einer Targets-Pipeline.
 1. Beim zeilenweisen Zusammenbinden einer großen Zahl an CSV-Dateien kann es zu Problemen kommen. So auch im vorliegenden Projekt. Erläutern Sie ein Problem und schlagen Sie eine Lösung vor.
